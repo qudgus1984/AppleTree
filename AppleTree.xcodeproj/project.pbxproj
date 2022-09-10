@@ -13,6 +13,13 @@
 		2F7EE94828BCEA69000F1F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94628BCEA69000F1F41 /* Main.storyboard */; };
 		2F7EE94A28BCEA6B000F1F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94928BCEA6B000F1F41 /* Assets.xcassets */; };
 		2F7EE94D28BCEA6B000F1F41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94B28BCEA6B000F1F41 /* LaunchScreen.storyboard */; };
+		2FAA583A28CC52690067BFE8 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA583928CC52690067BFE8 /* BaseView.swift */; };
+		2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA583B28CC52780067BFE8 /* BaseViewController.swift */; };
+		2FAA583E28CC53A50067BFE8 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA583D28CC53A50067BFE8 /* BaseTableViewCell.swift */; };
+		2FAA584228CC53F30067BFE8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA584128CC53F30067BFE8 /* MainView.swift */; };
+		2FAA584528CC54630067BFE8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAA584428CC54630067BFE8 /* SnapKit */; };
+		2FAA584728CC54E00067BFE8 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA584628CC54E00067BFE8 /* UIColor + Extension.swift */; };
+		2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA584828CC59BD0067BFE8 /* MainViewController.swift */; };
 		2FCB706428CA4223002AF578 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB706328CA4223002AF578 /* ReusableProtocol.swift */; };
 		2FE4233128CA32C700BA7484 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4233028CA32C700BA7484 /* Transition+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +33,12 @@
 		2F7EE94928BCEA6B000F1F41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F7EE94C28BCEA6B000F1F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F7EE94E28BCEA6B000F1F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FAA583928CC52690067BFE8 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		2FAA583B28CC52780067BFE8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2FAA583D28CC53A50067BFE8 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		2FAA584128CC53F30067BFE8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		2FAA584628CC54E00067BFE8 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		2FAA584828CC59BD0067BFE8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2FCB706328CA4223002AF578 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		2FE4233028CA32C700BA7484 /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -35,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAA584528CC54630067BFE8 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,7 +58,6 @@
 		2F7EE93428BCEA69000F1F41 = {
 			isa = PBXGroup;
 			children = (
-				2FCB706328CA4223002AF578 /* ReusableProtocol.swift */,
 				2F7EE93F28BCEA69000F1F41 /* AppleTree */,
 				2F7EE93E28BCEA69000F1F41 /* Products */,
 			);
@@ -61,6 +74,10 @@
 		2F7EE93F28BCEA69000F1F41 /* AppleTree */ = {
 			isa = PBXGroup;
 			children = (
+				2FAA583F28CC53D30067BFE8 /* Scene */,
+				2FAA583828CC52560067BFE8 /* Base */,
+				2FAA583728CC51FD0067BFE8 /* Utility */,
+				2FAA583628CC51F40067BFE8 /* Extenstion */,
 				2F7EE94028BCEA69000F1F41 /* AppDelegate.swift */,
 				2F7EE94228BCEA69000F1F41 /* SceneDelegate.swift */,
 				2F7EE94428BCEA69000F1F41 /* ViewController.swift */,
@@ -68,9 +85,52 @@
 				2F7EE94928BCEA6B000F1F41 /* Assets.xcassets */,
 				2F7EE94B28BCEA6B000F1F41 /* LaunchScreen.storyboard */,
 				2F7EE94E28BCEA6B000F1F41 /* Info.plist */,
-				2FE4233028CA32C700BA7484 /* Transition+Extension.swift */,
 			);
 			path = AppleTree;
+			sourceTree = "<group>";
+		};
+		2FAA583628CC51F40067BFE8 /* Extenstion */ = {
+			isa = PBXGroup;
+			children = (
+				2FE4233028CA32C700BA7484 /* Transition+Extension.swift */,
+				2FAA584628CC54E00067BFE8 /* UIColor + Extension.swift */,
+			);
+			path = Extenstion;
+			sourceTree = "<group>";
+		};
+		2FAA583728CC51FD0067BFE8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2FCB706328CA4223002AF578 /* ReusableProtocol.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		2FAA583828CC52560067BFE8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2FAA583928CC52690067BFE8 /* BaseView.swift */,
+				2FAA583B28CC52780067BFE8 /* BaseViewController.swift */,
+				2FAA583D28CC53A50067BFE8 /* BaseTableViewCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2FAA583F28CC53D30067BFE8 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				2FAA584028CC53E60067BFE8 /* Main */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		2FAA584028CC53E60067BFE8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2FAA584128CC53F30067BFE8 /* MainView.swift */,
+				2FAA584828CC59BD0067BFE8 /* MainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,6 +149,9 @@
 			dependencies = (
 			);
 			name = AppleTree;
+			packageProductDependencies = (
+				2FAA584428CC54630067BFE8 /* SnapKit */,
+			);
 			productName = AppleTree;
 			productReference = 2F7EE93D28BCEA69000F1F41 /* AppleTree.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +180,9 @@
 				Base,
 			);
 			mainGroup = 2F7EE93428BCEA69000F1F41;
+			packageReferences = (
+				2FAA584328CC54630067BFE8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 2F7EE93E28BCEA69000F1F41 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -144,11 +210,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAA583E28CC53A50067BFE8 /* BaseTableViewCell.swift in Sources */,
+				2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */,
+				2FAA584228CC53F30067BFE8 /* MainView.swift in Sources */,
 				2FE4233128CA32C700BA7484 /* Transition+Extension.swift in Sources */,
 				2F7EE94528BCEA69000F1F41 /* ViewController.swift in Sources */,
 				2FCB706428CA4223002AF578 /* ReusableProtocol.swift in Sources */,
+				2FAA583A28CC52690067BFE8 /* BaseView.swift in Sources */,
 				2F7EE94128BCEA69000F1F41 /* AppDelegate.swift in Sources */,
+				2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */,
 				2F7EE94328BCEA69000F1F41 /* SceneDelegate.swift in Sources */,
+				2FAA584728CC54E00067BFE8 /* UIColor + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +438,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2FAA584328CC54630067BFE8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2FAA584428CC54630067BFE8 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FAA584328CC54630067BFE8 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2F7EE93528BCEA69000F1F41 /* Project object */;
 }
