@@ -18,7 +18,9 @@ class MainView: BaseView {
     
     let famousSayingLabel: UILabel = {
         let label = UILabel()
-        label.tintColor = .white
+        label.textColor = .white
+        label.numberOfLines = 0
+        label.text = "내일 지구가 멸망하더라도 나는 한 그루의 사과나무를 심겠다."
         return label
     }()
     
@@ -55,9 +57,26 @@ class MainView: BaseView {
     }
     
     override func setConstants() {
+        
         bgView.snp.makeConstraints { make in
             make.edges.equalTo(safeAreaLayoutGuide)
         }
+        
+        famousSayingLabel.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide)
+            make.leading.equalTo(8)
+            make.trailing.equalTo(-8)
+            make.height.equalTo(44)
+        }
+        
+        iconImageView.snp.makeConstraints { make in
+            make.center.equalTo(bgView)
+            make.width.equalToSuperview().multipliedBy(0.6)
+            make.height.equalToSuperview().multipliedBy(0.3)
+            
+        }
     }
+    
+    
     
 }
