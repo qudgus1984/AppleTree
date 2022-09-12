@@ -8,12 +8,16 @@
 import UIKit
 
 class MainViewController: BaseViewController {
-
+    
+    var startButtonBool: Bool = true
+    var timer: Timer?
+    
     let mainview = MainView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        startButtonClicked()
+        
     }
     
     override func loadView() {
@@ -21,6 +25,11 @@ class MainViewController: BaseViewController {
     }
     
     override func configure() {
+        
+                
+        let minutes = self.mainview.settingCount / 60
+        let seconds = self.mainview.settingCount % 60
+        self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
         
         //MARK: Nav 색상 변경
         let appearence = UINavigationBarAppearance()
@@ -52,7 +61,41 @@ class MainViewController: BaseViewController {
         
     }
     
+    func startButtonClicked() {
+        
+        mainview.startButton.addTarget(self, action: #selector(startButtonClickedCountDown), for: .touchUpInside)
+        
+    }
+    
+    @objc func startButtonClickedCountDown() {
 
+        if startButtonBool == true {
+            startButtonBool.toggle()
+            self.mainview.startButton.setTitle("중지", for: .normal)
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
+                self.mainview.settingCount -= 50
+                let minutes = self.mainview.settingCount / 60
+                let seconds = self.mainview.settingCount % 60
+                
+                if self.mainview.settingCount > 0 {
+                    self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+                    self.mainview.countTimeLabel.text = "\(minutes):\(seconds)"
+                } else {
+                    self.mainview.countTimeLabel.text = "00:00"
+                }
+            }
+        } else {
+            startButtonBool.toggle()
+            self.mainview.startButton.setTitle("시작", for: .normal)
+            timer?.invalidate()
+            timer = nil
 
+        }
+        self.mainview.circularProgressBar.setProgressWithAnimation(duration: 1.0, value: Float(1800/self.mainview.settingCount) / 100.0)
+
+        
+
+        
+    }
     
 }

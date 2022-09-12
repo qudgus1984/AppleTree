@@ -20,6 +20,9 @@
 		2FAA584528CC54630067BFE8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAA584428CC54630067BFE8 /* SnapKit */; };
 		2FAA584728CC54E00067BFE8 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA584628CC54E00067BFE8 /* UIColor + Extension.swift */; };
 		2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA584828CC59BD0067BFE8 /* MainViewController.swift */; };
+		2FBE24C928CEDBAF00BAA0F1 /* UhBee BEOJJI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FBE24C828CEDB9300BAA0F1 /* UhBee BEOJJI.ttf */; };
+		2FBE24CA28CEDBB300BAA0F1 /* UhBee BEOJJI Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FBE24C728CEDB8F00BAA0F1 /* UhBee BEOJJI Bold.ttf */; };
+		2FBE24CE28CF004A00BAA0F1 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE24CD28CF004A00BAA0F1 /* CircularProgressBar.swift */; };
 		2FCB706428CA4223002AF578 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB706328CA4223002AF578 /* ReusableProtocol.swift */; };
 		2FE4233128CA32C700BA7484 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4233028CA32C700BA7484 /* Transition+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +42,9 @@
 		2FAA584128CC53F30067BFE8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2FAA584628CC54E00067BFE8 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		2FAA584828CC59BD0067BFE8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2FBE24C728CEDB8F00BAA0F1 /* UhBee BEOJJI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UhBee BEOJJI Bold.ttf"; sourceTree = "<group>"; };
+		2FBE24C828CEDB9300BAA0F1 /* UhBee BEOJJI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UhBee BEOJJI.ttf"; sourceTree = "<group>"; };
+		2FBE24CD28CF004A00BAA0F1 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		2FCB706328CA4223002AF578 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		2FE4233028CA32C700BA7484 /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +80,7 @@
 		2F7EE93F28BCEA69000F1F41 /* AppleTree */ = {
 			isa = PBXGroup;
 			children = (
+				2FBE24C628CEDB8900BAA0F1 /* Font */,
 				2FAA583F28CC53D30067BFE8 /* Scene */,
 				2FAA583828CC52560067BFE8 /* Base */,
 				2FAA583728CC51FD0067BFE8 /* Utility */,
@@ -129,8 +136,18 @@
 			children = (
 				2FAA584128CC53F30067BFE8 /* MainView.swift */,
 				2FAA584828CC59BD0067BFE8 /* MainViewController.swift */,
+				2FBE24CD28CF004A00BAA0F1 /* CircularProgressBar.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		2FBE24C628CEDB8900BAA0F1 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2FBE24C728CEDB8F00BAA0F1 /* UhBee BEOJJI Bold.ttf */,
+				2FBE24C828CEDB9300BAA0F1 /* UhBee BEOJJI.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +214,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBE24CA28CEDBB300BAA0F1 /* UhBee BEOJJI Bold.ttf in Resources */,
+				2FBE24C928CEDBAF00BAA0F1 /* UhBee BEOJJI.ttf in Resources */,
 				2F7EE94D28BCEA6B000F1F41 /* LaunchScreen.storyboard in Resources */,
 				2F7EE94A28BCEA6B000F1F41 /* Assets.xcassets in Resources */,
 				2F7EE94828BCEA69000F1F41 /* Main.storyboard in Resources */,
@@ -221,6 +240,7 @@
 				2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */,
 				2F7EE94328BCEA69000F1F41 /* SceneDelegate.swift in Sources */,
 				2FAA584728CC54E00067BFE8 /* UIColor + Extension.swift in Sources */,
+				2FBE24CE28CF004A00BAA0F1 /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
