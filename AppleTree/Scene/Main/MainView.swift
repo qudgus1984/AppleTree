@@ -48,7 +48,7 @@ class MainView: BaseView {
     let startButton: UIButton = {
         let button = UIButton()
         button.setTitle("시작", for: .normal)
-        button.backgroundColor = .systemGreen
+        button.backgroundColor = .customDarkGreenProgress
         return button
     }()
     

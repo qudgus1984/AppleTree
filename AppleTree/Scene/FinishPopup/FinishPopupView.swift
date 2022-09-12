@@ -35,7 +35,7 @@ class FinishPopupView: BaseView {
     let textLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .label
+        label.textColor = .white
         label.font = UIFont(name: "UhBee BEOJJI Bold", size: 16)
         label.textAlignment = .center
         label.text =
@@ -43,6 +43,7 @@ class FinishPopupView: BaseView {
 지정한 시간을 완료하셨네요 :)
 의지력이 강한 당신 칭찬해!
 더 열심히 하다보면 당신의 사과나무가 변할지도...?
++ 30분!
 """
 
         return label

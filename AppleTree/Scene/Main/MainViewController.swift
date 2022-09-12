@@ -54,7 +54,8 @@ class MainViewController: BaseViewController {
     }
     
     @objc func calenderButtonClicked() {
-        
+        let vc = CalendarViewController()
+        transition(vc, transitionStyle: .push)
     }
     
     @objc func settingButtonClicked() {
