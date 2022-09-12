@@ -11,14 +11,18 @@ class MainViewController: BaseViewController {
     
     var startButtonBool: Bool = true
     var timer: Timer?
+    var progress: Float = 0.0
     
     let mainview = MainView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         startButtonClicked()
+        print(progress)
+
         
     }
+
     
     override func loadView() {
         super.view = mainview
@@ -72,16 +76,30 @@ class MainViewController: BaseViewController {
         if startButtonBool == true {
             startButtonBool.toggle()
             self.mainview.startButton.setTitle("중지", for: .normal)
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
-                self.mainview.settingCount -= 50
+            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (t) in
+                self.mainview.settingCount -= 1
                 let minutes = self.mainview.settingCount / 60
                 let seconds = self.mainview.settingCount % 60
                 
                 if self.mainview.settingCount > 0 {
                     self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
                     self.mainview.countTimeLabel.text = "\(minutes):\(seconds)"
+                    self.progress = Float(self.mainview.settingCount) / 1800.0
+                    print(self.progress)
+                    self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.0001, value: 1.0 - self.progress)
+
+                    
+
+
                 } else {
                     self.mainview.countTimeLabel.text = "00:00"
+                    self.mainview.startButton.setTitle("완료", for: .normal)
+                    self.timer?.invalidate()
+                    self.timer = nil
+                    self.finishPopupVCAppear()
+                    self.mainview.settingCount = 1800
+                    self.mainview.countTimeLabel.text = "30:00"
+                    
                 }
             }
         } else {
@@ -91,11 +109,12 @@ class MainViewController: BaseViewController {
             timer = nil
 
         }
-        self.mainview.circularProgressBar.setProgressWithAnimation(duration: 1.0, value: Float(1800/self.mainview.settingCount) / 100.0)
-
         
-
-        
+    }
+    
+    func finishPopupVCAppear() {
+        let vc = FinishPopupViewController()
+        transition(vc, transitionStyle: .presentFullNavigation)
     }
     
 }

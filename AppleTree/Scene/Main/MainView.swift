@@ -29,7 +29,9 @@ class MainView: BaseView {
     
     let iconImageView: UIImageView = {
         let view = UIImageView()
-        view.layer.cornerRadius = 120
+        DispatchQueue.main.async {
+            view.layer.cornerRadius = view.frame.size.width / 2
+        }
         view.backgroundColor = .white
         return view
     }()
@@ -52,14 +54,17 @@ class MainView: BaseView {
     
     // circle Progress Bar 도전!
     let circularProgressBar: CircularProgress = {
-        let circularProgressBar = CircularProgress(frame: CGRect(x: 0.0, y: 0.0, width: 255, height: 255))
 
-        circularProgressBar.progressColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
-        circularProgressBar.trackColor = UIColor(red: 52.0/255.0, green: 141.0/255.0, blue: 252.0/255.0, alpha: 0.6)
+        let circularProgressBar = CircularProgress(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.width * 0.6))
+        
+        circularProgressBar.progressColor = .customDarkGreenProgress
+        circularProgressBar.trackColor = .customDarkGreenTrack
         circularProgressBar.tag = 101
 
         return circularProgressBar
     }()
+    
+    
     
     
     override func configure() {
@@ -85,8 +90,8 @@ class MainView: BaseView {
             make.centerX.equalTo(bgView)
             make.top.equalTo(famousSayingLabel.snp.bottom).offset(4)
             make.width.equalToSuperview().multipliedBy(0.6)
-            make.height.equalToSuperview().multipliedBy(0.275)
-            
+            make.height.equalTo(circularProgressBar.snp.width)
+//                .equalToSuperview().multipliedBy(0.275)
         }
         
         iconImageView.snp.makeConstraints { make in
@@ -105,16 +110,10 @@ class MainView: BaseView {
         startButton.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
             make.top.equalTo(countTimeLabel.snp.bottom).offset(28)
-            make.width.equalToSuperview().multipliedBy(0.15)
-            make.height.equalToSuperview().multipliedBy(0.03)
+            make.width.equalToSuperview().multipliedBy(0.2)
+            make.height.equalToSuperview().multipliedBy(0.05)
         }
-        
-        
-        
-    }
-    
 
-    
-    
-    
+    }
+
 }

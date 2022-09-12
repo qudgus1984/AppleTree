@@ -23,6 +23,8 @@
 		2FBE24C928CEDBAF00BAA0F1 /* UhBee BEOJJI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FBE24C828CEDB9300BAA0F1 /* UhBee BEOJJI.ttf */; };
 		2FBE24CA28CEDBB300BAA0F1 /* UhBee BEOJJI Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FBE24C728CEDB8F00BAA0F1 /* UhBee BEOJJI Bold.ttf */; };
 		2FBE24CE28CF004A00BAA0F1 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE24CD28CF004A00BAA0F1 /* CircularProgressBar.swift */; };
+		2FBE24D328CF241700BAA0F1 /* FinishPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE24D228CF241700BAA0F1 /* FinishPopupView.swift */; };
+		2FBE24D528CF248700BAA0F1 /* FinishPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE24D428CF248700BAA0F1 /* FinishPopupViewController.swift */; };
 		2FCB706428CA4223002AF578 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB706328CA4223002AF578 /* ReusableProtocol.swift */; };
 		2FE4233128CA32C700BA7484 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4233028CA32C700BA7484 /* Transition+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,8 @@
 		2FBE24C728CEDB8F00BAA0F1 /* UhBee BEOJJI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UhBee BEOJJI Bold.ttf"; sourceTree = "<group>"; };
 		2FBE24C828CEDB9300BAA0F1 /* UhBee BEOJJI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UhBee BEOJJI.ttf"; sourceTree = "<group>"; };
 		2FBE24CD28CF004A00BAA0F1 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		2FBE24D228CF241700BAA0F1 /* FinishPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishPopupView.swift; sourceTree = "<group>"; };
+		2FBE24D428CF248700BAA0F1 /* FinishPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishPopupViewController.swift; sourceTree = "<group>"; };
 		2FCB706328CA4223002AF578 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		2FE4233028CA32C700BA7484 /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +130,9 @@
 		2FAA583F28CC53D30067BFE8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				2FBE24D128CF23BF00BAA0F1 /* FinishPopup */,
+				2FBE24D028CF21E600BAA0F1 /* Calendar */,
+				2FBE24CF28CF21DB00BAA0F1 /* Setting */,
 				2FAA584028CC53E60067BFE8 /* Main */,
 			);
 			path = Scene;
@@ -148,6 +155,29 @@
 				2FBE24C828CEDB9300BAA0F1 /* UhBee BEOJJI.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		2FBE24CF28CF21DB00BAA0F1 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		2FBE24D028CF21E600BAA0F1 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		2FBE24D128CF23BF00BAA0F1 /* FinishPopup */ = {
+			isa = PBXGroup;
+			children = (
+				2FBE24D228CF241700BAA0F1 /* FinishPopupView.swift */,
+				2FBE24D428CF248700BAA0F1 /* FinishPopupViewController.swift */,
+			);
+			path = FinishPopup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +263,9 @@
 				2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */,
 				2FAA584228CC53F30067BFE8 /* MainView.swift in Sources */,
 				2FE4233128CA32C700BA7484 /* Transition+Extension.swift in Sources */,
+				2FBE24D328CF241700BAA0F1 /* FinishPopupView.swift in Sources */,
 				2F7EE94528BCEA69000F1F41 /* ViewController.swift in Sources */,
+				2FBE24D528CF248700BAA0F1 /* FinishPopupViewController.swift in Sources */,
 				2FCB706428CA4223002AF578 /* ReusableProtocol.swift in Sources */,
 				2FAA583A28CC52690067BFE8 /* BaseView.swift in Sources */,
 				2F7EE94128BCEA69000F1F41 /* AppDelegate.swift in Sources */,

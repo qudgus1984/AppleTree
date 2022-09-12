@@ -15,4 +15,18 @@ extension UIColor {
         blue: 102/255,
         alpha: 1
     )
+    
+    static let customDarkGreenProgress = UIColor(
+        red: 132/255,
+        green: 183/255,
+        blue: 132/255,
+        alpha: 1
+    )
+    
+    static let customDarkGreenTrack = UIColor(
+        red: 82/255,
+        green: 133/255,
+        blue: 82/255,
+        alpha: 0.6
+    )
 }
