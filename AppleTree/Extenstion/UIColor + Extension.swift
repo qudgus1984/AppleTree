@@ -29,4 +29,11 @@ extension UIColor {
         blue: 82/255,
         alpha: 0.6
     )
+    
+    static let customGreen = UIColor(
+        red: 182/255,
+        green: 233/255,
+        blue: 182/255,
+        alpha: 1
+    )
 }

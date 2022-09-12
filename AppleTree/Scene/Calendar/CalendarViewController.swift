@@ -11,8 +11,8 @@ import FSCalendar
 
 class CalendarViewController: BaseViewController {
     
-    var calendar = FSCalendar()
     let mainview = CalendarView()
+    let dateFormatter = DateFormatter()
     
     override func loadView() {
         super.view = mainview
@@ -21,11 +21,24 @@ class CalendarViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        calendar.dataSource = self
-        calendar.delegate = self
-
+        setCalendarUI()
+        
         mainview.tableView.dataSource = self
         mainview.tableView.delegate = self
+    }
+    
+    func setCalendarUI() {
+        mainview.calendarView.dataSource = self
+        mainview.calendarView.delegate = self
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        mainview.calendarView.calendarWeekdayView.weekdayLabels[0].text = "일"
+        mainview.calendarView.calendarWeekdayView.weekdayLabels[1].text = "월"
+        mainview.calendarView.calendarWeekdayView.weekdayLabels[2].text = "화"
+        mainview.calendarView.calendarWeekdayView.weekdayLabels[3].text = "수"
+        mainview.calendarView.calendarWeekdayView.weekdayLabels[4].text = "목"
+        mainview.calendarView.calendarWeekdayView.weekdayLabels[5].text = "금"
+        mainview.calendarView.calendarWeekdayView.weekdayLabels[6].text = "토"
     }
     
 
@@ -52,6 +65,19 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
-extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
+extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
+    
+    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
+        switch dateFormatter.string(from: date) {
+        case dateFormatter.string(from: Date()):
+            return "오늘" // realm 데이터
+        default:
+            return nil
+        }
+    }
+    
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        return Date()
+    }
 }

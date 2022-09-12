@@ -20,6 +20,9 @@ class CalendarView: BaseView {
     
     let calendarView: FSCalendar = {
         let view = FSCalendar()
+        view.backgroundColor = .customGreen
+        view.appearance.selectionColor = .customDarkGreen
+        view.appearance.todayColor = .customDarkGreenTrack
         return view
     }()
     
