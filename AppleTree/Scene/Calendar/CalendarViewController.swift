@@ -7,9 +7,11 @@
 
 import UIKit
 import SnapKit
+import FSCalendar
 
 class CalendarViewController: BaseViewController {
     
+    var calendar = FSCalendar()
     let mainview = CalendarView()
     
     override func loadView() {
@@ -18,6 +20,9 @@ class CalendarViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        calendar.dataSource = self
+        calendar.delegate = self
 
         mainview.tableView.dataSource = self
         mainview.tableView.delegate = self
@@ -45,4 +50,8 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 
+}
+
+extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
+    
 }

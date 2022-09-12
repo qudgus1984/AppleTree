@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import FSCalendar
 
 class CalendarView: BaseView {
     
@@ -17,16 +18,27 @@ class CalendarView: BaseView {
         return view
     }()
     
+    let calendarView: FSCalendar = {
+        let view = FSCalendar()
+        return view
+    }()
+    
     override func configure() {
-        [tableView].forEach {
+        [calendarView,tableView].forEach {
             addSubview($0)
         }
     }
     
     override func setConstants() {
+        
+        calendarView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(safeAreaLayoutGuide)
+            make.height.equalToSuperview().multipliedBy(0.5)
+        }
+        
         tableView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.5)
+            make.top.equalTo(calendarView.snp.bottom).offset(4)
         }
     }
     
