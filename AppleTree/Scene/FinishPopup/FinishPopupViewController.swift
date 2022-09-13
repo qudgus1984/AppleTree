@@ -28,6 +28,7 @@ class FinishPopupViewController: BaseViewController {
     }
     
     @objc func okButtonClicked() {
+        
         dismiss(animated: true)
     }
 

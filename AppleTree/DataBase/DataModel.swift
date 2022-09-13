@@ -1,0 +1,24 @@
+//
+//  DataModel.swift
+//  AppleTree
+//
+//  Created by 이병현 on 2022/09/13.
+//
+
+import Foundation
+import RealmSwift
+
+//MARK: Model 구성
+
+class AppleTree: Object {
+    @Persisted var ATDate: Date
+    @Persisted var ATTime: Int
+
+    @Persisted(primaryKey: true) var objectId: ObjectId
+    
+    convenience init(ATDate: Date, ATTime: Int) {
+        self.init()
+        self.ATTime = 0
+        self.ATDate = Date()
+    }
+}
