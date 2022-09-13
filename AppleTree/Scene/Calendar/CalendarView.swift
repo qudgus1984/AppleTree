@@ -13,16 +13,16 @@ class CalendarView: BaseView {
     
     lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = .huntLightGreen
         view.register(CalendarTableViewCell.self, forCellReuseIdentifier: "cell")
         return view
     }()
     
     let calendarView: FSCalendar = {
         let view = FSCalendar()
-        view.backgroundColor = .customGreen
+        view.backgroundColor = .huntLightGreen
         view.appearance.selectionColor = .customDarkGreen
-        view.appearance.todayColor = .customDarkGreenTrack
+        view.appearance.todayColor = .huntGreen
         return view
     }()
     
@@ -41,7 +41,7 @@ class CalendarView: BaseView {
         
         tableView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(calendarView.snp.bottom).offset(4)
+            make.top.equalTo(calendarView.snp.bottom)
         }
     }
     

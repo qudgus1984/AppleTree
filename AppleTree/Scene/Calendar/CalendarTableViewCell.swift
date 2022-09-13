@@ -12,7 +12,7 @@ class CalendarTableViewCell: BaseTableViewCell {
     
     let containView: UIView = {
         let view = UIView()
-        view.backgroundColor = .customDarkGreen
+        view.backgroundColor = .huntGreen
         view.layer.cornerRadius = 10
         return view
     }()

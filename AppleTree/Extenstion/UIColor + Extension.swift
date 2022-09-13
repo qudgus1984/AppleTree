@@ -36,4 +36,33 @@ extension UIColor {
         blue: 182/255,
         alpha: 1
     )
+    
+    static let huntGreen = UIColor(
+        red: 127/255,
+        green: 183/255,
+        blue: 126/255,
+        alpha: 1
+    )
+    
+    static let huntLightGreen = UIColor(
+        red: 177/255,
+        green: 215/255,
+        blue: 180/255,
+        alpha: 1
+    )
+    
+    static let huntYellow = UIColor(
+        red: 247/255,
+        green: 246/255,
+        blue: 220/255,
+        alpha: 1
+    )
+    
+    static let huntOrange = UIColor(
+        red: 255/255,
+        green: 192/255,
+        blue: 144/255,
+        alpha: 1
+    )
+    
 }

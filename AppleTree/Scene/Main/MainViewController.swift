@@ -37,7 +37,7 @@ class MainViewController: BaseViewController {
         
         //MARK: Nav 색상 변경
         let appearence = UINavigationBarAppearance()
-        appearence.backgroundColor = .customDarkGreen
+        appearence.backgroundColor = .huntGreen
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
         
