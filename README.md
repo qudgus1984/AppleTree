@@ -13,7 +13,7 @@ Apple Tree는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰
 | 날짜         | 기능                                         | Link                                                      |
 | ------------ | -------------------------------------------- | --------------------------------------------------------- |
 | 22.09.02(월) | Circle Progress View / Timer / Calendar 구성 |                                                           |
-| 22.09.03(화) | Realm 구축 및 Calendar 아이콘 생성           | https://colorhunt.co/palettes/popular : Color 참고 사이트 |
+| 22.09.03(화) | Realm 구축 및 Calendar 아이콘 생성           | Color 참고 사이트 : https://colorhunt.co/palettes/popular |
 |              |                                              |                                                           |
 
 
