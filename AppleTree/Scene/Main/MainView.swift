@@ -32,6 +32,8 @@ class MainView: BaseView {
         DispatchQueue.main.async {
             view.layer.cornerRadius = view.frame.size.width / 2
         }
+        view.contentMode = .scaleAspectFit
+        view.image = UIImage(named: "seeds")
         view.backgroundColor = .white
         return view
     }()

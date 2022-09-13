@@ -41,6 +41,15 @@ class CalendarViewController: BaseViewController {
         mainview.calendarView.calendarWeekdayView.weekdayLabels[6].text = "토"
     }
     
+    //이미지 크기 조절 메서드
+    func resizeImage(image: UIImage, width: CGFloat, height: CGFloat) -> UIImage {
+        UIGraphicsBeginImageContext(CGSize(width: width, height: height))
+        image.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
+    
 
 }
 
@@ -79,5 +88,24 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     
     func maximumDate(for calendar: FSCalendar) -> Date {
         return Date()
+    }
+    
+    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+        let seedsImg = resizeImage(image: UIImage(named: "seeds")!, width: 20, height: 20)
+        let sproutImg = resizeImage(image: UIImage(named: "sprout")!, width: 20, height: 20)
+        let appleImg = resizeImage(image: UIImage(named: "apple")!, width: 20, height: 20)
+        let appleTreeImg = resizeImage(image: UIImage(named: "apple-tree")!, width: 20, height: 20)
+        switch dateFormatter.string(from: date) {
+        case dateFormatter.string(from: Date()):
+            return appleImg
+        case "2022-09-06":
+            return appleTreeImg
+        case "2022-09-07":
+            return sproutImg
+        case "2022-09-08":
+            return seedsImg
+        default:
+            return nil
+        }
     }
 }
