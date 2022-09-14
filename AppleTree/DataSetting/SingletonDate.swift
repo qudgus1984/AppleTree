@@ -14,6 +14,7 @@ class DateFormatterHelper {
     static let Formatter = DateFormatterHelper()
     let dateFormatter = DateFormatter()
     let date = Date()
+//    - 86400
     
     func formatDate() {
         
@@ -23,6 +24,7 @@ class DateFormatterHelper {
     var dateStr: String {
         get {
             formatDate()
+            print("✅✅",date)
             return dateFormatter.string(from: date)
         }
     }

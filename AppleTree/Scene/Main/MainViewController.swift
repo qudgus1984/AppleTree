@@ -19,10 +19,10 @@ class MainViewController: BaseViewController {
         super.viewDidLoad()
         startButtonClicked()
         print(progress)
-
+        
         
     }
-
+    
     
     override func loadView() {
         super.view = mainview
@@ -30,7 +30,7 @@ class MainViewController: BaseViewController {
     
     override func configure() {
         
-                
+        
         let minutes = self.mainview.settingCount / 60
         let seconds = self.mainview.settingCount % 60
         self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
@@ -73,7 +73,7 @@ class MainViewController: BaseViewController {
     }
     
     @objc func startButtonClickedCountDown() {
-
+        
         if startButtonBool == true {
             startButtonBool.toggle()
             self.mainview.startButton.setTitle("중지", for: .normal)
@@ -88,10 +88,10 @@ class MainViewController: BaseViewController {
                     self.progress = Float(self.mainview.settingCount) / 1800.0
                     print(self.progress)
                     self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.0001, value: 1.0 - self.progress)
-
                     
-
-
+                    
+                    
+                    
                 } else {
                     self.mainview.countTimeLabel.text = "00:00"
                     self.mainview.startButton.setTitle("완료", for: .normal)
@@ -108,7 +108,7 @@ class MainViewController: BaseViewController {
             self.mainview.startButton.setTitle("시작", for: .normal)
             timer?.invalidate()
             timer = nil
-
+            
         }
         
     }
@@ -116,6 +116,9 @@ class MainViewController: BaseViewController {
     func finishPopupVCAppear() {
         let vc = FinishPopupViewController()
         transition(vc, transitionStyle: .presentFullNavigation)
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        print(documentsDirectory)
+
     }
     
 }

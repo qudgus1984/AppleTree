@@ -10,10 +10,6 @@ import RealmSwift
 
 class FinishPopupViewController: BaseViewController {
     
-    override func viewWillAppear(_ animated: Bool) {
-        repository.fetch()
-    }
-    
     let repository = ATRepository()
     
     let mainview = FinishPopupView()
@@ -33,12 +29,7 @@ class FinishPopupViewController: BaseViewController {
     }
     
     @objc func okButtonClicked() {
-
-        print(#function)
-        
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        print(documentsDirectory)
-        
+                
         let result = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
             
         print("==================\(result)")
