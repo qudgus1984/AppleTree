@@ -30,10 +30,15 @@ class ATRepository: ATRepositoryType {
     }
     
     func updateItem(item: AppleTree, appendTime: Int) {
+        
+//        var totalTime = item.ATTime
+        var totalTime = item.ATTime
+        totalTime += appendTime
+        
         try! localRealm.write {
-            item.ATTime += appendTime
-            print("시간이 추가되었습니다.", item.ATTime)
-
+     
+            item.ATTime = totalTime
         }
+        print("저장되었습니다.", item.ATTime)
     }
 }

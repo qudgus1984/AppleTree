@@ -18,7 +18,7 @@ class AppleTree: Object {
     
     convenience init(ATDate: String, ATTime: Int) {
         self.init()
-        self.ATTime = 0
+        self.ATTime = ATTime
         self.ATDate = ATDate
     }
 }

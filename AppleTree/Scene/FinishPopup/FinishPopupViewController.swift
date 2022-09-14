@@ -10,6 +10,10 @@ import RealmSwift
 
 class FinishPopupViewController: BaseViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        repository.fetch()
+    }
+    
     let repository = ATRepository()
     
     let mainview = FinishPopupView()
@@ -37,6 +41,9 @@ class FinishPopupViewController: BaseViewController {
 //        }
         print(#function)
         
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        print(documentsDirectory)
+        
         let result = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
 
     //        DateFormatterHelper.Formatter.dateStr
@@ -47,12 +54,13 @@ class FinishPopupViewController: BaseViewController {
             repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: MainView().settingCount))
             print("==========\(AppleTree.self)==============")
         } else {
-            repository.updateItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'").first!.ATTime), appendTime: MainView().settingCount)
+            self.repository.updateItem(item: result[0], appendTime: MainView().settingCount)
             print("================\(AppleTree.self)")
-            print()
+            repository.fetch()
 
         }
-        
+
+
             //컬럼이 있다면 업데이트
         dismiss(animated: true)
     }
