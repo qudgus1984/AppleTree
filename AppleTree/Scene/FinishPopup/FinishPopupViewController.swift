@@ -33,20 +33,13 @@ class FinishPopupViewController: BaseViewController {
     }
     
     @objc func okButtonClicked() {
-        //만약 그 날에 culm이 없다면
-//        if AppleTree.ATDate.contains(DateFormatterHelper.Formatter.dateStr){
-//
-//        } else {
-//
-//        }
+
         print(#function)
         
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print(documentsDirectory)
         
         let result = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
-
-    //        DateFormatterHelper.Formatter.dateStr
             
         print("==================\(result)")
             
@@ -59,9 +52,6 @@ class FinishPopupViewController: BaseViewController {
             repository.fetch()
 
         }
-
-
-            //컬럼이 있다면 업데이트
         dismiss(animated: true)
     }
 

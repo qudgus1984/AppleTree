@@ -10,11 +10,11 @@ Apple Tree는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰
 
 
 
-| 날짜         | 기능                                         | Link                                                      |
-| ------------ | -------------------------------------------- | --------------------------------------------------------- |
-| 22.09.12(월) | Circle Progress View / Timer / Calendar 구성 |                                                           |
-| 22.09.13(화) | Realm 구축 및 Calendar 아이콘 생성           | Color 참고 사이트 : https://colorhunt.co/palettes/popular |
-| 22.09.14(수) |                                              |                                                           |
+| 날짜         | 기능                                                         | etc.                                                      |
+| ------------ | ------------------------------------------------------------ | --------------------------------------------------------- |
+| 22.09.12(월) | Circular Progress View / Timer / Calendar 구성               | Circular Progress 적용                                    |
+| 22.09.13(화) | Realm 구축 및 Calendar 아이콘 적용 / Repository 패턴 적용 / UIColor 재설정 | Color 참고 사이트 : https://colorhunt.co/palettes/popular |
+| 22.09.14(수) | Realm 설계 및 Singleton 패턴 사용                            | realm에서 filter 부분 error 발생                          |
 
 
 
@@ -22,12 +22,14 @@ Apple Tree는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰
 
 ### 22.09.12 (월)
 
-- 첫 화면의 UI 구성 및 시간이 줄어들 때 CircularProgress Bar 게이지가 함께 증가하도록 구현했습니다. (3시간)
-- 팝업화면을 구성하고, 지정된 시간이 다 지나면, 팝업 화면이 새로 뜨도록 설정했습니다. (2시간)
-- Font를 적용하였습니다. (1시간 30분)
-- 네비바 calendar 버튼을 클릭 시 나타나는 화면에 calendar가 뜨도록 구성해주었습니다. (FSCalendar 사용) (1시간)
+- 첫 화면의 UI 구성 및 시간이 줄어들 때 CircularProgress Bar 게이지가 함께 증가하도록 구현
+- 팝업화면을 구성하고, 지정된 시간이 다 지나면, 팝업 화면이 새로 뜨도록 설정
+- Font를 적용
+- 네비바 calendar 버튼을 클릭 시 나타나는 화면에 calendar가 뜨도록 구성(FSCalendar 사용)
 
 
+
+#### - 첫 화면의 UI 구성 및 시간이 줄어들 때 CircularProgress Bar 게이지가 함께 증가하도록 구현
 
 Circular Progress Bar 구현
 
@@ -104,16 +106,115 @@ class CircularProgress: UIView {
 }
 ~~~
 
+#### - 팝업화면을 구성하고, 지정된 시간이 다 지나면, 팝업 화면이 새로 뜨도록 설정
 
+새로운 메서드들을 많이 적용해서 코드가 clean하지 못함 -> 후에 Refactoring 해줄 것. 
+
+~~~swift
+@objc func startButtonClickedCountDown() {
+
+        if startButtonBool == true {
+            startButtonBool.toggle()
+            self.mainview.startButton.setTitle("중지", for: .normal)
+            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (t) in
+                self.mainview.settingCount -= 1
+                let minutes = self.mainview.settingCount / 60
+                let seconds = self.mainview.settingCount % 60
+                
+                if self.mainview.settingCount > 0 {
+                    self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+                    self.mainview.countTimeLabel.text = "\(minutes):\(seconds)"
+                    self.progress = Float(self.mainview.settingCount) / 1800.0
+                    print(self.progress)
+                    self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.0001, value: 1.0 - self.progress)
+
+                } else {
+                    self.mainview.countTimeLabel.text = "00:00"
+                    self.mainview.startButton.setTitle("완료", for: .normal)
+                    self.timer?.invalidate()
+                    self.timer = nil
+                    self.finishPopupVCAppear()
+                    self.mainview.settingCount = 1800
+                    self.mainview.countTimeLabel.text = "30:00"          
+                }
+            }
+        } else {
+            startButtonBool.toggle()
+            self.mainview.startButton.setTitle("시작", for: .normal)
+            timer?.invalidate()
+            timer = nil
+        }
+        
+    }
+~~~
+
+
+
+#### - Font를 적용
+
+<img src="README.assets/스크린샷 2022-09-14 오후 8.12.23.png" alt="스크린샷 2022-09-14 오후 8.12.23" style="zoom:55%;" />
+
+#### - 네비바 calendar 버튼을 클릭 시 나타나는 화면에 calendar가 뜨도록 구성(FSCalendar 사용)
+
+<img src="README.assets/스크린샷 2022-09-14 오후 7.52.26.png" alt="스크린샷 2022-09-14 오후 7.52.26" style="zoom:50%;" />
 
 ### 22.09.13 (화)
 
-- calendar 안에 icon이 들어갈 수 있게 icon 이미지를 구성해주었습니다. (2시간)
-- UI 색상을 전체적으로 변경해주었습니다. Colorhunt 참고 (1시간)
-- Realm 구조 설계 및 Repository Pattern으로 구성하였습니다. (1시간)
-- Typora를 사용하여 README를 구성하였습니다. (2시간)
+- UI 색상을 전체적으로 변경 Colorhunt 참고
+- calendar 안에 icon이 들어갈 수 있게 icon 이미지를 구성
+- Realm 구조 설계 및 Repository Pattern으로 구성
+- Typora를 사용하여 README를 구성
+
+color hunt를 사용하여 구성한 색상 조합
 
 
+
+#### - UI 색상을 전체적으로 변경 - Colorhunt 참고
+
+<img src="../../../../Library/Application Support/typora-user-images/스크린샷 2022-09-14 오후 7.49.24.png" alt="스크린샷 2022-09-14 오후 7.49.24" style="zoom:50%;" />
+
+
+
+색 조합을 이용하여 구성한 화면
+
+
+
+<img src="README.assets/simulator_screenshot_4AE08826-7C06-45F7-B63D-8441CA2EDDB4.png" alt="simulator_screenshot_4AE08826-7C06-45F7-B63D-8441CA2EDDB4" style="zoom:25%;" />
+
+
+
+#### - calendar 안에 icon이 들어갈 수 있게 icon 이미지를 구성
+
+icon을 사용하여 calendar에 넣어주기
+
+~~~swift
+func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+        let seedsImg = resizeImage(image: UIImage(named: "seeds")!, width: 20, height: 20)
+        let sproutImg = resizeImage(image: UIImage(named: "sprout")!, width: 20, height: 20)
+        let appleImg = resizeImage(image: UIImage(named: "apple")!, width: 20, height: 20)
+        let appleTreeImg = resizeImage(image: UIImage(named: "apple-tree")!, width: 20, height: 20)
+        switch dateFormatter.string(from: date) {
+        case dateFormatter.string(from: Date()):
+            return appleImg
+        case "2022-09-06":
+            return appleTreeImg
+        case "2022-09-07":
+            return sproutImg
+        case "2022-09-08":
+            return seedsImg
+        default:
+            return nil
+        }
+    }
+~~~
+
+
+
+<img src="README.assets/스크린샷 2022-09-14 오후 7.52.26.png" alt="스크린샷 2022-09-14 오후 7.52.26" style="zoom:50%;" />
+
+
+
+#### - Realm 구조 설계 및 Repository Pattern으로 구성
 
 Realm Schema
 
@@ -134,11 +235,140 @@ class AppleTree: Object {
 
 
 
+Repository Pattern
+
+~~~SAS
+protocol ATRepositoryType {
+    func fetch() -> Results<AppleTree>
+    func addItem(item: AppleTree)
+    func updateItem(item: AppleTree, appendTime: Int)
+}
+
+class ATRepository: ATRepositoryType {
+        
+    let localRealm = try! Realm()
+    
+    func fetch() -> Results<AppleTree> {
+        return localRealm.objects(AppleTree.self).sorted(byKeyPath: "ATDate", ascending: true)
+    }
+
+    
+    func addItem(item: AppleTree) {
+        try! localRealm.write {
+            localRealm.add(item)
+        }
+    }
+    
+    func updateItem(item: AppleTree, appendTime: Int) {
+        
+//        var totalTime = item.ATTime
+        var totalTime = item.ATTime
+        totalTime += appendTime
+        
+        try! localRealm.write {
+     
+            item.ATTime = totalTime
+        }
+        print("저장되었습니다.", item.ATTime)
+    }
+}
+
+~~~
+
 
 
 ### 22.09.14 (수)
 
+- Realm 구조 재설계
+- Singleton Pattern을 활용한 DateFormatter 지정
+- Realm에 날짜 데이터 및 시간 데이터 저장 구현
+- Realm에서 Filter 사용 중 적용 에러 발생 -> 해결
 
+
+
+#### - Realm 구조 재설계
+
+ATDate를 Date 타입으로 받으면 같은 날에 데이터 값을 함께 처리하지 못하게 되는 문제 인지 -> String 타입으로 변환
+
+~~~swift
+class AppleTree: Object {
+    @Persisted var ATDate: String
+    @Persisted var ATTime: Int
+
+    @Persisted(primaryKey: true) var objectId: ObjectId
+    
+    convenience init(ATDate: String, ATTime: Int) {
+        self.init()
+        self.ATTime = ATTime
+        self.ATDate = ATDate
+    }
+}
+~~~
+
+
+
+#### - Singleton Pattern 활용해 DateFormatter 지정
+
+Realm에 날짜를 넣을 때 똑같은 양식으로 String값을 지정해주어야 하기 때문에 singleton 패턴으로 DateFormatter을 지정
+
+~~~swift
+class DateFormatterHelper {
+    
+    private init() {}
+    
+    static let Formatter = DateFormatterHelper()
+    let dateFormatter = DateFormatter()
+    let date = Date()
+    
+    func formatDate() {
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+    }
+    
+    var dateStr: String {
+        get {
+            formatDate()
+            return dateFormatter.string(from: date)
+        }
+    }
+}
+
+~~~
+
+
+
+#### - Realm에 날짜 데이터 및 시간 데이터 저장 구현
+
+작성하니 간결하지만, 많은 오류들이 있었다. 특히 값에 접근하지 못해 Realm의 ATTime이 add는 되는데 update가 되지 않는 상황이 발생.
+
+해결 방법 : result가 이미 filter된 값이기 때문에 result의 [0]에 접근하여 값을 업데이트 해주었음.
+
+~~~swift
+@objc func okButtonClicked() {
+
+        let result = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+      
+        if result.isEmpty {
+            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: MainView().settingCount))
+        } else {
+            self.repository.updateItem(item: result[0], appendTime: MainView().settingCount)
+
+            repository.fetch()
+
+        }
+        dismiss(animated: true)
+    }
+~~~
+
+
+
+#### - Realm에서 Filter 사용 중 적용 에러
+
+해결방법 : realm에서 문자열에 접근할 때 filter 영역에서 문자열 보간법으로 접근하면 되는 줄 알았는데, 작은 따옴표를 안에 넣어주어야 한다는 것을 깨달았다.
+
+~~~swift
+repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+~~~
 
 
 
