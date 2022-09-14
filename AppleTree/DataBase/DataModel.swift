@@ -11,14 +11,14 @@ import RealmSwift
 //MARK: Model 구성
 
 class AppleTree: Object {
-    @Persisted var ATDate: Date
+    @Persisted var ATDate: String
     @Persisted var ATTime: Int
 
     @Persisted(primaryKey: true) var objectId: ObjectId
     
-    convenience init(ATDate: Date, ATTime: Int) {
+    convenience init(ATDate: String, ATTime: Int) {
         self.init()
         self.ATTime = 0
-        self.ATDate = Date()
+        self.ATDate = ATDate
     }
 }

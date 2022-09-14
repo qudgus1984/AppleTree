@@ -115,6 +115,27 @@ class CircularProgress: UIView {
 
 
 
+Realm Schema
+
+~~~swift
+class AppleTree: Object {
+    @Persisted var ATDate: String
+    @Persisted var ATTime: Int
+
+    @Persisted(primaryKey: true) var objectId: ObjectId
+    
+    convenience init(ATDate: String, ATTime: Int) {
+        self.init()
+        self.ATTime = 0
+        self.ATDate = ATDate
+    }
+}
+~~~
+
+
+
+
+
 ### 22.09.14 (수)
 
 

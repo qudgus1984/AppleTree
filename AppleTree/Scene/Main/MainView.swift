@@ -10,7 +10,7 @@ import SnapKit
 
 class MainView: BaseView {
     
-    var settingCount = 1800
+    var settingCount = 100
 
     let bgView: UIView = {
         let view = UIView()

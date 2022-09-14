@@ -13,6 +13,7 @@
 		2F7EE94828BCEA69000F1F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94628BCEA69000F1F41 /* Main.storyboard */; };
 		2F7EE94A28BCEA6B000F1F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94928BCEA6B000F1F41 /* Assets.xcassets */; };
 		2F7EE94D28BCEA6B000F1F41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94B28BCEA6B000F1F41 /* LaunchScreen.storyboard */; };
+		2F9F6C2A28D19DBD0005986C /* SingletonDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F6C2928D19DBD0005986C /* SingletonDate.swift */; };
 		2FAA583A28CC52690067BFE8 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA583928CC52690067BFE8 /* BaseView.swift */; };
 		2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA583B28CC52780067BFE8 /* BaseViewController.swift */; };
 		2FAA583E28CC53A50067BFE8 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA583D28CC53A50067BFE8 /* BaseTableViewCell.swift */; };
@@ -46,6 +47,7 @@
 		2F7EE94928BCEA6B000F1F41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F7EE94C28BCEA6B000F1F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F7EE94E28BCEA6B000F1F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F9F6C2928D19DBD0005986C /* SingletonDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonDate.swift; sourceTree = "<group>"; };
 		2FAA583928CC52690067BFE8 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		2FAA583B28CC52780067BFE8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2FAA583D28CC53A50067BFE8 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		2F7EE93F28BCEA69000F1F41 /* AppleTree */ = {
 			isa = PBXGroup;
 			children = (
+				2F9F6C2828D19D8D0005986C /* Singleton */,
 				2FBAE1FE28D0578A007F834F /* DataBase */,
 				2FBE24C628CEDB8900BAA0F1 /* Font */,
 				2FAA583F28CC53D30067BFE8 /* Scene */,
@@ -115,6 +118,14 @@
 				2F7EE94E28BCEA6B000F1F41 /* Info.plist */,
 			);
 			path = AppleTree;
+			sourceTree = "<group>";
+		};
+		2F9F6C2828D19D8D0005986C /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				2F9F6C2928D19DBD0005986C /* SingletonDate.swift */,
+			);
+			path = Singleton;
 			sourceTree = "<group>";
 		};
 		2FAA583628CC51F40067BFE8 /* Extenstion */ = {
@@ -311,6 +322,7 @@
 				2FBE24E028CF41A200BAA0F1 /* CalendarTableViewCell.swift in Sources */,
 				2FAA584728CC54E00067BFE8 /* UIColor + Extension.swift in Sources */,
 				2FBE24CE28CF004A00BAA0F1 /* CircularProgressBar.swift in Sources */,
+				2F9F6C2A28D19DBD0005986C /* SingletonDate.swift in Sources */,
 				2FBAE20028D05952007F834F /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
