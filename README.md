@@ -152,7 +152,7 @@ class CircularProgress: UIView {
 
 #### - Font를 적용
 
-<img src="README.assets/스크린샷 2022-09-14 오후 8.12.23.png" alt="스크린샷 2022-09-14 오후 8.12.23" style="zoom:55%;" />
+![스크린샷 2022-09-14 오후 8.12.23](README.assets/스크린샷 2022-09-14 오후 8.12.23-3206262.png)
 
 #### - 네비바 calendar 버튼을 클릭 시 나타나는 화면에 calendar가 뜨도록 구성(FSCalendar 사용)
 
@@ -171,9 +171,9 @@ color hunt를 사용하여 구성한 색상 조합
 
 #### - UI 색상을 전체적으로 변경 - Colorhunt 참고
 
-<img src="README.assets/스크린샷 2022-09-14 오후 7.49.24.png" alt="스크린샷 2022-09-14 오후 7.49.24" style="zoom:50%;" />
 
 
+![스크린샷 2022-09-14 오후 7.49.24](README.assets/스크린샷 2022-09-14 오후 7.49.24-3206245.png)
 
 색 조합을 이용하여 구성한 화면
 
@@ -210,9 +210,9 @@ func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
 
 
 
-<img src="README.assets/스크린샷 2022-09-14 오후 7.52.26.png" alt="스크린샷 2022-09-14 오후 7.52.26" style="zoom:50%;" />
 
 
+![스크린샷 2022-09-14 오후 7.52.26](README.assets/스크린샷 2022-09-14 오후 7.52.26-3206184.png)
 
 #### - Realm 구조 설계 및 Repository Pattern으로 구성
 
