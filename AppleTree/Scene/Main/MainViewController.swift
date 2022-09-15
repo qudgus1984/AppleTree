@@ -14,11 +14,19 @@ class MainViewController: BaseViewController {
     var progress: Float = 0.0
     
     let mainview = MainView()
-    
+    let repository = ATRepository()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         startButtonClicked()
         print(progress)
+        
+        mainview.iconImageView.image = UIImage(named: "apple")
+
+        let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+        mainview.iconImageView.image =  ChangedImage(time: todayInfo[0].ATTime)
+        
         
         
     }
@@ -121,6 +129,28 @@ class MainViewController: BaseViewController {
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print(documentsDirectory)
 
+    }
+    
+    func ChangedImage(time: Int) -> UIImage? {
+        
+        
+        let seedsImg = UIImage(named: "seeds")
+        let sproutImg = UIImage(named: "sprout")
+        let appleImg = UIImage(named: "apple")
+        let appleTreeImg = UIImage(named: "apple-tree")!
+        
+        switch time {
+        case 0...200:
+            return seedsImg
+        case 201...410:
+            return sproutImg
+        case 411...511:
+            return appleImg
+        case 512...6400:
+            return appleTreeImg
+        default:
+            return nil
+        }
     }
     
 }

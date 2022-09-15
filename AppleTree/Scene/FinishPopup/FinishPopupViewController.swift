@@ -40,10 +40,31 @@ class FinishPopupViewController: BaseViewController {
         } else {
             self.repository.updateItem(item: result[0], appendTime: MainView().settingCount)
             print("================\(AppleTree.self)")
-            repository.fetch()
 
         }
+        
         dismiss(animated: true)
+    }
+    
+    func ChangedImage(time: Int) -> UIImage? {
+
+//        let seedsImg = UIImage(named: "seeds")!
+//        let sproutImg = UIImage(named: "sprout")!
+//        let appleImg = UIImage(named: "apple")!
+//        let appleTreeImg = UIImage(named: "apple-tree")!
+        
+        switch time {
+        case 0...200:
+            return UIImage(named: "seeds")
+        case 201...410:
+            return UIImage(named: "sprout")
+        case 411...511:
+            return UIImage(named: "apple")
+        case 512...6400:
+            return UIImage(named: "apple-tree")
+        default:
+            return nil
+        }
     }
 
 }
