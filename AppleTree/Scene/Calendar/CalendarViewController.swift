@@ -156,14 +156,15 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         print(date)
         
-//        var dateArr: [String] = []
-//        var timeArr: [Int] = []
 //
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        var test = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
-        return test.isEmpty ? UIImage() : dateChangedIcon(time: test[0].ATTime)
+        var filterData = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
+        return filterData.isEmpty ? UIImage() : dateChangedIcon(time: filterData[0].ATTime)
 
+//        var dateArr: [String] = []
+//
 //        for i in 0...tasks.count-1 {
 //            dateArr.append(tasks[i].ATDate)
 //            if dateArr.contains(dateFormatter.string(from: date)) {
@@ -171,7 +172,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
 //            }
 //        }
 //        return nil
-        
+//
 
         
        
@@ -218,17 +219,17 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         //        print(arr)
         //        print(testList)
         
-        //        for i in 0...tasks.count {
-        //            switch dateFormatter.string(from: date) {
-        //            case tasks[i].ATDate:
-        //                print(tasks[i].ATTime)
-        //                let img = dateChangedIcon(time: tasks[i].ATTime)
+//                for i in 0...tasks.count {
+//                    switch dateFormatter.string(from: date) {
+//                    case tasks[i].ATDate:
+//                        print(tasks[i].ATTime)
+//                        let img = dateChangedIcon(time: tasks[i].ATTime)
 //                        return img
-        //            default:
-        //                return nil
-        //            }
-        //        }
-        //        return nil
+//                    default:
+//                        return nil
+//                    }
+//                }
+//                return nil
         
         //arr.forEach { return  }
         
@@ -250,20 +251,20 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         //        }
         
         //return arr.forEach { $0 }
-        //        switch dateFormatter.string(from: date) {
-        //
-        //            // 더미데이터
-        //        case dateFormatter.string(from: Date()):
-        //            return appleImg
-        //        case "2022-09-06":
-        //            return appleTreeImg
-        //        case "2022-09-07":
-        //            return sproutImg
-        //        case "2022-09-08":
-        //            return seedsImg
-        //        default:
-        //            return nil
-        //        }
+//                switch dateFormatter.string(from: date) {
+//
+//                    // 더미데이터
+//                case dateFormatter.string(from: Date()):
+//                    return appleImg
+//                case "2022-09-06":
+//                    return appleTreeImg
+//                case "2022-09-07":
+//                    return sproutImg
+//                case "2022-09-08":
+//                    return seedsImg
+//                default:
+//                    return nil
+//                }
         
     }
     

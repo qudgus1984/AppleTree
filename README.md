@@ -10,11 +10,12 @@ Apple Tree는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰
 
 
 
-| 날짜         | 기능                                                         | etc.                                                      |
-| ------------ | ------------------------------------------------------------ | --------------------------------------------------------- |
-| 22.09.12(월) | Circular Progress View / Timer / Calendar 구성               | Circular Progress 적용                                    |
-| 22.09.13(화) | Realm 구축 및 Calendar 아이콘 적용 / Repository 패턴 적용 / UIColor 재설정 | Color 참고 사이트 : https://colorhunt.co/palettes/popular |
-| 22.09.14(수) | Realm 설계 및 Singleton 패턴 사용                            | realm에서 filter 부분 error 발생                          |
+| 날짜         | 기능                                                         | etc.                                                         |
+| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 22.09.12(월) | Circular Progress View / Timer / Calendar 구성               | Circular Progress 적용                                       |
+| 22.09.13(화) | Realm 구축 및 Calendar 아이콘 적용 / Repository 패턴 적용 / UIColor 재설정 | Color 참고 사이트 : https://colorhunt.co/palettes/popular    |
+| 22.09.14(수) | Realm 설계 및 Singleton 패턴 사용                            | realm에서 filter 부분 error 발생                             |
+| 22.09.15(목) | Realm Date를 활용해 calendar 및 mainVC 이미지 변경 / Setting 화면 구성 | Realm 데이터 접근 부분 및 FSCalendar 메서드 itemFor 부분 error 발생 |
 
 
 
@@ -374,3 +375,213 @@ repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatter
 
 
 
+### 22.09.15 (목)
+
+- Realm 의 Time을 가지고 Calendar의 날짜에 icon 삽입
+- Realm의 Time을 가지고 Calendar의 subtitle에 시간 삽입
+- calendarVC TableViewCell label 설정
+- Realm의 Time을 가지고 MainVC의 image를 변경
+- Setting UI 화면 구성
+- TimeSetting UI 화면 구성
+
+#### - Realm 의 Time을 가지고 Calendar의 날짜에 icon 삽입
+
+겪은 문제 : 처음 calendar에 itemFor 안에 임의의 값을 넣어주었을 때의 코드
+
+~~~swift
+
+let seedsImg = resizeImage(image: UIImage(named: "seeds")!, width: 20, height: 20)
+let sproutImg = resizeImage(image: UIImage(named: "sprout")!, width: 20, height: 20)
+let appleImg = resizeImage(image: UIImage(named: "apple")!, width: 20, height: 20)
+let appleTreeImg = resizeImage(image: UIImage(named: "apple-tree")!, width: 20, height: 20)
+
+switch dateFormatter.string(from: date) {
+case dateFormatter.string(from: Date()):
+		return appleImg
+case "2022-09-06":
+		return appleTreeImg
+case "2022-09-07":
+		return sproutImg
+case "2022-09-08":
+		return seedsImg
+	default:
+		return nil
+	}
+~~~
+
+이렇게 이미지를 설정한 값을 상수에 저장하고, switch 문으로 각각의 해당하는 날짜에 값을 넣어주는 형태로 작성하였음. 이 부분을 이제 Realm의 Time에 접근하여 넣어주면 되겠구나 하고 다음 코드를 작성
+
+
+
+~~~swift
+func dateChangedIcon(time: Int) -> UIImage? {
+        let seedsImg = resizeImage(image: UIImage(named: "seeds")!, width: 20, height: 20)
+        let sproutImg = resizeImage(image: UIImage(named: "sprout")!, width: 20, height: 20)
+        let appleImg = resizeImage(image: UIImage(named: "apple")!, width: 20, height: 20)
+        let appleTreeImg = resizeImage(image: UIImage(named: "apple-tree")!, width: 20, height: 20)
+        
+        switch time {
+        case 0...200:
+            return seedsImg
+        case 201...410:
+            return sproutImg
+        case 411...511:
+            return appleImg
+        case 512...6400:
+            return appleTreeImg
+        default:
+            return nil
+        }
+    }
+~~~
+
+먼저 이렇게 time의 값을 입력받으면 UIImage로 내뱉는 함수를 만들어 주었음.
+
+그리고 itemFor 영역에 각 time에 해당하는 이미지를 뿌려주기 위해 코드 작성
+
+~~~swift
+for i in 0...tasks.count {
+	switch dateFormatter.string(from: date) {
+	case tasks[i].ATDate:
+			print(tasks[i].ATTime)
+			let img = dateChangedIcon(time: tasks[i].ATTime)
+			return img
+	default:
+		return nil
+		}
+	}
+
+~~~
+
+for문을 통해 tasks에 접근해서 모든 Realm에 있는 날짜 정보를 switch case 구문을 통해 각 itemFor에 넣어주면 된다고 생각했고, 스스로 오 한번에 잘 생각해냈는데?! 라고 감탄하고 실행을 눌러보니 itemFor에 return값을 작성하라는 오류 메세지가 나타남.
+
+-> 이때부터 멘붕 시작...
+
+오류가 뜨고나서 다시금 코드를 봐보니 for문을 통해 접근하면 결국 return 값은 for문의 {} 영역이기 때문에 하나만 존재함.
+
+그래서 for문을 사용하지 말고 하면 되겠네~! 라고 생각하고 다시 생각 => ... 한시간 뒤... => 반복문을 안돌면 어떻게 접근하냐...?...
+
+
+
+- 해결방법 : 배열을 만들어 준 뒤 contains 함수를 통해 데이터를 뿌려주자!!
+
+~~~swift
+var dateArr: [String] = []
+
+	for i in 0...tasks.count-1 {
+		dateArr.append(tasks[i].ATDate)
+			if dateArr.contains(dateFormatter.string(from: date)) {
+				return dateChangedIcon(time: tasks[i].ATTime)
+			}
+		}
+	return nil
+~~~
+
+- 해결방법 : 고차함수 filter 를 사용해 데이터를 판단하자!!
+
+~~~swift
+let dateFormatter = DateFormatter()
+dateFormatter.dateFormat = "yyyy-MM-dd"
+var filterData = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
+return filterData.isEmpty ? UIImage() : dateChangedIcon(time: filterData[0].ATTime)
+~~~
+
+
+
+이렇게 코드로 적어보면 간단한 것 같지만, 배열에 contains으로 접근해서 판단하는 아이디어를 떠올리는게 결코 쉽지 않았음. 같은 스터디원들이 같이 조언을 해 준 덕에 방법을 찾을 수 있었던 것 같음. 그리고 filter로 데이터를 뿌려보면서, 이래서 고차함수를 이러한 영역에서 쓰는구나를 느꼈음. 다음에 이러한 문제가 발생했을 때 고차함수를 바로 떠올리고 적용해보려고 하는 자세가 중요할 것 같음.
+
+
+
+
+
+#### - Realm의 Time을 가지고 Calendar의 subtitle에 시간 삽입
+
+Calendar에 image를 넣어주면서 삽질을 하니, 이제 관련된 것들은 비슷한 메커니즘으로 이루어지기 때문에 빠르게 진행이 되었음.
+
+calendar의 subtitleFor에 접근하여 코드 작성
+
+
+
+~~~swift
+func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let test = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
+        return test.isEmpty ? nil : String("\(test[0].ATTime/60):\(test[0].ATTime%60)")
+}
+~~~
+
+![스크린샷 2022-09-15 오후 11.25.12](README.assets/스크린샷 2022-09-15 오후 11.25.12-3251919.png)
+
+#### - calendarVC TableViewCell label 설정
+
+- 오늘 집중 타이머를 이용한 시간 보여주기
+- 어제와 오늘의 집중 타이머가 가지고있는 시간의 차이를 label에 보여주기
+- 이번 달의 사과나무의 개수를 나타내기 (미설정)
+
+위 3개를 tableView에서 보여주고 싶었음. 아직 보여지는 달의 데이터에 접근하는 것까진 구상을 하지 못해 위 2개만 먼저 적용
+
+
+
+~~~swift
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CalendarTableViewCell else { return UITableViewCell() }
+        cell.backgroundColor = .huntLightGreen
+        
+        let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+        let yesterdayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" )
+        
+        let hour = todayInfo[0].ATTime / 60
+        let minutes = todayInfo[0].ATTime % 60
+
+        let removeNum = todayInfo[0].ATTime - yesterdayInfo[0].ATTime
+        let removehour = removeNum / 60
+        let removeminutes = removeNum % 60
+
+        switch indexPath.row {
+        case 0:
+            cell.explainLabel.text = "오늘 \(hour)시간 \(minutes)분 만큼 성장하셨네요"
+        case 1:
+            if removeNum < 0 {
+                cell.explainLabel.text = "어제보다 \(-removehour)시간 \(-removeminutes)분 덜 했어요 😭"
+            } else if removeNum > 0 {
+                cell.explainLabel.text = "어제보다 \(removehour)시간 \(removeminutes)분 더 나아갔어요! >_<"
+            } else {
+                cell.explainLabel.text = "한결같은 당신의 꾸준함을 응원합니다 :D"
+
+            }
+        case 2:
+            cell.explainLabel.text = "이번달의 총 사과나무 개수는 몇개 입니다. (구현 필요)"
+        default:
+            print()
+        }
+        return cell
+    }
+~~~
+
+![스크린샷 2022-09-15 오후 11.26.12](README.assets/스크린샷 2022-09-15 오후 11.26.12-3251977.png)
+
+#### - Realm의 Time을 가지고 MainVC의 image를 변경
+
+mainVC 에 image를 오늘의 Realm이 가지고 있는 Time에 따라 변경하도록 설정
+
+~~~swift
+        let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+        mainview.iconImageView.image =  ChangedImage(time: todayInfo[0].ATTime)
+~~~
+
+=> 이 과정에서 ChangedImage를 코드 재사용하는데, 추후에 extension으로 빼놓거나 protocol로 만들어주어 중복 코드를 구조화시킬 것.
+
+![simulator_screenshot_CFC5BF41-5181-4A5B-BD2C-5054529127C9](README.assets/simulator_screenshot_CFC5BF41-5181-4A5B-BD2C-5054529127C9-3251998.png)
+
+#### - Setting UI 화면 구성
+
+내일 만들 집중 타이머 시간 설정을 위해 Setting UI 설정
+
+![스크린샷 2022-09-15 오후 11.26.51](README.assets/스크린샷 2022-09-15 오후 11.26.51.png)
+
+#### - TimeSetting UI 화면 구성
+
+SettingUI에서 집중 타이머 시간 셀을 클릭하면 나타나는 UI 화면 구성
+
+![스크린샷 2022-09-15 오후 11.27.14](README.assets/스크린샷 2022-09-15 오후 11.27.14-3252039.png)
