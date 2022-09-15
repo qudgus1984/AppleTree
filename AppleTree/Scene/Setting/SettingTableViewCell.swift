@@ -1,14 +1,14 @@
 //
-//  CalendarTableViewCell.swift
+//  SettingTableViewCell.swift
 //  AppleTree
 //
-//  Created by 이병현 on 2022/09/12.
+//  Created by 이병현 on 2022/09/15.
 //
 
 import UIKit
 import SnapKit
 
-class CalendarTableViewCell: BaseTableViewCell {
+class SettingTableViewCell: BaseTableViewCell {
     
     let containView: UIView = {
         let view = UIView()
@@ -50,3 +50,4 @@ class CalendarTableViewCell: BaseTableViewCell {
     }
     
 }
+

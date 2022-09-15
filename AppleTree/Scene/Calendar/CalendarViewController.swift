@@ -90,6 +90,34 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CalendarTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = .huntLightGreen
+        
+        let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+        let yesterdayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" )
+        
+        let hour = todayInfo[0].ATTime / 60
+        let minutes = todayInfo[0].ATTime % 60
+
+        let removeNum = todayInfo[0].ATTime - yesterdayInfo[0].ATTime
+        let removehour = removeNum / 60
+        let removeminutes = removeNum % 60
+
+        switch indexPath.row {
+        case 0:
+            cell.explainLabel.text = "오늘 \(hour)시간 \(minutes)분 만큼 성장하셨네요"
+        case 1:
+            if removeNum < 0 {
+                cell.explainLabel.text = "어제보다 \(-removehour)시간 \(-removeminutes)분 덜 했어요 😭"
+            } else if removeNum > 0 {
+                cell.explainLabel.text = "어제보다 \(removehour)시간 \(removeminutes)분 더 나아갔어요! >_<"
+            } else {
+                cell.explainLabel.text = "한결같은 당신의 꾸준함을 응원합니다 :D"
+
+            }
+        case 2:
+            cell.explainLabel.text = "이번달의 총 사과나무 개수는 몇개 입니다. (구현 필요)"
+        default:
+            print()
+        }
         return cell
     }
     
@@ -106,7 +134,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        var test = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
+        let test = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
         return test.isEmpty ? nil : String("\(test[0].ATTime/60):\(test[0].ATTime%60)")
     }
 //    let dateFormatter = DateFormatter()

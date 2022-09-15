@@ -45,9 +45,9 @@ class MainViewController: BaseViewController {
         //MARK: Nav 바 버튼 관련
         let calenderButton = UIBarButtonItem(image: UIImage(systemName: "calendar"), style: .plain, target: self, action: #selector(calenderButtonClicked))
         calenderButton.tintColor = .white
-        let settingButton = UIBarButtonItem(image: UIImage(systemName: "lightbulb"), style: .plain, target: self, action: #selector(settingButtonClicked))
+        let settingButton = UIBarButtonItem(image: UIImage(systemName: "lightbulb"), style: .plain, target: self, action: #selector(bulbButtonClicked))
         settingButton.tintColor = .white
-        let bulbButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(bulbButtonClicked))
+        let bulbButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(settingButtonClicked))
         bulbButton.tintColor = .white
         navigationItem.leftBarButtonItems = [calenderButton]
         navigationItem.rightBarButtonItems = [bulbButton, settingButton]
@@ -62,7 +62,8 @@ class MainViewController: BaseViewController {
     }
     
     @objc func settingButtonClicked() {
-        
+        let vc = SettingViewController()
+        transition(vc, transitionStyle: .push)
     }
     
     @objc func bulbButtonClicked() {

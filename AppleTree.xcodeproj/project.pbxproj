@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F2C540528D33D8C00D647AE /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C540428D33D8C00D647AE /* SettingView.swift */; };
+		2F2C540728D33DA300D647AE /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C540628D33DA300D647AE /* SettingTableViewCell.swift */; };
+		2F2C540928D33DBF00D647AE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C540828D33DBF00D647AE /* SettingViewController.swift */; };
 		2F7EE94128BCEA69000F1F41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7EE94028BCEA69000F1F41 /* AppDelegate.swift */; };
 		2F7EE94328BCEA69000F1F41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7EE94228BCEA69000F1F41 /* SceneDelegate.swift */; };
 		2F7EE94528BCEA69000F1F41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7EE94428BCEA69000F1F41 /* ViewController.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F2C540428D33D8C00D647AE /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		2F2C540628D33DA300D647AE /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		2F2C540828D33DBF00D647AE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		2F7EE93D28BCEA69000F1F41 /* AppleTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F7EE94028BCEA69000F1F41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F7EE94228BCEA69000F1F41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +203,9 @@
 		2FBE24CF28CF21DB00BAA0F1 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				2F2C540428D33D8C00D647AE /* SettingView.swift */,
+				2F2C540628D33DA300D647AE /* SettingTableViewCell.swift */,
+				2F2C540828D33DBF00D647AE /* SettingViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -304,9 +313,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F2C540728D33DA300D647AE /* SettingTableViewCell.swift in Sources */,
 				2FBE24DE28CF37FA00BAA0F1 /* CalendarViewController.swift in Sources */,
 				2FAA583E28CC53A50067BFE8 /* BaseTableViewCell.swift in Sources */,
 				2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */,
+				2F2C540528D33D8C00D647AE /* SettingView.swift in Sources */,
 				2FAA584228CC53F30067BFE8 /* MainView.swift in Sources */,
 				2FE4233128CA32C700BA7484 /* Transition+Extension.swift in Sources */,
 				2FBE24D328CF241700BAA0F1 /* FinishPopupView.swift in Sources */,
@@ -320,6 +331,7 @@
 				2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */,
 				2F7EE94328BCEA69000F1F41 /* SceneDelegate.swift in Sources */,
 				2FBE24E028CF41A200BAA0F1 /* CalendarTableViewCell.swift in Sources */,
+				2F2C540928D33DBF00D647AE /* SettingViewController.swift in Sources */,
 				2FAA584728CC54E00067BFE8 /* UIColor + Extension.swift in Sources */,
 				2FBE24CE28CF004A00BAA0F1 /* CircularProgressBar.swift in Sources */,
 				2F9F6C2A28D19DBD0005986C /* SingletonDate.swift in Sources */,
