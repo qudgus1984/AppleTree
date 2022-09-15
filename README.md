@@ -171,7 +171,7 @@ color hunt를 사용하여 구성한 색상 조합
 
 #### - UI 색상을 전체적으로 변경 - Colorhunt 참고
 
-<img src="../../../../Library/Application Support/typora-user-images/스크린샷 2022-09-14 오후 7.49.24.png" alt="스크린샷 2022-09-14 오후 7.49.24" style="zoom:50%;" />
+<img src="README.assets/스크린샷 2022-09-14 오후 7.49.24.png" alt="스크린샷 2022-09-14 오후 7.49.24" style="zoom:50%;" />
 
 
 
