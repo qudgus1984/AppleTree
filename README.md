@@ -157,8 +157,7 @@ class CircularProgress: UIView {
 
 #### - 네비바 calendar 버튼을 클릭 시 나타나는 화면에 calendar가 뜨도록 구성(FSCalendar 사용)
 
-<img src="README.assets/스크린샷 2022-09-14 오후 7.52.26.png" alt="스크린샷 2022-09-14 오후 7.52.26" style="zoom:50%;" />
-
+<img width="349" alt="스크린샷 2022-09-14 오후 7 52 26-3206184" src="https://user-images.githubusercontent.com/81552265/190294423-e3169d19-22b1-4284-8250-9e4e2d8d9359.png">
 ### 22.09.13 (화)
 
 - UI 색상을 전체적으로 변경 Colorhunt 참고
