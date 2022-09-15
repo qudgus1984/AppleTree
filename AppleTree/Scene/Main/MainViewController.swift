@@ -92,9 +92,7 @@ class MainViewController: BaseViewController {
                     self.progress = Float(self.mainview.settingCount) / 1800.0
                     print(self.progress)
                     self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.0001, value: 1.0 - self.progress)
-                    
-                    
-                    
+ 
                     
                 } else {
                     self.mainview.countTimeLabel.text = "00:00"

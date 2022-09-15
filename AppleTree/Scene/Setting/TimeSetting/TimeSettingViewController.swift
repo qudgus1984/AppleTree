@@ -1,5 +1,5 @@
 //
-//  SettingViewController.swift
+//  TimeSettingViewController.swift
 //  AppleTree
 //
 //  Created by 이병현 on 2022/09/15.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SettingViewController: BaseViewController {
+class TimeSettingViewController: BaseViewController {
 
-    let mainview = SettingView()
+    let mainview = TimeSettingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class SettingViewController: BaseViewController {
 
 }
 
-extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,18 +35,18 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SettingTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TimeSettingTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = .huntLightGreen
         
         switch indexPath.row {
         case 0:
-            cell.explainLabel.text = "공지사항"
+            cell.explainLabel.text = "15분"
         case 1:
-            cell.explainLabel.text = "집중 시간 설정"
+            cell.explainLabel.text = "30분"
         case 2:
-            cell.explainLabel.text = "집중 시간 통계"
+            cell.explainLabel.text = "1시간"
         case 3:
-            cell.explainLabel.text = "데이터 저장 및 복원"
+            cell.explainLabel.text = "2시간"
         default:
             print("error발생")
             
@@ -64,8 +64,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             showAlertMessage(title: "업데이트 예정입니다.")
         case 1:
-            let vc = TimeSettingViewController()
-            transition(vc, transitionStyle: .push)
+            showAlertMessage(title: "업데이트 예정입니다.")
         case 2:
             showAlertMessage(title: "업데이트 예정입니다.")
         case 3:
@@ -74,7 +73,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             print("error발생")
             
         }
-
     }
     
 }
