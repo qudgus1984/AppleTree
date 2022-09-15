@@ -153,12 +153,12 @@ class CircularProgress: UIView {
 
 #### - Font를 적용
 
-<img width="293" alt="스크린샷 2022-09-14 오후 8 12 23-3206262" src="https://user-images.githubusercontent.com/81552265/190294340-7128c740-343b-499d-bc39-6ea126334a7f.png">
+<img width="300" alt="스크린샷 2022-09-14 오후 8 12 23-3206262" src="https://user-images.githubusercontent.com/81552265/190294340-7128c740-343b-499d-bc39-6ea126334a7f.png">
 
 
 #### - 네비바 calendar 버튼을 클릭 시 나타나는 화면에 calendar가 뜨도록 구성(FSCalendar 사용)
 
-<img width="349" alt="스크린샷 2022-09-14 오후 7 52 26-3206184" src="https://user-images.githubusercontent.com/81552265/190294423-e3169d19-22b1-4284-8250-9e4e2d8d9359.png">
+<img width="300" alt="스크린샷 2022-09-14 오후 7 52 26-3206184" src="https://user-images.githubusercontent.com/81552265/190294423-e3169d19-22b1-4284-8250-9e4e2d8d9359.png">
 ### 22.09.13 (화)
 
 - UI 색상을 전체적으로 변경 Colorhunt 참고
@@ -173,7 +173,7 @@ color hunt를 사용하여 구성한 색상 조합
 #### - UI 색상을 전체적으로 변경 - Colorhunt 참고
 
 
-<img width="294" alt="스크린샷 2022-09-14 오후 7 49 24-3206245" src="https://user-images.githubusercontent.com/81552265/190294385-012ca3c9-9b0d-4642-a25d-5c05cbe0c975.png">
+<img width="300" alt="스크린샷 2022-09-14 오후 7 49 24-3206245" src="https://user-images.githubusercontent.com/81552265/190294385-012ca3c9-9b0d-4642-a25d-5c05cbe0c975.png">
 
 
 
@@ -211,7 +211,7 @@ func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
 ~~~
 
 
-<img width="349" alt="스크린샷 2022-09-14 오후 7 52 26-3206184" src="https://user-images.githubusercontent.com/81552265/190294423-e3169d19-22b1-4284-8250-9e4e2d8d9359.png">
+<img width="300" alt="스크린샷 2022-09-14 오후 7 52 26-3206184" src="https://user-images.githubusercontent.com/81552265/190294423-e3169d19-22b1-4284-8250-9e4e2d8d9359.png">
 
 
 
@@ -510,7 +510,7 @@ func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         return test.isEmpty ? nil : String("\(test[0].ATTime/60):\(test[0].ATTime%60)")
 }
 ~~~
-<img width="348" alt="스크린샷 2022-09-15 오후 11 25 12-3251919" src="https://user-images.githubusercontent.com/81552265/190431419-26fef469-2c50-42e5-b7d1-c177304564dd.png">
+<img width="300" alt="스크린샷 2022-09-15 오후 11 25 12-3251919" src="https://user-images.githubusercontent.com/81552265/190431419-26fef469-2c50-42e5-b7d1-c177304564dd.png">
 
 
 #### - calendarVC TableViewCell label 설정
@@ -558,7 +558,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         return cell
     }
 ~~~
-<img width="348" alt="스크린샷 2022-09-15 오후 11 26 12-3251977" src="https://user-images.githubusercontent.com/81552265/190431362-a2caf198-2f76-41cc-839f-3deb671ff320.png">
+<img width="300" alt="스크린샷 2022-09-15 오후 11 26 12-3251977" src="https://user-images.githubusercontent.com/81552265/190431362-a2caf198-2f76-41cc-839f-3deb671ff320.png">
 
 
 #### - Realm의 Time을 가지고 MainVC의 image를 변경
@@ -571,18 +571,18 @@ mainVC 에 image를 오늘의 Realm이 가지고 있는 Time에 따라 변경하
 ~~~
 
 => 이 과정에서 ChangedImage를 코드 재사용하는데, 추후에 extension으로 빼놓거나 protocol로 만들어주어 중복 코드를 구조화시킬 것.
-![simulator_screenshot_CFC5BF41-5181-4A5B-BD2C-5054529127C9-3251998](https://user-images.githubusercontent.com/81552265/190431302-c411257b-9d8e-4a29-9eb9-b5b1f80a41f3.png)
+<img width="300" alt="스크린샷 2022-09-15 오후 11 35 33" src="https://user-images.githubusercontent.com/81552265/190432053-55b07958-7f7f-4ba9-8add-72c977ada94f.png">
 
 
 #### - Setting UI 화면 구성
 
 내일 만들 집중 타이머 시간 설정을 위해 Setting UI 설정
 
-<img width="348" alt="스크린샷 2022-09-15 오후 11 26 51" src="https://user-images.githubusercontent.com/81552265/190431220-994a9687-e3f1-4b21-83fe-c3e2e03ffbc6.png">
+<img width="300" alt="스크린샷 2022-09-15 오후 11 26 51" src="https://user-images.githubusercontent.com/81552265/190431220-994a9687-e3f1-4b21-83fe-c3e2e03ffbc6.png">
 
 
 #### - TimeSetting UI 화면 구성
 
 SettingUI에서 집중 타이머 시간 셀을 클릭하면 나타나는 UI 화면 구성
 
-<img width="348" alt="스크린샷 2022-09-15 오후 11 27 14-3252039" src="https://user-images.githubusercontent.com/81552265/190431167-f94d3274-d543-48d3-baf2-2770b47cb212.png">
+<img width="300" alt="스크린샷 2022-09-15 오후 11 27 14-3252039" src="https://user-images.githubusercontent.com/81552265/190431167-f94d3274-d543-48d3-baf2-2770b47cb212.png">
