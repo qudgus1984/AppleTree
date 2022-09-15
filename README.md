@@ -152,12 +152,12 @@ class CircularProgress: UIView {
 
 #### - Font를 적용
 
-![스크린샷 2022-09-14 오후 8.12.23](README.assets/스크린샷 2022-09-14 오후 8.12.23-3206262.png)
+<img width="293" alt="스크린샷 2022-09-14 오후 8 12 23-3206262" src="https://user-images.githubusercontent.com/81552265/190294340-7128c740-343b-499d-bc39-6ea126334a7f.png">
+
 
 #### - 네비바 calendar 버튼을 클릭 시 나타나는 화면에 calendar가 뜨도록 구성(FSCalendar 사용)
 
-<img src="README.assets/스크린샷 2022-09-14 오후 7.52.26.png" alt="스크린샷 2022-09-14 오후 7.52.26" style="zoom:50%;" />
-
+<img width="349" alt="스크린샷 2022-09-14 오후 7 52 26-3206184" src="https://user-images.githubusercontent.com/81552265/190294423-e3169d19-22b1-4284-8250-9e4e2d8d9359.png">
 ### 22.09.13 (화)
 
 - UI 색상을 전체적으로 변경 Colorhunt 참고
@@ -172,8 +172,9 @@ color hunt를 사용하여 구성한 색상 조합
 #### - UI 색상을 전체적으로 변경 - Colorhunt 참고
 
 
+<img width="294" alt="스크린샷 2022-09-14 오후 7 49 24-3206245" src="https://user-images.githubusercontent.com/81552265/190294385-012ca3c9-9b0d-4642-a25d-5c05cbe0c975.png">
 
-![스크린샷 2022-09-14 오후 7.49.24](README.assets/스크린샷 2022-09-14 오후 7.49.24-3206245.png)
+
 
 색 조합을 이용하여 구성한 화면
 
@@ -209,10 +210,11 @@ func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
 ~~~
 
 
+<img width="349" alt="스크린샷 2022-09-14 오후 7 52 26-3206184" src="https://user-images.githubusercontent.com/81552265/190294423-e3169d19-22b1-4284-8250-9e4e2d8d9359.png">
 
 
 
-![스크린샷 2022-09-14 오후 7.52.26](README.assets/스크린샷 2022-09-14 오후 7.52.26-3206184.png)
+
 
 #### - Realm 구조 설계 및 Repository Pattern으로 구성
 
