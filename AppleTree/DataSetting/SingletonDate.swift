@@ -14,7 +14,6 @@ class DateFormatterHelper {
     static let Formatter = DateFormatterHelper()
     let dateFormatter = DateFormatter()
     let date = Date()
-//    - 86400
     
     func formatDate() {
         
@@ -26,6 +25,13 @@ class DateFormatterHelper {
             formatDate()
             print("✅✅",date)
             return dateFormatter.string(from: date)
+        }
+    }
+    
+    var yesterDayStr: String {
+        get {
+            formatDate()
+            return dateFormatter.string(from: date - 86400)
         }
     }
 }

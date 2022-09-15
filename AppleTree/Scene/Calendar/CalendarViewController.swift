@@ -104,13 +104,20 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     
     
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
-        switch dateFormatter.string(from: date) {
-        case dateFormatter.string(from: Date()):
-            return "오늘" // realm 데이터
-        default:
-            return nil
-        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        var test = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
+        return test.isEmpty ? nil : String("\(test[0].ATTime/60):\(test[0].ATTime%60)")
     }
+//    let dateFormatter = DateFormatter()
+//    dateFormatter.dateFormat = "yyyy-MM-dd"
+//    let test = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
+//    let minutes = test[0].ATTime / 60
+//    let seconds = test[0].ATTime % 60
+//
+//
+//    let calendarTime = String(format: "%02d:%02d", minutes, seconds)
+//    return test.isEmpty ? nil : calendarTime
     
     func maximumDate(for calendar: FSCalendar) -> Date {
         return Date()
@@ -143,20 +150,12 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         
 //        var test = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(dateFormatter.string(from: date))'")
         
-        return UIImage()
+//        return UIImage()
 //        print(test)
-        
-        
-        
-
 
 //        print(43434)
         
-        
-        
- 
-        
-        
+  
 //        return arr.contains(newDate) ? UIImage() : nil
 //        var tt = dateFormatter.string(from: date)
 //        let img = dateChangedIcon(time: tt)
