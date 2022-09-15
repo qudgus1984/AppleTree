@@ -181,10 +181,6 @@ color hunt를 사용하여 구성한 색상 조합
 
 
 
-<img src="README.assets/simulator_screenshot_4AE08826-7C06-45F7-B63D-8441CA2EDDB4.png" alt="simulator_screenshot_4AE08826-7C06-45F7-B63D-8441CA2EDDB4" style="zoom:25%;" />
-
-
-
 #### - calendar 안에 icon이 들어갈 수 있게 icon 이미지를 구성
 
 icon을 사용하여 calendar에 넣어주기
