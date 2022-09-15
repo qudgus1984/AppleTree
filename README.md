@@ -566,7 +566,9 @@ mainVC 에 image를 오늘의 Realm이 가지고 있는 Time에 따라 변경하
         mainview.iconImageView.image =  ChangedImage(time: todayInfo[0].ATTime)
 ~~~
 
-=> 이 과정에서 ChangedImage를 코드 재사용하는데, 추후에 extension으로 빼놓거나 protocol로 만들어주어 중복 코드를 구조화시킬 것.
+=> 이 과정에서 ChangedImage를 코드 재사용하는데, 
+추후에 extension으로 빼놓거나 protocol로 만들어주어 중복 코드를 구조화시킬 것.
+
 <img width="300" alt="스크린샷 2022-09-15 오후 11 35 33" src="https://user-images.githubusercontent.com/81552265/190432053-55b07958-7f7f-4ba9-8add-72c977ada94f.png">
 
 
