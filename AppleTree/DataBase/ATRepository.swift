@@ -24,8 +24,12 @@ class ATRepository: ATRepositoryType {
 
     
     func addItem(item: AppleTree) {
-        try! localRealm.write {
-            localRealm.add(item)
+        do {
+            try localRealm.write {
+                localRealm.add(item)
+            }
+        } catch {
+            print("error 발생")
         }
     }
     
@@ -35,9 +39,12 @@ class ATRepository: ATRepositoryType {
         var totalTime = item.ATTime
         totalTime += appendTime
         
-        try! localRealm.write {
-     
-            item.ATTime = totalTime
+        do {
+            try localRealm.write {
+                item.ATTime = totalTime
+            }
+        } catch {
+            print("error 발생")
         }
         print("저장되었습니다.", item.ATTime)
     }

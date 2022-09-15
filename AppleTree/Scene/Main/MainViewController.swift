@@ -55,6 +55,9 @@ class MainViewController: BaseViewController {
     
     @objc func calenderButtonClicked() {
         let vc = CalendarViewController()
+//        vc.repository.fetch()
+//        vc
+        vc.tasks = vc.repository.fetch()
         transition(vc, transitionStyle: .push)
     }
     

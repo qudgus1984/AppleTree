@@ -8,16 +8,33 @@
 import UIKit
 import SnapKit
 import FSCalendar
+import RealmSwift
 
 class CalendarViewController: BaseViewController {
     
+    var tasks: Results<AppleTree>! {
+        didSet {
+            mainview.calendarView.reloadData()
+            print("✅✅✅\(tasks)")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tasks = repository.fetch()
+    }
+    let repository = ATRepository()
     let mainview = CalendarView()
     let dateFormatter = DateFormatter()
     
     override func loadView() {
         super.view = mainview
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,11 +76,11 @@ class CalendarViewController: BaseViewController {
         navigationItem.scrollEdgeAppearance = appearence
         
     }
-
+    
 }
 
 extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -80,7 +97,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         return 80
     }
     
-
+    
 }
 
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
@@ -99,20 +116,145 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         return Date()
     }
     
+    
+    
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+        print(date)
+        
+//        var dateArr: [String] = []
+//        var timeArr: [Int] = []
+//
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        var test = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
+        return test.isEmpty ? UIImage() : dateChangedIcon(time: test[0].ATTime)
+
+//        for i in 0...tasks.count-1 {
+//            dateArr.append(tasks[i].ATDate)
+//            if dateArr.contains(dateFormatter.string(from: date)) {
+//                return dateChangedIcon(time: tasks[i].ATTime)
+//            }
+//        }
+//        return nil
+        
+
+        
+       
+        
+//        var test = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(dateFormatter.string(from: date))'")
+        
+        return UIImage()
+//        print(test)
+        
+        
+        
+
+
+//        print(43434)
+        
+        
+        
+ 
+        
+        
+//        return arr.contains(newDate) ? UIImage() : nil
+//        var tt = dateFormatter.string(from: date)
+//        let img = dateChangedIcon(time: tt)
+//        return img
+//
+        
+//        switch dateFormatter.string(from: date) {
+//        case tasks[i].ATDate:
+//            print(tasks[i].ATTime)
+//        default:
+//            return nil
+//        }
+        
+        //var test = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(dateFormatter.string(from: date))'")
+        //print(test)
+        //return UIImage()
+//        let img = dateChangedIcon(time: test)
+//        return img
+        
+        //return
+        //                let img = dateChangedIcon(time: tasks[i].ATTime)
+        //        let seedsImg = resizeImage(image: UIImage(named: "seeds")!, width: 20, height: 20)
+        //        let sproutImg = resizeImage(image: UIImage(named: "sprout")!, width: 20, height: 20)
+        //        let appleImg = resizeImage(image: UIImage(named: "apple")!, width: 20, height: 20)
+        //        let appleTreeImg = resizeImage(image: UIImage(named: "apple-tree")!, width: 20, height: 20)
+        
+        //        var arr: [UIImage?] = []
+        //
+        //        let testList = tasks.map{
+        //            arr.append(self.dateChangedIcon(time: $0.ATTime))
+        //        }
+        //        print(arr)
+        //        print(testList)
+        
+        //        for i in 0...tasks.count {
+        //            switch dateFormatter.string(from: date) {
+        //            case tasks[i].ATDate:
+        //                print(tasks[i].ATTime)
+        //                let img = dateChangedIcon(time: tasks[i].ATTime)
+//                        return img
+        //            default:
+        //                return nil
+        //            }
+        //        }
+        //        return nil
+        
+        //arr.forEach { return  }
+        
+        //        var dateArray: [String] = []
+        //
+        //        for i in 0...tasks.count {
+        //            //dateArray.append(contentsOf:  )
+        //            dateArray.append(tasks[i].ATDate)
+        //        }
+        //
+        ////        dateArray.forEach {_ in
+        //            //return dateChangedIcon(time: tasks[0].ATTime)
+        ////        }
+        //        var a = dateArray.map { _ in dateFormatter.string(from: date) }
+        //        print(a)
+        
+        //        func f() -> UIImage {
+        //            return
+        //        }
+        
+        //return arr.forEach { $0 }
+        //        switch dateFormatter.string(from: date) {
+        //
+        //            // 더미데이터
+        //        case dateFormatter.string(from: Date()):
+        //            return appleImg
+        //        case "2022-09-06":
+        //            return appleTreeImg
+        //        case "2022-09-07":
+        //            return sproutImg
+        //        case "2022-09-08":
+        //            return seedsImg
+        //        default:
+        //            return nil
+        //        }
+        
+    }
+    
+    func dateChangedIcon(time: Int) -> UIImage? {
         let seedsImg = resizeImage(image: UIImage(named: "seeds")!, width: 20, height: 20)
         let sproutImg = resizeImage(image: UIImage(named: "sprout")!, width: 20, height: 20)
         let appleImg = resizeImage(image: UIImage(named: "apple")!, width: 20, height: 20)
         let appleTreeImg = resizeImage(image: UIImage(named: "apple-tree")!, width: 20, height: 20)
-        switch dateFormatter.string(from: date) {
-        case dateFormatter.string(from: Date()):
-            return appleImg
-        case "2022-09-06":
-            return appleTreeImg
-        case "2022-09-07":
-            return sproutImg
-        case "2022-09-08":
+        
+        switch time {
+        case 0...200:
             return seedsImg
+        case 201...410:
+            return sproutImg
+        case 411...511:
+            return appleImg
+        case 512...6400:
+            return appleTreeImg
         default:
             return nil
         }
