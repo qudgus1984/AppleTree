@@ -23,6 +23,12 @@ class SettingViewController: BaseViewController {
     }
 
 
+    override func configure() {
+        let appearence = UINavigationBarAppearance()
+        appearence.backgroundColor = .huntLightGreen
+        navigationItem.standardAppearance = appearence
+        navigationItem.scrollEdgeAppearance = appearence
+    }
 
 }
 

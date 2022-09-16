@@ -19,8 +19,13 @@ class MainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0))
+        
         startButtonClicked()
         print(progress)
+        
+        
         
         mainview.iconImageView.image = UIImage(named: "apple")
 

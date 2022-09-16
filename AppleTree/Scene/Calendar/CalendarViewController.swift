@@ -160,7 +160,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        var filterData = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
+        let filterData = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
         return filterData.isEmpty ? UIImage() : dateChangedIcon(time: filterData[0].ATTime)
 
 //        var dateArr: [String] = []

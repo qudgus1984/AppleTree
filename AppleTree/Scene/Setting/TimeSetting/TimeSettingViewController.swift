@@ -21,7 +21,12 @@ class TimeSettingViewController: BaseViewController {
     override func loadView() {
         super.view = mainview
     }
-
+    override func configure() {
+        let appearence = UINavigationBarAppearance()
+        appearence.backgroundColor = .huntLightGreen
+        navigationItem.standardAppearance = appearence
+        navigationItem.scrollEdgeAppearance = appearence
+    }
 
 
 }
