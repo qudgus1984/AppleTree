@@ -76,18 +76,26 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
             UserDefaults.standard.set(15*60, forKey: "engagedTime")
             print(UserDefaults.standard.integer(forKey: "engagedTime"))
             delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+            let mainViewController = MainViewController()
+            transition(mainViewController, transitionStyle: .push)
         case 1:
             UserDefaults.standard.set(30*60, forKey: "engagedTime")
             print(UserDefaults.standard.integer(forKey: "engagedTime"))
             delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+            let mainViewController = MainViewController()
+            transition(mainViewController, transitionStyle: .push)
         case 2:
             UserDefaults.standard.set(60*60, forKey: "engagedTime")
             print(UserDefaults.standard.integer(forKey: "engagedTime"))
             delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+            let mainViewController = MainViewController()
+            transition(mainViewController, transitionStyle: .push)
         case 3:
             UserDefaults.standard.set(120*60, forKey: "engagedTime")
             print(UserDefaults.standard.integer(forKey: "engagedTime"))
             delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+            let mainViewController = MainViewController()
+            transition(mainViewController, transitionStyle: .push)
         default:
             print("error발생")
             

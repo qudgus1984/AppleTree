@@ -31,7 +31,7 @@ class MainViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0))
         
         startButtonClicked()
@@ -152,20 +152,14 @@ class MainViewController: BaseViewController {
     func ChangedImage(time: Int) -> UIImage? {
         
         
-        let seedsImg = UIImage(named: "seeds")
-        let sproutImg = UIImage(named: "sprout")
-        let appleImg = UIImage(named: "apple")
-        let appleTreeImg = UIImage(named: "apple-tree")!
-        
-        
         switch time {
-        case 0...1200:
+        case 0...7200:
             return UIImage(named: "seeds")
-        case 1201...2400:
+        case 7201...14400:
             return UIImage(named: "sprout")
-        case 2401...4801:
+        case 14401...21600:
             return UIImage(named: "apple")
-        case 4801...:
+        case 21601...:
             return UIImage(named: "apple-tree")
         default:
             return nil
@@ -176,7 +170,6 @@ class MainViewController: BaseViewController {
 
 extension MainViewController: settingTimeDelegate {
     func sendSettingTime(_ time: Int) {
-        print("@@@@@@@@@@@@@@@@",time)
         getSettingTime.append(time)
         mainview.settingCount = getSettingTime.startIndex
     }

@@ -114,7 +114,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
 
             }
         case 2:
-            cell.explainLabel.text = "이번달의 총 사과나무 개수는 몇개 입니다. (구현 필요)"
+            cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.localRealm.objects(AppleTree.self).filter("ATTime >= 21600").count)개 입니다."
         default:
             print()
         }
@@ -155,116 +155,12 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         print(date)
-        
-//
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let filterData = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
         return filterData.isEmpty ? UIImage() : dateChangedIcon(time: filterData[0].ATTime)
 
-//        var dateArr: [String] = []
-//
-//        for i in 0...tasks.count-1 {
-//            dateArr.append(tasks[i].ATDate)
-//            if dateArr.contains(dateFormatter.string(from: date)) {
-//                return dateChangedIcon(time: tasks[i].ATTime)
-//            }
-//        }
-//        return nil
-//
-
-        
-       
-        
-//        var test = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(dateFormatter.string(from: date))'")
-        
-//        return UIImage()
-//        print(test)
-
-//        print(43434)
-        
-  
-//        return arr.contains(newDate) ? UIImage() : nil
-//        var tt = dateFormatter.string(from: date)
-//        let img = dateChangedIcon(time: tt)
-//        return img
-//
-        
-//        switch dateFormatter.string(from: date) {
-//        case tasks[i].ATDate:
-//            print(tasks[i].ATTime)
-//        default:
-//            return nil
-//        }
-        
-        //var test = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(dateFormatter.string(from: date))'")
-        //print(test)
-        //return UIImage()
-//        let img = dateChangedIcon(time: test)
-//        return img
-        
-        //return
-        //                let img = dateChangedIcon(time: tasks[i].ATTime)
-        //        let seedsImg = resizeImage(image: UIImage(named: "seeds")!, width: 20, height: 20)
-        //        let sproutImg = resizeImage(image: UIImage(named: "sprout")!, width: 20, height: 20)
-        //        let appleImg = resizeImage(image: UIImage(named: "apple")!, width: 20, height: 20)
-        //        let appleTreeImg = resizeImage(image: UIImage(named: "apple-tree")!, width: 20, height: 20)
-        
-        //        var arr: [UIImage?] = []
-        //
-        //        let testList = tasks.map{
-        //            arr.append(self.dateChangedIcon(time: $0.ATTime))
-        //        }
-        //        print(arr)
-        //        print(testList)
-        
-//                for i in 0...tasks.count {
-//                    switch dateFormatter.string(from: date) {
-//                    case tasks[i].ATDate:
-//                        print(tasks[i].ATTime)
-//                        let img = dateChangedIcon(time: tasks[i].ATTime)
-//                        return img
-//                    default:
-//                        return nil
-//                    }
-//                }
-//                return nil
-        
-        //arr.forEach { return  }
-        
-        //        var dateArray: [String] = []
-        //
-        //        for i in 0...tasks.count {
-        //            //dateArray.append(contentsOf:  )
-        //            dateArray.append(tasks[i].ATDate)
-        //        }
-        //
-        ////        dateArray.forEach {_ in
-        //            //return dateChangedIcon(time: tasks[0].ATTime)
-        ////        }
-        //        var a = dateArray.map { _ in dateFormatter.string(from: date) }
-        //        print(a)
-        
-        //        func f() -> UIImage {
-        //            return
-        //        }
-        
-        //return arr.forEach { $0 }
-//                switch dateFormatter.string(from: date) {
-//
-//                    // 더미데이터
-//                case dateFormatter.string(from: Date()):
-//                    return appleImg
-//                case "2022-09-06":
-//                    return appleTreeImg
-//                case "2022-09-07":
-//                    return sproutImg
-//                case "2022-09-08":
-//                    return seedsImg
-//                default:
-//                    return nil
-//                }
         
     }
     
