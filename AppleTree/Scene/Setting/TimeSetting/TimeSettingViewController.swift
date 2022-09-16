@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol settingTimeDelegate {
+    func sendSettingTime(_ time: Int)
+}
+
 class TimeSettingViewController: BaseViewController {
 
     let mainview = TimeSettingView()
+    
+    var delegate: settingTimeDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,13 +73,21 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            showAlertMessage(title: "업데이트 예정입니다.")
+            UserDefaults.standard.set(15*60, forKey: "engagedTime")
+            print(UserDefaults.standard.integer(forKey: "engagedTime"))
+            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
         case 1:
-            showAlertMessage(title: "업데이트 예정입니다.")
+            UserDefaults.standard.set(30*60, forKey: "engagedTime")
+            print(UserDefaults.standard.integer(forKey: "engagedTime"))
+            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
         case 2:
-            showAlertMessage(title: "업데이트 예정입니다.")
+            UserDefaults.standard.set(60*60, forKey: "engagedTime")
+            print(UserDefaults.standard.integer(forKey: "engagedTime"))
+            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
         case 3:
-            showAlertMessage(title: "업데이트 예정입니다.")
+            UserDefaults.standard.set(120*60, forKey: "engagedTime")
+            print(UserDefaults.standard.integer(forKey: "engagedTime"))
+            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
         default:
             print("error발생")
             

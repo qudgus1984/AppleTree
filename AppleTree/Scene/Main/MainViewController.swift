@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: BaseViewController {
+    
+    var getSettingTime: [Int] = []
     
     var startButtonBool: Bool = true
     var timer: Timer?
@@ -15,8 +18,17 @@ class MainViewController: BaseViewController {
     
     let mainview = MainView()
     let repository = ATRepository()
-
-
+    
+    var tasks: Results<AppleTree>! {
+        didSet {
+            tasks = repository.fetch()
+            print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
+            let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+            print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥",todayInfo[0].ATTime)
+            updateImage()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,15 +37,11 @@ class MainViewController: BaseViewController {
         startButtonClicked()
         print(progress)
         
-        
-        
-        mainview.iconImageView.image = UIImage(named: "apple")
-
-        let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
-        mainview.iconImageView.image =  ChangedImage(time: todayInfo[0].ATTime)
-        
-        
-        
+        mainview.iconImageView.image = UIImage(named: "seeds")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tasks = repository.fetch()
     }
     
     
@@ -68,8 +76,8 @@ class MainViewController: BaseViewController {
     
     @objc func calenderButtonClicked() {
         let vc = CalendarViewController()
-//        vc.repository.fetch()
-//        vc
+        //        vc.repository.fetch()
+        //        vc
         vc.tasks = vc.repository.fetch()
         transition(vc, transitionStyle: .push)
     }
@@ -102,10 +110,10 @@ class MainViewController: BaseViewController {
                 if self.mainview.settingCount > 0 {
                     self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
                     self.mainview.countTimeLabel.text = "\(minutes):\(seconds)"
-                    self.progress = Float(self.mainview.settingCount) / 1800.0
+                    self.progress = Float(self.mainview.settingCount) / Float(UserDefaults.standard.integer(forKey: "engagedTime"))
                     print(self.progress)
                     self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.0001, value: 1.0 - self.progress)
- 
+                    
                     
                 } else {
                     self.mainview.countTimeLabel.text = "00:00"
@@ -133,7 +141,12 @@ class MainViewController: BaseViewController {
         transition(vc, transitionStyle: .presentFullNavigation)
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print(documentsDirectory)
-
+        
+    }
+    
+    func updateImage() {
+        let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+        mainview.iconImageView.image =  ChangedImage(time: todayInfo[0].ATTime)
     }
     
     func ChangedImage(time: Int) -> UIImage? {
@@ -144,18 +157,27 @@ class MainViewController: BaseViewController {
         let appleImg = UIImage(named: "apple")
         let appleTreeImg = UIImage(named: "apple-tree")!
         
+        
         switch time {
-        case 0...200:
-            return seedsImg
-        case 201...410:
-            return sproutImg
-        case 411...511:
-            return appleImg
-        case 512...6400:
-            return appleTreeImg
+        case 0...1200:
+            return UIImage(named: "seeds")
+        case 1201...2400:
+            return UIImage(named: "sprout")
+        case 2401...4801:
+            return UIImage(named: "apple")
+        case 4801...:
+            return UIImage(named: "apple-tree")
         default:
             return nil
         }
+        
     }
-    
+}
+
+extension MainViewController: settingTimeDelegate {
+    func sendSettingTime(_ time: Int) {
+        print("@@@@@@@@@@@@@@@@",time)
+        getSettingTime.append(time)
+        mainview.settingCount = getSettingTime.startIndex
+    }
 }

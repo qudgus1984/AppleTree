@@ -92,8 +92,8 @@
             filePath = "AppleTree/Scene/Main/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>
@@ -108,8 +108,8 @@
             filePath = "AppleTree/Scene/FinishPopup/FinishPopupViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "okButtonClicked()"
             landmarkType = "7">
          </BreakpointContent>
@@ -118,22 +118,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "046B848D-1DCB-480B-B6CA-329B375D1B6B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AppleTree/Scene/FinishPopup/FinishPopupViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "okButtonClicked()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "75FC40B3-F9EC-4792-91C2-3CC6A51CC041"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -149,6 +133,22 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "75FC40B3-F9EC-4792-91C2-3CC6A51CC041"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/FinishPopup/FinishPopupViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "okButtonClicked()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "9AEEA83D-912E-4CAB-B468-58FC5535906C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -156,8 +156,8 @@
             filePath = "AppleTree/Scene/FinishPopup/FinishPopupViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "okButtonClicked()"
             landmarkType = "7">
          </BreakpointContent>
@@ -236,8 +236,8 @@
             filePath = "AppleTree/Scene/FinishPopup/FinishPopupViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "ChangedImage(time:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -255,6 +255,162 @@
             startingLineNumber = "271"
             endingLineNumber = "271"
             landmarkName = "dateChangedIcon(time:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "tasks"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - 9a3367b4a3b2096"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.tasks.getter : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.AppleTree&gt;&gt;"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - c12b54ee87dcec0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.tasks.setter : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.AppleTree&gt;&gt;"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - 76b8020c50664073"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.tasks.modify : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.AppleTree&gt;&gt;"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - 218cd090edb475e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.tasks.modify : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.AppleTree&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - b5339830d265a26d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; AppleTree.MainViewController"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "312">
+               </Location>
+               <Location
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - 3feeb26f4210c0e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;AppleTree.MainViewController&gt;"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "288">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B69BBBBE-D130-4D70-8B88-978E8F4F73AD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "tasks"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F22ECCC7-7199-4CA9-91AF-4286E2ADAA89"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/FinishPopup/FinishPopupViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "updateImage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71E9E947-E013-4432-BE46-86E2B4879083"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/FinishPopup/FinishPopupViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "updateImage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

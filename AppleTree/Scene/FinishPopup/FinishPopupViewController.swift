@@ -13,6 +13,9 @@ class FinishPopupViewController: BaseViewController {
     let repository = ATRepository()
     
     let mainview = FinishPopupView()
+    
+    let mainViewControllerInView = MainView()
+    
     override func loadView() {
         super.view = mainview
     }
@@ -42,7 +45,7 @@ class FinishPopupViewController: BaseViewController {
             print("================\(AppleTree.self)")
 
         }
-        
+//        updateImage()
         dismiss(animated: true)
     }
     
@@ -54,17 +57,25 @@ class FinishPopupViewController: BaseViewController {
 //        let appleTreeImg = UIImage(named: "apple-tree")!
         
         switch time {
-        case 0...200:
+        case 0...1200:
             return UIImage(named: "seeds")
-        case 201...410:
+        case 1201...2400:
             return UIImage(named: "sprout")
-        case 411...511:
+        case 2401...4801:
             return UIImage(named: "apple")
-        case 512...6400:
+        case 4801...:
             return UIImage(named: "apple-tree")
         default:
             return nil
         }
     }
+    
+    func updateImage() {
+        let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+        mainViewControllerInView.iconImageView.image =  ChangedImage(time: todayInfo[0].ATTime)
+        print("⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️",ChangedImage(time: todayInfo[0].ATTime))
+    }
+    
+
 
 }

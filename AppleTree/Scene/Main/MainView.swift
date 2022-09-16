@@ -10,7 +10,7 @@ import SnapKit
 
 class MainView: BaseView {
     
-    var settingCount = 100
+    var settingCount = UserDefaults.standard.integer(forKey: "engagedTime")
 
     let bgView: UIView = {
         let view = UIView()

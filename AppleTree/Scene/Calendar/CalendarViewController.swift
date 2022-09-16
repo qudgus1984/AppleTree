@@ -94,12 +94,12 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
         let yesterdayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" )
         
-        let hour = todayInfo[0].ATTime / 60
-        let minutes = todayInfo[0].ATTime % 60
+        let hour = todayInfo[0].ATTime / 3600
+        let minutes = todayInfo[0].ATTime % 3600 / 60
 
         let removeNum = todayInfo[0].ATTime - yesterdayInfo[0].ATTime
-        let removehour = removeNum / 60
-        let removeminutes = removeNum % 60
+        let removehour = removeNum / 3600
+        let removeminutes = removeNum % 3600 / 60
 
         switch indexPath.row {
         case 0:
@@ -135,7 +135,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let test = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
-        return test.isEmpty ? nil : String("\(test[0].ATTime/60):\(test[0].ATTime%60)")
+        return test.isEmpty ? nil : String("\(test[0].ATTime/3600):\(test[0].ATTime%3600 / 60)")
     }
 //    let dateFormatter = DateFormatter()
 //    dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -275,13 +275,13 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         let appleTreeImg = resizeImage(image: UIImage(named: "apple-tree")!, width: 20, height: 20)
         
         switch time {
-        case 0...200:
+        case 0...7200:
             return seedsImg
-        case 201...410:
+        case 7201...14400:
             return sproutImg
-        case 411...511:
+        case 14401...21600:
             return appleImg
-        case 512...6400:
+        case 21601...:
             return appleTreeImg
         default:
             return nil
