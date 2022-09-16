@@ -21,6 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = navigationController
             window?.makeKeyAndVisible()
             guard let _ = (scene as? UIWindowScene) else { return }
+        
+        if UserDefaults.standard.integer(forKey: "engagedTime") == 0 {
+            UserDefaults.standard.set(1800, forKey: "engagedTime")
+        }
 
             window?.makeKeyAndVisible()
             

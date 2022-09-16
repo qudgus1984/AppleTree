@@ -10,6 +10,7 @@ import RealmSwift
 
 class MainViewController: BaseViewController {
     
+    
     var getSettingTime: [Int] = []
     
     var startButtonBool: Bool = true
@@ -19,20 +20,21 @@ class MainViewController: BaseViewController {
     let mainview = MainView()
     let repository = ATRepository()
     
+    // 값 전달을 위한 fetch
     var tasks: Results<AppleTree>! {
         didSet {
             tasks = repository.fetch()
-            print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
             let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
-            print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥",todayInfo[0].ATTime)
             updateImage()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0))
+        
+        todayRealmNotSet()
+        
+//        repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0))
         
         startButtonClicked()
         print(progress)
@@ -40,6 +42,7 @@ class MainViewController: BaseViewController {
         mainview.iconImageView.image = UIImage(named: "seeds")
     }
     
+    //값 전달을 위한 fetch
     override func viewWillAppear(_ animated: Bool) {
         tasks = repository.fetch()
     }
@@ -112,7 +115,7 @@ class MainViewController: BaseViewController {
                     self.mainview.countTimeLabel.text = "\(minutes):\(seconds)"
                     self.progress = Float(self.mainview.settingCount) / Float(UserDefaults.standard.integer(forKey: "engagedTime"))
                     print(self.progress)
-                    self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.0001, value: 1.0 - self.progress)
+                    self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.00001, value: 1.0 - self.progress)
                     
                     
                 } else {
@@ -121,9 +124,10 @@ class MainViewController: BaseViewController {
                     self.timer?.invalidate()
                     self.timer = nil
                     self.finishPopupVCAppear()
-                    self.mainview.settingCount = 1800
-                    self.mainview.countTimeLabel.text = "30:00"
-                    
+                    self.mainview.settingCount = UserDefaults.standard.integer(forKey: "engagedTime")
+                    let minutes = self.mainview.settingCount / 60
+                    let seconds = self.mainview.settingCount % 60
+                    self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
                 }
             }
         } else {
@@ -165,6 +169,14 @@ class MainViewController: BaseViewController {
             return nil
         }
         
+    }
+    
+    func todayRealmNotSet() {
+        let result = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+        
+        if result.isEmpty {
+            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: mainview.settingCount))
+        }
     }
 }
 

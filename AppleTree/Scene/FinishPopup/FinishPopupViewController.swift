@@ -19,11 +19,11 @@ class FinishPopupViewController: BaseViewController {
     override func loadView() {
         super.view = mainview
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
     }
     
     //MARK: 확인 버튼 클릭 시
@@ -32,29 +32,29 @@ class FinishPopupViewController: BaseViewController {
     }
     
     @objc func okButtonClicked() {
-                
+        
         let result = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
-            
+        
         print("==================\(result)")
-            
-        if result.isEmpty {
-            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: MainView().settingCount))
-            print("==========\(AppleTree.self)==============")
-        } else {
-            self.repository.updateItem(item: result[0], appendTime: MainView().settingCount)
-            print("================\(AppleTree.self)")
-
-        }
-//        updateImage()
+        
+        //        if result.isEmpty {
+        //            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: MainView().settingCount))
+        //            print("==========\(AppleTree.self)==============")
+        //        } else {
+        self.repository.updateItem(item: result[0], appendTime: MainView().settingCount)
+        print("================\(AppleTree.self)")
+        
+        //        }
+        //        updateImage()
         dismiss(animated: true)
     }
     
     func ChangedImage(time: Int) -> UIImage? {
-
-//        let seedsImg = UIImage(named: "seeds")!
-//        let sproutImg = UIImage(named: "sprout")!
-//        let appleImg = UIImage(named: "apple")!
-//        let appleTreeImg = UIImage(named: "apple-tree")!
+        
+        //        let seedsImg = UIImage(named: "seeds")!
+        //        let sproutImg = UIImage(named: "sprout")!
+        //        let appleImg = UIImage(named: "apple")!
+        //        let appleTreeImg = UIImage(named: "apple-tree")!
         
         switch time {
         case 0...1200:
@@ -76,6 +76,6 @@ class FinishPopupViewController: BaseViewController {
         print("⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️",ChangedImage(time: todayInfo[0].ATTime))
     }
     
-
-
+    
+    
 }
