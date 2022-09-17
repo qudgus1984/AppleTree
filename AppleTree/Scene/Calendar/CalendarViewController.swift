@@ -92,16 +92,36 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .huntLightGreen
         
         let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
-        let yesterdayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" )
         
-        let hour = todayInfo[0].ATTime / 3600
-        let minutes = todayInfo[0].ATTime % 3600 / 60
+        //여기서 오류처리를 해주어야 할 듯 한데에...
 
-        let removeNum = todayInfo[0].ATTime - yesterdayInfo[0].ATTime
-        let removehour = removeNum / 3600
-        let removeminutes = removeNum % 3600 / 60
-        
-        if yesterdayInfo != nil {
+        if repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" ).isEmpty {
+            
+            let hour = todayInfo[0].ATTime / 3600
+            let minutes = todayInfo[0].ATTime % 3600 / 60
+            
+            switch indexPath.row {
+            case 0:
+                cell.explainLabel.text = "오늘 \(hour)시간 \(minutes)분 만큼 성장하셨네요"
+            case 1:
+                cell.explainLabel.text = "어제는 성장하지 않으셨군요!!"
+
+            case 2:
+                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.localRealm.objects(AppleTree.self).filter("ATTime >= 21600").count)개 입니다."
+            default:
+                print()
+            }
+            
+        } else {
+            let yesterdayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" )
+            
+            let hour = todayInfo[0].ATTime / 3600
+            let minutes = todayInfo[0].ATTime % 3600 / 60
+
+            let removeNum = todayInfo[0].ATTime - yesterdayInfo[0].ATTime
+            let removehour = removeNum / 3600
+            let removeminutes = removeNum % 3600 / 60
+            
             switch indexPath.row {
             case 0:
                 cell.explainLabel.text = "오늘 \(hour)시간 \(minutes)분 만큼 성장하셨네요"
@@ -120,19 +140,48 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
                 print()
             }
             
-        } else {
-            switch indexPath.row {
-            case 0:
-                cell.explainLabel.text = "오늘 \(hour)시간 \(minutes)분 만큼 성장하셨네요"
-            case 1:
-                cell.explainLabel.text = "어제는 성장하지 않으셨군요!!"
-
-            case 2:
-                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.localRealm.objects(AppleTree.self).filter("ATTime >= 21600").count)개 입니다."
-            default:
-                print()
-            }
         }
+//        let yesterdayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" )
+//
+//        let hour = todayInfo[0].ATTime / 3600
+//        let minutes = todayInfo[0].ATTime % 3600 / 60
+//
+//        let removeNum = todayInfo[0].ATTime - yesterdayInfo[0].ATTime
+//        let removehour = removeNum / 3600
+//        let removeminutes = removeNum % 3600 / 60
+        
+//        if yesterdayInfo.count != 0 {
+//            switch indexPath.row {
+//            case 0:
+//                cell.explainLabel.text = "오늘 \(hour)시간 \(minutes)분 만큼 성장하셨네요"
+//            case 1:
+//                if removeNum < 0 {
+//                    cell.explainLabel.text = "어제보다 \(-removehour)시간 \(-removeminutes)분 덜 했어요 😭"
+//                } else if removeNum > 0 {
+//                    cell.explainLabel.text = "어제보다 \(removehour)시간 \(removeminutes)분 더 나아갔어요! >_<"
+//                } else {
+//                    cell.explainLabel.text = "한결같은 당신의 꾸준함을 응원합니다 :D"
+//
+//                }
+//            case 2:
+//                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.localRealm.objects(AppleTree.self).filter("ATTime >= 21600").count)개 입니다."
+//            default:
+//                print()
+//            }
+//            
+//        } else {
+//            switch indexPath.row {
+//            case 0:
+//                cell.explainLabel.text = "오늘 \(hour)시간 \(minutes)분 만큼 성장하셨네요"
+//            case 1:
+//                cell.explainLabel.text = "어제는 성장하지 않으셨군요!!"
+//
+//            case 2:
+//                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.localRealm.objects(AppleTree.self).filter("ATTime >= 21600").count)개 입니다."
+//            default:
+//                print()
+//            }
+//        }
 
 
         return cell
