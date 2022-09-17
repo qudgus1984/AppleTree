@@ -16,6 +16,7 @@ Apple Tree는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰
 | 22.09.13(화) | Realm 구축 및 Calendar 아이콘 적용 / Repository 패턴 적용 / UIColor 재설정 | Color 참고 사이트 : https://colorhunt.co/palettes/popular    |
 | 22.09.14(수) | Realm 설계 및 Singleton 패턴 사용                            | realm에서 filter 부분 error 발생                             |
 | 22.09.15(목) | Realm Date를 활용해 calendar 및 mainVC 이미지 변경 / Setting 화면 구성 | Realm 데이터 접근 부분 및 FSCalendar 메서드 itemFor 부분 error 발생 |
+| 22.09.16(금) | 값 전달(protocol) 이용해 Time 설정                           | 앱 삭제 후 다시 깔았을 때 calendar 접근 시 realm 데이터 없을 때 error 발생 |
 
 
 
@@ -584,3 +585,123 @@ mainVC 에 image를 오늘의 Realm이 가지고 있는 Time에 따라 변경하
 SettingUI에서 집중 타이머 시간 셀을 클릭하면 나타나는 UI 화면 구성
 
 <img width="300" alt="스크린샷 2022-09-15 오후 11 27 14-3252039" src="https://user-images.githubusercontent.com/81552265/190431167-f94d3274-d543-48d3-baf2-2770b47cb212.png">
+
+### 22.09.16 (금)
+
+- TimeSetting 화면에 원하는 시간 클릭 시 UserDefaults에 저장
+- 값 전달을 통해 MainVC에 바로 적용될 수 있도록 변환
+- 저장된 UserDefault로 타이머 시간 변경
+- 각 이미지 변경하는 함수들 실제 적용 시간으로 변경
+
+#### TimeSetting 화면에 원하는 시간 클릭 시 UserDefaults에 저장
+
+이제 TimeSettingVC에서 각 시간에 대한 Cell 클릭 시 UserDefault에 값이 저장되도록 변환
+
+~~~swift
+ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            UserDefaults.standard.set(15*60, forKey: "engagedTime")
+            print(UserDefaults.standard.integer(forKey: "engagedTime"))
+            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+            let mainViewController = MainViewController()
+            transition(mainViewController, transitionStyle: .push)
+        case 1:
+            UserDefaults.standard.set(30*60, forKey: "engagedTime")
+            print(UserDefaults.standard.integer(forKey: "engagedTime"))
+            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+            let mainViewController = MainViewController()
+            transition(mainViewController, transitionStyle: .push)
+        case 2:
+            UserDefaults.standard.set(60*60, forKey: "engagedTime")
+            print(UserDefaults.standard.integer(forKey: "engagedTime"))
+            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+            let mainViewController = MainViewController()
+            transition(mainViewController, transitionStyle: .push)
+        case 3:
+            UserDefaults.standard.set(120*60, forKey: "engagedTime")
+            print(UserDefaults.standard.integer(forKey: "engagedTime"))
+            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+            let mainViewController = MainViewController()
+            transition(mainViewController, transitionStyle: .push)
+        default:
+            print("error발생")
+            
+        }
+    }
+~~~
+
+
+
+#### 값 전달을 통해 MainVC에 바로 적용될 수 있도록 변환 및 시간 변경
+
+- 값 전달을 위해 TimeSettingVC에 Protocol 선언
+
+  ~~~swift
+  protocol settingTimeDelegate {
+      func sendSettingTime(_ time: Int)
+  }
+  ~~~
+
+- class 내 delegate 선언
+
+  ~~~swift
+  var delegate: settingTimeDelegate?
+  ~~~
+
+- 값 전달받을 배열 만들기
+
+  ~~~swift
+  var getSettingTime: [Int] = []
+  ~~~
+
+- MainVC에 extension으로 값 전달 받기
+
+  ~~~swift
+  extension MainViewController: settingTimeDelegate {
+      func sendSettingTime(_ time: Int) {
+          getSettingTime.append(time)
+          mainview.settingCount = getSettingTime.startIndex
+      }
+  }
+  ~~~
+
+#### 각 이미지 변경하는 함수들 실제 적용 시간으로 변경
+
+이제 값 설정을 해줬으니, 실제 적용 시간에 따라 이미지가 변화하도록 설정해주어야 함!
+
+
+
+~~~swift
+    func ChangedImage(time: Int) -> UIImage? {
+        
+        
+        switch time {
+        case 0...7200:
+            return UIImage(named: "seeds")
+        case 7201...14400:
+            return UIImage(named: "sprout")
+        case 14401...21600:
+            return UIImage(named: "apple")
+        case 21601...:
+            return UIImage(named: "apple-tree")
+        default:
+            return nil
+        }
+        
+    }
+~~~
+
+저장 값을 초에 따라 설정해주었으므로, 2시간 마다 변경하게 끔 초단위로 메서드 변경
+
+
+
+여기에 동영상 들어갈 자리임
+
+
+
+이렇게 잘 실행이 되는 줄 알았으나 앱 삭제 후 다시 실행했을 때 전 날의 비교 Realm 데이터가 없어 calendar에 들어갔을 때 error가 뜨고 앱이 종료되는 현상이 발생...
+
+이 부분에 대해서는 비교할 realm이 없을 때의 예외처리를 해주어야 할 것 같다..!!
+
+내일 이 문제점을 해결해볼 것!!

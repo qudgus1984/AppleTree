@@ -65,10 +65,7 @@ class MainView: BaseView {
 
         return circularProgressBar
     }()
-    
-    
-    
-    
+
     override func configure() {
         [bgView, famousSayingLabel, circularProgressBar, iconImageView, countTimeLabel, startButton].forEach {
             self.addSubview($0)
