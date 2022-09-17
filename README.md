@@ -695,8 +695,7 @@ SettingUI에서 집중 타이머 시간 셀을 클릭하면 나타나는 UI 화�
 저장 값을 초에 따라 설정해주었으므로, 2시간 마다 변경하게 끔 초단위로 메서드 변경
 
 
-
-여기에 동영상 들어갈 자리임
+![Simulator Screen Recording - iPhone 13 Pro - 2022-09-17 at 14 09 26](https://user-images.githubusercontent.com/81552265/190841509-61d19ef8-84c7-4290-b830-661db1b7384f.gif)
 
 
 
