@@ -4,6 +4,9 @@ Apple Tree - 나를 발전시키는 소중한 시간
 
 Apple Tree는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰의 유혹 속에 빠져 나오지 못하는 이들에게, 핸드폰을 내려놓고 자신의 개발에 온전히 집중할 수 있도록 합니다. 자신을 가꾸며 함께하는 당신의 사과나무를 키워보세요. 사과나무를 많이 가꿀수록, 당신의 미래도 함께 성장해 갈 것입니다.
 
+## 실행 화면
+
+![Simulator Screen Recording - iPhone 13 Pro - 2022-09-17 at 14 09 26](https://user-images.githubusercontent.com/81552265/190841509-61d19ef8-84c7-4290-b830-661db1b7384f.gif)
 
 
 ## 개발 정리 표
@@ -695,8 +698,7 @@ SettingUI에서 집중 타이머 시간 셀을 클릭하면 나타나는 UI 화�
 저장 값을 초에 따라 설정해주었으므로, 2시간 마다 변경하게 끔 초단위로 메서드 변경
 
 
-
-여기에 동영상 들어갈 자리임
+![Simulator Screen Recording - iPhone 13 Pro - 2022-09-17 at 14 09 26](https://user-images.githubusercontent.com/81552265/190841509-61d19ef8-84c7-4290-b830-661db1b7384f.gif)
 
 
 
