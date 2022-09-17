@@ -237,13 +237,13 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         let appleTreeImg = resizeImage(image: UIImage(named: "apple-tree")!, width: 20, height: 20)
         
         switch time {
-        case 0...7200:
+        case 0...7199:
             return seedsImg
-        case 7201...14400:
+        case 7200...14399:
             return sproutImg
-        case 14401...21600:
+        case 14400...21599:
             return appleImg
-        case 21601...:
+        case 21600...:
             return appleTreeImg
         default:
             return nil

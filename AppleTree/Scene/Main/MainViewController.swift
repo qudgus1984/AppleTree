@@ -157,13 +157,13 @@ class MainViewController: BaseViewController {
         
         
         switch time {
-        case 0...7200:
+        case 0...7199:
             return UIImage(named: "seeds")
-        case 7201...14400:
+        case 7200...14399:
             return UIImage(named: "sprout")
-        case 14401...21600:
+        case 14400...21599:
             return UIImage(named: "apple")
-        case 21601...:
+        case 21600...:
             return UIImage(named: "apple-tree")
         default:
             return nil

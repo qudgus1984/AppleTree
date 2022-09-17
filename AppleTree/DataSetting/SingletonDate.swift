@@ -13,7 +13,7 @@ class DateFormatterHelper {
     
     static let Formatter = DateFormatterHelper()
     let dateFormatter = DateFormatter()
-    let date = Date()    
+    let date = Date()
     func formatDate() {
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
