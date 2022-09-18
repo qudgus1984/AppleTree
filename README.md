@@ -791,9 +791,10 @@ Singleton 패턴으로 구현한 DateFormatter을 파일명을 SingletonDateForm
 - 위와 관련된 오류에 대해 toast를 사용하여 예외 처리 / 기존 Alert 사용 부분 toast로 전환
 
 #### ResetPopupView 구성
+<img width="300" alt="스크린샷 2022-09-18 오후 8 11 21" src="https://user-images.githubusercontent.com/81552265/190899189-dc133c9b-500a-44e2-98dd-0fa7224db88c.png">
 
 
-Background 상태로 전환 시 나타날 화면을 구성해주었음. 추후 UI 개선때 고민해보고 수정해볼 것.
+위와 같이 Background 상태로 전환 시 나타날 화면을 구성해주었음. 추후 UI 개선때 고민해보고 수정해볼 것.
 
 
 
