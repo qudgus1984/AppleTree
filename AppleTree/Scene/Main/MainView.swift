@@ -75,7 +75,7 @@ class MainView: BaseView {
     override func setConstants() {
         
         bgView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
+            make.edges.equalTo(0)
         }
         
         famousSayingLabel.snp.makeConstraints { make in

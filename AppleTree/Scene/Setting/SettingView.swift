@@ -27,7 +27,7 @@ class SettingView: BaseView {
     override func setConstants() {
  
         tableView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
+            make.edges.equalTo(0)
         }
     }
     
