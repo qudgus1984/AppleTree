@@ -43,6 +43,7 @@
 		2FBE24DE28CF37FA00BAA0F1 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE24DD28CF37FA00BAA0F1 /* CalendarViewController.swift */; };
 		2FBE24E028CF41A200BAA0F1 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE24DF28CF41A200BAA0F1 /* CalendarTableViewCell.swift */; };
 		2FCB706428CA4223002AF578 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB706328CA4223002AF578 /* ReusableProtocol.swift */; };
+		2FD5515028D71DFB00D1ED25 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD5514F28D71DFB00D1ED25 /* Toast */; };
 		2FE4233128CA32C700BA7484 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4233028CA32C700BA7484 /* Transition+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 				2FBAE1FD28D0564B007F834F /* RealmSwift in Frameworks */,
 				2FBAE1FB28D0564B007F834F /* Realm in Frameworks */,
 				2FAA584528CC54630067BFE8 /* SnapKit in Frameworks */,
+				2FD5515028D71DFB00D1ED25 /* Toast in Frameworks */,
 				2FB41FF828CF8D7C00B8E245 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +283,7 @@
 				2FB41FF728CF8D7C00B8E245 /* FSCalendar */,
 				2FBAE1FA28D0564B007F834F /* Realm */,
 				2FBAE1FC28D0564B007F834F /* RealmSwift */,
+				2FD5514F28D71DFB00D1ED25 /* Toast */,
 			);
 			productName = AppleTree;
 			productReference = 2F7EE93D28BCEA69000F1F41 /* AppleTree.app */;
@@ -314,6 +317,7 @@
 				2FAA584328CC54630067BFE8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2FB41FF628CF8D7C00B8E245 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				2FBAE1F928D0564B007F834F /* XCRemoteSwiftPackageReference "realm-swift" */,
+				2FD5514E28D71DFB00D1ED25 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 2F7EE93E28BCEA69000F1F41 /* Products */;
 			projectDirPath = "";
@@ -623,6 +627,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		2FD5514E28D71DFB00D1ED25 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -645,6 +657,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FBAE1F928D0564B007F834F /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		2FD5514F28D71DFB00D1ED25 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FD5514E28D71DFB00D1ED25 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

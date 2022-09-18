@@ -73,29 +73,47 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            UserDefaults.standard.set(15*60, forKey: "engagedTime")
-            print(UserDefaults.standard.integer(forKey: "engagedTime"))
-            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-            let mainViewController = MainViewController()
-            transition(mainViewController, transitionStyle: .push)
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 시간을 재설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(15*60, forKey: "engagedTime")
+                print(UserDefaults.standard.integer(forKey: "engagedTime"))
+                delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .push)
+            }
         case 1:
-            UserDefaults.standard.set(30*60, forKey: "engagedTime")
-            print(UserDefaults.standard.integer(forKey: "engagedTime"))
-            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-            let mainViewController = MainViewController()
-            transition(mainViewController, transitionStyle: .push)
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 시간을 재설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(30*60, forKey: "engagedTime")
+                print(UserDefaults.standard.integer(forKey: "engagedTime"))
+                delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .push)
+            }
+
         case 2:
-            UserDefaults.standard.set(60*60, forKey: "engagedTime")
-            print(UserDefaults.standard.integer(forKey: "engagedTime"))
-            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-            let mainViewController = MainViewController()
-            transition(mainViewController, transitionStyle: .push)
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 시간을 재설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(60*60, forKey: "engagedTime")
+                print(UserDefaults.standard.integer(forKey: "engagedTime"))
+                delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .push)
+            }
+
         case 3:
-            UserDefaults.standard.set(120*60, forKey: "engagedTime")
-            print(UserDefaults.standard.integer(forKey: "engagedTime"))
-            delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-            let mainViewController = MainViewController()
-            transition(mainViewController, transitionStyle: .push)
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 시간을 재설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(120*60, forKey: "engagedTime")
+                print(UserDefaults.standard.integer(forKey: "engagedTime"))
+                delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .push)
+            }
         default:
             print("error발생")
             

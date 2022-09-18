@@ -11,6 +11,7 @@ import SnapKit
 class MainView: BaseView {
     
     var settingCount = UserDefaults.standard.integer(forKey: "engagedTime")
+    var stopCount = UserDefaults.standard.integer(forKey: "stop")
 
     let bgView: UIView = {
         let view = UIView()
@@ -46,6 +47,13 @@ class MainView: BaseView {
         return label
     }()
     
+    let stopCountLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 16)
+        label.textAlignment = .center
+        return label
+    }()
     
     let startButton: UIButton = {
         let button = UIButton()
@@ -67,7 +75,7 @@ class MainView: BaseView {
     }()
 
     override func configure() {
-        [bgView, famousSayingLabel, circularProgressBar, iconImageView, countTimeLabel, startButton].forEach {
+        [bgView, famousSayingLabel, circularProgressBar, iconImageView, countTimeLabel, startButton, stopCountLabel].forEach {
             self.addSubview($0)
         }
     }
@@ -90,7 +98,6 @@ class MainView: BaseView {
             make.top.equalTo(famousSayingLabel.snp.bottom).offset(4)
             make.width.equalToSuperview().multipliedBy(0.6)
             make.height.equalTo(circularProgressBar.snp.width)
-//                .equalToSuperview().multipliedBy(0.275)
         }
         
         iconImageView.snp.makeConstraints { make in
@@ -106,9 +113,16 @@ class MainView: BaseView {
             make.height.equalToSuperview().multipliedBy(0.15)
         }
         
+        stopCountLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(bgView)
+            make.top.equalTo(startButton.snp.bottom).offset(0)
+            make.width.equalToSuperview().multipliedBy(0.8)
+            make.height.equalToSuperview().multipliedBy(0.1)
+        }
+        
         startButton.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
-            make.top.equalTo(countTimeLabel.snp.bottom).offset(28)
+            make.top.equalTo(countTimeLabel.snp.bottom).offset(12)
             make.width.equalToSuperview().multipliedBy(0.2)
             make.height.equalToSuperview().multipliedBy(0.05)
         }

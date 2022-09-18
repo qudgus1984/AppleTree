@@ -32,6 +32,7 @@ class FinishPopupViewController: BaseViewController {
     @objc func okButtonClicked() {
 
         self.repository.updateItem(item: repository.todayFilter()[0], appendTime: MainView().settingCount)
+        UserDefaults.standard.set(3, forKey: "stop")
         print("================\(AppleTree.self)")
 
         dismiss(animated: true)

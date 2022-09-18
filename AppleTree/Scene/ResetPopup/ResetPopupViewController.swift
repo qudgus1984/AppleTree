@@ -52,8 +52,7 @@ class ResetPopupViewController: BaseViewController {
     
     override func configure() {
         
-        
-        self.mainview.countTimeLabel.text = "죽었당 식물이 으아아아앙"
+        self.mainview.countTimeLabel.text = "죽었당 식물이 으아앙"
         
         //MARK: Nav 색상 변경
         let appearence = UINavigationBarAppearance()
@@ -85,7 +84,7 @@ class ResetPopupViewController: BaseViewController {
     }
     
     @objc func resetButtonClickedCountDown() {
-        
+        UserDefaults.standard.set(3, forKey: "stop")
         let vc = MainViewController()
         transition(vc, transitionStyle: .presentFullNavigation)
     }

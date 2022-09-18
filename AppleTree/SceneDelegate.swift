@@ -14,16 +14,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
+
+        
+        if UserDefaults.standard.integer(forKey: "engagedTime") == 0 {
+            guard let scene = (scene as? UIWindowScene) else { return }
+            window = UIWindow(windowScene: scene)
+            let rootViewController = TimeSettingViewController()
+            let navigationController = UINavigationController(rootViewController: rootViewController)
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+        } else {
             guard let scene = (scene as? UIWindowScene) else { return }
             window = UIWindow(windowScene: scene)
             let rootViewController = MainViewController()
             let navigationController = UINavigationController(rootViewController: rootViewController)
+            UserDefaults.standard.set(false, forKey: "going")
             window?.rootViewController = navigationController
             window?.makeKeyAndVisible()
-            guard let _ = (scene as? UIWindowScene) else { return }
+        }
         
-        if UserDefaults.standard.integer(forKey: "engagedTime") == 0 {
-            UserDefaults.standard.set(1800, forKey: "engagedTime")
+        if UserDefaults.standard.integer(forKey: "stop") == 0 {
+            UserDefaults.standard.set(3, forKey: "stop")
         }
 
             window?.makeKeyAndVisible()
@@ -67,20 +78,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
         //백그라운드 간 상태
-        print("sceneDidEnterBackground")
         
-        MainViewController().timer?.invalidate()
-        MainViewController().timer = nil
-        
-        guard let scene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: scene)
-        let rootViewController = ResetPopupViewController()
-        let navigationController = UINavigationController(rootViewController: rootViewController)
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
-        guard let _ = (scene as? UIWindowScene) else { return }
+        if UserDefaults.standard.bool(forKey: "going") {
+            print("sceneDidEnterBackground")
+            
+            MainViewController().timer?.invalidate()
+            MainViewController().timer = nil
+            UserDefaults.standard.set(false, forKey: "going")
+            guard let scene = (scene as? UIWindowScene) else { return }
+            window = UIWindow(windowScene: scene)
+            let rootViewController = ResetPopupViewController()
+            let navigationController = UINavigationController(rootViewController: rootViewController)
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
 
-        window?.makeKeyAndVisible()
+        }
 
     }
 

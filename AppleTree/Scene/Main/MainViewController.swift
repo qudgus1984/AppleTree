@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Toast
 
 class MainViewController: BaseViewController {
     
@@ -62,6 +63,10 @@ class MainViewController: BaseViewController {
         let minutes = self.mainview.settingCount / 60
         let seconds = self.mainview.settingCount % 60
         self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+        self.mainview.stopCountLabel.text = "멈출 수 있는 기회는 \(UserDefaults.standard.integer(forKey: "stop"))번!"
+
+        
+
         
         //MARK: Nav 색상 변경
         let appearence = UINavigationBarAppearance()
@@ -107,6 +112,7 @@ class MainViewController: BaseViewController {
     @objc func startButtonClickedCountDown() {
         
         if startButtonBool == true {
+            UserDefaults.standard.set(true, forKey: "going")
             startButtonBool.toggle()
             self.mainview.startButton.setTitle("중지", for: .normal)
             timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (t) in
@@ -123,7 +129,6 @@ class MainViewController: BaseViewController {
                     
                     
                 } else {
-                    self.mainview.countTimeLabel.text = "00:00"
                     self.mainview.startButton.setTitle("완료", for: .normal)
                     self.timer?.invalidate()
                     self.timer = nil
@@ -131,14 +136,24 @@ class MainViewController: BaseViewController {
                     self.mainview.settingCount = UserDefaults.standard.integer(forKey: "engagedTime")
                     let minutes = self.mainview.settingCount / 60
                     let seconds = self.mainview.settingCount % 60
+                    UserDefaults.standard.set(false, forKey: "going")
                     self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
                 }
             }
         } else {
-            startButtonBool.toggle()
-            self.mainview.startButton.setTitle("시작", for: .normal)
-            timer?.invalidate()
-            timer = nil
+            if UserDefaults.standard.integer(forKey: "stop") != 0 {
+                UserDefaults.standard.set(false, forKey: "going")
+                startButtonBool.toggle()
+                self.mainview.startButton.setTitle("시작", for: .normal)
+                UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "stop")-1, forKey: "stop")
+                print(UserDefaults.standard.integer(forKey: "stop"))
+                mainview.stopCountLabel.text = "멈출 수 있는 기회는 \(UserDefaults.standard.integer(forKey: "stop"))번!"
+                
+                timer?.invalidate()
+                timer = nil
+            } else {
+                self.mainview.makeToast("멈출 수 있는 기회를 다써버려찌 머얌 :)")
+            }
             
         }
         
