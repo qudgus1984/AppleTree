@@ -19,6 +19,8 @@
 		2F7EE94828BCEA69000F1F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94628BCEA69000F1F41 /* Main.storyboard */; };
 		2F7EE94A28BCEA6B000F1F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94928BCEA6B000F1F41 /* Assets.xcassets */; };
 		2F7EE94D28BCEA6B000F1F41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94B28BCEA6B000F1F41 /* LaunchScreen.storyboard */; };
+		2F8BAA3E28D7003A00851124 /* ResetPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BAA3D28D7003A00851124 /* ResetPopupView.swift */; };
+		2F8BAA4028D7006300851124 /* ResetPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BAA3F28D7006300851124 /* ResetPopupViewController.swift */; };
 		2F9F6C2A28D19DBD0005986C /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F6C2928D19DBD0005986C /* DateFormatterHelper.swift */; };
 		2FAA583A28CC52690067BFE8 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA583928CC52690067BFE8 /* BaseView.swift */; };
 		2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA583B28CC52780067BFE8 /* BaseViewController.swift */; };
@@ -59,6 +61,8 @@
 		2F7EE94928BCEA6B000F1F41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F7EE94C28BCEA6B000F1F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F7EE94E28BCEA6B000F1F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F8BAA3D28D7003A00851124 /* ResetPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPopupView.swift; sourceTree = "<group>"; };
+		2F8BAA3F28D7006300851124 /* ResetPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPopupViewController.swift; sourceTree = "<group>"; };
 		2F9F6C2928D19DBD0005986C /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		2FAA583928CC52690067BFE8 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		2FAA583B28CC52780067BFE8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,15 @@
 			path = AppleTree;
 			sourceTree = "<group>";
 		};
+		2F8BAA3C28D7001B00851124 /* ResetPopup */ = {
+			isa = PBXGroup;
+			children = (
+				2F8BAA3D28D7003A00851124 /* ResetPopupView.swift */,
+				2F8BAA3F28D7006300851124 /* ResetPopupViewController.swift */,
+			);
+			path = ResetPopup;
+			sourceTree = "<group>";
+		};
 		2F9F6C2828D19D8D0005986C /* DataSetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +193,7 @@
 		2FAA583F28CC53D30067BFE8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				2F8BAA3C28D7001B00851124 /* ResetPopup */,
 				2FBE24D128CF23BF00BAA0F1 /* FinishPopup */,
 				2FBE24D028CF21E600BAA0F1 /* Calendar */,
 				2FBE24CF28CF21DB00BAA0F1 /* Setting */,
@@ -353,6 +367,8 @@
 				2FAA584728CC54E00067BFE8 /* UIColor + Extension.swift in Sources */,
 				2FBE24CE28CF004A00BAA0F1 /* CircularProgressBar.swift in Sources */,
 				2F2C540E28D3430100D647AE /* TimeSettingViewController.swift in Sources */,
+				2F8BAA4028D7006300851124 /* ResetPopupViewController.swift in Sources */,
+				2F8BAA3E28D7003A00851124 /* ResetPopupView.swift in Sources */,
 				2F2C541028D3431100D647AE /* TimeSettingTableViewCell.swift in Sources */,
 				2F9F6C2A28D19DBD0005986C /* DateFormatterHelper.swift in Sources */,
 				2FBAE20028D05952007F834F /* DataModel.swift in Sources */,

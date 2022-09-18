@@ -15,7 +15,6 @@ class CalendarViewController: BaseViewController {
     var tasks: Results<AppleTree>! {
         didSet {
             mainview.calendarView.reloadData()
-            print("✅✅✅\(tasks)")
         }
     }
     

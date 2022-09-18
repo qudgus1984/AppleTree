@@ -13,9 +13,7 @@ class FinishPopupViewController: BaseViewController {
     let repository = ATRepository()
     
     let mainview = FinishPopupView()
-    
-    let mainViewControllerInView = MainView()
-    
+        
     override func loadView() {
         super.view = mainview
     }
@@ -56,7 +54,4 @@ class FinishPopupViewController: BaseViewController {
         }
     }
     
-    func updateImage() {
-        mainViewControllerInView.iconImageView.image = ChangedImage(time: repository.todayFilter()[0].ATTime)
-    }
 }
