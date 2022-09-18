@@ -792,7 +792,8 @@ Singleton 패턴으로 구현한 DateFormatter을 파일명을 SingletonDateForm
 
 #### ResetPopupView 구성
 
-이미지 들어감
+
+![simulator_screenshot_AA51DE0A-241E-449A-9A3B-77D6B5BF1AB5](https://user-images.githubusercontent.com/81552265/190899042-4c66dc55-05bc-4caa-8184-741cc2eb1a3b.png)
 
 
 
@@ -816,8 +817,8 @@ Singleton 패턴으로 구현한 DateFormatter을 파일명을 SingletonDateForm
 ~~~
 
 
+![Simulator Screen Recording - iPhone 13 Pro - 2022-09-18 at 19 53 31](https://user-images.githubusercontent.com/81552265/190898992-49616f97-5492-4a7f-aa6f-df6270f74641.gif)
 
-gif 넣기
 
 
 
@@ -846,8 +847,8 @@ Background로 상태 변환 시 ResetPopupVC로 전환
 ~~~
 
 
+![Simulator Screen Recording - iPhone 13 Pro - 2022-09-18 at 20 00 53](https://user-images.githubusercontent.com/81552265/190898975-215f0622-905d-4db1-b2c4-f46f792ef60f.gif)
 
-gif 넣기
 
 
 
@@ -874,9 +875,9 @@ if UserDefaults.standard.bool(forKey: "going") {
 }
 ~~~
 
+![Simulator Screen Recording - iPhone 13 Pro - 2022-09-18 at 20 02 11](https://user-images.githubusercontent.com/81552265/190898963-8af831e9-534d-4650-83d8-364bdaa9c986.gif)
 
 
-Gif 넣기
 
 #### 위와 관련된 오류에 대해 toast를 사용하여 예외 처리 / 기존 Alert 사용 부분 toast로 전환
 
