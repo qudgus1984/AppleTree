@@ -24,14 +24,13 @@ class MainViewController: BaseViewController {
     var tasks: Results<AppleTree>! {
         didSet {
             tasks = repository.fetch()
-            let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+//            let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
             updateImage()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         todayRealmNotSet()
         
 //        repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0))
@@ -105,7 +104,7 @@ class MainViewController: BaseViewController {
         if startButtonBool == true {
             startButtonBool.toggle()
             self.mainview.startButton.setTitle("중지", for: .normal)
-            timer = Timer.scheduledTimer(withTimeInterval: 0.005, repeats: true) { (t) in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (t) in
                 self.mainview.settingCount -= 1
                 let minutes = self.mainview.settingCount / 60
                 let seconds = self.mainview.settingCount % 60
@@ -149,8 +148,8 @@ class MainViewController: BaseViewController {
     }
     
     func updateImage() {
-        let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
-        mainview.iconImageView.image =  ChangedImage(time: todayInfo[0].ATTime)
+
+        mainview.iconImageView.image =  ChangedImage(time: repository.todayFilter()[0].ATTime)
     }
     
     func ChangedImage(time: Int) -> UIImage? {
@@ -172,9 +171,8 @@ class MainViewController: BaseViewController {
     }
     
     func todayRealmNotSet() {
-        let result = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
         
-        if result.isEmpty {
+        if repository.todayFilter().isEmpty {
             repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: mainview.settingCount))
         }
     }

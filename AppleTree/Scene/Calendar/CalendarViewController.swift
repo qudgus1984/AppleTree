@@ -95,10 +95,10 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         
         //여기서 오류처리를 해주어야 할 듯 한데에...
 
-        if repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" ).isEmpty {
+        if repository.yesterdayFilter().isEmpty {
             
-            let hour = todayInfo[0].ATTime / 3600
-            let minutes = todayInfo[0].ATTime % 3600 / 60
+            let hour = repository.todayFilter()[0].ATTime / 3600
+            let minutes = repository.todayFilter()[0].ATTime % 3600 / 60
             
             switch indexPath.row {
             case 0:
@@ -107,18 +107,17 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.explainLabel.text = "어제는 성장하지 않으셨군요!!"
 
             case 2:
-                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.localRealm.objects(AppleTree.self).filter("ATTime >= 21600").count)개 입니다."
+                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.appleTreeGrownCount().count)개 입니다."
             default:
                 print()
             }
             
         } else {
-            let yesterdayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" )
             
-            let hour = todayInfo[0].ATTime / 3600
-            let minutes = todayInfo[0].ATTime % 3600 / 60
+            let hour = repository.todayFilter()[0].ATTime / 3600
+            let minutes = repository.todayFilter()[0].ATTime % 3600 / 60
 
-            let removeNum = todayInfo[0].ATTime - yesterdayInfo[0].ATTime
+            let removeNum = repository.todayFilter()[0].ATTime - repository.yesterdayFilter()[0].ATTime
             let removehour = removeNum / 3600
             let removeminutes = removeNum % 3600 / 60
             
@@ -135,7 +134,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
 
                 }
             case 2:
-                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.localRealm.objects(AppleTree.self).filter("ATTime >= 21600").count)개 입니다."
+                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.appleTreeGrownCount().count)개 입니다."
             default:
                 print()
             }

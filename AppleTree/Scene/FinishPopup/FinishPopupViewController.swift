@@ -32,16 +32,16 @@ class FinishPopupViewController: BaseViewController {
     }
     
     @objc func okButtonClicked() {
+//        repository.todayFilter()[0]
+//        let result = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
         
-        let result = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
-        
-        print("==================\(result)")
+//        print("==================\(result)")
         
         //        if result.isEmpty {
         //            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: MainView().settingCount))
         //            print("==========\(AppleTree.self)==============")
         //        } else {
-        self.repository.updateItem(item: result[0], appendTime: MainView().settingCount)
+        self.repository.updateItem(item: repository.todayFilter()[0], appendTime: MainView().settingCount)
         print("================\(AppleTree.self)")
         
         //        }
@@ -71,9 +71,13 @@ class FinishPopupViewController: BaseViewController {
     }
     
     func updateImage() {
-        let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
-        mainViewControllerInView.iconImageView.image =  ChangedImage(time: todayInfo[0].ATTime)
-        print("⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️",ChangedImage(time: todayInfo[0].ATTime))
+        mainViewControllerInView.iconImageView.image = ChangedImage(time: repository.todayFilter()[0].ATTime)
+//        repository.todayFilter()[0].ATTime
+
+//        let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+//        mainViewControllerInView.iconImageView.image = repository.todayFilter()[0].ATTime
+//        mainViewControllerInView.iconImageView.image =  ChangedImage(time: todayInfo[0].ATTime)
+//        print("⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️",ChangedImage(time: todayInfo[0].ATTime))
     }
     
     

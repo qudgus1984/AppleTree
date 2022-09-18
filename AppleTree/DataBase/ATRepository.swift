@@ -48,4 +48,20 @@ class ATRepository: ATRepositoryType {
         }
         print("저장되었습니다.", item.ATTime)
     }
+    
+    func todayFilter() -> Results<AppleTree> {
+        let item = localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+        return item
+    }
+    
+    func yesterdayFilter() -> Results<AppleTree> {
+        let item = localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" )
+        return item
+    }
+    
+    func appleTreeGrownCount() -> Results<AppleTree> {
+        let item = localRealm.objects(AppleTree.self).filter("ATTime >= 21600")
+        return item
+    }
+    
 }

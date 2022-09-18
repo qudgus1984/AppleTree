@@ -13,7 +13,6 @@ class DateFormatterHelper {
     
     static let Formatter = DateFormatterHelper()
     let dateFormatter = DateFormatter()
-    let date = Date()
     func formatDate() {
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -22,15 +21,14 @@ class DateFormatterHelper {
     var dateStr: String {
         get {
             formatDate()
-            print("✅✅",date)
-            return dateFormatter.string(from: date)
+            return dateFormatter.string(from: Date())
         }
     }
     
     var yesterDayStr: String {
         get {
             formatDate()
-            return dateFormatter.string(from: date - 86400)
+            return dateFormatter.string(from: Date() - 86400)
         }
     }
 }
