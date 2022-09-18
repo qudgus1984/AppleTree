@@ -71,7 +71,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         MainViewController().timer?.invalidate()
         MainViewController().timer = nil
-        print("ㅋㅋㅋㅋㅋㅋㅋ",MainViewController().timer)
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)

@@ -31,6 +31,11 @@ class MainViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //화면 꺼지지 않게 하는 코드
+        UIApplication.shared.isIdleTimerDisabled = true
+        
+        
         todayRealmNotSet()
         
 //        repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0))
