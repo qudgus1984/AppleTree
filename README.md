@@ -793,11 +793,7 @@ Singleton 패턴으로 구현한 DateFormatter을 파일명을 SingletonDateForm
 #### ResetPopupView 구성
 
 
-![simulator_screenshot_AA51DE0A-241E-449A-9A3B-77D6B5BF1AB5](https://user-images.githubusercontent.com/81552265/190899042-4c66dc55-05bc-4caa-8184-741cc2eb1a3b.png)
-
-
-
-위와 같이 Background 상태로 전환 시 나타날 화면을 구성해주었음. 추후 UI 개선때 고민해보고 수정해볼 것.
+Background 상태로 전환 시 나타날 화면을 구성해주었음. 추후 UI 개선때 고민해보고 수정해볼 것.
 
 
 
