@@ -44,7 +44,7 @@ class ATRepository: ATRepositoryType {
                 item.ATTime = totalTime
             }
         } catch {
-            print("error 발생")
+            print()
         }
         print("저장되었습니다.", item.ATTime)
     }

@@ -68,14 +68,14 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            showAlertMessage(title: "업데이트 예정입니다.")
+            self.mainview.makeToast("업데이트 예정입니다.")
         case 1:
             let vc = TimeSettingViewController()
             transition(vc, transitionStyle: .push)
         case 2:
-            showAlertMessage(title: "업데이트 예정입니다.")
+            self.mainview.makeToast("업데이트 예정입니다.")
         case 3:
-            showAlertMessage(title: "업데이트 예정입니다.")
+            self.mainview.makeToast("업데이트 예정입니다.")
         default:
             print("error발생")
             

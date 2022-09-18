@@ -20,6 +20,8 @@ Apple Tree는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰
 | 22.09.14(수) | Realm 설계 및 Singleton 패턴 사용                            | realm에서 filter 부분 error 발생                             |
 | 22.09.15(목) | Realm Date를 활용해 calendar 및 mainVC 이미지 변경 / Setting 화면 구성 | Realm 데이터 접근 부분 및 FSCalendar 메서드 itemFor 부분 error 발생 |
 | 22.09.16(금) | 값 전달(protocol) 이용해 Time 설정                           | 앱 삭제 후 다시 깔았을 때 calendar 접근 시 realm 데이터 없을 때 error 발생 |
+| 22.09.17(토) | feedback 기반 으로 Code 구조화                               | Realm filter 부분까지 Repository로 구현                      |
+| 22.09.18(일) | background 상태일 때 화면 전환                               | UserDefaults 로 화면 구분 -> 이 방식이 맞나..?               |
 
 
 
@@ -707,3 +709,175 @@ SettingUI에서 집중 타이머 시간 셀을 클릭하면 나타나는 UI 화�
 이 부분에 대해서는 비교할 realm이 없을 때의 예외처리를 해주어야 할 것 같다..!!
 
 내일 이 문제점을 해결해볼 것!!
+
+
+
+### 22.09.17 (토)
+
+- Repository Pattern으로 Filter에 대한 코드 구조화
+- row한 코드들 refactoring
+- 기본 App Setting 및 class 명과 파일 명 일치시키기
+
+#### Repository Pattern으로 Filter에 대한 코드 구조화
+
+~~~swift
+ let result = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" )
+result[0].isEmpty
+~~~
+
+이전에는 위와 같이 오늘의 Date가 Realm에 있는지 판단하기 위해 변수에 filter를 대입하고, 변수[0].isEmpty 방식으로 확인하는 코드로 전개하였다. 하지만 이 부분도 repository 방식으로 변환이 가능하다고 피드백받았고, 이를 repository 방식으로 적용해보았다.
+
+
+
+~~~swift
+func todayFilter() -> Results<AppleTree> {
+        let item = localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
+        return item
+    }
+    
+    func yesterdayFilter() -> Results<AppleTree> {
+        let item = localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" )
+        return item
+    }
+    
+    func appleTreeGrownCount() -> Results<AppleTree> {
+        let item = localRealm.objects(AppleTree.self).filter("ATTime >= 21600")
+        return item
+    }
+~~~
+
+Repostiory에 이렇게 작성하고, 실제 적용한 코드
+
+~~~swift
+cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.appleTreeGrownCount().count)개 입니다."
+
+let hour = repository.todayFilter()[0].ATTime / 3600
+let minutes = repository.todayFilter()[0].ATTime % 3600 / 60
+~~~
+
+전반적인 코드를 구조화시키고, 적용해보면서 어떠한 방식이 더욱 유지보수 측면에서 좋은지 생각해보는 계기가 된 것 같다.
+
+#### row한 코드들 refactoring
+
+~~~swift
+let weekDictionary: [Int : String] = [0 : "일", 1 : "월", 2 : "화", 3 : "수", 4 : "목", 5 : "금", 6 : "토"]
+for i in 0...6 {
+	mainview.calendarView.calendarWeekdayView.weekdayLabels[i].text = weekDictionary[i]
+}
+~~~
+
+6~7줄로 하나하나 작성한 코드를, dictionary 형태로 한줄로 표현했다. 처음부터 이렇게 왜 못짤까.. 흙흙
+
+그리고 tableView의 delegate / datasource 를 관리하는 부분은 계속 반복실행하기 때문에 이 부분에서는 최대한 부담을 주지 않는것이 좋다고, class 부분으로 빼내는 것을 해보라고 feedback 받았다. 막상 적용해보려니까 이것저것 오류가 생겨 다시 코드를 돌려놓았지만, 기능 구현이 되는 대로 다시 수정해볼 것이다!
+
+
+
+#### 기본 App Setting 및 class 명과 파일 명 일치시키기
+
+Singleton 패턴으로 구현한 DateFormatter을 파일명을 SingletonDateFormatter이라고 하고, class 명은 DateFormatterHelper 라고 지정해뒀는데, 굳이 파일명을 Singleton을 명시해줄 필요는 없고, 대부분 class명과 파일명은 일치시켜주는 것이 좋다고 피드백 받아 수정하였다.
+
+
+
+이 외에도 코드적으로 거슬리는 것들이나 필요없는 주석, 안쓰는 것들에 대한 전반적인 코드를 정리하였고, 내일부터는 다시 기능 구현을 목적으로 다시 코드를 짜볼 것이다.
+
+
+
+### 22.09.18 (일)
+
+- ResetPopupView 구성
+- Background 상태 시 ResetPopupVC로 전환되도록 설정
+- 추가 기능으로 타이머 정지를 3번까지 할 수 있도록 기능 개선
+- 타이머 정지 시에는 Background 상태여도 타이머 초기화 및 화면 전환이 되지 않도록 설정
+- 위와 관련된 오류에 대해 toast를 사용하여 예외 처리 / 기존 Alert 사용 부분 toast로 전환
+
+#### ResetPopupView 구성
+
+이미지 들어감
+
+
+
+위와 같이 Background 상태로 전환 시 나타날 화면을 구성해주었음. 추후 UI 개선때 고민해보고 수정해볼 것.
+
+
+
+#### Background 상태 시 ResetPopupVC로 전환되도록 설정
+
+~~~swift
+ func sceneDidEnterBackground(_ scene: UIScene) {
+	MainViewController().timer?.invalidate()
+	MainViewController().timer = nil
+	guard let scene = (scene as? UIWindowScene) else { return }
+	window = UIWindow(windowScene: scene)
+	let rootViewController = ResetPopupViewController()
+	let navigationController = UINavigationController(rootViewController: rootViewController)
+	window?.rootViewController = navigationController
+	window?.makeKeyAndVisible()
+}
+~~~
+
+
+
+gif 넣기
+
+
+
+Background로 상태 변환 시 ResetPopupVC로 전환
+
+#### 추가 기능으로 타이머 정지를 3번까지 할 수 있도록 기능 개선
+
+타이머가 진행되는 과정에서 Background로 가게 되면 바로 화면전환이 되는데, 이때 전화가 온다거나 하는 예외 상황에 대해서 처리를 안해주는 것은 사용자 입장에서 너무할 수 있다고 느낄 수 있다고 피드백을 받았음. 어떻게 해결할까... 스터디원과 함께 고민하다 타이머 정지를 시키는 횟수 제한을 두고, 정지 시에는 백그라운드 상태에 가더라도 화면 전환이 되지 않도록 해보자 라고 이야기가 나왔고, 이를 적용시키기 위해 타이머 정지를 3번 할 수 있도록 기능을 개선함. 그리고 타이머가 초기화되기 전까지는 타이머 정지 횟수가 0이하로 떨어지게 하면 toast가 뜨도록 설정해줌.
+
+
+
+~~~swift
+ if UserDefaults.standard.integer(forKey: "stop") != 0 {
+                UserDefaults.standard.set(false, forKey: "going")
+                startButtonBool.toggle()
+                self.mainview.startButton.setTitle("시작", for: .normal)
+                UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "stop")-1, forKey: "stop")
+                print(UserDefaults.standard.integer(forKey: "stop"))
+                mainview.stopCountLabel.text = "멈출 수 있는 기회는 \(UserDefaults.standard.integer(forKey: "stop"))번!"
+                
+                timer?.invalidate()
+                timer = nil
+            } else {
+                self.mainview.makeToast("멈출 수 있는 기회를 다써버려찌 머얌 :)")
+            }
+~~~
+
+
+
+gif 넣기
+
+
+
+#### 타이머 정지 시에는 Background 상태여도 타이머 초기화 및 화면 전환이 되지 않도록 설정
+
+이제 타이머 정지 시에는 Background에 가더라도 타이머가 초기화되고 화면전환이 되지 않도록 설정해줌. 이것에 대한 판단을 UserDefaults 로 설정해 주었는데, 이 방향이 맞는지에 대한 고민은 필요하다고 생각.
+
+
+
+~~~swift
+if UserDefaults.standard.bool(forKey: "going") {
+            print("sceneDidEnterBackground")
+            
+            MainViewController().timer?.invalidate()
+            MainViewController().timer = nil
+            UserDefaults.standard.set(false, forKey: "going")
+            guard let scene = (scene as? UIWindowScene) else { return }
+            window = UIWindow(windowScene: scene)
+            let rootViewController = ResetPopupViewController()
+            let navigationController = UINavigationController(rootViewController: rootViewController)
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+
+}
+~~~
+
+
+
+Gif 넣기
+
+#### 위와 관련된 오류에 대해 toast를 사용하여 예외 처리 / 기존 Alert 사용 부분 toast로 전환
+
+UI의 일관성을 주고 싶다고 생각했고, 기존에 사용하던 Alert에 대한 처리를 toast로 변환시켜주었음.
