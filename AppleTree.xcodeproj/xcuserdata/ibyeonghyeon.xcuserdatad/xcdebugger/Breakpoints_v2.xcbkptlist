@@ -7,84 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FC187C62-7460-4E04-BD3B-BF48F8BF0139"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AppleTree/Scene/Main/MainView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "circularProgressBar"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "FC187C62-7460-4E04-BD3B-BF48F8BF0139 - d48047500e23766"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; AppleTree.CircularProgress in variable initialization expression of AppleTree.MainView.circularProgressBar : AppleTree.CircularProgress"
-                  moduleName = "AppleTree"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "FC187C62-7460-4E04-BD3B-BF48F8BF0139 - 8b5d53ee28f49238"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AppleTree.MainView.circularProgressBar.getter : AppleTree.CircularProgress"
-                  moduleName = "AppleTree"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "FC187C62-7460-4E04-BD3B-BF48F8BF0139 - ab874fdea879e398"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AppleTree.MainView.init(frame: __C.CGRect) -&gt; AppleTree.MainView"
-                  moduleName = "AppleTree"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "348">
-               </Location>
-               <Location
-                  uuid = "FC187C62-7460-4E04-BD3B-BF48F8BF0139 - 425dcf32798a74a2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AppleTree.MainView.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;AppleTree.MainView&gt;"
-                  moduleName = "AppleTree"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "312">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C923CD1D-B8B9-4197-AA0C-154D580BBFA1"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -92,8 +14,8 @@
             filePath = "AppleTree/Scene/Main/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>
@@ -108,8 +30,8 @@
             filePath = "AppleTree/Scene/Calendar/CalendarViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "calendar(_:imageFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -140,8 +62,8 @@
             filePath = "AppleTree/Scene/Calendar/CalendarViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "dateChangedIcon(time:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -280,8 +202,8 @@
             filePath = "AppleTree/Scene/Calendar/CalendarViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>

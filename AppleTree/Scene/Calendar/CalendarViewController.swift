@@ -46,6 +46,7 @@ class CalendarViewController: BaseViewController {
     func setCalendarUI() {
         mainview.calendarView.dataSource = self
         mainview.calendarView.delegate = self
+        
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.locale = Locale(identifier: "ko_KR")
         
@@ -54,6 +55,11 @@ class CalendarViewController: BaseViewController {
             mainview.calendarView.calendarWeekdayView.weekdayLabels[i].text = weekDictionary[i]
         }
         
+        self.mainview.calendarView.appearance.weekdayFont = UIFont(name: "UhBee BEOJJI Bold", size: 14)
+        self.mainview.calendarView.appearance.weekdayTextColor = themaChoice().mainColor.withAlphaComponent(0.9)
+        self.mainview.calendarView.appearance.headerTitleFont = UIFont(name: "UhBee BEOJJI Bold", size: 24)
+        self.mainview.calendarView.appearance.headerTitleColor = themaChoice().mainColor.withAlphaComponent(0.9)
+        self.mainview.calendarView.appearance.headerTitleAlignment = .center
     }
     
     //이미지 크기 조절 메서드
@@ -160,7 +166,6 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     }
     
     
-    
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         print(date)
 
@@ -170,6 +175,8 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         return filterData.isEmpty ? UIImage() : dateChangedIcon(time: filterData[0].ATTime)
 
     }
+    
+    
     
     func dateChangedIcon(time: Int) -> UIImage? {
         let seedsImg = resizeImage(image: UIImage(named: "seeds")!, width: 20, height: 20)
@@ -190,4 +197,5 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
             return nil
         }
     }
+    
 }

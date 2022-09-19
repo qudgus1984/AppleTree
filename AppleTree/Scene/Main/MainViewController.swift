@@ -34,19 +34,16 @@ class MainViewController: BaseViewController {
         
         //화면 꺼지지 않게 하는 코드
         UIApplication.shared.isIdleTimerDisabled = true
-        
-        
         todayRealmNotSet()
-        
-        
         startButtonClicked()
-        print(progress)
-        
-        mainview.iconImageView.image = UIImage(named: "seeds")
+//        mainview.iconImageView.image = UIImage(named: "seeds")
     }
     
     //값 전달을 위한 fetch
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.00001, value: 0.0)
+        print("🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱")
         tasks = repository.fetch()
     }
     
@@ -110,7 +107,7 @@ class MainViewController: BaseViewController {
             UserDefaults.standard.set(true, forKey: "going")
             startButtonBool.toggle()
             self.mainview.startButton.setTitle("중지", for: .normal)
-            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (t) in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.0005, repeats: true) { (t) in
                 self.mainview.settingCount -= 1
                 let minutes = self.mainview.settingCount / 60
                 let seconds = self.mainview.settingCount % 60
@@ -119,8 +116,8 @@ class MainViewController: BaseViewController {
                     self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
                     self.mainview.countTimeLabel.text = "\(minutes):\(seconds)"
                     self.progress = Float(self.mainview.settingCount) / Float(UserDefaults.standard.integer(forKey: "engagedTime"))
-                    print("🍎🍎🍎🍎🍎🍎🍎🍎",self.progress)
-                    self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.00001, value: 1.0 - self.progress)
+//                    print("🍎🍎🍎🍎🍎🍎🍎🍎",self.progress)
+                    self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.0001, value: 1.0 - self.progress)
                     
                     
                 } else {

@@ -37,7 +37,12 @@ class MainView: BaseView {
         }
         view.contentMode = .scaleAspectFit
         view.image = UIImage(named: "seeds")
-        view.backgroundColor = .white
+        view.backgroundColor = themaChoice().mainColor
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 20
+        
+        print("첫번째 icon 이미지 뷰를 만드는 장소")
+
         return view
     }()
     
@@ -67,21 +72,32 @@ class MainView: BaseView {
     }()
     
     // circle Progress Bar 도전!
+    
     let circularProgressBar: CircularProgress = {
 
+        
         let circularProgressBar = CircularProgress(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.width * 0.6))
         
         circularProgressBar.progressColor = themaChoice().progressColor
         circularProgressBar.trackColor = themaChoice().lightColor
         circularProgressBar.tag = 101
-
+        print("세번째 프로그래스바를 다 만들었음")
         return circularProgressBar
     }()
 
     override func configure() {
-        [bgView, famousSayingLabel, circularProgressBar, iconImageView, countTimeLabel, startButton, stopCountLabel].forEach {
+
+        
+        [bgView, famousSayingLabel, iconImageView, circularProgressBar, countTimeLabel, startButton, stopCountLabel].forEach {
             self.addSubview($0)
         }
+//        [bgView, famousSayingLabel, countTimeLabel, startButton, stopCountLabel].forEach {
+//            self.addSubview($0)
+//        }
+//        addSubview(circularProgressBar)
+//        print("서큘레이터그렸꾸우")
+//        addSubview(iconImageView)
+//        print("아이콘을 그려따")
     }
     
     override func setConstants() {
@@ -105,7 +121,7 @@ class MainView: BaseView {
         }
         
         iconImageView.snp.makeConstraints { make in
-            make.edges.equalTo(circularProgressBar).inset(safeAreaInsets).inset(8)
+            make.edges.equalTo(circularProgressBar).inset(safeAreaInsets).inset(20)
  
         }
         

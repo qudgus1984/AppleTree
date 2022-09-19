@@ -28,7 +28,7 @@ class CircularProgress: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        createCircularPath()
+//        createCircularPath()
     }
     
     var progressColor:UIColor = UIColor.red {
@@ -63,6 +63,7 @@ class CircularProgress: UIView {
         progressLayer.lineWidth = 10.0;
         progressLayer.strokeEnd = 0.0
         layer.addSublayer(progressLayer)
+        print("두번째 - 서큘레이터를 만드는 메서드")
         
     }
     
@@ -75,6 +76,7 @@ class CircularProgress: UIView {
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         progressLayer.strokeEnd = CGFloat(value)
         progressLayer.add(animation, forKey: "animateCircle")
+
     }
 
 }
