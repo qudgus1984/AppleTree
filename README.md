@@ -895,9 +895,7 @@ VC에서 Push로 화면을 전환해준 부분들을 presentFullNav 방식으로
 
 #### Thema UI 구성
 
-
-
-이미지 넣기
+<img width="358" alt="스크린샷 2022-09-20 오전 12 34 26-3601673" src="https://user-images.githubusercontent.com/81552265/191059615-70a0dbf8-4820-4789-93ad-dca826ebef9a.png">
 
 
 
@@ -1007,7 +1005,12 @@ view.backgroundColor = themaChoice().mainColor
 
 ~~~
 
-이미지 넣기
+<img width="300" alt="스크린샷 2022-09-20 오전 12 38 50-3601938" src="https://user-images.githubusercontent.com/81552265/191059502-e2be6e96-c5f4-4a66-a975-e137a68f4b08.png">
+
+<img width="300" alt="스크린샷 2022-09-20 오전 12 39 12" src="https://user-images.githubusercontent.com/81552265/191059519-d720ba9a-5db6-4345-9db6-32b80c2d978e.png">
+<img width="300" alt="스크린샷 2022-09-20 오전 12 39 25" src="https://user-images.githubusercontent.com/81552265/191059531-36db39bf-993f-48bf-ac3c-cf3b7c4473c1.png">
+<img width="300" alt="스크린샷 2022-09-20 오전 12 40 05" src="https://user-images.githubusercontent.com/81552265/191059538-064b8808-b6df-4128-9bb0-96a89d6259da.png">
+
 
 #### ThemaSetting VC에서 Thema 선택 가능
 
@@ -1068,8 +1071,8 @@ ThemaVC에서 Thema를 고를 수 있게 선언해주었고, 각 셀을 클릭 �
 #### 화면전환 시 circulatorProgressView와 ImageView에 대한 오류 발생 -> 미해결
 
 
-
-이미지 넣기
+<img width="250" alt="스크린샷 2022-09-20 오전 12 44 58-3602302" src="https://user-images.githubusercontent.com/81552265/191059355-c3f223c6-ad32-481c-b342-23047048668b.png">
+<img width="250" alt="스크린샷 2022-09-20 오전 12 45 17" src="https://user-images.githubusercontent.com/81552265/191059376-a61fa598-9fff-47c8-b525-e34fde2832f3.png">
 
 
 
