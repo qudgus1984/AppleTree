@@ -41,7 +41,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 6
     }
     
     
@@ -51,13 +51,17 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
         
         switch indexPath.row {
         case 0:
-            cell.explainLabel.text = "15분"
+            cell.explainLabel.text = "이정도는 가뿐해! 15분!"
         case 1:
-            cell.explainLabel.text = "30분"
+            cell.explainLabel.text = "짧고 굵게!! 30분"
         case 2:
-            cell.explainLabel.text = "1시간"
+            cell.explainLabel.text = "데일리한 1시간!"
         case 3:
-            cell.explainLabel.text = "2시간"
+            cell.explainLabel.text = "집중 하기 좋은 2시간!"
+        case 4:
+            cell.explainLabel.text = "4시간...도전해볼까요?!"
+        case 5:
+            cell.explainLabel.text = "8시간!! 켠김에 왕까지?!"
         default:
             print("error발생")
             
@@ -109,6 +113,26 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 self.mainview.makeToast("타이머가 가는 동안은 시간을 재설정 할 수 없어요!")
             } else {
                 UserDefaults.standard.set(120*60, forKey: "engagedTime")
+                print(UserDefaults.standard.integer(forKey: "engagedTime"))
+                delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .push)
+            }
+        case 4:
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 시간을 재설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(240*60, forKey: "engagedTime")
+                print(UserDefaults.standard.integer(forKey: "engagedTime"))
+                delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .push)
+            }
+        case 5:
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 시간을 재설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(480*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 let mainViewController = MainViewController()

@@ -25,7 +25,6 @@ class MainViewController: BaseViewController {
     var tasks: Results<AppleTree>! {
         didSet {
             tasks = repository.fetch()
-//            let todayInfo = repository.localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
             updateImage()
         }
     }
@@ -39,7 +38,6 @@ class MainViewController: BaseViewController {
         
         todayRealmNotSet()
         
-//        repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0))
         
         startButtonClicked()
         print(progress)
@@ -66,8 +64,6 @@ class MainViewController: BaseViewController {
         self.mainview.stopCountLabel.text = "멈출 수 있는 기회는 \(UserDefaults.standard.integer(forKey: "stop"))번!"
 
         
-
-        
         //MARK: Nav 색상 변경
         let appearence = UINavigationBarAppearance()
         appearence.backgroundColor = .huntGreen
@@ -88,8 +84,6 @@ class MainViewController: BaseViewController {
     
     @objc func calenderButtonClicked() {
         let vc = CalendarViewController()
-        //        vc.repository.fetch()
-        //        vc
         vc.tasks = vc.repository.fetch()
         transition(vc, transitionStyle: .push)
     }
@@ -104,7 +98,6 @@ class MainViewController: BaseViewController {
     }
     
     func startButtonClicked() {
-        
         mainview.startButton.addTarget(self, action: #selector(startButtonClickedCountDown), for: .touchUpInside)
         
     }
