@@ -140,7 +140,6 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
             }
         default:
             print("error발생")
-            
         }
     }
     
