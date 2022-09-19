@@ -22,6 +22,7 @@ Apple Tree는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰
 | 22.09.16(금) | 값 전달(protocol) 이용해 Time 설정                           | 앱 삭제 후 다시 깔았을 때 calendar 접근 시 realm 데이터 없을 때 error 발생 |
 | 22.09.17(토) | feedback 기반 으로 Code 구조화                               | Realm filter 부분까지 Repository로 구현                      |
 | 22.09.18(일) | background 상태일 때 화면 전환                               | UserDefaults 로 화면 구분 -> 이 방식이 맞나..?               |
+| 22.09.19(월) | Thema Update / 화면전환 stack 안쌓이게 전환                  | Thema관련 enum 및 func으로 설정                              |
 
 
 
@@ -879,3 +880,197 @@ if UserDefaults.standard.bool(forKey: "going") {
 #### 위와 관련된 오류에 대해 toast를 사용하여 예외 처리 / 기존 Alert 사용 부분 toast로 전환
 
 UI의 일관성을 주고 싶다고 생각했고, 기존에 사용하던 Alert에 대한 처리를 toast로 변환시켜주었음.
+
+### 22.09.19 (월)
+
+- View가 화면에 쌓이는 문제 해결
+- Thema UI 구성
+- Thema Color Set 설정 및 구조화
+- Setting VC에서 Thema 선택 가능
+- 화면전환 시 circulatorProgressView와 ImageView에 대한 오류 발생 -> 미해결
+
+#### View가 화면에 쌓이는 문제 해결
+
+VC에서 Push로 화면을 전환해준 부분들을 presentFullNav 방식으로 전환해주어 stack에 view가 쌓이는 것을 처리해주었음. 
+
+#### Thema UI 구성
+
+
+
+이미지 넣기
+
+
+
+구성할 테마에 대해 VC를 구성해주고 TableCell에 표현해주었음.
+
+#### Thema Color Set 설정 및 구조화
+
+~~~swift
+import UIKit
+
+enum Thema {
+    case SeSACThema
+    case PurpleThema
+    case PinkThema
+    case NightThema
+    case BeachThema
+    
+    var mainColor: UIColor {
+        switch self {
+        case .SeSACThema:
+            return .huntGreen
+        case .PurpleThema:
+            return .huntPurple
+        case .PinkThema:
+            return .huntPink
+        case .NightThema:
+            return .huntNight
+        case .BeachThema:
+            return .huntBeach
+        }
+        
+    }
+    
+    var lightColor: UIColor {
+        switch self {
+        case .SeSACThema:
+            return .huntLightGreen
+        case .PurpleThema:
+            return .huntLightPurple
+        case .PinkThema:
+            return .huntLightPink
+        case .NightThema:
+            return .huntLightNight
+        case .BeachThema:
+            return .huntLightBeach
+            
+        }
+    }
+    
+    var progressColor: UIColor {
+        switch self {
+        case .SeSACThema:
+            return .huntYellow
+        case .PurpleThema:
+            return .huntPurpleWhite
+        case .PinkThema:
+            return .huntPinkWhite
+        case .NightThema:
+            return .huntNightPurple
+        case .BeachThema:
+            return .huntBeachWhite
+        }
+    }
+    
+    var calendarChoiceColor: UIColor {
+        switch self {
+        case .SeSACThema:
+            return .customDarkGreen
+        case .PurpleThema:
+            return .huntPurpleBlue
+        case .PinkThema:
+            return .huntPinkRed
+        case .NightThema:
+            return .huntNightPink
+        case .BeachThema:
+            return .huntLightBeachSky
+        }
+    }
+}
+
+func themaChoice() -> Thema {
+    if UserDefaults.standard.integer(forKey: "thema") == 0 {
+        return Thema.SeSACThema
+    } else if UserDefaults.standard.integer(forKey: "thema") == 1 {
+        return Thema.PurpleThema
+    } else if UserDefaults.standard.integer(forKey: "thema") == 2 {
+        return Thema.PinkThema
+    } else if UserDefaults.standard.integer(forKey: "thema") == 3 {
+        return Thema.NightThema
+    } else {
+        return Thema.BeachThema
+    }
+}
+
+~~~
+
+
+
+새 파일을 만들고, enum에 각 테마에 대해 선언해주고 테마당 UIColor Set을 설정해주었음. 이를 UserDefaults를 통해 각각의 테마를 return값으로 표현해주는 방식으로 구현하였음.
+
+
+
+또한 각 view에서 color을 지정한 부분에 대해 테마에 대한 색으로 변경해주었음
+
+~~~swift
+view.backgroundColor = themaChoice().mainColor
+
+~~~
+
+이미지 넣기
+
+#### ThemaSetting VC에서 Thema 선택 가능
+
+~~~swift
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(0, forKey: "thema")
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
+            }
+        case 1:
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(1, forKey: "thema")
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
+            }
+        case 2:
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(2, forKey: "thema")
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
+            }
+        case 3:
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(3, forKey: "thema")
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
+            }
+        case 4:
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(4, forKey: "thema")
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
+            }
+
+
+        default:
+            print("error발생")
+        }
+    }
+
+~~~
+
+ThemaVC에서 Thema를 고를 수 있게 선언해주었고, 각 셀을 클릭 시 UserDefaults에 값을 저장하고 만약 타이머가 진행되고 있으면 변경할 수 없도록 조건문을 통해 처리해주었음.
+
+#### 화면전환 시 circulatorProgressView와 ImageView에 대한 오류 발생 -> 미해결
+
+
+
+이미지 넣기
+
+
+
+화면 전환 시 circulator Progress View 안에 있는 imageView가 안에 있다가 앞으로 나오는 문제가 발생하였다. print로 전부 찍어봐도 순서에 대한 변화는 없는데 자꾸 오류가 발생하여 UI적으로 오류가 없는 것 처럼 배경을 기본 세팅배경색으로 변경하였지만, 근본적인 오류 해결방법이 아닌 것 같아 고민해보고 수정해볼 것이다.
