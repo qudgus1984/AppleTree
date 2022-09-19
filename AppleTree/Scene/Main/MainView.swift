@@ -41,7 +41,7 @@ class MainView: BaseView {
         view.clipsToBounds = true
         view.layer.cornerRadius = 20
         
-        print("첫번째 icon 이미지 뷰를 만드는 장소")
+//        print("첫번째 icon 이미지 뷰를 만드는 장소")
 
         return view
     }()
@@ -81,7 +81,7 @@ class MainView: BaseView {
         circularProgressBar.progressColor = themaChoice().progressColor
         circularProgressBar.trackColor = themaChoice().lightColor
         circularProgressBar.tag = 101
-        print("세번째 프로그래스바를 다 만들었음")
+//        print("세번째 프로그래스바를 다 만들었음")
         return circularProgressBar
     }()
 
@@ -91,13 +91,6 @@ class MainView: BaseView {
         [bgView, famousSayingLabel, iconImageView, circularProgressBar, countTimeLabel, startButton, stopCountLabel].forEach {
             self.addSubview($0)
         }
-//        [bgView, famousSayingLabel, countTimeLabel, startButton, stopCountLabel].forEach {
-//            self.addSubview($0)
-//        }
-//        addSubview(circularProgressBar)
-//        print("서큘레이터그렸꾸우")
-//        addSubview(iconImageView)
-//        print("아이콘을 그려따")
     }
     
     override func setConstants() {
