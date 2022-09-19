@@ -1,15 +1,14 @@
 //
-//  SettingTableViewCell.swift
+//  ThemaSettingTableViewCell.swift
 //  AppleTree
 //
-//  Created by 이병현 on 2022/09/15.
+//  Created by 이병현 on 2022/09/19.
 //
 
 import UIKit
 import SnapKit
 
-class SettingTableViewCell: BaseTableViewCell {
-    
+class ThemaSettingTableViewCell: BaseTableViewCell {
     let containView: UIView = {
         let view = UIView()
         view.backgroundColor = themaChoice().mainColor
@@ -50,4 +49,5 @@ class SettingTableViewCell: BaseTableViewCell {
     }
     
 }
+
 

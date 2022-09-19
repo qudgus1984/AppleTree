@@ -15,7 +15,7 @@ class MainView: BaseView {
 
     let bgView: UIView = {
         let view = UIView()
-        view.backgroundColor = .huntGreen
+        view.backgroundColor = themaChoice().mainColor
         return view
     }()
     
@@ -58,7 +58,7 @@ class MainView: BaseView {
     let startButton: UIButton = {
         let button = UIButton()
         button.setTitle("시작", for: .normal)
-        button.backgroundColor = .huntLightGreen
+        button.backgroundColor = themaChoice().lightColor
         return button
     }()
     
@@ -67,8 +67,8 @@ class MainView: BaseView {
 
         let circularProgressBar = CircularProgress(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.width * 0.6))
         
-        circularProgressBar.progressColor = .huntYellow
-        circularProgressBar.trackColor = .huntLightGreen
+        circularProgressBar.progressColor = themaChoice().progressColor
+        circularProgressBar.trackColor = themaChoice().lightColor
         circularProgressBar.tag = 101
 
         return circularProgressBar

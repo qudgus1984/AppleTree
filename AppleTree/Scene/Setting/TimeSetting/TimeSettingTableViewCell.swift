@@ -11,7 +11,7 @@ import SnapKit
 class TimeSettingTableViewCell: BaseTableViewCell {
     let containView: UIView = {
         let view = UIView()
-        view.backgroundColor = .huntGreen
+        view.backgroundColor = themaChoice().mainColor
         view.layer.cornerRadius = 10
         return view
     }()

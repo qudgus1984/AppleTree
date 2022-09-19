@@ -1,19 +1,19 @@
 //
-//  SettingView.swift
+//  ThemaSettingView.swift
 //  AppleTree
 //
-//  Created by 이병현 on 2022/09/15.
+//  Created by 이병현 on 2022/09/19.
 //
 
 import UIKit
 import SnapKit
 
-class SettingView: BaseView {
+class ThemaSettingView: BaseView {
     
     lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.backgroundColor = themaChoice().lightColor
-        view.register(SettingTableViewCell.self, forCellReuseIdentifier: "cell")
+        view.register(TimeSettingTableViewCell.self, forCellReuseIdentifier: "cell")
         return view
     }()
     
@@ -32,4 +32,3 @@ class SettingView: BaseView {
     }
     
 }
-

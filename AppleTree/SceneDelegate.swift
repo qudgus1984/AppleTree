@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         
         if UserDefaults.standard.integer(forKey: "engagedTime") == 0 {
+            UserDefaults.standard.set(0, forKey: "thema")
             guard let scene = (scene as? UIWindowScene) else { return }
             window = UIWindow(windowScene: scene)
             let rootViewController = TimeSettingViewController()

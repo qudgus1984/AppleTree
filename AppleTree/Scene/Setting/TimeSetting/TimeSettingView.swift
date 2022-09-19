@@ -12,7 +12,7 @@ class TimeSettingView: BaseView {
     
     lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
-        view.backgroundColor = .huntLightGreen
+        view.backgroundColor = themaChoice().lightColor
         view.register(TimeSettingTableViewCell.self, forCellReuseIdentifier: "cell")
         return view
     }()

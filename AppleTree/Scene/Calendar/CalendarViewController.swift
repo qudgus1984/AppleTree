@@ -69,7 +69,7 @@ class CalendarViewController: BaseViewController {
         
         //MARK: Nav 색상 변경
         let appearence = UINavigationBarAppearance()
-        appearence.backgroundColor = .huntLightGreen
+        appearence.backgroundColor = themaChoice().lightColor
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
         
@@ -87,7 +87,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CalendarTableViewCell else { return UITableViewCell() }
-        cell.backgroundColor = .huntLightGreen
+        cell.backgroundColor = themaChoice().lightColor
         
         if repository.yesterdayFilter().isEmpty {
             

@@ -29,7 +29,7 @@ class TimeSettingViewController: BaseViewController {
     }
     override func configure() {
         let appearence = UINavigationBarAppearance()
-        appearence.backgroundColor = .huntLightGreen
+        appearence.backgroundColor = themaChoice().lightColor
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
     }
@@ -47,7 +47,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TimeSettingTableViewCell else { return UITableViewCell() }
-        cell.backgroundColor = .huntLightGreen
+        cell.backgroundColor = themaChoice().lightColor
         
         switch indexPath.row {
         case 0:

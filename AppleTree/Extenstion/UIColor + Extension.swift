@@ -10,9 +10,14 @@ import UIKit
 extension UIColor {
     //배경색
     static let customDarkGreen = UIColor(
-        red: 102/255,
-        green: 153/255,
-        blue: 102/255,
+//        red: 102/255,
+//        green: 153/255,
+//        blue: 102/255,
+//        alpha: 1
+        
+        red: 170/255,
+        green: 196/255,
+        blue: 255/255,
         alpha: 1
     )
     
@@ -42,13 +47,25 @@ extension UIColor {
         green: 183/255,
         blue: 126/255,
         alpha: 1
+        
+//        red: 177/255,
+//        green: 178/255,
+//        blue: 255/255,
+//        alpha: 1
+//
     )
     
     static let huntLightGreen = UIColor(
+        
         red: 177/255,
         green: 215/255,
         blue: 180/255,
         alpha: 1
+
+//        red: 210/255,
+//        green: 218/255,
+//        blue: 255/255,
+//        alpha: 1
     )
     
     static let huntYellow = UIColor(
@@ -56,6 +73,11 @@ extension UIColor {
         green: 246/255,
         blue: 220/255,
         alpha: 1
+
+//        red: 238/255,
+//        green: 241/255,
+//        blue: 255/255,
+//        alpha: 1
     )
     
     static let huntOrange = UIColor(
@@ -64,5 +86,39 @@ extension UIColor {
         blue: 144/255,
         alpha: 1
     )
+    
+    static let huntPurple = UIColor(
+
+        red: 177/255,
+        green: 178/255,
+        blue: 255/255,
+        alpha: 1
+        
+    )
+    
+    static let huntLightPurple = UIColor(
+        
+        red: 210/255,
+        green: 218/255,
+        blue: 255/255,
+        alpha: 1
+    )
+    
+    static let huntPurpleWhite = UIColor(
+        
+        red: 238/255,
+        green: 241/255,
+        blue: 255/255,
+        alpha: 1
+    )
+    
+    static let huntPurpleBlue = UIColor(
+        
+        red: 170/255,
+        green: 196/255,
+        blue: 255/255,
+        alpha: 1
+    )
+
     
 }

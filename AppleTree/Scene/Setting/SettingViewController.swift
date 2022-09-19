@@ -25,7 +25,7 @@ class SettingViewController: BaseViewController {
 
     override func configure() {
         let appearence = UINavigationBarAppearance()
-        appearence.backgroundColor = .huntLightGreen
+        appearence.backgroundColor = themaChoice().lightColor
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
     }
@@ -36,13 +36,13 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SettingTableViewCell else { return UITableViewCell() }
-        cell.backgroundColor = .huntLightGreen
+        cell.backgroundColor = themaChoice().lightColor
         
         switch indexPath.row {
         case 0:
@@ -52,7 +52,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             cell.explainLabel.text = "집중 시간 통계"
         case 3:
-            cell.explainLabel.text = "데이터 저장 및 복원"
+            cell.explainLabel.text = "테마 설정"
+        case 4:
+            cell.explainLabel.text = "백업 및 복구"
         default:
             print("error발생")
             
@@ -75,6 +77,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             self.mainview.makeToast("업데이트 예정입니다.")
         case 3:
+            let vc = ThemaSettingViewController()
+            transition(vc, transitionStyle: .push)
+        case 4:
             self.mainview.makeToast("업데이트 예정입니다.")
         default:
             print("error발생")

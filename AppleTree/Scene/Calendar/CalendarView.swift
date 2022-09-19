@@ -13,16 +13,16 @@ class CalendarView: BaseView {
     
     lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
-        view.backgroundColor = .huntLightGreen
+        view.backgroundColor = themaChoice().lightColor
         view.register(CalendarTableViewCell.self, forCellReuseIdentifier: "cell")
         return view
     }()
     
     let calendarView: FSCalendar = {
         let view = FSCalendar()
-        view.backgroundColor = .huntLightGreen
-        view.appearance.selectionColor = .customDarkGreen
-        view.appearance.todayColor = .huntGreen
+        view.backgroundColor = themaChoice().lightColor
+        view.appearance.selectionColor = themaChoice().calendarChoiceColor
+        view.appearance.todayColor = themaChoice().mainColor
         return view
     }()
     
