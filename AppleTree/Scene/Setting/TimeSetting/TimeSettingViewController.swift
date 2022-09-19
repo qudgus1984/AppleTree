@@ -84,7 +84,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 let mainViewController = MainViewController()
-                transition(mainViewController, transitionStyle: .push)
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
         case 1:
             if UserDefaults.standard.bool(forKey: "going") {
@@ -94,7 +94,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 let mainViewController = MainViewController()
-                transition(mainViewController, transitionStyle: .push)
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
 
         case 2:
@@ -105,7 +105,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 let mainViewController = MainViewController()
-                transition(mainViewController, transitionStyle: .push)
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
 
         case 3:
@@ -116,7 +116,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 let mainViewController = MainViewController()
-                transition(mainViewController, transitionStyle: .push)
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
         case 4:
             if UserDefaults.standard.bool(forKey: "going") {
@@ -126,7 +126,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 let mainViewController = MainViewController()
-                transition(mainViewController, transitionStyle: .push)
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
         case 5:
             if UserDefaults.standard.bool(forKey: "going") {
@@ -136,7 +136,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 let mainViewController = MainViewController()
-                transition(mainViewController, transitionStyle: .push)
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
         default:
             print("error발생")

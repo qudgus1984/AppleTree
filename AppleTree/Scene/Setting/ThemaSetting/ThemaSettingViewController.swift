@@ -70,7 +70,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             } else {
                 UserDefaults.standard.set(0, forKey: "thema")
                 let mainViewController = MainViewController()
-                transition(mainViewController, transitionStyle: .push)
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
         case 1:
             if UserDefaults.standard.bool(forKey: "going") {
@@ -78,7 +78,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             } else {
                 UserDefaults.standard.set(1, forKey: "thema")
                 let mainViewController = MainViewController()
-                transition(mainViewController, transitionStyle: .push)
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
 
         default:

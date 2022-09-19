@@ -34,7 +34,7 @@ class ResetPopupViewController: BaseViewController {
         todayRealmNotSet()
         
         
-        startButtonClicked()
+        resetButtonClicked()
         print(progress)
         
         mainview.iconImageView.image = UIImage(named: "seeds")
@@ -62,22 +62,7 @@ class ResetPopupViewController: BaseViewController {
         
     }
     
-    @objc func calenderButtonClicked() {
-        let vc = CalendarViewController()
-        vc.tasks = vc.repository.fetch()
-        transition(vc, transitionStyle: .push)
-    }
-    
-    @objc func settingButtonClicked() {
-        let vc = SettingViewController()
-        transition(vc, transitionStyle: .push)
-    }
-    
-    @objc func bulbButtonClicked() {
-        
-    }
-    
-    func startButtonClicked() {
+    func resetButtonClicked() {
         
         mainview.startButton.addTarget(self, action: #selector(resetButtonClickedCountDown), for: .touchUpInside)
         
@@ -92,8 +77,6 @@ class ResetPopupViewController: BaseViewController {
     func finishPopupVCAppear() {
         let vc = FinishPopupViewController()
         transition(vc, transitionStyle: .presentFullNavigation)
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        print(documentsDirectory)
         
     }
     
