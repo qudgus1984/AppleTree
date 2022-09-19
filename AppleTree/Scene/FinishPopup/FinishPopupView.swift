@@ -21,13 +21,13 @@ class FinishPopupView: BaseView {
     //MARK: UI 설정
     let backView: UIView = {
         let view = UIView()
-        view.backgroundColor = .huntGreen
+        view.backgroundColor = themaChoice().mainColor
         return view
     }()
     
     let settingView: UIView = {
         let view = UIView()
-        view.backgroundColor = .huntLightGreen
+        view.backgroundColor = themaChoice().lightColor
         view.layer.cornerRadius = 10
         return view
     }()
@@ -51,7 +51,7 @@ class FinishPopupView: BaseView {
     
     let okButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .huntGreen
+        button.backgroundColor = themaChoice().mainColor
         button.setTitle("확인", for: .normal)
         button.tintColor = .label
         button.layer.cornerRadius = 10

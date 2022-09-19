@@ -10,6 +10,9 @@ import UIKit
 enum Thema {
     case SeSACThema
     case PurpleThema
+    case PinkThema
+    case NightThema
+    case BeachThema
     
     var mainColor: UIColor {
         switch self {
@@ -17,7 +20,14 @@ enum Thema {
             return .huntGreen
         case .PurpleThema:
             return .huntPurple
+        case .PinkThema:
+            return .huntPink
+        case .NightThema:
+            return .huntNight
+        case .BeachThema:
+            return .huntBeach
         }
+        
     }
     
     var lightColor: UIColor {
@@ -26,6 +36,13 @@ enum Thema {
             return .huntLightGreen
         case .PurpleThema:
             return .huntLightPurple
+        case .PinkThema:
+            return .huntLightPink
+        case .NightThema:
+            return .huntLightNight
+        case .BeachThema:
+            return .huntLightBeach
+            
         }
     }
     
@@ -35,6 +52,12 @@ enum Thema {
             return .huntYellow
         case .PurpleThema:
             return .huntPurpleWhite
+        case .PinkThema:
+            return .huntPinkWhite
+        case .NightThema:
+            return .huntNightPurple
+        case .BeachThema:
+            return .huntBeachWhite
         }
     }
     
@@ -44,6 +67,12 @@ enum Thema {
             return .customDarkGreen
         case .PurpleThema:
             return .huntPurpleBlue
+        case .PinkThema:
+            return .huntPinkRed
+        case .NightThema:
+            return .huntNightPink
+        case .BeachThema:
+            return .huntLightBeachSky
         }
     }
 }
@@ -51,7 +80,13 @@ enum Thema {
 func themaChoice() -> Thema {
     if UserDefaults.standard.integer(forKey: "thema") == 0 {
         return Thema.SeSACThema
-    } else {
+    } else if UserDefaults.standard.integer(forKey: "thema") == 1 {
         return Thema.PurpleThema
+    } else if UserDefaults.standard.integer(forKey: "thema") == 2 {
+        return Thema.PinkThema
+    } else if UserDefaults.standard.integer(forKey: "thema") == 3 {
+        return Thema.NightThema
+    } else {
+        return Thema.BeachThema
     }
 }

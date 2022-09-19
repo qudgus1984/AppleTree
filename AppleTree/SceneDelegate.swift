@@ -85,6 +85,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             MainViewController().timer?.invalidate()
             MainViewController().timer = nil
+            print("🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏",MainViewController().progress)
+
             UserDefaults.standard.set(false, forKey: "going")
             guard let scene = (scene as? UIWindowScene) else { return }
             window = UIWindow(windowScene: scene)

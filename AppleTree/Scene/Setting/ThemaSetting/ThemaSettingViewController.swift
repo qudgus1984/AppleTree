@@ -36,7 +36,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 5
     }
     
     
@@ -48,7 +48,13 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
         case 0:
             cell.explainLabel.text = "SeSAC 테마 🌱"
         case 1:
-            cell.explainLabel.text = "몽환적 보라보라 테마💜"
+            cell.explainLabel.text = "몽환적 솜사탕 테마💜"
+        case 2:
+            cell.explainLabel.text = "달콤한 복숭아 테마🍑"
+        case 3:
+            cell.explainLabel.text = "감성적 밤하늘 테마🌌"
+        case 4:
+            cell.explainLabel.text = "시원한 바닷가 테마🏖"
 
         default:
             print("error발생")
@@ -80,6 +86,31 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
+        case 2:
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(2, forKey: "thema")
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
+            }
+        case 3:
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(3, forKey: "thema")
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
+            }
+        case 4:
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
+            } else {
+                UserDefaults.standard.set(4, forKey: "thema")
+                let mainViewController = MainViewController()
+                transition(mainViewController, transitionStyle: .presentFullNavigation)
+            }
+
 
         default:
             print("error발생")

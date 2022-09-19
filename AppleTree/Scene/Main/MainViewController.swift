@@ -117,7 +117,7 @@ class MainViewController: BaseViewController {
                     self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
                     self.mainview.countTimeLabel.text = "\(minutes):\(seconds)"
                     self.progress = Float(self.mainview.settingCount) / Float(UserDefaults.standard.integer(forKey: "engagedTime"))
-                    print(self.progress)
+                    print("🍎🍎🍎🍎🍎🍎🍎🍎",self.progress)
                     self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.00001, value: 1.0 - self.progress)
                     
                     
@@ -135,6 +135,8 @@ class MainViewController: BaseViewController {
             }
         } else {
             if UserDefaults.standard.integer(forKey: "stop") != 0 {
+                print("🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏",self.progress)
+
                 UserDefaults.standard.set(false, forKey: "going")
                 startButtonBool.toggle()
                 self.mainview.startButton.setTitle("시작", for: .normal)
@@ -155,8 +157,8 @@ class MainViewController: BaseViewController {
     func finishPopupVCAppear() {
         let vc = FinishPopupViewController()
         transition(vc, transitionStyle: .presentFullNavigation)
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        print(documentsDirectory)
+//        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+//        print(documentsDirectory)
         
     }
     
