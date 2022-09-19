@@ -16,6 +16,8 @@ class MainView: BaseView {
     let bgView: UIView = {
         let view = UIView()
         view.backgroundColor = themaChoice().mainColor
+//        view.backgroundColor = themaChoice().lightColor
+
         return view
     }()
     
@@ -59,6 +61,8 @@ class MainView: BaseView {
         let button = UIButton()
         button.setTitle("시작", for: .normal)
         button.backgroundColor = themaChoice().lightColor
+//        button.backgroundColor = themaChoice().mainColor
+
         return button
     }()
     
