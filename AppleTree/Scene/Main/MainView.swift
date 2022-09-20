@@ -16,8 +16,6 @@ class MainView: BaseView {
     let bgView: UIView = {
         let view = UIView()
         view.backgroundColor = themaChoice().mainColor
-//        view.backgroundColor = themaChoice().lightColor
-
         return view
     }()
     
@@ -32,16 +30,10 @@ class MainView: BaseView {
     
     let iconImageView: UIImageView = {
         let view = UIImageView()
-        DispatchQueue.main.async {
-            view.layer.cornerRadius = view.frame.size.width / 2
-        }
         view.contentMode = .scaleAspectFit
         view.image = UIImage(named: "seeds")
         view.backgroundColor = themaChoice().mainColor
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 20
-        
-//        print("첫번째 icon 이미지 뷰를 만드는 장소")
+
 
         return view
     }()
@@ -66,7 +58,6 @@ class MainView: BaseView {
         let button = UIButton()
         button.setTitle("시작", for: .normal)
         button.backgroundColor = themaChoice().lightColor
-//        button.backgroundColor = themaChoice().mainColor
 
         return button
     }()
@@ -76,12 +67,11 @@ class MainView: BaseView {
     let circularProgressBar: CircularProgress = {
 
         
-        let circularProgressBar = CircularProgress(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.width * 0.6))
+        let circularProgressBar = CircularProgress(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width * 0.65, height: UIScreen.main.bounds.width * 0.65))
         
         circularProgressBar.progressColor = themaChoice().progressColor
         circularProgressBar.trackColor = themaChoice().lightColor
         circularProgressBar.tag = 101
-//        print("세번째 프로그래스바를 다 만들었음")
         return circularProgressBar
     }()
 
@@ -91,6 +81,7 @@ class MainView: BaseView {
         [bgView, famousSayingLabel, iconImageView, circularProgressBar, countTimeLabel, startButton, stopCountLabel].forEach {
             self.addSubview($0)
         }
+
     }
     
     override func setConstants() {
@@ -106,16 +97,22 @@ class MainView: BaseView {
             make.height.equalToSuperview().multipliedBy(0.2)
         }
         
+        
         circularProgressBar.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
             make.top.equalTo(famousSayingLabel.snp.bottom).offset(4)
-            make.width.equalToSuperview().multipliedBy(0.6)
+            make.width.equalToSuperview().multipliedBy(0.65)
             make.height.equalTo(circularProgressBar.snp.width)
+            
         }
+
         
         iconImageView.snp.makeConstraints { make in
-            make.edges.equalTo(circularProgressBar).inset(safeAreaInsets).inset(20)
- 
+            make.centerX.equalTo(bgView)
+            make.top.equalTo(famousSayingLabel.snp.bottom).offset(4)
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalTo(circularProgressBar.snp.width)
+
         }
         
         countTimeLabel.snp.makeConstraints { make in

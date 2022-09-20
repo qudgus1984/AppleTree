@@ -30,6 +30,7 @@ class MainViewController: BaseViewController {
     }
     
     override func viewDidLoad() {
+        print(#function)
         super.viewDidLoad()
         
         //화면 꺼지지 않게 하는 코드
@@ -38,11 +39,31 @@ class MainViewController: BaseViewController {
         startButtonClicked()
 //        mainview.iconImageView.image = UIImage(named: "seeds")
     }
+    override func viewDidAppear(_ animated: Bool) {
+        print(#function)
+        //여기서 cornerRadius를 적용시켜주어야 함!@!@!@!
+        self.mainview.iconImageView.clipsToBounds = true
+        self.mainview.iconImageView.layer.cornerRadius =
+        self.mainview.iconImageView.frame.size.width / 2
+        print(self.mainview.iconImageView)
+    }
     
     //값 전달을 위한 fetch
     override func viewWillAppear(_ animated: Bool) {
+        print(#function)
+        print(self.mainview.iconImageView)
         super.viewWillAppear(animated)
-        self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.00001, value: 0.0)
+//        self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.00001, value: 0.0)
+        
+        self.mainview.iconImageView.clipsToBounds = true
+        self.mainview.iconImageView.layer.cornerRadius =
+        self.mainview.iconImageView.frame.size.width / 2
+//        DispatchQueue.main.async {
+            
+//            self.mainview.iconImageView.clipsToBounds = true
+//            self.mainview.iconImageView.layer.cornerRadius = self.mainview.iconImageView.frame.size.width / 2
+//        }
+        
         print("🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱")
         tasks = repository.fetch()
     }
@@ -107,7 +128,7 @@ class MainViewController: BaseViewController {
             UserDefaults.standard.set(true, forKey: "going")
             startButtonBool.toggle()
             self.mainview.startButton.setTitle("중지", for: .normal)
-            timer = Timer.scheduledTimer(withTimeInterval: 0.0005, repeats: true) { (t) in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (t) in
                 self.mainview.settingCount -= 1
                 let minutes = self.mainview.settingCount / 60
                 let seconds = self.mainview.settingCount % 60
@@ -156,8 +177,6 @@ class MainViewController: BaseViewController {
     func finishPopupVCAppear() {
         let vc = FinishPopupViewController()
         transition(vc, transitionStyle: .presentFullNavigation)
-//        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-//        print(documentsDirectory)
         
     }
     

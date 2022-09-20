@@ -13,7 +13,6 @@ class SettingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         mainview.tableView.dataSource = self
         mainview.tableView.delegate = self
     }

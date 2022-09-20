@@ -11,8 +11,14 @@ import RealmSwift
 //MARK: Model 구성
 
 class AppleTree: Object {
-    @Persisted var ATDate: String
-    @Persisted var ATTime: Int
+    @Persisted var ATDate: String // 시작시간
+    @Persisted var ATTime: Int // 선택한 Time 시간
+    
+//    @Persisted var ATFinishDate: Date? // 끝낸시간
+//    @Persisted var ATSucess: Bool // 성공 여부
+//    @Persisted var ATTotalCoin: Int // 코인의 총 개수
+//    @Persisted var ATThema: List<Bool> // 테마 관리
+
 
     @Persisted(primaryKey: true) var objectId: ObjectId
     
