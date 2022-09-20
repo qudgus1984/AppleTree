@@ -21,6 +21,9 @@ class MainViewController: BaseViewController {
     let mainview = MainView()
     let repository = ATRepository()
     
+    var firstStartButtonClicked = true
+
+    
     // 값 전달을 위한 fetch
     var tasks: Results<AppleTree>! {
         didSet {
@@ -28,11 +31,13 @@ class MainViewController: BaseViewController {
             updateImage()
         }
     }
-    
+        
     override func viewDidLoad() {
         print(#function)
         super.viewDidLoad()
         
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+
         //화면 꺼지지 않게 하는 코드
         UIApplication.shared.isIdleTimerDisabled = true
         todayRealmNotSet()
@@ -121,9 +126,16 @@ class MainViewController: BaseViewController {
         mainview.startButton.addTarget(self, action: #selector(startButtonClickedCountDown), for: .touchUpInside)
         
     }
+
+    
     
     @objc func startButtonClickedCountDown() {
         
+        if firstStartButtonClicked == true {
+            firstStartButtonClicked = false
+            self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: self.mainview.settingCount))
+        }
+
         if startButtonBool == true {
             UserDefaults.standard.set(true, forKey: "going")
             startButtonBool.toggle()
@@ -132,8 +144,9 @@ class MainViewController: BaseViewController {
                 self.mainview.settingCount -= 1
                 let minutes = self.mainview.settingCount / 60
                 let seconds = self.mainview.settingCount % 60
-                
+
                 if self.mainview.settingCount > 0 {
+
                     self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
                     self.mainview.countTimeLabel.text = "\(minutes):\(seconds)"
                     self.progress = Float(self.mainview.settingCount) / Float(UserDefaults.standard.integer(forKey: "engagedTime"))
@@ -142,6 +155,7 @@ class MainViewController: BaseViewController {
                     
                     
                 } else {
+                    self.firstStartButtonClicked = true
                     self.mainview.startButton.setTitle("완료", for: .normal)
                     self.timer?.invalidate()
                     self.timer = nil
