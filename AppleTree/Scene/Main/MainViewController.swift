@@ -133,7 +133,8 @@ class MainViewController: BaseViewController {
         
         if firstStartButtonClicked == true {
             firstStartButtonClicked = false
-            self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: self.mainview.settingCount))
+            self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: self.mainview.settingCount, ATSucess: 2))
+            coinAppend()
         }
 
         if startButtonBool == true {
@@ -220,8 +221,13 @@ class MainViewController: BaseViewController {
     func todayRealmNotSet() {
         
         if repository.todayFilter().isEmpty {
-            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: mainview.settingCount))
+            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATSucess: 0))
         }
+    }
+    
+    // 총 코인을 일치시켜주는 함수
+    func coinAppend() {
+        repository.coinAppend(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
     }
 }
 
@@ -230,4 +236,6 @@ extension MainViewController: settingTimeDelegate {
         getSettingTime.append(time)
         mainview.settingCount = getSettingTime.startIndex
     }
+    
+
 }

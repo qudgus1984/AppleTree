@@ -11,8 +11,13 @@ import RealmSwift
 class FinishPopupViewController: BaseViewController {
     
     let repository = ATRepository()
-    
     let mainview = FinishPopupView()
+    
+    var tasks: Results<AppleTree>! {
+        didSet {
+            tasks = repository.fetch()
+        }
+    }
         
     override func loadView() {
         super.view = mainview
@@ -20,8 +25,12 @@ class FinishPopupViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tasks = repository.fetch()
     }
     
     //MARK: 확인 버튼 클릭 시
@@ -30,10 +39,14 @@ class FinishPopupViewController: BaseViewController {
     }
     
     @objc func okButtonClicked() {
-
+        
         self.repository.updateItem(item: repository.todayFilter()[0], appendTime: MainView().settingCount)
+        print(repository.todayFilter().last!)
+        self.repository.updateSucess(item: repository.todayFilter().last!, Sucess: 1)
         UserDefaults.standard.set(3, forKey: "stop")
         print("================\(AppleTree.self)")
+        
+        
 
         dismiss(animated: true)
     }
@@ -54,5 +67,11 @@ class FinishPopupViewController: BaseViewController {
             return nil
         }
     }
+    
+    // 총 코인을 더해주는 함수
+    func coinAppend() {
+        repository.coinAppend(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
+    }
+
     
 }

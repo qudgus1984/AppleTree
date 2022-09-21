@@ -106,7 +106,7 @@ class ResetPopupViewController: BaseViewController {
     func todayRealmNotSet() {
         
         if repository.todayFilter().isEmpty {
-            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: mainview.settingCount))
+            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATSucess: 0))
         }
     }
 }

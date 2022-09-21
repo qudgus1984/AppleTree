@@ -20,12 +20,10 @@ class CalendarViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tasks = repository.fetch()
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tasks = repository.fetch()
-    }
+
     let repository = ATRepository()
     let mainview = CalendarView()
     let dateFormatter = DateFormatter()

@@ -15,7 +15,7 @@ protocol ATRepositoryType {
 }
 
 class ATRepository: ATRepositoryType {
-        
+    
     let localRealm = try! Realm()
     
     func fetch() -> Results<AppleTree> {
@@ -35,7 +35,6 @@ class ATRepository: ATRepositoryType {
     
     func updateItem(item: AppleTree, appendTime: Int) {
         
-//        var totalTime = item.ATTime
         var totalTime = item.ATTime
         totalTime += appendTime
         
@@ -48,6 +47,45 @@ class ATRepository: ATRepositoryType {
         }
         print("저장되었습니다.", item.ATTime)
     }
+    
+    func todayFirstStartUpdateCoin(item: AppleTree, beforeAppleTree: AppleTree) {
+        do {
+            try localRealm.write {
+                item.ATTotalCoin = beforeAppleTree.ATTotalCoin
+            }
+        } catch {
+            print()
+        }
+    }
+    
+    func updateSucess(item: AppleTree, Sucess: Int) {
+        
+//        var totalTime = item.ATTime
+        var changeSucess = item.ATSucess
+        changeSucess = Sucess
+
+        do {
+            try localRealm.write {
+                item.ATSucess = changeSucess
+                item.ATFinishTime = Date()
+                item.ATTotalCoin += coinCalculator()
+            }
+        } catch {
+            print()
+        }
+        print("저장되었습니다.", item.ATTime)
+    }
+    
+    func coinAppend(item: AppleTree, beforeItem: AppleTree) {
+        do {
+            try localRealm.write {
+                item.ATTotalCoin += beforeItem.ATTotalCoin
+            }
+        } catch {
+            print()
+        }
+    }
+    
     
     func todayFilter() -> Results<AppleTree> {
         let item = localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
@@ -64,4 +102,25 @@ class ATRepository: ATRepositoryType {
         return item
     }
     
+    
+    func coinCalculator() -> Int {
+        switch UserDefaults.standard.integer(forKey: "engagedTime") {
+        case 60 * 15:
+            return 1
+        case 60 * 30 :
+            return 3
+        case 60 * 60 :
+            return 8
+        case 60 * 120:
+            return 20
+        case 60 * 240:
+            return 50
+        case 60 * 480:
+            return 120
+        default:
+            return 0
+        }
+    }
+    
+
 }
