@@ -51,17 +51,17 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
         
         switch indexPath.row {
         case 0:
-            cell.explainLabel.text = "이정도는 가뿐해! 15분!"
+            cell.explainLabel.text = "이정도는 가뿐해! 15분! + 1코인"
         case 1:
-            cell.explainLabel.text = "짧고 굵게!! 30분"
+            cell.explainLabel.text = "짧고 굵게!! 30분 + 3코인"
         case 2:
-            cell.explainLabel.text = "데일리한 1시간!"
+            cell.explainLabel.text = "데일리한 1시간! + 8코인"
         case 3:
-            cell.explainLabel.text = "집중 하기 좋은 2시간!"
+            cell.explainLabel.text = "집중 하기 좋은 2시간! + 20코인"
         case 4:
-            cell.explainLabel.text = "4시간...도전해볼까요?!"
+            cell.explainLabel.text = "4시간...도전해볼까요?! + 50코인"
         case 5:
-            cell.explainLabel.text = "8시간!! 켠김에 왕까지?!"
+            cell.explainLabel.text = "8시간!! 켠김에 왕까지?! + 120코인"
         default:
             print("error발생")
             

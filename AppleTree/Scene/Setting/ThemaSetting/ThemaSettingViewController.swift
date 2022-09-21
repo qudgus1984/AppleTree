@@ -6,17 +6,27 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ThemaSettingViewController: BaseViewController {
 
     let mainview = ThemaSettingView()
-    
+    let repository = ATRepository()
+    var tasks: Results<AppleTree>! {
+        didSet {
+            tasks = repository.fetch()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mainview.tableView.dataSource = self
         mainview.tableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tasks = repository.fetch()
     }
     
     override func loadView() {
@@ -75,6 +85,8 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 UserDefaults.standard.set(0, forKey: "thema")
+                addRecord()
+                coinState()
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
@@ -83,6 +95,9 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 UserDefaults.standard.set(1, forKey: "thema")
+                addRecord()
+                coinState()
+
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
@@ -91,6 +106,9 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 UserDefaults.standard.set(2, forKey: "thema")
+                addRecord()
+                coinState()
+
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
@@ -99,6 +117,9 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 UserDefaults.standard.set(3, forKey: "thema")
+                addRecord()
+                coinState()
+
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
@@ -107,6 +128,9 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 UserDefaults.standard.set(4, forKey: "thema")
+                addRecord()
+                coinState()
+
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
@@ -117,4 +141,11 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    func addRecord() {
+        self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATSucess: 4))
+    }
+    
+    func coinState() {
+        repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
+    }
 }

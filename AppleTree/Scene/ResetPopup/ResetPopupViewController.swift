@@ -43,6 +43,7 @@ class ResetPopupViewController: BaseViewController {
     //값 전달을 위한 fetch
     override func viewWillAppear(_ animated: Bool) {
         tasks = repository.fetch()
+        coinState()
     }
     
     
@@ -65,6 +66,7 @@ class ResetPopupViewController: BaseViewController {
     func resetButtonClicked() {
         
         mainview.startButton.addTarget(self, action: #selector(resetButtonClickedCountDown), for: .touchUpInside)
+        
         
     }
     
@@ -108,6 +110,10 @@ class ResetPopupViewController: BaseViewController {
         if repository.todayFilter().isEmpty {
             repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATSucess: 0))
         }
+    }
+    
+    func coinState() {
+        repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
     }
 }
 

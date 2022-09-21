@@ -63,6 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This may occur due to temporary interruptions (ex. an incoming phone call).
         //앱 지우기 전 설정 창 화면
         print("sceneWillResignActive")
+        UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "bright"))
 
 
     }
@@ -70,6 +71,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        
         print("sceneWillEnterForeground")
 
     }
@@ -79,8 +81,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
         //백그라운드 간 상태
+
         
         if UserDefaults.standard.bool(forKey: "going") {
+
+            
             print("sceneDidEnterBackground")
             
             MainViewController().timer?.invalidate()
@@ -94,6 +99,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let navigationController = UINavigationController(rootViewController: rootViewController)
             window?.rootViewController = navigationController
             window?.makeKeyAndVisible()
+            
 
         }
 

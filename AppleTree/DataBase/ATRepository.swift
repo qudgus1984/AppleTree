@@ -86,6 +86,16 @@ class ATRepository: ATRepositoryType {
         }
     }
     
+    func coinState(item: AppleTree, beforeItem: AppleTree) {
+        do {
+            try localRealm.write {
+                item.ATTotalCoin = beforeItem.ATTotalCoin
+            }
+        } catch {
+            print()
+        }
+    }
+    
     
     func todayFilter() -> Results<AppleTree> {
         let item = localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )

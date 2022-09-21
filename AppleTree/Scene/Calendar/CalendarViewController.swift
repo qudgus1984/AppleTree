@@ -100,7 +100,12 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
             
             switch indexPath.row {
             case 0:
-                cell.explainLabel.text = "오늘 \(hour)시간 \(minutes)분 만큼 성장하셨네요"
+                if hour == 0 {
+                    cell.explainLabel.text = "오늘 \(minutes)분 만큼 성장하셨네요"
+                } else {
+                    cell.explainLabel.text = "오늘 \(hour)시간 \(minutes)분 만큼 성장하셨네요"
+                }
+
             case 1:
                 cell.explainLabel.text = "어제는 성장하지 않으셨군요!!"
 

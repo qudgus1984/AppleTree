@@ -22,6 +22,9 @@ class MainViewController: BaseViewController {
     let repository = ATRepository()
     
     var firstStartButtonClicked = true
+    
+    var bulbBool = true
+    
 
     
     // 값 전달을 위한 fetch
@@ -35,6 +38,7 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         print(#function)
         super.viewDidLoad()
+        UserDefaults.standard.set(UIScreen.main.brightness, forKey: "bright")
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
@@ -43,10 +47,6 @@ class MainViewController: BaseViewController {
         todayRealmNotSet()
 //        coinAppend()
         tasks = repository.fetch()
-        if tasks.count != 1 {
-            coinAppend()
-        }
-        
         startButtonClicked()
 //        mainview.iconImageView.image = UIImage(named: "seeds")
     }
@@ -56,27 +56,26 @@ class MainViewController: BaseViewController {
         self.mainview.iconImageView.clipsToBounds = true
         self.mainview.iconImageView.layer.cornerRadius =
         self.mainview.iconImageView.frame.size.width / 2
-        print(self.mainview.iconImageView)
+        
+
     }
     
     //값 전달을 위한 fetch
     override func viewWillAppear(_ animated: Bool) {
-        print(#function)
-        print(self.mainview.iconImageView)
+
         super.viewWillAppear(animated)
-//        self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.00001, value: 0.0)
-        
-        self.mainview.iconImageView.clipsToBounds = true
-        self.mainview.iconImageView.layer.cornerRadius =
-        self.mainview.iconImageView.frame.size.width / 2
-//        DispatchQueue.main.async {
-            
-//            self.mainview.iconImageView.clipsToBounds = true
-//            self.mainview.iconImageView.layer.cornerRadius = self.mainview.iconImageView.frame.size.width / 2
-//        }
-        
-        print("🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱")
         tasks = repository.fetch()
+        let hour = repository.todayFilter()[0].ATTime / 3600
+        let minutes = repository.todayFilter()[0].ATTime % 3600 / 60
+        
+        if hour == 0 {
+            mainview.famousSayingLabel.text = "오늘 \(minutes)분 동안 집중했습니다."
+        } else {
+            mainview.famousSayingLabel.text = "오늘 \(hour)시간 \(minutes)분 동안 집중했습니다."
+        }
+        
+        
+        mainview.totalCoinLabel.text = "\(repository.todayFilter().last?.ATTotalCoin ?? 0)"
     }
     
     
@@ -125,7 +124,15 @@ class MainViewController: BaseViewController {
     }
     
     @objc func bulbButtonClicked() {
-        
+
+        switch bulbBool {
+        case true:
+            UIScreen.main.brightness = 0.0
+            bulbBool.toggle()
+        case false:
+            UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "bright"))
+            bulbBool.toggle()
+        }
     }
     
     func startButtonClicked() {
@@ -138,7 +145,7 @@ class MainViewController: BaseViewController {
     @objc func startButtonClickedCountDown() {
         
         if firstStartButtonClicked == true {
-            firstStartButtonClicked = false
+            firstStartButtonClicked.toggle()
             self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: self.mainview.settingCount, ATSucess: 2))
             coinAppend()
         }
@@ -147,7 +154,7 @@ class MainViewController: BaseViewController {
             UserDefaults.standard.set(true, forKey: "going")
             startButtonBool.toggle()
             self.mainview.startButton.setTitle("중지", for: .normal)
-            timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { (t) in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (t) in
                 self.mainview.settingCount -= 1
                 let minutes = self.mainview.settingCount / 60
                 let seconds = self.mainview.settingCount % 60
@@ -234,6 +241,10 @@ class MainViewController: BaseViewController {
     // 총 코인을 일치시켜주는 함수
     func coinAppend() {
         repository.coinAppend(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
+    }
+    
+    func coinState() {
+        repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
     }
 }
 

@@ -23,8 +23,8 @@ class MainView: BaseView {
         let label = UILabel()
         label.textColor = .white
         label.numberOfLines = 0
-        label.text = "내일 지구가 멸망할지라도 나는 오늘 한 그루의 사과나무를 심겠다.\n-바뤼흐 스피노자-"
-        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 28)
+        label.textAlignment = .center
+        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 24)
         return label
     }()
     
@@ -74,14 +74,47 @@ class MainView: BaseView {
         circularProgressBar.tag = 101
         return circularProgressBar
     }()
+    
+    let containCoinView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    let insetCoinView: UIView = {
+        let view = UIView()
+        view.backgroundColor = themaChoice().lightColor
+        return view
+    }()
+    
+    let totalCoinLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 12)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.text = "8888"
+       return label
+    }()
+    
+    let coinImgView: UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .clear
+        view.contentMode = .scaleAspectFit
+        view.image = UIImage(named: "dollar")
+        return view
+    }()
+    
+    
+    
 
     override func configure() {
 
         
-        [bgView, famousSayingLabel, iconImageView, circularProgressBar, countTimeLabel, startButton, stopCountLabel].forEach {
+        [bgView, famousSayingLabel, iconImageView, circularProgressBar, countTimeLabel, startButton, stopCountLabel, containCoinView, insetCoinView, totalCoinLabel, coinImgView].forEach {
             self.addSubview($0)
         }
-
+        
     }
     
     override func setConstants() {
@@ -91,7 +124,7 @@ class MainView: BaseView {
         }
         
         famousSayingLabel.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide)
+            make.top.equalTo(safeAreaLayoutGuide).offset(16)
             make.leading.equalTo(8)
             make.trailing.equalTo(-8)
             make.height.equalToSuperview().multipliedBy(0.2)
@@ -110,8 +143,9 @@ class MainView: BaseView {
         iconImageView.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
             make.top.equalTo(famousSayingLabel.snp.bottom).offset(4)
-            make.width.equalToSuperview().multipliedBy(0.5)
+            make.width.equalToSuperview().multipliedBy(0.4)
             make.height.equalTo(circularProgressBar.snp.width)
+
 
         }
         
@@ -136,6 +170,28 @@ class MainView: BaseView {
             make.width.equalToSuperview().multipliedBy(0.2)
             make.height.equalToSuperview().multipliedBy(0.05)
         }
+        
+        containCoinView.snp.makeConstraints { make in
+            make.trailing.equalTo(safeAreaLayoutGuide).offset(-8)
+            make.top.equalTo(safeAreaLayoutGuide).offset(4)
+            make.height.equalToSuperview().multipliedBy(0.04)
+            make.width.equalToSuperview().multipliedBy(0.20)
+        }
+        insetCoinView.snp.makeConstraints { make in
+            make.edges.equalTo(containCoinView).inset(4)
+        }
+        coinImgView.snp.makeConstraints { make in
+            make.leading.top.equalTo(containCoinView)
+            make.height.equalToSuperview().multipliedBy(0.04)
+            make.width.equalTo(coinImgView.snp.height)
+        }
+        
+        totalCoinLabel.snp.makeConstraints { make in
+            make.leading.equalTo(coinImgView).offset(32)
+            make.top.trailing.bottom.equalTo(insetCoinView)
+        }
+        
+        
 
     }
 
