@@ -23,6 +23,7 @@ Apple Tree는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰
 | 22.09.17(토) | feedback 기반 으로 Code 구조화                               | Realm filter 부분까지 Repository로 구현                      |
 | 22.09.18(일) | background 상태일 때 화면 전환                               | UserDefaults 로 화면 구분 -> 이 방식이 맞나..?               |
 | 22.09.19(월) | Thema Update / 화면전환 stack 안쌓이게 전환                  | Thema관련 enum 및 func으로 설정                              |
+| 22.09.20(화) | 화면전환시 나타나는 오류 해결 및 기획 수정 / Realm 설계      | 처음 구조를 잘 설계하는 것이 얼마나 중요한지를 느낌          |
 
 
 
@@ -1077,3 +1078,82 @@ ThemaVC에서 Thema를 고를 수 있게 선언해주었고, 각 셀을 클릭 �
 
 
 화면 전환 시 circulator Progress View 안에 있는 imageView가 안에 있다가 앞으로 나오는 문제가 발생하였다. print로 전부 찍어봐도 순서에 대한 변화는 없는데 자꾸 오류가 발생하여 UI적으로 오류가 없는 것 처럼 배경을 기본 세팅배경색으로 변경하였지만, 근본적인 오류 해결방법이 아닌 것 같아 고민해보고 수정해볼 것이다.
+
+
+
+### 22.09.20 (화)
+
+- Circulator progress 위에 imageView가 화면전환 시 화면깨짐 오류 해결
+- 기획 수정 및 Realm 설계
+
+
+
+#### Circulator progress 위에 imageView가 화면전환 시 화면깨짐 오류 해결
+
+화면 깨짐 오류는 Corner Radius가 처음에만 적용되었다가 이후 화면 전환 시 적용이 되지 않아 발생한 문제였다.
+
+처음 imageView를 그려줄 때 
+
+~~~swift
+    let iconImageView: UIImageView = {
+    DispatchQueue.main.async {
+    	        self.mainview.iconImageView.clipsToBounds = true
+        self.mainview.iconImageView.layer.cornerRadius =
+        self.mainview.iconImageView.frame.size.width / 2
+    }
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.image = UIImage(named: "seeds")
+        view.backgroundColor = themaChoice().mainColor
+
+
+        return view
+    }()
+~~~
+
+이렇게 그려주었다. 이때는 뷰의 생명주기에 대해 생각하지 않고 작성했던 코드였는데, 이렇게 코드를 작성하니 문제가 발생한 거였다.
+
+이같은 문제가 발생한 이유는, DispatchQueue에 보내면 뷰를 그릴 때 한번만 처리하게 되는데, corner radius는 화면이 전환될 때 뷰가 그려진 후 깎아주어야 하기 때문에 화면이 전환될 때마다 실행해줘야한다. 그러면 viewWillAppear에 그려주면 된다고 생각했고, 작성했다.
+
+-> 이때도 오류 발생
+
+ViewWillAppear 부분에 작성해도, DispatchQueue에 작성해야하는 문제가 발생했다. 왜냐하면 View가 아직 나타나기 전이라 위치를 잡지 못하기 때문에 corner radius로 깎을 수가 없는것이였다! 따라서 화면전환될 때마다 뷰를 깎아줘야하고, 이러한 과정은 뷰가 나타난 다음에 해줘야하기 때문에 ViewDidAppear에 작성하면 DispatchQueue에 보내지 않아도 문제없이 실행된다.
+
+~~~swift
+    override func viewDidAppear(_ animated: Bool) {
+
+        self.mainview.iconImageView.clipsToBounds = true
+        self.mainview.iconImageView.layer.cornerRadius =
+        self.mainview.iconImageView.frame.size.width / 2
+
+    }
+~~~
+
+
+
+#### 기획 수정 및 Realm 설계
+
+~~~swift
+class AppleTree: Object {
+  //기존의 Realm
+    @Persisted var ATDate: String // 필터링한 날짜
+    @Persisted var ATTime: Int // 선택한 Time 시간
+    
+    @Persisted var ATStartTime: Date // 시작시간
+    @Persisted var ATFinishTime: Date? // 끝낸시간
+    @Persisted var ATSucess: Bool // 성공 여부
+    @Persisted var ATTotalCoin: Int // 코인의 총 개수
+    @Persisted var ATThema: List<Bool> // 테마 관리
+
+
+    @Persisted(primaryKey: true) var objectId: ObjectId
+    
+    convenience init(ATDate: String, ATTime: Int) {
+        self.init()
+        self.ATTime = ATTime
+        self.ATDate = ATDate
+    }
+~~~
+
+코인 기능을 통해 Thema를 사는 기능, 통계에 넣을 자료들을 더욱 풍성하게 하기 위해 Realm을 추가해줄 필요가 생겼고, Realm에 대한 설계를 위처럼 수정하였다.
+
