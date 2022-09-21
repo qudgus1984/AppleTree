@@ -53,9 +53,8 @@ class MainViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         print(#function)
         //여기서 cornerRadius를 적용시켜주어야 함!@!@!@!
-        self.mainview.iconImageView.clipsToBounds = true
-        self.mainview.iconImageView.layer.cornerRadius =
-        self.mainview.iconImageView.frame.size.width / 2
+        
+
         
 
     }
@@ -64,6 +63,11 @@ class MainViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            self.mainview.insetCoinView.clipsToBounds = true
+            self.mainview.insetCoinView.layer.cornerRadius = 10
+        }
+
         tasks = repository.fetch()
         let hour = repository.todayFilter()[0].ATTime / 3600
         let minutes = repository.todayFilter()[0].ATTime % 3600 / 60
@@ -164,7 +168,6 @@ class MainViewController: BaseViewController {
                     self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
                     self.mainview.countTimeLabel.text = "\(minutes):\(seconds)"
                     self.progress = Float(self.mainview.settingCount) / Float(UserDefaults.standard.integer(forKey: "engagedTime"))
-                    print("🍎🍎🍎🍎🍎🍎🍎🍎",self.progress)
                     self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.0001, value: 1.0 - self.progress)
                     
                     

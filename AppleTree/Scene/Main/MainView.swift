@@ -187,7 +187,7 @@ class MainView: BaseView {
         }
         
         totalCoinLabel.snp.makeConstraints { make in
-            make.leading.equalTo(coinImgView).offset(32)
+            make.leading.equalTo(coinImgView).offset(30)
             make.top.trailing.bottom.equalTo(insetCoinView)
         }
         
