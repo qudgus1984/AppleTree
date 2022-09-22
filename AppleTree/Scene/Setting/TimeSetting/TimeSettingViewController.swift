@@ -42,6 +42,8 @@ class TimeSettingViewController: BaseViewController {
     override func configure() {
         let appearence = UINavigationBarAppearance()
         appearence.backgroundColor = themaChoice().lightColor
+        appearence.shadowColor = .clear
+
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
     }
@@ -205,5 +207,6 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
     func coinState() {
         repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
     }
+    
     
 }

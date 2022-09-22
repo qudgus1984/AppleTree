@@ -107,10 +107,13 @@ class MainViewController: BaseViewController {
         //MARK: Nav 색상 변경
         let appearence = UINavigationBarAppearance()
         appearence.backgroundColor = themaChoice().mainColor
+        appearence.shadowColor = .clear
+
 //        appearence.backgroundColor = themaChoice().lightColor
 
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
+        
         
         
         //MARK: Nav 바 버튼 관련

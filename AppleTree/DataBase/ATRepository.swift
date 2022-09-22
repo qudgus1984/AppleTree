@@ -15,7 +15,7 @@ protocol ATRepositoryType {
 }
 
 class ATRepository: ATRepositoryType {
-    
+        
     let localRealm = try! Realm()
     
     func fetch() -> Results<AppleTree> {
@@ -96,6 +96,35 @@ class ATRepository: ATRepositoryType {
         }
     }
     
+    func themaBuy(item: AppleTree, Themalist: List<Bool>) {
+        do {
+            try localRealm.write {
+                item.setValue(Themalist, forKey: "ATThema")
+            }
+        } catch {
+            print()
+        }
+    }
+    
+    func SubtractCoin(item: AppleTree, Subtract: Int) {
+        do {
+            try localRealm.write {
+                item.setValue(item.ATTotalCoin - Subtract, forKey: "ATTotalCoin")
+            }
+        } catch {
+            print()
+        }
+    }
+    
+    func changeThemaBool(item: AppleTree, ThemaNum: Int) {
+        do {
+            try localRealm.write {
+                item.ATThema[ThemaNum] = true
+            }
+        } catch {
+            print()
+        }
+    }
     
     func todayFilter() -> Results<AppleTree> {
         let item = localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
@@ -107,10 +136,19 @@ class ATRepository: ATRepositoryType {
         return item
     }
     
+    func selectDayFilter(day: String) -> Results<AppleTree> {
+        let item = localRealm.objects(AppleTree.self).filter("ATDate == '\(day)'" )
+        return item
+    }
+    
     func appleTreeGrownCount() -> Results<AppleTree> {
         let item = localRealm.objects(AppleTree.self).filter("ATTime >= 21600")
         return item
     }
+    
+    
+    
+
     
     
     func coinCalculator() -> Int {

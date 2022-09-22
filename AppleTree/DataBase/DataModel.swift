@@ -28,5 +28,9 @@ class AppleTree: Object {
         self.ATTime = ATTime
         self.ATDate = ATDate
         self.ATState = ATState
+        [true, false, false, false, false].forEach {
+            ATThema.append($0)
+        }
+        
     }
 }

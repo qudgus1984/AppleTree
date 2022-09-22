@@ -31,4 +31,10 @@ class DateFormatterHelper {
             return dateFormatter.string(from: Date() - 86400)
         }
     }
+    
+    func selectDay(day: Date) -> String {
+        formatDate()
+        return dateFormatter.string(from: day)
+    }
+    
 }

@@ -23,7 +23,7 @@ class CalendarViewController: BaseViewController {
         tasks = repository.fetch()
         
     }
-
+    
     let repository = ATRepository()
     let mainview = CalendarView()
     let dateFormatter = DateFormatter()
@@ -74,6 +74,8 @@ class CalendarViewController: BaseViewController {
         //MARK: Nav 색상 변경
         let appearence = UINavigationBarAppearance()
         appearence.backgroundColor = themaChoice().lightColor
+        appearence.shadowColor = .clear
+
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
         
@@ -93,6 +95,8 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CalendarTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
         
+        
+        
         if repository.yesterdayFilter().isEmpty {
             
             let hour = repository.todayFilter()[0].ATTime / 3600
@@ -105,10 +109,10 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
                 } else {
                     cell.explainLabel.text = "오늘 \(hour)시간 \(minutes)분 만큼 성장하셨네요"
                 }
-
+                
             case 1:
                 cell.explainLabel.text = "어제는 성장하지 않으셨군요!!"
-
+                
             case 2:
                 cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.appleTreeGrownCount().count)개 입니다."
             default:
@@ -119,7 +123,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
             
             let hour = repository.todayFilter()[0].ATTime / 3600
             let minutes = repository.todayFilter()[0].ATTime % 3600 / 60
-
+            
             let removeNum = repository.todayFilter()[0].ATTime - repository.yesterdayFilter()[0].ATTime
             let removehour = removeNum / 3600
             let removeminutes = removeNum % 3600 / 60
@@ -134,7 +138,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
                     cell.explainLabel.text = "어제보다 \(removehour)시간 \(removeminutes)분 더 나아갔어요! >_<"
                 } else {
                     cell.explainLabel.text = "한결같은 당신의 꾸준함을 응원합니다 :D"
-
+                    
                 }
             case 2:
                 cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.appleTreeGrownCount().count)개 입니다."
@@ -143,14 +147,15 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
         }
-
+        
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-
+    
 }
 
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
@@ -160,9 +165,26 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let test = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
-        return test.isEmpty ? nil : String("\(test[0].ATTime/3600):\(test[0].ATTime%3600 / 60)")
-    }
+        
+        if test.isEmpty {
+            return nil
+        } else {
+            switch test[0].ATTime/3600 {
+            case 0:
+                return String("\(test[0].ATTime%3600 / 60)분")
+            default:
+                return String("\(test[0].ATTime/3600):\(test[0].ATTime%3600 / 60)")
+            }
+        }
 
+
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+
+        
+    }
+    
     
     func maximumDate(for calendar: FSCalendar) -> Date {
         return Date()
@@ -171,12 +193,12 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         print(date)
-
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let filterData = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
         return filterData.isEmpty ? UIImage() : dateChangedIcon(time: filterData[0].ATTime)
-
+        
     }
     
     

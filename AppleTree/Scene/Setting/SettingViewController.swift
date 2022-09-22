@@ -25,8 +25,11 @@ class SettingViewController: BaseViewController {
     override func configure() {
         let appearence = UINavigationBarAppearance()
         appearence.backgroundColor = themaChoice().lightColor
+        appearence.shadowColor = .clear
+
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
+
     }
 
 }
