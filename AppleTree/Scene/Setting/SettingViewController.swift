@@ -29,6 +29,10 @@ class SettingViewController: BaseViewController {
 
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
+        let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
+        
+        
 
     }
 
@@ -45,6 +49,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SettingTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
+        cell.selectionStyle = .none
         
         switch indexPath.row {
         case 0:

@@ -55,7 +55,8 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TimeSettingTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
-        
+        cell.selectionStyle = .none
+
         switch indexPath.row {
         case 0:
             cell.explainLabel.text = "SeSAC 테마 🌱"
@@ -118,7 +119,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                     if tasks[tasks.count - 1].ATTotalCoin < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
                     } else {
-                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 이 테마를 사시겠습니까?")
+                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(1, forKey: "thema")
@@ -140,7 +141,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                     if tasks[tasks.count - 1].ATTotalCoin < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
                     } else {
-                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 이 테마를 사시겠습니까?")
+                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(2, forKey: "thema")
@@ -162,7 +163,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                     if tasks[tasks.count - 1].ATTotalCoin < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
                     } else {
-                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 이 테마를 사시겠습니까?")
+                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(3, forKey: "thema")
@@ -184,7 +185,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                     if tasks[tasks.count - 1].ATTotalCoin < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
                     } else {
-                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 이 테마를 사시겠습니까?")
+                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(4, forKey: "thema")
@@ -238,8 +239,12 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             // 테마 구입 시 true 변경 값 및 코인 개수 - 2000 업데이트
             self.repository.themaBuy(item: self.tasks[self.tasks.count - 1], Themalist: self.tasks[self.tasks.count - 1].ATThema, Subtract: self.tasks[self.tasks.count - 1].ATTotalCoin - 2000)
             
+            UserDefaults.standard.set(ThemaNum, forKey: "thema")
+
             let mainViewController = MainViewController()
             transition(mainViewController, transitionStyle: .presentFullNavigation)
+            
+
             
         }
         alert.addAction(okAction)

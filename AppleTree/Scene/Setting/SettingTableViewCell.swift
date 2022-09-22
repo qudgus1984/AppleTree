@@ -32,7 +32,7 @@ class SettingTableViewCell: BaseTableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func configure() {
         [containView, explainLabel].forEach {
             contentView.addSubview($0)

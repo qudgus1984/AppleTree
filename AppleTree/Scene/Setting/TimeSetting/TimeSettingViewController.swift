@@ -62,7 +62,8 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TimeSettingTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
-        
+        cell.selectionStyle = .none
+
         switch indexPath.row {
         case 0:
             cell.explainLabel.text = "이정도는 가뿐해! 15분! + 1코인"
@@ -89,6 +90,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         switch indexPath.row {
         case 0:
             if UserDefaults.standard.bool(forKey: "going") {

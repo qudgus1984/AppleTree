@@ -57,7 +57,7 @@ class MainView: BaseView {
     let startButton: UIButton = {
         let button = UIButton()
         button.setTitle("시작", for: .normal)
-        button.backgroundColor = themaChoice().lightColor
+        button.backgroundColor = .clear
 
         return button
     }()
@@ -105,13 +105,19 @@ class MainView: BaseView {
         return view
     }()
     
+    let buttonIncludeView: UIView = {
+        let view = UIView()
+        view.backgroundColor = themaChoice().lightColor
+        return view
+    }()
+    
     
     
 
     override func configure() {
 
         
-        [bgView, famousSayingLabel, iconImageView, circularProgressBar, countTimeLabel, startButton, stopCountLabel, containCoinView, insetCoinView, totalCoinLabel, coinImgView].forEach {
+        [bgView, famousSayingLabel, iconImageView, circularProgressBar, countTimeLabel, buttonIncludeView, startButton, stopCountLabel, containCoinView, insetCoinView, totalCoinLabel, coinImgView].forEach {
             self.addSubview($0)
         }
         
@@ -124,7 +130,7 @@ class MainView: BaseView {
         }
         
         famousSayingLabel.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(16)
+            make.top.equalTo(safeAreaLayoutGuide).offset(0)
             make.leading.equalTo(8)
             make.trailing.equalTo(-8)
             make.height.equalToSuperview().multipliedBy(0.2)
@@ -164,11 +170,15 @@ class MainView: BaseView {
             make.height.equalToSuperview().multipliedBy(0.1)
         }
         
-        startButton.snp.makeConstraints { make in
+        buttonIncludeView.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
-            make.top.equalTo(countTimeLabel.snp.bottom).offset(12)
+            make.top.equalTo(countTimeLabel.snp.bottom).offset(4)
             make.width.equalToSuperview().multipliedBy(0.2)
             make.height.equalToSuperview().multipliedBy(0.05)
+        }
+        
+        startButton.snp.makeConstraints { make in
+            make.edges.equalTo(buttonIncludeView)
         }
         
         containCoinView.snp.makeConstraints { make in

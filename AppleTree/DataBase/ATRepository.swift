@@ -168,16 +168,12 @@ class ATRepository: ATRepositoryType {
         let item = localRealm.objects(AppleTree.self).filter("ATTime >= 21600")
         return item
     }
-    
-    
-    
 
-    
     
     func coinCalculator() -> Int {
         switch UserDefaults.standard.integer(forKey: "engagedTime") {
         case 60 * 15:
-            return 1
+            return 2000
         case 60 * 30 :
             return 3
         case 60 * 60 :

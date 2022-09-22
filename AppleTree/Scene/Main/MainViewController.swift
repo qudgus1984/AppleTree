@@ -63,7 +63,7 @@ class MainViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         print(#function)
         //여기서 cornerRadius를 적용시켜주어야 함!@!@!@!
-        
+
 
         
 
@@ -76,6 +76,10 @@ class MainViewController: BaseViewController {
         DispatchQueue.main.async {
             self.mainview.insetCoinView.clipsToBounds = true
             self.mainview.insetCoinView.layer.cornerRadius = 10
+            
+            self.mainview.buttonIncludeView.clipsToBounds = true
+            self.mainview.buttonIncludeView.layer.cornerRadius = 12
+            
         }
 
         tasks = repository.fetch()
@@ -115,6 +119,9 @@ class MainViewController: BaseViewController {
 
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
+        navigationController?.navigationBar.tintColor = themaChoice().mainColor
+        let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
         
         
         
@@ -252,18 +259,13 @@ class MainViewController: BaseViewController {
         
         if repository.todayFilter().isEmpty {
             repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATState: 0))
-            
-        }
-    }
-    
-    func todayRealmSet() {
-        
-        if repository.todayFilter().isEmpty {
-            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATState: 0))
+            tasks = repository.fetch()
             coinState()
             themaState()
         }
     }
+    
+
     
     // 총 코인을 일치시켜주는 함수
     func coinAppend() {
