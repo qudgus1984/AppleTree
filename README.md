@@ -1169,9 +1169,7 @@ class AppleTree: Object {
 #### Coin UI 구성
 
 
-
-이미지
-
+<img width="348" alt="스크린샷 2022-09-23 오전 12 26 20" src="https://user-images.githubusercontent.com/81552265/191795720-fa59a746-6347-4b0e-8103-76cd0e3d6a13.png">
 
 
 위와 같이 오른쪽 상단에 Coin을 표현해 줄 UI를 구성해주었다.
@@ -1323,7 +1321,8 @@ class AppleTree: Object {
 
 
 
-gif
+
+![Simulator Screen Recording - iPhone 13 Pro Max - 2022-09-23 at 00 52 39](https://user-images.githubusercontent.com/81552265/191795645-35d7c97c-63ee-4afb-8e06-1e491f9909d8.gif)
 
 
 
