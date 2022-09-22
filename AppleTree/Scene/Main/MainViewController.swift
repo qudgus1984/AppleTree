@@ -45,6 +45,14 @@ class MainViewController: BaseViewController {
         //화면 꺼지지 않게 하는 코드
         UIApplication.shared.isIdleTimerDisabled = true
         todayRealmNotSet()
+        tasks = repository.fetch()
+        switch tasks.count {
+        case 1:
+            print("코인 0개")
+        default:
+            coinState()
+        }
+
 //        coinAppend()
         tasks = repository.fetch()
         startButtonClicked()
@@ -150,7 +158,7 @@ class MainViewController: BaseViewController {
         
         if firstStartButtonClicked == true {
             firstStartButtonClicked.toggle()
-            self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: self.mainview.settingCount, ATSucess: 2))
+            self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: self.mainview.settingCount, ATState: 2))
             coinAppend()
         }
 
@@ -237,7 +245,8 @@ class MainViewController: BaseViewController {
     func todayRealmNotSet() {
         
         if repository.todayFilter().isEmpty {
-            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATSucess: 0))
+            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATState: 0))
+            
         }
     }
     

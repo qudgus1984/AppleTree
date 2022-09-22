@@ -42,7 +42,7 @@ class FinishPopupViewController: BaseViewController {
         
         self.repository.updateItem(item: repository.todayFilter()[0], appendTime: MainView().settingCount)
         print(repository.todayFilter().last!)
-        self.repository.updateSucess(item: repository.todayFilter().last!, Sucess: 1)
+        self.repository.updateState(item: repository.todayFilter().last!, State: 1)
         UserDefaults.standard.set(3, forKey: "stop")
         print("================\(AppleTree.self)")
         

@@ -142,7 +142,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func addRecord() {
-        self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATSucess: 4))
+        self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATState: 4))
     }
     
     func coinState() {

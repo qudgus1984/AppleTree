@@ -16,17 +16,17 @@ class AppleTree: Object {
     
     @Persisted var ATStartTime: Date // 시작시간
     @Persisted var ATFinishTime: Date? // 끝낸시간
-    @Persisted var ATSucess: Int // 성공 여부 0 -> 하루 중 앱 처음켰을 때 1 -> 성공 2 -> 실패
+    @Persisted var ATState: Int // 성공 여부 0 -> 하루 중 앱 처음켰을 때 1 -> 성공 2 -> 실패
     @Persisted var ATTotalCoin: Int // 코인의 총 개수
     @Persisted var ATThema: List<Bool> // 테마 관리
 
 
     @Persisted(primaryKey: true) var objectId: ObjectId
     
-    convenience init(ATDate: String, ATTime: Int, ATSucess: Int) {
+    convenience init(ATDate: String, ATTime: Int, ATState: Int) {
         self.init()
         self.ATTime = ATTime
         self.ATDate = ATDate
-        self.ATSucess = ATSucess
+        self.ATState = ATState
     }
 }

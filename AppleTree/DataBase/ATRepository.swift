@@ -58,15 +58,15 @@ class ATRepository: ATRepositoryType {
         }
     }
     
-    func updateSucess(item: AppleTree, Sucess: Int) {
+    func updateState(item: AppleTree, State: Int) {
         
 //        var totalTime = item.ATTime
-        var changeSucess = item.ATSucess
-        changeSucess = Sucess
+        var changeState = item.ATState
+        changeState = State
 
         do {
             try localRealm.write {
-                item.ATSucess = changeSucess
+                item.ATState = changeState
                 item.ATFinishTime = Date()
                 item.ATTotalCoin += coinCalculator()
             }
