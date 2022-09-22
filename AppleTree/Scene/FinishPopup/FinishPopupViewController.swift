@@ -41,7 +41,7 @@ class FinishPopupViewController: BaseViewController {
     @objc func okButtonClicked() {
         
         self.repository.updateItem(item: repository.todayFilter()[0], appendTime: MainView().settingCount)
-        print(repository.todayFilter().last!)
+        themaState()
         self.repository.updateState(item: repository.todayFilter().last!, State: 1)
         UserDefaults.standard.set(3, forKey: "stop")
         print("================\(AppleTree.self)")
@@ -73,5 +73,7 @@ class FinishPopupViewController: BaseViewController {
         repository.coinAppend(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
     }
 
-    
+    func themaState() {
+        repository.themaState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
+    }
 }

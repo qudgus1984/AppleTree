@@ -22,6 +22,17 @@ class ATRepository: ATRepositoryType {
         return localRealm.objects(AppleTree.self).sorted(byKeyPath: "ATDate", ascending: true)
     }
 
+    func firstStart(item: AppleTree) {
+        do {
+            try localRealm.write {
+                [true, false, false, false, false].forEach {
+                    item.ATThema.append($0)
+                }
+            }
+        } catch {
+            print()
+        }
+    }
     
     func addItem(item: AppleTree) {
         do {
@@ -96,25 +107,37 @@ class ATRepository: ATRepositoryType {
         }
     }
     
-    func themaBuy(item: AppleTree, Themalist: List<Bool>) {
+    func themaState(item: AppleTree, beforeItem: AppleTree) {
         do {
             try localRealm.write {
-                item.setValue(Themalist, forKey: "ATThema")
+                item.ATThema = beforeItem.ATThema
             }
         } catch {
             print()
         }
     }
     
-    func SubtractCoin(item: AppleTree, Subtract: Int) {
+    func themaBuy(item: AppleTree, Themalist: List<Bool>, Subtract: Int) {
         do {
             try localRealm.write {
-                item.setValue(item.ATTotalCoin - Subtract, forKey: "ATTotalCoin")
+                item.setValue(Themalist, forKey: "ATThema")
+                item.setValue(Subtract, forKey: "ATTotalCoin")
             }
         } catch {
             print()
         }
     }
+    
+//    func SubtractCoin(item: AppleTree, Subtract: Int) {
+//        do {
+//            try localRealm.write {
+//                item.ATTotalCoin - 2000
+//
+//            }
+//        } catch {
+//            print()
+//        }
+//    }
     
     func changeThemaBool(item: AppleTree, ThemaNum: Int) {
         do {

@@ -44,6 +44,7 @@ class ResetPopupViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         tasks = repository.fetch()
         coinState()
+        themaState()
     }
     
     
@@ -114,6 +115,10 @@ class ResetPopupViewController: BaseViewController {
     
     func coinState() {
         repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
+    }
+    
+    func themaState() {
+        repository.themaState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
     }
 }
 

@@ -49,8 +49,10 @@ class MainViewController: BaseViewController {
         switch tasks.count {
         case 1:
             print("코인 0개")
+            repository.firstStart(item: tasks[tasks.count-1])
         default:
-            coinState()
+            break
+//            todayRealmSet()
         }
 
 //        coinAppend()
@@ -163,6 +165,7 @@ class MainViewController: BaseViewController {
             firstStartButtonClicked.toggle()
             self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: self.mainview.settingCount, ATState: 2))
             coinAppend()
+            themaState()
         }
 
         if startButtonBool == true {
@@ -253,6 +256,15 @@ class MainViewController: BaseViewController {
         }
     }
     
+    func todayRealmSet() {
+        
+        if repository.todayFilter().isEmpty {
+            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATState: 0))
+            coinState()
+            themaState()
+        }
+    }
+    
     // 총 코인을 일치시켜주는 함수
     func coinAppend() {
         repository.coinAppend(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
@@ -260,6 +272,10 @@ class MainViewController: BaseViewController {
     
     func coinState() {
         repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
+    }
+    
+    func themaState() {
+        repository.themaState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
     }
 }
 

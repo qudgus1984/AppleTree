@@ -103,6 +103,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                     break
                 default:
                     coinState()
+                    themaState()
                 }
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
@@ -121,6 +122,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                     break
                 default:
                     coinState()
+                    themaState()
                 }
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
@@ -139,6 +141,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                     break
                 default:
                     coinState()
+                    themaState()
                 }
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
@@ -157,6 +160,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                     break
                 default:
                     coinState()
+                    themaState()
                 }
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
@@ -174,6 +178,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                     break
                 default:
                     coinState()
+                    themaState()
                 }
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
@@ -191,6 +196,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                     break
                 default:
                     coinState()
+                    themaState()
                 }
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
@@ -208,5 +214,8 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
         repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
     }
     
+    func themaState() {
+        repository.themaState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
+    }
     
 }
