@@ -16,7 +16,20 @@ class AppleTree: Object {
     
     @Persisted var ATStartTime: Date // 시작시간
     @Persisted var ATFinishTime: Date? // 끝낸시간
-    @Persisted var ATState: Int // 성공 여부 0 -> 하루 중 앱 처음켰을 때 1 -> 성공 2 -> 실패
+    @Persisted var ATState: Int
+    
+    /*
+     시간 데이터 관련
+     0 -> 오늘 처음 시작한 상태
+     1 -> 성공
+     2 -> 실패
+     
+     화면 전환 관련
+     4 -> 설정테마 전환
+     5 -> 설정시간 전환
+     6 -> 테마 구입
+     */
+    
     @Persisted var ATTotalCoin: Int // 코인의 총 개수
     @Persisted var ATThema: List<Bool> // 테마 관리
 
@@ -28,9 +41,6 @@ class AppleTree: Object {
         self.ATTime = ATTime
         self.ATDate = ATDate
         self.ATState = ATState
-//        [true, false, false, false, false].forEach {
-//            ATThema.append($0)
-//        }
         
     }
 }

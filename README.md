@@ -24,6 +24,8 @@ Apple Tree는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰
 | 22.09.18(일) | background 상태일 때 화면 전환                               | UserDefaults 로 화면 구분 -> 이 방식이 맞나..?               |
 | 22.09.19(월) | Thema Update / 화면전환 stack 안쌓이게 전환                  | Thema관련 enum 및 func으로 설정                              |
 | 22.09.20(화) | 화면전환시 나타나는 오류 해결 및 기획 수정 / Realm 설계      | 처음 구조를 잘 설계하는 것이 얼마나 중요한지를 느낌          |
+| 22.09.21(수) | Coin System 설계 및 로직 구현                                | 총 Coin을 유지시키는 부분에서 error 발생                     |
+| 22.09.22(목) | Coin으로 Thema 구입할 수 있도록 설계 및 로직 구현            | Realm 구조에 대해 다시금 생각해보고 재설계 해야할듯..        |
 
 
 
@@ -1156,4 +1158,178 @@ class AppleTree: Object {
 ~~~
 
 코인 기능을 통해 Thema를 사는 기능, 통계에 넣을 자료들을 더욱 풍성하게 하기 위해 Realm을 추가해줄 필요가 생겼고, Realm에 대한 설계를 위처럼 수정하였다.
+
+
+
+### 22.09.21 (수)
+
+- Coin UI 구성
+- Coin Logic 설계 및 구현
+
+#### Coin UI 구성
+
+
+
+이미지
+
+
+
+위와 같이 오른쪽 상단에 Coin을 표현해 줄 UI를 구성해주었다.
+
+이 Coin으로 테마를 구입하는 형태로 적용할 것. 이때 coin의 개수를 정해주기 위해 Realm에 totalcoin으로 만들어주고, 계속 이전 값을 가져와 대입하거나 더해주는 구조를 만들어주었다. (이때로 돌아가 멈추라고 소리치고싶다... 멈춰!!!!)
+
+
+
+#### Coin Logic 설계 및 구현
+
+~~~swift
+    func coinCalculator() -> Int {
+        switch UserDefaults.standard.integer(forKey: "engagedTime") {
+        case 60 * 15:
+            return 1
+        case 60 * 30 :
+            return 3
+        case 60 * 60 :
+            return 8
+        case 60 * 120:
+            return 20
+        case 60 * 240:
+            return 50
+        case 60 * 480:
+            return 120
+        default:
+            return 0
+        }
+    }
+~~~
+
+
+
+이렇게 지정시간을 완료할때마다 코인을 뿌려주는 형태를 만들어주고, Repository에
+
+~~~swift
+    func coinAppend(item: AppleTree, beforeItem: AppleTree) {
+        do {
+            try localRealm.write {
+                item.ATTotalCoin += beforeItem.ATTotalCoin
+            }
+        } catch {
+            print()
+        }
+    }
+    
+    func coinState(item: AppleTree, beforeItem: AppleTree) {
+        do {
+            try localRealm.write {
+                item.ATTotalCoin = beforeItem.ATTotalCoin
+            }
+        } catch {
+            print()
+        }
+    }
+~~~
+
+~~~swift
+    func coinState() {
+        repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
+    }
+~~~
+
+
+
+이런식으로 이전값과 비교하여 더해주는 로직을 구현했다. (제발 멈춰어....!!!)
+
+
+
+이렇게 구현하니 이전값과 비교해서 잘 추가가 되었지만, 다음날이 되니 코인이 초기화되는 오류가 발생했고, 다음날의 날짜에 대한 count가 0일 때 Realm을 추가해주고 이전값과 연결해주는 Logic을 구성해줬다.
+
+이때 당시에는 기능적인 문제는 전부 해결.
+
+
+
+### 22.09.22 (목)
+
+- Thema 구입 기능
+- Thema 구입에 따른 Logic 구현
+- Thema 구입 판단 -> Realm에 List<Bool>형태로 구현
+
+#### Thema 구입 기능
+
+~~~swift
+@Persisted var ATThema: List<Bool> // 테마 관리
+
+~~~
+
+테마에 대한 구입여부를 어떻게 판단할까 고민하다가, List<Bool>타입으로 저장해 한번에 판단하자 생각하였다.
+
+이 부분을 적용한것은 List형태를 Realm에 저장할 수 있다는 것을 공부한 부분이어서 학습적으로 많이 도움이 되었다 생각한다. 하지만 이 부분은 독립적 테이블을 만들어 구성하는 형태로 구현했어야 한다.. 이걸 왜 다 구현하고 피드백받으면서 깨닫는걸까...
+
+
+
+~~~swift
+//테마 구입 했을 때 추가
+            self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATState: 6))
+            self.tasks = self.repository.fetch()
+            
+// 이전과 코인 개수 같도록 만들어주고
+            self.repository.coinState(item: self.tasks[self.tasks.count - 1], beforeItem: self.tasks[self.tasks.count - 2])
+            
+// 이전과 테마 같도록 만들어주고
+            self.repository.themaState(item: self.tasks[self.tasks.count - 1], beforeItem: self.tasks[self.tasks.count - 2])
+
+// 테마 구입 시 true로 변경
+            self.repository.changeThemaBool(item: self.tasks[self.tasks.count - 1], ThemaNum: ThemaNum)
+            
+// 테마 구입 시 true 변경 값 및 코인 개수 - 2000 업데이트
+            self.repository.themaBuy(item: self.tasks[self.tasks.count - 1], Themalist: self.tasks[self.tasks.count - 1].ATThema, Subtract: self.tasks[self.tasks.count - 1].ATTotalCoin - 2000)
+            
+            UserDefaults.standard.set(ThemaNum, forKey: "thema")
+
+            let mainViewController = MainViewController()
+            transition(mainViewController, transitionStyle: .presentFullNavigation)
+~~~
+
+이렇게 열심히 로직을 짰다 ^^.... 이제는 전부 수정해야 하는 코드지만, 이때 당시에는 많은 고민과 수정을 거듭한 코드였다. (Repository에 더 많은 로직 코드가 연결되어있는건 안비밀) 
+
+이부분에서 끝난 것도 아니다.
+
+
+
+~~~swift
+            if UserDefaults.standard.bool(forKey: "going") {
+                self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
+            } else {
+                //만약 테마를 구입 안했다면
+                if tasks[tasks.count - 1].ATThema[indexPath.row] == false {
+                    //만약 코인이 2000개 이하라면
+                    if tasks[tasks.count - 1].ATTotalCoin < 2000 {
+                        self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
+                    } else {
+                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
+                    }
+                } else {
+                    UserDefaults.standard.set(4, forKey: "thema")
+                    addRecord()
+                    coinState()
+                    themaState()
+
+                    let mainViewController = MainViewController()
+                    transition(mainViewController, transitionStyle: .presentFullNavigation)
+                }
+            }
+~~~
+
+이 로직을 연결하기 위해 또 이것을 판단하는 로직에 대해 짜야했고, 하나의 기능을 구현하기 위해 몇백줄을 적으면서 알고리즘의 중요성과 코드의 구조화를 깨닫는 경험이었다. 이부분을 미리 다 정리하고 구현해야 했어야하는데, 코드를 써내려가면서 생각하다보니 정리도 안되고 지저분한 코드로 써내려가게 되었다. 결국 Coin로직처럼 Thema도 연결하려면 전 데이터와 비교하는 로직을 구성하게 되었고, 이부분도 전부 새로 수정해주어야 하는 코드로 남게되었다.
+
+
+
+gif
+
+
+
+
+
+이제는 못보는 Simulator...
+
+그래도 통계를 들어가기 전 문제를 발견하고, 또 DB에 대해 깊게 공부할 수 있어서 많은 성장을 한 경험이라고 생각한다.
 

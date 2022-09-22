@@ -200,9 +200,5 @@ class MainView: BaseView {
             make.leading.equalTo(coinImgView).offset(30)
             make.top.trailing.bottom.equalTo(insetCoinView)
         }
-        
-        
-
     }
-
 }
