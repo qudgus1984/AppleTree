@@ -36,7 +36,6 @@ class MainViewController: BaseViewController {
     }
         
     override func viewDidLoad() {
-        print(#function)
         super.viewDidLoad()
         UserDefaults.standard.set(UIScreen.main.brightness, forKey: "bright")
         
@@ -61,18 +60,14 @@ class MainViewController: BaseViewController {
 //        mainview.iconImageView.image = UIImage(named: "seeds")
     }
     override func viewDidAppear(_ animated: Bool) {
-        print(#function)
-        //여기서 cornerRadius를 적용시켜주어야 함!@!@!@!
-
-
-        
 
     }
     
     //값 전달을 위한 fetch
     override func viewWillAppear(_ animated: Bool) {
-
         super.viewWillAppear(animated)
+        
+        
         DispatchQueue.main.async {
             self.mainview.insetCoinView.clipsToBounds = true
             self.mainview.insetCoinView.layer.cornerRadius = 10
@@ -119,7 +114,9 @@ class MainViewController: BaseViewController {
 
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
-        navigationController?.navigationBar.tintColor = themaChoice().mainColor
+//        navigationController?.navigationBar.tintColor = themaChoice().mainColor
+        navigationController?.navigationBar.tintColor = .white
+
         let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
         navigationItem.backBarButtonItem = backBarButtonItem
         
@@ -179,7 +176,7 @@ class MainViewController: BaseViewController {
             UserDefaults.standard.set(true, forKey: "going")
             startButtonBool.toggle()
             self.mainview.startButton.setTitle("중지", for: .normal)
-            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (t) in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { (t) in
                 self.mainview.settingCount -= 1
                 let minutes = self.mainview.settingCount / 60
                 let seconds = self.mainview.settingCount % 60
@@ -189,7 +186,7 @@ class MainViewController: BaseViewController {
                     self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
                     self.mainview.countTimeLabel.text = "\(minutes):\(seconds)"
                     self.progress = Float(self.mainview.settingCount) / Float(UserDefaults.standard.integer(forKey: "engagedTime"))
-                    self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.0001, value: 1.0 - self.progress)
+                    self.mainview.circularProgressBar.setProgressWithAnimation(duration: 0.01, value: 1.0 - self.progress)
                     
                     
                 } else {
