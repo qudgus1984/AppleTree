@@ -171,16 +171,21 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         if repository.todayFilter().isEmpty {
             return nil
         } else {
-            var totalStudyTime = 0
-            for i in 0...repository.todayTotalStudyTime().count - 1 {
-                totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
+            if repository.todayTotalStudyTime().isEmpty {
+                return "0분"
+            } else {
+                var totalStudyTime = 0
+                for i in 0...repository.todayTotalStudyTime().count - 1 {
+                    totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
+                }
+                switch totalStudyTime/3600 {
+                case 0:
+                    return String("\(totalStudyTime%3600 / 60)분")
+                default:
+                    return String("\(totalStudyTime/3600):\(totalStudyTime%3600 / 60)")
+                }
             }
-            switch totalStudyTime/3600 {
-            case 0:
-                return String("\(totalStudyTime%3600 / 60)분")
-            default:
-                return String("\(totalStudyTime/3600):\(totalStudyTime%3600 / 60)")
-            }
+
         }
 
 

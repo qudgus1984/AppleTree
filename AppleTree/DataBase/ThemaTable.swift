@@ -9,12 +9,8 @@ import Foundation
 import RealmSwift
 
 class ThemaTable: Object {
-    @Persisted var Thema: List<Bool> // 테마 관리
+    @Persisted var ThemaList: List<Bool> // 테마 관리
     @Persisted(primaryKey: true) var objectId: ObjectId
 
     
-    convenience init() {
-        self.init()
-
-    }
 }

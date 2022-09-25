@@ -31,7 +31,8 @@ class ATRepository: ATRepositoryType {
         do {
             try localRealm.write {
                 [true, false, false, false, false].forEach {
-                    item.Thema.append($0)
+                    item.ThemaList.append($0)
+                    localRealm.add(item)
                 }
             }
         } catch {
@@ -48,6 +49,19 @@ class ATRepository: ATRepositoryType {
             print("error 발생")
         }
     }
+    
+//    func settingThema(item: ThemaTable) -> Results<ThemaTable> {
+//        do {
+//            try localRealm.write {
+//                [true, false, false, false, false].forEach {
+//                    item.ThemaList.append($0)
+//                }
+//            }
+//        } catch {
+//            print()
+//        }
+//
+//    }
     
     func todayFilter() -> Results<UserTable> {
         let calender = Calendar.current
@@ -205,7 +219,7 @@ class ATRepository: ATRepositoryType {
     func changeThemaBool(item: ThemaTable, ThemaNum: Int) {
         do {
             try localRealm.write {
-                item.Thema[ThemaNum] = true
+                item.ThemaList[ThemaNum] = true
             }
         } catch {
             print()

@@ -68,6 +68,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TimeSettingTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
         cell.selectionStyle = .none
+        themaTasks = repository.fetchThemaTable()
 
         switch indexPath.row {
         case 0:
@@ -75,26 +76,26 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
         case 1:
             cell.explainLabel.text = "몽환적 솜사탕 테마💜"
 
-            if themaTasks.last!.Thema[indexPath.row] == false {
+            if themaTasks.last!.ThemaList[indexPath.row] == false {
                 cell.containView.backgroundColor = .systemGray
             }
             
 
         case 2:
             cell.explainLabel.text = "달콤한 복숭아 테마🍑"
-            if themaTasks.last!.Thema[indexPath.row] == false {
+            if themaTasks.last!.ThemaList[indexPath.row] == false {
                 cell.containView.backgroundColor = .systemGray
             }
             
 
         case 3:
             cell.explainLabel.text = "감성적 밤하늘 테마🌌"
-            if themaTasks.last!.Thema[indexPath.row] == false {
+            if themaTasks.last!.ThemaList[indexPath.row] == false {
                 cell.containView.backgroundColor = .systemGray
             }
         case 4:
             cell.explainLabel.text = "시원한 바닷가 테마🏖"
-            if themaTasks.last!.Thema[indexPath.row] == false {
+            if themaTasks.last!.ThemaList[indexPath.row] == false {
                 cell.containView.backgroundColor = .systemGray
             }
         default:
@@ -109,7 +110,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        coinTasks = repository.fetchCoinTable()
         switch indexPath.row {
         case 0:
             if UserDefaults.standard.bool(forKey: "going") {
@@ -125,7 +126,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 //만약 테마를 구입 안했다면
-                if themaTasks.last!.Thema[indexPath.row] == false {
+                if themaTasks.last!.ThemaList[indexPath.row] == false {
                     //만약 코인이 2000개 이하라면
                     if repository.totalCoin(item: coinTasks) < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
@@ -144,7 +145,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 //만약 테마를 구입 안했다면
-                if themaTasks.last!.Thema[indexPath.row] == false {
+                if themaTasks.last!.ThemaList[indexPath.row] == false {
                     //만약 코인이 2000개 이하라면
                     if repository.totalCoin(item: coinTasks) < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
@@ -163,7 +164,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 //만약 테마를 구입 안했다면
-                if themaTasks.last!.Thema[indexPath.row] == false {
+                if themaTasks.last!.ThemaList[indexPath.row] == false {
                     //만약 코인이 2000개 이하라면
                     if repository.totalCoin(item: coinTasks) < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
@@ -182,7 +183,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 //만약 테마를 구입 안했다면
-                if themaTasks.last!.Thema[indexPath.row] == false {
+                if themaTasks.last!.ThemaList[indexPath.row] == false {
                     //만약 코인이 2000개 이하라면
                     if repository.totalCoin(item: coinTasks) < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")

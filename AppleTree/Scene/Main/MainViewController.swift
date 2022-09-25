@@ -54,9 +54,9 @@ class MainViewController: BaseViewController {
         if coinTasks.isEmpty {
             repository.addCoin(item: CoinTable(GetCoin: 10, SpendCoin: 0, Category: "처음시작"))
         }
-        
+        themaTasks = repository.fetchThemaTable()
         if themaTasks.isEmpty {
-            repository.
+            repository.firstStart(item: ThemaTable())
         }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
