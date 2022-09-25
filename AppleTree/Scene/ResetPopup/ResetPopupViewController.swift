@@ -21,10 +21,9 @@ class ResetPopupViewController: BaseViewController {
     let repository = ATRepository()
     
     // 값 전달을 위한 fetch
-    var tasks: Results<AppleTree>! {
+    var userTasks: Results<UserTable>! {
         didSet {
-            tasks = repository.fetch()
-
+            userTasks = repository.fetchUser()
             updateImage()
         }
     }
@@ -42,9 +41,7 @@ class ResetPopupViewController: BaseViewController {
     
     //값 전달을 위한 fetch
     override func viewWillAppear(_ animated: Bool) {
-        tasks = repository.fetch()
-        coinState()
-        themaState()
+        userTasks = repository.fetchUser()
     }
     
     
@@ -84,8 +81,11 @@ class ResetPopupViewController: BaseViewController {
     }
     
     func updateImage() {
-
-        mainview.iconImageView.image =  ChangedImage(time: repository.todayFilter()[0].ATTime)
+        var totalStudyTime = 0
+        for i in 0...repository.todayTotalStudyTime().count - 1 {
+            totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
+        }
+        mainview.iconImageView.image =  ChangedImage(time: totalStudyTime)
     }
     
     func ChangedImage(time: Int) -> UIImage? {
@@ -109,16 +109,10 @@ class ResetPopupViewController: BaseViewController {
     func todayRealmNotSet() {
         
         if repository.todayFilter().isEmpty {
-            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATState: 0))
+            repository.addItem(item: UserTable(SettingTime: self.mainview.settingCount))
+            userTasks = repository.fetchUser()
         }
     }
     
-    func coinState() {
-        repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
-    }
-    
-    func themaState() {
-        repository.themaState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
-    }
 }
 

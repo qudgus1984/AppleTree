@@ -16,6 +16,10 @@ class UserTable: Object {
      @Persisted var StartTime: Date
 //     종료시간 : Date
      @Persisted var FinishTime: Date
+//     세팅시간 : Int
+     @Persisted var SettingTime: Int
+
+    
 //     성공 여부 : Bool
      @Persisted var Success: Bool
 //     집중 모드 여부 : Bool
@@ -24,12 +28,25 @@ class UserTable: Object {
      @Persisted var StopButtomClicked: Int
 //     카테고리 : String
      @Persisted var Category: String
+//     지정 시간
+    
     @Persisted(primaryKey: true) var objectId: ObjectId
-
-    override init() {
+    
+    
+    convenience init(SettingTime: Int) {
+        self.init()
         self.StartTime = Date()
         self.Success = false
         self.ConcentrateMode = false
         self.Category = "공부"
+        self.SettingTime = SettingTime
+        
     }
+//    override init(SettingTime: Int) {
+//        self.StartTime = Date()
+//        self.Success = false
+//        self.ConcentrateMode = false
+//        self.Category = "공부"
+//        self.SettingTime = SettingTime
+//    }
 }

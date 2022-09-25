@@ -12,9 +12,21 @@ class ThemaSettingViewController: BaseViewController {
 
     let mainview = ThemaSettingView()
     let repository = ATRepository()
-    var tasks: Results<AppleTree>! {
+    var userTasks: Results<UserTable>! {
         didSet {
-            tasks = repository.fetch()
+            userTasks = repository.fetchUser()
+        }
+    }
+    
+    var themaTasks: Results<ThemaTable>! {
+        didSet {
+            themaTasks = repository.fetchThemaTable()
+        }
+    }
+    
+    var coinTasks: Results<CoinTable>! {
+        didSet {
+            coinTasks = repository.fetchCoinTable()
         }
     }
     
@@ -26,7 +38,7 @@ class ThemaSettingViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tasks = repository.fetch()
+        userTasks = repository.fetchUser()
     }
     
     override func loadView() {
@@ -63,26 +75,26 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
         case 1:
             cell.explainLabel.text = "몽환적 솜사탕 테마💜"
 
-            if tasks[tasks.count - 1].ATThema[indexPath.row] == false {
+            if themaTasks.last!.Thema[indexPath.row] == false {
                 cell.containView.backgroundColor = .systemGray
             }
             
 
         case 2:
             cell.explainLabel.text = "달콤한 복숭아 테마🍑"
-            if tasks[tasks.count - 1].ATThema[indexPath.row] == false {
+            if themaTasks.last!.Thema[indexPath.row] == false {
                 cell.containView.backgroundColor = .systemGray
             }
             
 
         case 3:
             cell.explainLabel.text = "감성적 밤하늘 테마🌌"
-            if tasks[tasks.count - 1].ATThema[indexPath.row] == false {
+            if themaTasks.last!.Thema[indexPath.row] == false {
                 cell.containView.backgroundColor = .systemGray
             }
         case 4:
             cell.explainLabel.text = "시원한 바닷가 테마🏖"
-            if tasks[tasks.count - 1].ATThema[indexPath.row] == false {
+            if themaTasks.last!.Thema[indexPath.row] == false {
                 cell.containView.backgroundColor = .systemGray
             }
         default:
@@ -97,15 +109,14 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         switch indexPath.row {
         case 0:
             if UserDefaults.standard.bool(forKey: "going") {
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 UserDefaults.standard.set(0, forKey: "thema")
-                addRecord()
-                coinState()
-                themaState()
+
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
@@ -114,18 +125,15 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 //만약 테마를 구입 안했다면
-                if tasks[tasks.count - 1].ATThema[indexPath.row] == false {
+                if themaTasks.last!.Thema[indexPath.row] == false {
                     //만약 코인이 2000개 이하라면
-                    if tasks[tasks.count - 1].ATTotalCoin < 2000 {
+                    if repository.totalCoin(item: coinTasks) < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
                     } else {
                         themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(1, forKey: "thema")
-                    addRecord()
-                    coinState()
-                    themaState()
 
                     let mainViewController = MainViewController()
                     transition(mainViewController, transitionStyle: .presentFullNavigation)
@@ -136,18 +144,15 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 //만약 테마를 구입 안했다면
-                if tasks[tasks.count - 1].ATThema[indexPath.row] == false {
+                if themaTasks.last!.Thema[indexPath.row] == false {
                     //만약 코인이 2000개 이하라면
-                    if tasks[tasks.count - 1].ATTotalCoin < 2000 {
+                    if repository.totalCoin(item: coinTasks) < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
                     } else {
                         themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(2, forKey: "thema")
-                    addRecord()
-                    coinState()
-                    themaState()
 
                     let mainViewController = MainViewController()
                     transition(mainViewController, transitionStyle: .presentFullNavigation)
@@ -158,18 +163,15 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 //만약 테마를 구입 안했다면
-                if tasks[tasks.count - 1].ATThema[indexPath.row] == false {
+                if themaTasks.last!.Thema[indexPath.row] == false {
                     //만약 코인이 2000개 이하라면
-                    if tasks[tasks.count - 1].ATTotalCoin < 2000 {
+                    if repository.totalCoin(item: coinTasks) < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
                     } else {
                         themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(3, forKey: "thema")
-                    addRecord()
-                    coinState()
-                    themaState()
 
                     let mainViewController = MainViewController()
                     transition(mainViewController, transitionStyle: .presentFullNavigation)
@@ -180,18 +182,15 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 self.mainview.makeToast("타이머가 가는 동안은 테마를 설정 할 수 없어요!")
             } else {
                 //만약 테마를 구입 안했다면
-                if tasks[tasks.count - 1].ATThema[indexPath.row] == false {
+                if themaTasks.last!.Thema[indexPath.row] == false {
                     //만약 코인이 2000개 이하라면
-                    if tasks[tasks.count - 1].ATTotalCoin < 2000 {
+                    if repository.totalCoin(item: coinTasks) < 2000 {
                         self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
                     } else {
                         themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(4, forKey: "thema")
-                    addRecord()
-                    coinState()
-                    themaState()
 
                     let mainViewController = MainViewController()
                     transition(mainViewController, transitionStyle: .presentFullNavigation)
@@ -203,18 +202,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             print("error발생")
         }
     }
-    
-    func addRecord() {
-        self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATState: 4))
-    }
-    
-    func coinState() {
-        repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
-    }
-    
-    func themaState() {
-        repository.themaState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
-    }
+
     
     func themaBuyAlert(ThemaNum: Int, message: String) {
         let alert = UIAlertController(title: "테마를 구입하시겠습니까?", message: message, preferredStyle: UIAlertController.Style.alert)
@@ -224,21 +212,13 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
         let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){ [self](_) in
             
             //테마 구입 했을 때 추가
-            self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATState: 6))
-            self.tasks = self.repository.fetch()
+            self.themaTasks = self.repository.fetchThemaTable()
             
-            // 이전과 코인 개수 같도록 만들어주고
-            self.repository.coinState(item: self.tasks[self.tasks.count - 1], beforeItem: self.tasks[self.tasks.count - 2])
-            
-            // 이전과 테마 같도록 만들어주고
-            self.repository.themaState(item: self.tasks[self.tasks.count - 1], beforeItem: self.tasks[self.tasks.count - 2])
-
             // 테마 구입 시 true로 변경
-            self.repository.changeThemaBool(item: self.tasks[self.tasks.count - 1], ThemaNum: ThemaNum)
+            self.repository.changeThemaBool(item: self.themaTasks[self.themaTasks.count - 1], ThemaNum: ThemaNum)
             
             // 테마 구입 시 true 변경 값 및 코인 개수 - 2000 업데이트
-            self.repository.themaBuy(item: self.tasks[self.tasks.count - 1], Themalist: self.tasks[self.tasks.count - 1].ATThema, Subtract: self.tasks[self.tasks.count - 1].ATTotalCoin - 2000)
-            
+            self.repository.addCoin(item: CoinTable(GetCoin: 0, SpendCoin: -2000, Category: "테마 구입"))
             UserDefaults.standard.set(ThemaNum, forKey: "thema")
 
             let mainViewController = MainViewController()

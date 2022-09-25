@@ -12,7 +12,7 @@ import RealmSwift
 
 class CalendarViewController: BaseViewController {
     
-    var tasks: Results<AppleTree>! {
+    var userTasks: Results<UserTable>! {
         didSet {
             mainview.calendarView.reloadData()
         }
@@ -20,7 +20,7 @@ class CalendarViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tasks = repository.fetch()
+        userTasks = repository.fetchUser()
         
     }
     
@@ -101,8 +101,8 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         
         if repository.yesterdayFilter().isEmpty {
             
-            let hour = repository.todayFilter()[0].ATTime / 3600
-            let minutes = repository.todayFilter()[0].ATTime % 3600 / 60
+            let hour = repository.todayFilter().last!.SettingTime / 3600
+            let minutes = repository.todayFilter().last!.SettingTime % 3600 / 60
             
             switch indexPath.row {
             case 0:
@@ -116,17 +116,17 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.explainLabel.text = "어제는 성장하지 않으셨군요!!"
                 
             case 2:
-                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.appleTreeGrownCount().count)개 입니다."
+                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(0)개 입니다."
             default:
                 print()
             }
             
         } else {
             
-            let hour = repository.todayFilter()[0].ATTime / 3600
-            let minutes = repository.todayFilter()[0].ATTime % 3600 / 60
+            let hour = repository.todayFilter().last!.SettingTime / 3600
+            let minutes = repository.todayFilter().last!.SettingTime % 3600 / 60
             
-            let removeNum = repository.todayFilter()[0].ATTime - repository.yesterdayFilter()[0].ATTime
+            let removeNum = repository.todayFilter().last!.SettingTime - repository.yesterdayFilter().last!.SettingTime
             let removehour = removeNum / 3600
             let removeminutes = removeNum % 3600 / 60
             
@@ -143,7 +143,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
                     
                 }
             case 2:
-                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(repository.appleTreeGrownCount().count)개 입니다."
+                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(0)개 입니다."
             default:
                 print()
             }
@@ -164,18 +164,22 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     
     
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let test = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
+
+
         
-        if test.isEmpty {
+        
+        if repository.todayFilter().isEmpty {
             return nil
         } else {
-            switch test[0].ATTime/3600 {
+            var totalStudyTime = 0
+            for i in 0...repository.todayTotalStudyTime().count - 1 {
+                totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
+            }
+            switch totalStudyTime/3600 {
             case 0:
-                return String("\(test[0].ATTime%3600 / 60)분")
+                return String("\(totalStudyTime%3600 / 60)분")
             default:
-                return String("\(test[0].ATTime/3600):\(test[0].ATTime%3600 / 60)")
+                return String("\(totalStudyTime/3600):\(totalStudyTime%3600 / 60)")
             }
         }
 
@@ -195,12 +199,19 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         print(date)
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let filterData = tasks.filter ( "ATDate == '\(dateFormatter.string(from: date))'")
-        return filterData.isEmpty ? UIImage() : dateChangedIcon(time: filterData[0].ATTime)
-        
+        if repository.todayFilter().isEmpty {
+            return UIImage()
+        } else {
+            var totalStudyTime = 0
+            if repository.todayTotalStudyTime().isEmpty {
+                return dateChangedIcon(time: 0)
+            } else {
+                for i in 0...repository.todayTotalStudyTime().count - 1 {
+                    totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
+                }
+                return dateChangedIcon(time: totalStudyTime)
+            }
+        }        
     }
     
     

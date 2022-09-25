@@ -14,25 +14,9 @@
             filePath = "AppleTree/Scene/Main/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "configure()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A89629BA-F342-4D62-A4C3-86A7041C816E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AppleTree/Scene/Calendar/CalendarViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "calendar(_:imageFor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -46,10 +30,10 @@
             filePath = "AppleTree/Scene/FinishPopup/FinishPopupViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "ChangedImage(time:)"
-            landmarkType = "7">
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "FinishPopupViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,10 +46,10 @@
             filePath = "AppleTree/Scene/Calendar/CalendarViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
-            landmarkName = "dateChangedIcon(time:)"
-            landmarkType = "7">
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "CalendarViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -80,71 +64,71 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
             endingLineNumber = "31"
-            landmarkName = "tasks"
+            landmarkName = "userTasks"
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - 9a3367b4a3b2096"
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - d76ab3287f7be57f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "AppleTree.MainViewController.tasks.getter : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.AppleTree&gt;&gt;"
+                  symbolName = "AppleTree.MainViewController.userTasks.getter : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.UserTable&gt;&gt;"
                   moduleName = "AppleTree"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
                   offsetFromSymbolStart = "88">
                </Location>
                <Location
-                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - c12b54ee87dcec0a"
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - aaaa4eb7b794df6b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "AppleTree.MainViewController.tasks.setter : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.AppleTree&gt;&gt;"
+                  symbolName = "AppleTree.MainViewController.userTasks.setter : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.UserTable&gt;&gt;"
                   moduleName = "AppleTree"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
                   offsetFromSymbolStart = "112">
                </Location>
                <Location
-                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - 76b8020c50664073"
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - fab42043d3d8c3fa"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "AppleTree.MainViewController.tasks.modify : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.AppleTree&gt;&gt;"
+                  symbolName = "AppleTree.MainViewController.userTasks.modify : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.UserTable&gt;&gt;"
                   moduleName = "AppleTree"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
                   offsetFromSymbolStart = "0">
                </Location>
                <Location
-                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - 218cd090edb475e0"
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - 5c15a97cb14e1286"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "AppleTree.MainViewController.tasks.modify : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.AppleTree&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  symbolName = "AppleTree.MainViewController.userTasks.modify : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.UserTable&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
                   moduleName = "AppleTree"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
                   offsetFromSymbolStart = "20">
                </Location>
                <Location
-                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - b5339830d265a26d"
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - b5339830d265a318"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -154,12 +138,12 @@
                   urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "312">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "452">
                </Location>
                <Location
-                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - 3feeb26f4210c0e6"
+                  uuid = "45029CA5-89C7-4EFD-98F7-C66237023D50 - 3feeb26f4210c193"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -169,9 +153,9 @@
                   urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "288">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "428">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -186,8 +170,8 @@
             filePath = "AppleTree/Scene/FinishPopup/FinishPopupViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "okButtonClicked()"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,8 +218,8 @@
             filePath = "AppleTree/Scene/Calendar/CalendarViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "calendar(_:didSelect:at:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -250,8 +234,8 @@
             filePath = "AppleTree/Scene/Setting/ThemaSetting/ThemaSettingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "themaBuyAlert(ThemaNum:message:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,8 +250,8 @@
             filePath = "AppleTree/Scene/Setting/ThemaSetting/ThemaSettingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "themaBuyAlert(ThemaNum:message:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,24 +266,8 @@
             filePath = "AppleTree/Scene/Setting/ThemaSetting/ThemaSettingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
-            landmarkName = "themaBuyAlert(ThemaNum:message:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DCFDDACE-2FF3-45EF-A69C-566A8204FE50"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AppleTree/Scene/Setting/ThemaSetting/ThemaSettingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "themaBuyAlert(ThemaNum:message:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,10 +282,326 @@
             filePath = "AppleTree/Scene/Setting/ThemaSetting/ThemaSettingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "themaBuyAlert(ThemaNum:message:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7FD4A495-0C71-4705-B794-EB1402FAB3FC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "updateImage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B85444C2-41AA-48F9-838A-B38FC9FA537E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "finishPopupVCAppear()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "40901014-9686-4086-8930-69B2F7A551CD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "ChangedImage(time:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D1FF69EE-0BD6-49F7-A9D3-A76CA7A75E67"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "startButtonClickedCountDown()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79B9874B-7F86-42E3-AF83-A6D76B46A472"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "startButtonClicked()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FF12904D-6DE8-4B41-8BE1-421F221D6438"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "bulbButtonClicked()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A94D352A-A465-431F-9DB4-F4E6442A9798"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "settingButtonClicked()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7796D69F-3244-4F5B-88FE-E04DF384C130"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "calenderButtonClicked()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9286C846-9B1A-4108-8AF4-D256D53E8BBC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "configure()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AFCF0E6C-5529-4565-AA0F-A819D11DA5DB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "loadView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02A0C549-EE09-4239-8C0A-E1EF8F573B11"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "657D8166-10CA-47C0-8CEF-F05C77C31A0C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "70FE8897-774C-4B8F-B9A7-4C46B81A399C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53D0D4CF-174A-4AB9-AFE6-39F4119CE342"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppleTree/Scene/Main/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "coinTasks"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "53D0D4CF-174A-4AB9-AFE6-39F4119CE342 - 7bc307e6b9486a80"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.coinTasks.getter : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.CoinTable&gt;&gt;"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "53D0D4CF-174A-4AB9-AFE6-39F4119CE342 - cf02c28cf1e130b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.coinTasks.setter : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.CoinTable&gt;&gt;"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "53D0D4CF-174A-4AB9-AFE6-39F4119CE342 - 1f0cb4181c254d05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.coinTasks.modify : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.CoinTable&gt;&gt;"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "53D0D4CF-174A-4AB9-AFE6-39F4119CE342 - bc4d37de7ca739b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.coinTasks.modify : Swift.Optional&lt;RealmSwift.Results&lt;AppleTree.CoinTable&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "53D0D4CF-174A-4AB9-AFE6-39F4119CE342 - b5339830d265bc3f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; AppleTree.MainViewController"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "476">
+               </Location>
+               <Location
+                  uuid = "53D0D4CF-174A-4AB9-AFE6-39F4119CE342 - 3feeb26f4210deb4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppleTree.MainViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;AppleTree.MainViewController&gt;"
+                  moduleName = "AppleTree"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibyeonghyeon/Desktop/%5BSeSAC%5D/PortfolioProject/AppleTree/AppleTree/Scene/Main/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "452">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -19,9 +19,9 @@ class TimeSettingViewController: BaseViewController {
     var delegate: settingTimeDelegate?
     
     let repository = ATRepository()
-    var tasks: Results<AppleTree>! {
+    var userTasks: Results<UserTable>! {
         didSet {
-            tasks = repository.fetch()
+            userTasks = repository.fetchUser()
         }
     }
     
@@ -33,7 +33,7 @@ class TimeSettingViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tasks = repository.fetch()
+        userTasks = repository.fetchUser()
     }
     
     override func loadView() {
@@ -99,14 +99,6 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 UserDefaults.standard.set(15*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-                addRecord()
-                switch tasks.count {
-                case 0, 1:
-                    break
-                default:
-                    coinState()
-                    themaState()
-                }
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
                 
@@ -118,14 +110,6 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 UserDefaults.standard.set(30*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-                addRecord()
-                switch tasks.count {
-                case 0, 1:
-                    break
-                default:
-                    coinState()
-                    themaState()
-                }
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
@@ -137,14 +121,6 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 UserDefaults.standard.set(60*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-                addRecord()
-                switch tasks.count {
-                case 0, 1:
-                    break
-                default:
-                    coinState()
-                    themaState()
-                }
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
@@ -156,14 +132,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 UserDefaults.standard.set(120*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-                addRecord()
-                switch tasks.count {
-                case 0, 1:
-                    break
-                default:
-                    coinState()
-                    themaState()
-                }
+
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
@@ -174,14 +143,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 UserDefaults.standard.set(240*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-                addRecord()
-                switch tasks.count {
-                case 0, 1:
-                    break
-                default:
-                    coinState()
-                    themaState()
-                }
+
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
@@ -192,14 +154,6 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 UserDefaults.standard.set(480*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-                addRecord()
-                switch tasks.count {
-                case 0, 1:
-                    break
-                default:
-                    coinState()
-                    themaState()
-                }
                 let mainViewController = MainViewController()
                 transition(mainViewController, transitionStyle: .presentFullNavigation)
             }
@@ -207,17 +161,5 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
             print("error발생")
         }
     }
-    
-    func addRecord() {
-        self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATState: 5))
-    }
-    
-    func coinState() {
-        repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
-    }
-    
-    func themaState() {
-        repository.themaState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
-    }
-    
+
 }

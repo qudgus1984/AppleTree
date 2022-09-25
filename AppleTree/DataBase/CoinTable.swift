@@ -12,10 +12,13 @@ class CoinTable: Object {
     @Persisted var GetCoin : Int
     @Persisted var SpendCoin : Int
     @Persisted var Category: String
+    @Persisted(primaryKey: true) var objectId: ObjectId
+
     
-    init(GetCoin: Int) {
+    convenience init(GetCoin: Int, SpendCoin: Int, Category: String) {
+        self.init()
         self.GetCoin = GetCoin
-        self.SpendCoin = 0
-        self.Category = "완료"
+        self.SpendCoin = SpendCoin
+        self.Category = Category
     }
 }

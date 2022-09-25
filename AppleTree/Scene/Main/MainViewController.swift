@@ -28,34 +28,42 @@ class MainViewController: BaseViewController {
 
     
     // 값 전달을 위한 fetch
-    var tasks: Results<AppleTree>! {
+    var userTasks: Results<UserTable>! {
         didSet {
-            tasks = repository.fetch()
+            userTasks = repository.fetchUser()
             updateImage()
+        }
+    }
+    
+    var coinTasks: Results<CoinTable>! {
+        didSet {
+            coinTasks = repository.fetchCoinTable()
+        }
+    }
+    
+    var themaTasks: Results<ThemaTable>! {
+        didSet {
+            themaTasks = repository.fetchThemaTable()
         }
     }
         
     override func viewDidLoad() {
         super.viewDidLoad()
         UserDefaults.standard.set(UIScreen.main.brightness, forKey: "bright")
+        coinTasks = repository.fetchCoinTable()
+        if coinTasks.isEmpty {
+            repository.addCoin(item: CoinTable(GetCoin: 10, SpendCoin: 0, Category: "처음시작"))
+        }
         
+        if themaTasks.isEmpty {
+            repository.
+        }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         //화면 꺼지지 않게 하는 코드
         UIApplication.shared.isIdleTimerDisabled = true
         todayRealmNotSet()
-        tasks = repository.fetch()
-        switch tasks.count {
-        case 1:
-            print("코인 0개")
-            repository.firstStart(item: tasks[tasks.count-1])
-        default:
-            break
-//            todayRealmSet()
-        }
-
-//        coinAppend()
-        tasks = repository.fetch()
+        userTasks = repository.fetchUser()
         startButtonClicked()
 //        mainview.iconImageView.image = UIImage(named: "seeds")
     }
@@ -77,18 +85,33 @@ class MainViewController: BaseViewController {
             
         }
 
-        tasks = repository.fetch()
-        let hour = repository.todayFilter()[0].ATTime / 3600
-        let minutes = repository.todayFilter()[0].ATTime % 3600 / 60
-        
-        if hour == 0 {
-            mainview.famousSayingLabel.text = "오늘 \(minutes)분 동안 집중했습니다."
+        userTasks = repository.fetchUser()
+        if repository.todayFilter().isEmpty {
+            mainview.famousSayingLabel.text = "오늘 0분 동안 집중했습니다."
+
         } else {
-            mainview.famousSayingLabel.text = "오늘 \(hour)시간 \(minutes)분 동안 집중했습니다."
+            var totalStudyTime = 0
+            if repository.todayTotalStudyTime().isEmpty {
+                mainview.famousSayingLabel.text = "오늘 0분 동안 집중했습니다."
+            } else {
+                for i in 0...repository.todayTotalStudyTime().count - 1 {
+                    totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
+                }
+                
+                let hour = totalStudyTime / 3600
+                let minutes = totalStudyTime % 3600 / 60
+                                                                                            
+                if hour == 0 {
+                    mainview.famousSayingLabel.text = "오늘 \(minutes)분 동안 집중했습니다."
+                } else {
+                    mainview.famousSayingLabel.text = "오늘 \(hour)시간 \(minutes)분 동안 집중했습니다."
+                }
+            }
+                
         }
         
         
-        mainview.totalCoinLabel.text = "\(repository.todayFilter().last?.ATTotalCoin ?? 0)"
+        mainview.totalCoinLabel.text = "\(repository.totalCoin(item: coinTasks))"
     }
     
     
@@ -110,11 +133,8 @@ class MainViewController: BaseViewController {
         appearence.backgroundColor = themaChoice().mainColor
         appearence.shadowColor = .clear
 
-//        appearence.backgroundColor = themaChoice().lightColor
-
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
-//        navigationController?.navigationBar.tintColor = themaChoice().mainColor
         navigationController?.navigationBar.tintColor = .white
 
         let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
@@ -135,7 +155,7 @@ class MainViewController: BaseViewController {
     
     @objc func calenderButtonClicked() {
         let vc = CalendarViewController()
-        vc.tasks = vc.repository.fetch()
+        vc.userTasks = vc.repository.fetchUser()
         transition(vc, transitionStyle: .push)
     }
     
@@ -167,9 +187,7 @@ class MainViewController: BaseViewController {
         
         if firstStartButtonClicked == true {
             firstStartButtonClicked.toggle()
-            self.repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: self.mainview.settingCount, ATState: 2))
-            coinAppend()
-            themaState()
+            self.repository.addItem(item: UserTable(SettingTime: self.mainview.settingCount))
         }
 
         if startButtonBool == true {
@@ -230,8 +248,22 @@ class MainViewController: BaseViewController {
     }
     
     func updateImage() {
+        var totalStudyTime = 0
+        if repository.todayFilter().isEmpty {
+            ChangedImage(time: 0)
+        } else {
+            
+            if repository.todayTotalStudyTime().isEmpty {
+                ChangedImage(time: 0)
 
-        mainview.iconImageView.image =  ChangedImage(time: repository.todayFilter()[0].ATTime)
+            } else {
+                
+                for i in 0...repository.todayTotalStudyTime().count {
+                    totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
+                }
+            }
+            mainview.iconImageView.image =  ChangedImage(time: totalStudyTime)
+        }
     }
     
     func ChangedImage(time: Int) -> UIImage? {
@@ -255,27 +287,15 @@ class MainViewController: BaseViewController {
     func todayRealmNotSet() {
         
         if repository.todayFilter().isEmpty {
-            repository.addItem(item: AppleTree(ATDate: DateFormatterHelper.Formatter.dateStr, ATTime: 0, ATState: 0))
-            tasks = repository.fetch()
-            coinState()
-            themaState()
+            repository.addItem(item: UserTable(SettingTime: self.mainview.settingCount))
+            userTasks = repository.fetchUser()
         }
     }
     
 
     
     // 총 코인을 일치시켜주는 함수
-    func coinAppend() {
-        repository.coinAppend(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
-    }
-    
-    func coinState() {
-        repository.coinState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
-    }
-    
-    func themaState() {
-        repository.themaState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
-    }
+
 }
 
 extension MainViewController: settingTimeDelegate {
@@ -283,6 +303,4 @@ extension MainViewController: settingTimeDelegate {
         getSettingTime.append(time)
         mainview.settingCount = getSettingTime.startIndex
     }
-    
-
 }

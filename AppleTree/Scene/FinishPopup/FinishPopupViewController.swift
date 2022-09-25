@@ -13,9 +13,15 @@ class FinishPopupViewController: BaseViewController {
     let repository = ATRepository()
     let mainview = FinishPopupView()
     
-    var tasks: Results<AppleTree>! {
+    var userTasks: Results<UserTable>! {
         didSet {
-            tasks = repository.fetch()
+            userTasks = repository.fetchUser()
+        }
+    }
+    
+    var coinTasks: Results<CoinTable>! {
+        didSet {
+            coinTasks = repository.fetchCoinTable()
         }
     }
         
@@ -30,7 +36,8 @@ class FinishPopupViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tasks = repository.fetch()
+        userTasks = repository.fetchUser()
+        coinTasks = repository.fetchCoinTable()
     }
     
     //MARK: 확인 버튼 클릭 시
@@ -40,14 +47,9 @@ class FinishPopupViewController: BaseViewController {
     
     @objc func okButtonClicked() {
         
-        self.repository.updateItem(item: repository.todayFilter()[0], appendTime: MainView().settingCount)
-        themaState()
-        self.repository.updateState(item: repository.todayFilter().last!, State: 1)
+        self.repository.updateState(item: repository.todayFilter().last!, Sucess: true)
+        self.repository.addCoin(item: CoinTable(GetCoin: coinCalculator(), SpendCoin: 0, Category: "완료"))
         UserDefaults.standard.set(3, forKey: "stop")
-        print("================\(AppleTree.self)")
-        
-        
-
         dismiss(animated: true)
     }
     
@@ -68,12 +70,23 @@ class FinishPopupViewController: BaseViewController {
         }
     }
     
-    // 총 코인을 더해주는 함수
-    func coinAppend() {
-        repository.coinAppend(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
+    func coinCalculator() -> Int {
+        switch UserDefaults.standard.integer(forKey: "engagedTime") {
+        case 60 * 15:
+            return 2000
+        case 60 * 30 :
+            return 3
+        case 60 * 60 :
+            return 8
+        case 60 * 120:
+            return 20
+        case 60 * 240:
+            return 50
+        case 60 * 480:
+            return 120
+        default:
+            return 0
+        }
     }
-
-    func themaState() {
-        repository.themaState(item: tasks[tasks.count - 1], beforeItem: tasks[tasks.count - 2])
-    }
+    
 }
