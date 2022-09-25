@@ -258,7 +258,7 @@ class MainViewController: BaseViewController {
 
             } else {
                 
-                for i in 0...repository.todayTotalStudyTime().count {
+                for i in 0...repository.todayTotalStudyTime().count - 1 {
                     totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
                 }
             }

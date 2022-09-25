@@ -165,7 +165,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
 
-
+        
         
         
         if repository.todayFilter().isEmpty {
@@ -205,11 +205,11 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         print(date)
         if repository.todayFilter().isEmpty {
-            return UIImage()
+            return nil
         } else {
             var totalStudyTime = 0
             if repository.todayTotalStudyTime().isEmpty {
-                return dateChangedIcon(time: 0)
+                return nil
             } else {
                 for i in 0...repository.todayTotalStudyTime().count - 1 {
                     totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
