@@ -56,8 +56,56 @@ class ATRepository: ATRepositoryType {
     
     func dayFilter(date: Date) -> Results<UserTable> {
         let calender = Calendar.current
-        let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", calender.startOfDay(for: date), calender.startOfDay(for: Date()+86400))
+        let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", calender.startOfDay(for: date), calender.startOfDay(for: date+86400))
         return item
+    }
+    
+    func twoHourTimeFilter(date: Date) -> Results<UserTable> {
+        let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", date, date+3600*2)
+        return item
+    }
+    
+    func dayTotalTimeFilter(date: Date) -> Int {
+        let calender = Calendar.current
+        let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", calender.startOfDay(for: date), calender.startOfDay(for: date+86400))
+        let successToday = item.filter("Success == true")
+        var successTotalTime = 0
+        if successToday.isEmpty {
+            return 0
+        } else {
+            for i in 0...successToday.count-1 {
+                successTotalTime += successToday[i].SettingTime
+            }
+            return successTotalTime / 60
+        }
+
+    }
+    
+    func monthTotalTimeFilter(date: Date) -> Int {
+        let setDate = date
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: "ko")
+        
+        let components = calendar.dateComponents([.year, .month], from: setDate)
+
+        //day를 기입하지 않아서 현재 달의 첫번쨰 날짜가 나오게 된다
+        let startOfMonth = calendar.date(from: components)!
+
+        let nextMonth = calendar.date(byAdding: .month, value: +1, to: startOfMonth)
+
+        
+        let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", startOfMonth, nextMonth)
+        print("asdasdasda",item)
+        let successToday = item.filter("Success == true")
+        var successTotalTime = 0
+        if successToday.isEmpty {
+            return 0
+        } else {
+            for i in 0...successToday.count-1 {
+                successTotalTime += successToday[i].SettingTime
+            }
+            return successTotalTime / 60
+        }
     }
     
     func yesterdayFilter() -> Results<UserTable> {

@@ -83,8 +83,22 @@ class ChartViewController: BaseViewController {
     }
     
     func chartsAppearMonths() {
+        
+        let JanMonth = DateComponents(year: 2022, month: 1, day: 01)
+        let FebMonth = DateComponents(year: 2022, month: 2, day: 01)
+        let MarMonth = DateComponents(year: 2022, month: 3, day: 01)
+        let AprMonth = DateComponents(year: 2022, month: 4, day: 01)
+        let MayMonth = DateComponents(year: 2022, month: 5, day: 01)
+        let JunMonth = DateComponents(year: 2022, month: 6, day: 01)
+        let JulMonth = DateComponents(year: 2022, month: 7, day: 01)
+        let AugMonth = DateComponents(year: 2022, month: 8, day: 01)
+        let SepMonth = DateComponents(year: 2022, month: 9, day: 01)
+        let OctMonth = DateComponents(year: 2022, month: 10, day: 01)
+        let NovMonth = DateComponents(year: 2022, month: 11, day: 01)
+        let DecMonth = DateComponents(year: 2022, month: 12, day: 01)
+
         months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
+        unitsSold = [Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: JanMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: FebMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: MarMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: AprMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: MayMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: JunMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: JulMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: AugMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: SepMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: OctMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: NovMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: DecMonth)))]
         
         mainview.barChartView.noDataText = "이 달의 데이터가 없어요 ㅠㅠ"
         mainview.barChartView.noDataFont = FontChoice().Font24
@@ -93,9 +107,20 @@ class ChartViewController: BaseViewController {
         setBarChartMonths(dataPoints: months, values: unitsSold)
     }
     
+    func componentChangedDate(Date: DateComponents) -> Date {
+        let startDate = Calendar.current.date(from: Date)!
+        return startDate
+    }
+    
     func chartsAppearDays() {
+        let calender = Calendar.current
         days = ["6~8", "8~10", "10~12", "12~14", "14~16", "16~18", "18~20", "20~22", "22~24", "24~2", "2~4", "4~6"]
-        unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
+        unitsSold = [Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*3).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*4).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*5).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*6).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*7).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*8).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*9).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*10).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*11).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*1).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*2).count)]
+//        for i in 0...11 {
+//            unitsSold.append(Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date()) + TimeInterval(i * 3600*2)).count))
+//        }
+        
+        
         
         mainview.barChartView.noDataText = "이 달의 데이터가 없어요 ㅠㅠ"
         mainview.barChartView.noDataFont = FontChoice().Font24
@@ -107,7 +132,8 @@ class ChartViewController: BaseViewController {
     func chartsAppearWeeks() {
         weeks = ["zzzz", "zzzz", "zzzz", "zzz", "zz", "yesterday", "오늘"]
         
-        unitsSold = [5,10,20,10,5,4,7]
+        
+        unitsSold = [Double(repository.dayTotalTimeFilter(date: Date()-86400*6)),Double(repository.dayTotalTimeFilter(date: Date()-86400*5)),Double(repository.dayTotalTimeFilter(date: Date()-86400*4)),Double(repository.dayTotalTimeFilter(date: Date()-86400*3)),Double(repository.dayTotalTimeFilter(date: Date()-86400*2)),Double(repository.dayTotalTimeFilter(date: Date()-86400*1)),Double(repository.dayTotalTimeFilter(date: Date()))]
         
         mainview.barChartView.noDataText = "이 달의 데이터가 없어요 ㅠㅠ"
         mainview.barChartView.noDataFont = FontChoice().Font24
