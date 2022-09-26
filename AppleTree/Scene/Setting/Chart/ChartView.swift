@@ -29,12 +29,18 @@ class ChartView: BaseView {
         return segmentedControl
     }()
     
-    
-    
+    var sucessfulLabel: UILabel = {
+        let label = UILabel()
+        label.text = "나무 심기 성공률 88%"
+        label.font = FontChoice().Font44
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
+    }()
 
     
     override func configure() {
-        [bgView, segmentedControl, barChartView].forEach {
+        [bgView, segmentedControl, sucessfulLabel, barChartView].forEach {
         self.addSubview($0)
         }
     }
@@ -49,15 +55,22 @@ class ChartView: BaseView {
         segmentedControl.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
             make.top.equalTo(safeAreaLayoutGuide).offset(20)
-            make.width.equalTo(100)
-            make.height.equalTo(40)
+            make.width.equalTo(200)
+            make.height.equalTo(30)
+        }
+        
+        sucessfulLabel.snp.makeConstraints { make in
+            make.leading.equalTo(safeAreaLayoutGuide).offset(40)
+            make.trailing.equalTo(safeAreaLayoutGuide).offset(-40)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-40)
+            make.height.equalTo(80)
         }
         
         barChartView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(20)
-            make.width.equalTo(200)
-            make.height.equalTo(300)
-            make.centerX.equalTo(bgView)
+            make.top.equalTo(segmentedControl.snp.bottom).offset(40)
+            make.leading.equalTo(safeAreaLayoutGuide).offset(40)
+            make.trailing.equalTo(safeAreaLayoutGuide).offset(-40)
+            make.bottom.equalTo(sucessfulLabel.snp.top).offset(-40)
         }
     }
 }
