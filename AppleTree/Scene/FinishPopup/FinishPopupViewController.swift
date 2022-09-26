@@ -49,7 +49,7 @@ class FinishPopupViewController: BaseViewController {
         userTasks = repository.fetchUser()
         coinTasks = repository.fetchCoinTable()
         self.repository.updateState(item: repository.todayFilter().last!, Sucess: true)
-        self.repository.addCoin(item: CoinTable(GetCoin: coinCalculator(), SpendCoin: 0, Category: "완료"))
+        self.repository.addCoin(item: CoinTable(GetCoin: coinCalculator(), SpendCoin: 0, Status: 101))
         UserDefaults.standard.set(3, forKey: "stop")
         dismiss(animated: true)
     }

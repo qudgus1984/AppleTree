@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F2AFAB728E16FAC00856314 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AFAB628E16FAC00856314 /* ChartView.swift */; };
+		2F2AFABB28E16FEC00856314 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AFABA28E16FEC00856314 /* ChartViewController.swift */; };
+		2F2AFABE28E17AEB00856314 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 2F2AFABD28E17AEB00856314 /* Charts */; };
+		2F2AFAC028E195FB00856314 /* StatusLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AFABF28E195FB00856314 /* StatusLogic.swift */; };
 		2F2C540528D33D8C00D647AE /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C540428D33D8C00D647AE /* SettingView.swift */; };
 		2F2C540728D33DA300D647AE /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C540628D33DA300D647AE /* SettingTableViewCell.swift */; };
 		2F2C540928D33DBF00D647AE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2C540828D33DBF00D647AE /* SettingViewController.swift */; };
@@ -56,6 +60,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F2AFAB628E16FAC00856314 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		2F2AFABA28E16FEC00856314 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		2F2AFABF28E195FB00856314 /* StatusLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusLogic.swift; sourceTree = "<group>"; };
 		2F2C540428D33D8C00D647AE /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		2F2C540628D33DA300D647AE /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		2F2C540828D33DBF00D647AE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FBAE1FD28D0564B007F834F /* RealmSwift in Frameworks */,
+				2F2AFABE28E17AEB00856314 /* Charts in Frameworks */,
 				2FBAE1FB28D0564B007F834F /* Realm in Frameworks */,
 				2FAA584528CC54630067BFE8 /* SnapKit in Frameworks */,
 				2FD5515028D71DFB00D1ED25 /* Toast in Frameworks */,
@@ -117,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F2AFAB528E16F8C00856314 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				2F2AFAB628E16FAC00856314 /* ChartView.swift */,
+				2F2AFABA28E16FEC00856314 /* ChartViewController.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		2F2C540A28D342D000D647AE /* TimeSetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +267,7 @@
 				2FBAE1FF28D05952007F834F /* UserTable.swift */,
 				2F44A1A428E030640020880E /* ThemaTable.swift */,
 				2F44A1A628E0306C0020880E /* CoinTable.swift */,
+				2F2AFABF28E195FB00856314 /* StatusLogic.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -266,6 +284,7 @@
 		2FBE24CF28CF21DB00BAA0F1 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				2F2AFAB528E16F8C00856314 /* Chart */,
 				2F9C4EE928D839580004317F /* ThemaSetting */,
 				2F2C540A28D342D000D647AE /* TimeSetting */,
 				2F2C540628D33DA300D647AE /* SettingTableViewCell.swift */,
@@ -316,6 +335,7 @@
 				2FBAE1FA28D0564B007F834F /* Realm */,
 				2FBAE1FC28D0564B007F834F /* RealmSwift */,
 				2FD5514F28D71DFB00D1ED25 /* Toast */,
+				2F2AFABD28E17AEB00856314 /* Charts */,
 			);
 			productName = AppleTree;
 			productReference = 2F7EE93D28BCEA69000F1F41 /* AppleTree.app */;
@@ -350,6 +370,7 @@
 				2FB41FF628CF8D7C00B8E245 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				2FBAE1F928D0564B007F834F /* XCRemoteSwiftPackageReference "realm-swift" */,
 				2FD5514E28D71DFB00D1ED25 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				2F2AFABC28E17AEB00856314 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 2F7EE93E28BCEA69000F1F41 /* Products */;
 			projectDirPath = "";
@@ -385,12 +406,14 @@
 				2FBE24DE28CF37FA00BAA0F1 /* CalendarViewController.swift in Sources */,
 				2F9C4EED28D839860004317F /* ThemaSettingTableViewCell.swift in Sources */,
 				2FAA583E28CC53A50067BFE8 /* BaseTableViewCell.swift in Sources */,
+				2F2AFABB28E16FEC00856314 /* ChartViewController.swift in Sources */,
 				2F44A1A928E0378E0020880E /* UIFont + Extension.swift in Sources */,
 				2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */,
 				2F2C540528D33D8C00D647AE /* SettingView.swift in Sources */,
 				2FAA584228CC53F30067BFE8 /* MainView.swift in Sources */,
 				2FE4233128CA32C700BA7484 /* Transition+Extension.swift in Sources */,
 				2FBE24D328CF241700BAA0F1 /* FinishPopupView.swift in Sources */,
+				2F2AFAC028E195FB00856314 /* StatusLogic.swift in Sources */,
 				2F2C540C28D342F000D647AE /* TimeSettingView.swift in Sources */,
 				2F44A1AB28E038E20020880E /* Font enum + func.swift in Sources */,
 				2FBAE20228D0609F007F834F /* ATRepository.swift in Sources */,
@@ -402,6 +425,7 @@
 				2FCB706428CA4223002AF578 /* ReusableProtocol.swift in Sources */,
 				2FAA583A28CC52690067BFE8 /* BaseView.swift in Sources */,
 				2F9C4EEF28D8399E0004317F /* ThemaSettingViewController.swift in Sources */,
+				2F2AFAB728E16FAC00856314 /* ChartView.swift in Sources */,
 				2F7EE94128BCEA69000F1F41 /* AppDelegate.swift in Sources */,
 				2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */,
 				2F7EE94328BCEA69000F1F41 /* SceneDelegate.swift in Sources */,
@@ -643,6 +667,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2F2AFABC28E17AEB00856314 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.1.0;
+			};
+		};
 		2FAA584328CC54630067BFE8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -678,6 +710,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F2AFABD28E17AEB00856314 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F2AFABC28E17AEB00856314 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
 		2FAA584428CC54630067BFE8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2FAA584328CC54630067BFE8 /* XCRemoteSwiftPackageReference "SnapKit" */;

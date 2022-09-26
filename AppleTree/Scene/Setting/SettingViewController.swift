@@ -82,7 +82,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             let vc = TimeSettingViewController()
             transition(vc, transitionStyle: .push)
         case 2:
-            self.mainview.makeToast("업데이트 예정입니다.")
+            let vc = ChartViewController()
+            transition(vc, transitionStyle: .push)
         case 3:
             let vc = ThemaSettingViewController()
             transition(vc, transitionStyle: .push)

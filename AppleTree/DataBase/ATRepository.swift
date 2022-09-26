@@ -30,10 +30,7 @@ class ATRepository: ATRepositoryType {
     func firstStart(item: ThemaTable) {
         do {
             try localRealm.write {
-                [true, false, false, false, false].forEach {
-                    item.ThemaList.append($0)
-                    localRealm.add(item)
-                }
+                localRealm.add(item)
             }
         } catch {
             print()
@@ -50,22 +47,16 @@ class ATRepository: ATRepositoryType {
         }
     }
     
-//    func settingThema(item: ThemaTable) -> Results<ThemaTable> {
-//        do {
-//            try localRealm.write {
-//                [true, false, false, false, false].forEach {
-//                    item.ThemaList.append($0)
-//                }
-//            }
-//        } catch {
-//            print()
-//        }
-//
-//    }
     
     func todayFilter() -> Results<UserTable> {
         let calender = Calendar.current
-        var item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", calender.startOfDay(for: Date()), calender.startOfDay(for: Date()+86400))
+        let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", calender.startOfDay(for: Date()), calender.startOfDay(for: Date()+86400))
+        return item
+    }
+    
+    func dayFilter(date: Date) -> Results<UserTable> {
+        let calender = Calendar.current
+        let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", calender.startOfDay(for: date), calender.startOfDay(for: Date()+86400))
         return item
     }
     
@@ -85,21 +76,15 @@ class ATRepository: ATRepositoryType {
     }
     
     func todayTotalStudyTime() -> Results<UserTable> {
-        var item = todayFilter().filter("Success == true")
+        let item = todayFilter().filter("Success == true")
         return item
     }
     
-//    func updateState(item: UserTable, Sucess: Bool) {
-//        do {
-//            try localRealm.write {
-//                item.ATState = changeState
-//                item.ATFinishTime = Date()
-//                item.ATTotalCoin += coinCalculator()
-//            }
-//        } catch {
-//            print()
-//        }
-//    }
+    func dayTotalStudyTime(date: Date) -> Results<UserTable> {
+        let item = dayFilter(date: date).filter("Success == true")
+        return item
+    }
+    
     
     func updateState(item: UserTable, Sucess: Bool) {
         do {
@@ -112,79 +97,8 @@ class ATRepository: ATRepositoryType {
         }
     }
     
-
     
-    //    func updateItem(item: UserTable, appendTime: Int) {
-    //
-    //
-    //
-    //        do {
-    //            try localRealm.write {
-    //                item.SettingTime = SettingTim
-    //            }
-    //        } catch {
-    //            print()
-    //        }
-    //    }
-    //
-    //    func todayFirstStartUpdateCoin(item: AppleTree, beforeAppleTree: AppleTree) {
-    //        do {
-    //            try localRealm.write {
-    //                item.ATTotalCoin = beforeAppleTree.ATTotalCoin
-    //            }
-    //        } catch {
-    //            print()
-    //        }
-    //    }
-    //
-    //    func updateState(item: AppleTree, State: Int) {
-    //
-    ////        var totalTime = item.ATTime
-    //        var changeState = item.ATState
-    //        changeState = State
-    //
-    //        do {
-    //            try localRealm.write {
-    //                item.ATState = changeState
-    //                item.ATFinishTime = Date()
-    //                item.ATTotalCoin += coinCalculator()
-    //            }
-    //        } catch {
-    //            print()
-    //        }
-    //        print("저장되었습니다.", item.ATTime)
-    //    }
-    //
-    //    func coinAppend(item: AppleTree, beforeItem: AppleTree) {
-    //        do {
-    //            try localRealm.write {
-    //                item.ATTotalCoin += beforeItem.ATTotalCoin
-    //            }
-    //        } catch {
-    //            print()
-    //        }
-    //    }
-    //
-    //    func coinState(item: AppleTree, beforeItem: AppleTree) {
-    //        do {
-    //            try localRealm.write {
-    //                item.ATTotalCoin = beforeItem.ATTotalCoin
-    //            }
-    //        } catch {
-    //            print()
-    //        }
-    //    }
-    //
-    //    func themaState(item: AppleTree, beforeItem: AppleTree) {
-    //        do {
-    //            try localRealm.write {
-    //                item.ATThema = beforeItem.ATThema
-    //            }
-    //        } catch {
-    //            print()
-    //        }
-    //    }
-    //
+    
     func themaBuy(item: ThemaTable, Themalist: List<Bool>) {
         do {
             try localRealm.write {
@@ -204,51 +118,16 @@ class ATRepository: ATRepositoryType {
             print("error 발생")
         }
     }
-    //
-    ////    func SubtractCoin(item: AppleTree, Subtract: Int) {
-    ////        do {
-    ////            try localRealm.write {
-    ////                item.ATTotalCoin - 2000
-    ////
-    ////            }
-    ////        } catch {
-    ////            print()
-    ////        }
-    ////    }
-    //
+    
     func changeThemaBool(item: ThemaTable, ThemaNum: Int) {
         do {
             try localRealm.write {
-                item.ThemaList[ThemaNum] = true
+                item.Purchase = true
             }
         } catch {
             print()
         }
     }
-    //
-    //    func todayFilter() -> Results<AppleTree> {
-    //        let item = localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.dateStr)'" )
-    //        return item
-    //    }
-    //
-    //    func yesterdayFilter() -> Results<AppleTree> {
-    //        let item = localRealm.objects(AppleTree.self).filter("ATDate == '\(DateFormatterHelper.Formatter.yesterDayStr)'" )
-    //        return item
-    //    }
-    //
-    //    func selectDayFilter(day: String) -> Results<AppleTree> {
-    //        let item = localRealm.objects(AppleTree.self).filter("ATDate == '\(day)'" )
-    //        return item
-    //    }
-    //
-    //    func appleTreeGrownCount() -> Results<AppleTree> {
-    //        let item = localRealm.objects(AppleTree.self).filter("ATTime >= 21600")
-    //        return item
-    //    }
-    
-    //    func todayTotalStudy() {
-    //
-    //    }
     
     
     func coinCalculator() -> Int {

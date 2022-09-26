@@ -52,11 +52,15 @@ class MainViewController: BaseViewController {
         UserDefaults.standard.set(UIScreen.main.brightness, forKey: "bright")
         coinTasks = repository.fetchCoinTable()
         if coinTasks.isEmpty {
-            repository.addCoin(item: CoinTable(GetCoin: 10, SpendCoin: 0, Category: "처음시작"))
+            repository.addCoin(item: CoinTable(GetCoin: 10, SpendCoin: 0, Status: 100))
         }
         themaTasks = repository.fetchThemaTable()
         if themaTasks.isEmpty {
-            repository.firstStart(item: ThemaTable())
+            repository.firstStart(item: ThemaTable(ThemaName: "SeSACThema", Purchase: true))
+            repository.firstStart(item: ThemaTable(ThemaName: "CottonCandyThema", Purchase: false))
+            repository.firstStart(item: ThemaTable(ThemaName: "PeachThema", Purchase: false))
+            repository.firstStart(item: ThemaTable(ThemaName: "NightSkyThema", Purchase: false))
+            repository.firstStart(item: ThemaTable(ThemaName: "BeachThema", Purchase: false))
         }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
@@ -135,7 +139,8 @@ class MainViewController: BaseViewController {
 
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
-        navigationController?.navigationBar.tintColor = .white
+//        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = themaChoice().mainColor
 
         let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
         navigationItem.backBarButtonItem = backBarButtonItem

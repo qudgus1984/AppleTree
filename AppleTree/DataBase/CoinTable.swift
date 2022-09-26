@@ -11,14 +11,16 @@ import RealmSwift
 class CoinTable: Object {
     @Persisted var GetCoin : Int
     @Persisted var SpendCoin : Int
-    @Persisted var Category: String
+    @Persisted var Status: Int
+    @Persisted var now: Date
     @Persisted(primaryKey: true) var objectId: ObjectId
 
     
-    convenience init(GetCoin: Int, SpendCoin: Int, Category: String) {
+    convenience init(GetCoin: Int, SpendCoin: Int, Status: Int) {
         self.init()
         self.GetCoin = GetCoin
         self.SpendCoin = SpendCoin
-        self.Category = Category
+        self.Status = Status
+        self.now = Date()
     }
 }

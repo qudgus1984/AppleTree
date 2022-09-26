@@ -165,18 +165,15 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
 
-        
-        
-        
-        if repository.todayFilter().isEmpty {
+        if repository.dayFilter(date: date).isEmpty {
             return nil
         } else {
-            if repository.todayTotalStudyTime().isEmpty {
-                return "0분"
+            if repository.dayTotalStudyTime(date: date).isEmpty {
+                return nil
             } else {
                 var totalStudyTime = 0
-                for i in 0...repository.todayTotalStudyTime().count - 1 {
-                    totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
+                for i in 0...repository.dayTotalStudyTime(date: date).count - 1 {
+                    totalStudyTime += repository.dayTotalStudyTime(date: date)[i].SettingTime
                 }
                 switch totalStudyTime/3600 {
                 case 0:
@@ -185,10 +182,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
                     return String("\(totalStudyTime/3600):\(totalStudyTime%3600 / 60)")
                 }
             }
-
         }
-
-
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
@@ -204,15 +198,15 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         print(date)
-        if repository.todayFilter().isEmpty {
+        if repository.dayFilter(date: date).isEmpty {
             return nil
         } else {
             var totalStudyTime = 0
-            if repository.todayTotalStudyTime().isEmpty {
+            if repository.dayTotalStudyTime(date: date).isEmpty {
                 return nil
             } else {
-                for i in 0...repository.todayTotalStudyTime().count - 1 {
-                    totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
+                for i in 0...repository.dayTotalStudyTime(date: date).count - 1 {
+                    totalStudyTime += repository.dayTotalStudyTime(date: date)[i].SettingTime
                 }
                 return dateChangedIcon(time: totalStudyTime)
             }

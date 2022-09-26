@@ -26,10 +26,6 @@ class UserTable: Object {
      @Persisted var ConcentrateMode: Bool
 //     중지 버튼 횟수 : Int
      @Persisted var StopButtomClicked: Int
-//     카테고리 : String
-     @Persisted var Category: String
-//     지정 시간
-    
     @Persisted(primaryKey: true) var objectId: ObjectId
     
     
@@ -38,15 +34,8 @@ class UserTable: Object {
         self.StartTime = Date()
         self.Success = false
         self.ConcentrateMode = false
-        self.Category = "공부"
         self.SettingTime = SettingTime
         
     }
-//    override init(SettingTime: Int) {
-//        self.StartTime = Date()
-//        self.Success = false
-//        self.ConcentrateMode = false
-//        self.Category = "공부"
-//        self.SettingTime = SettingTime
-//    }
+
 }
