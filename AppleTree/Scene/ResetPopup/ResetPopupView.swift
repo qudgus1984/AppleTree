@@ -33,7 +33,7 @@ class ResetPopupView: BaseView {
             view.layer.cornerRadius = view.frame.size.width / 2
         }
         view.contentMode = .scaleAspectFit
-        view.image = UIImage(named: "seeds")
+        view.image = UIImage(named: "appletreeDie")
         view.backgroundColor = .white
         return view
     }()
@@ -41,7 +41,7 @@ class ResetPopupView: BaseView {
     let countTimeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 44)
+        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 36)
         label.textAlignment = .center
         return label
     }()
@@ -78,7 +78,7 @@ class ResetPopupView: BaseView {
         iconImageView.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
             make.top.equalTo(famousSayingLabel.snp.bottom).offset(4)
-            make.width.equalToSuperview().multipliedBy(0.6)
+            make.width.equalToSuperview().multipliedBy(0.65)
             make.height.equalTo(iconImageView.snp.width)
         }
         

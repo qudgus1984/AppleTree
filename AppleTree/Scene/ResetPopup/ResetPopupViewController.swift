@@ -24,9 +24,9 @@ class ResetPopupViewController: BaseViewController {
     var userTasks: Results<UserTable>! {
         didSet {
             userTasks = repository.fetchUser()
-            updateImage()
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +36,17 @@ class ResetPopupViewController: BaseViewController {
         resetButtonClicked()
         print(progress)
         
-        mainview.iconImageView.image = UIImage(named: "seeds")
+        mainview.iconImageView.image = UIImage(named: "appletreeDie")
     }
     
     //값 전달을 위한 fetch
     override func viewWillAppear(_ animated: Bool) {
         userTasks = repository.fetchUser()
+        DispatchQueue.main.async {
+            self.mainview.iconImageView.clipsToBounds = true
+            self.mainview.iconImageView.layer.cornerRadius = self.mainview.iconImageView.frame.width / 2
+            
+        }
     }
     
     
@@ -51,7 +56,7 @@ class ResetPopupViewController: BaseViewController {
     
     override func configure() {
         
-        self.mainview.countTimeLabel.text = "죽었당 식물이 으아앙"
+        self.mainview.countTimeLabel.text = "죽었당 사과가 으아앙"
         
         //MARK: Nav 색상 변경
         let appearence = UINavigationBarAppearance()
@@ -80,31 +85,8 @@ class ResetPopupViewController: BaseViewController {
         
     }
     
-    func updateImage() {
-        var totalStudyTime = 0
-        for i in 0...repository.todayTotalStudyTime().count - 1 {
-            totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
-        }
-        mainview.iconImageView.image =  ChangedImage(time: totalStudyTime)
-    }
+
     
-    func ChangedImage(time: Int) -> UIImage? {
-        
-        
-        switch time {
-        case 0...7199:
-            return UIImage(named: "seeds")
-        case 7200...14399:
-            return UIImage(named: "sprout")
-        case 14400...21599:
-            return UIImage(named: "apple")
-        case 21600...:
-            return UIImage(named: "apple-tree")
-        default:
-            return nil
-        }
-        
-    }
     
     func todayRealmNotSet() {
         
