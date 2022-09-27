@@ -12,6 +12,8 @@ extension UIFont {
     static let UhBeeFont24 = UIFont(name: "UhBee BEOJJI Bold", size: 24)
     
     static let UhBeeFont44 = UIFont(name: "UhBee BEOJJI Bold", size: 44)
+    
+    static let UhBeeFont36 = UIFont(name: "UhBee BEOJJI Bold", size: 36)
 
     static let UhBeeFont16 = UIFont(name: "UhBee BEOJJI Bold", size: 16)
 

@@ -32,7 +32,7 @@ class ChartView: BaseView {
     var sucessfulLabel: UILabel = {
         let label = UILabel()
         label.text = "나무 심기 성공률 88%"
-        label.font = FontChoice().Font44
+        label.font = FontChoice().Font36
         label.textColor = .white
         label.textAlignment = .center
         return label

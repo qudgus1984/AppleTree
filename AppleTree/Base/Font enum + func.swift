@@ -18,6 +18,13 @@ enum Font {
         }
     }
     
+    var Font36: UIFont {
+        switch self {
+        case .UhBeeFont:
+            return .UhBeeFont36!
+        }
+    }
+    
     var Font24: UIFont {
         switch self {
         case .UhBeeFont:

@@ -101,8 +101,8 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         
         if repository.yesterdayFilter().isEmpty {
             
-            let hour = repository.todayFilter().last!.SettingTime / 3600
-            let minutes = repository.todayFilter().last!.SettingTime % 3600 / 60
+            let hour = repository.dayTotalTimeFilter(date: Date()) / 60
+            let minutes = repository.dayTotalTimeFilter(date: Date())
             
             switch indexPath.row {
             case 0:
@@ -123,12 +123,12 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else {
             
-            let hour = repository.todayFilter().last!.SettingTime / 3600
-            let minutes = repository.todayFilter().last!.SettingTime % 3600 / 60
+            let hour = repository.dayTotalTimeFilter(date: Date()) / 60
+            let minutes = repository.dayTotalTimeFilter(date: Date())
             
-            let removeNum = repository.todayFilter().last!.SettingTime - repository.yesterdayFilter().last!.SettingTime
-            let removehour = removeNum / 3600
-            let removeminutes = removeNum % 3600 / 60
+            let removeNum = repository.dayTotalTimeFilter(date: Date()) - repository.dayTotalTimeFilter(date: Date() - 86400)
+            let removehour = removeNum / 60
+            let removeminutes = removeNum % 60
             
             switch indexPath.row {
             case 0:
