@@ -65,7 +65,7 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TimeSettingTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ThemaSettingTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
         cell.selectionStyle = .none
         themaTasks = repository.fetchThemaTable()
@@ -78,6 +78,8 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
 
             if themaTasks[indexPath.row].Purchase == false {
                 cell.containView.backgroundColor = .systemGray
+                cell.lockImageView.image = UIImage(systemName: "lock.fill")
+
             }
             
 
@@ -85,6 +87,8 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             cell.explainLabel.text = "달콤한 복숭아 테마🍑"
             if themaTasks[indexPath.row].Purchase == false {
                 cell.containView.backgroundColor = .systemGray
+                cell.lockImageView.image = UIImage(systemName: "lock.fill")
+
             }
             
 
@@ -92,11 +96,15 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             cell.explainLabel.text = "감성적 밤하늘 테마🌌"
             if themaTasks[indexPath.row].Purchase == false {
                 cell.containView.backgroundColor = .systemGray
+                cell.lockImageView.image = UIImage(systemName: "lock.fill")
+
             }
         case 4:
             cell.explainLabel.text = "시원한 바닷가 테마🏖"
             if themaTasks[indexPath.row].Purchase == false {
                 cell.containView.backgroundColor = .systemGray
+                cell.lockImageView.image = UIImage(systemName: "lock.fill")
+
             }
         default:
             print("error발생")

@@ -24,6 +24,13 @@ class ThemaSettingTableViewCell: BaseTableViewCell {
         return label
     }()
     
+    let lockImageView: UIImageView = {
+        let view = UIImageView()
+        view.tintColor = .systemGray3
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -33,7 +40,7 @@ class ThemaSettingTableViewCell: BaseTableViewCell {
     }
     
     override func configure() {
-        [containView, explainLabel].forEach {
+        [containView, explainLabel, lockImageView].forEach {
             contentView.addSubview($0)
         }
     }
@@ -45,6 +52,14 @@ class ThemaSettingTableViewCell: BaseTableViewCell {
         
         explainLabel.snp.makeConstraints { make in
             make.edges.equalTo(safeAreaLayoutGuide)
+        }
+        
+        lockImageView.snp.makeConstraints { make in
+            make.trailing.equalTo(containView.snp.trailing).offset(-20)
+            make.centerY.equalTo(explainLabel)
+            make.height.equalTo(containView.snp.height).multipliedBy(0.5)
+            make.width.equalTo(lockImageView.snp.height)
+            
         }
     }
     

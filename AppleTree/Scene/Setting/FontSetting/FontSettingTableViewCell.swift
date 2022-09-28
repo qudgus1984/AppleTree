@@ -26,7 +26,8 @@ class FontSettingTableViewCell: BaseTableViewCell {
     
     let lockImageView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .white
+        view.tintColor = .systemGray3
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -54,8 +55,10 @@ class FontSettingTableViewCell: BaseTableViewCell {
         }
         
         lockImageView.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide)
-            
+            make.trailing.equalTo(containView.snp.trailing).offset(-20)
+            make.centerY.equalTo(explainLabel)
+            make.height.equalTo(containView.snp.height).multipliedBy(0.5)
+            make.width.equalTo(lockImageView.snp.height)
         }
     }
     

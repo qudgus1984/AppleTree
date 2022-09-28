@@ -13,7 +13,7 @@ class ThemaSettingView: BaseView {
     lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.backgroundColor = themaChoice().lightColor
-        view.register(TimeSettingTableViewCell.self, forCellReuseIdentifier: "cell")
+        view.register(ThemaSettingTableViewCell.self, forCellReuseIdentifier: "cell")
         return view
     }()
     

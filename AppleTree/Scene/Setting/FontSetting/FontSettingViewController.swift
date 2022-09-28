@@ -65,36 +65,45 @@ extension FontSettingViewController: UITableViewDelegate, UITableViewDataSource 
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TimeSettingTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? FontSettingTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
         cell.selectionStyle = .none
         fontTasks = repository.fetchFontTable()
-
         switch indexPath.row {
         case 0:
             cell.explainLabel.text = "UhBee 폰트 🌱"
         case 1:
             cell.explainLabel.font = UIFont(name: "GangwonEduAll-OTFBold", size: 24)
             cell.explainLabel.text = "Gangwon 폰트 💜"
+            
 
+            
             if fontTasks[indexPath.row].Purchase == false {
                 cell.containView.backgroundColor = .systemGray
+                cell.lockImageView.image = UIImage(systemName: "lock.fill")
             }
             
 
         case 2:
             cell.explainLabel.font = UIFont(name: "LeeSeoyun", size: 24)
             cell.explainLabel.text = "LeeSeoyun 폰트 🍑"
+
             if fontTasks[indexPath.row].Purchase == false {
                 cell.containView.backgroundColor = .systemGray
+                cell.lockImageView.image = UIImage(systemName: "lock.fill")
+
+
             }
             
 
         case 3:
             cell.explainLabel.font = UIFont(name: "SimKyungha", size: 24)
             cell.explainLabel.text = "Simkyungha 폰트 🌌"
+
             if fontTasks[indexPath.row].Purchase == false {
                 cell.containView.backgroundColor = .systemGray
+                cell.lockImageView.image = UIImage(systemName: "lock.fill")
+
             }
 
         default:

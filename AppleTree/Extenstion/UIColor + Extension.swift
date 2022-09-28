@@ -95,9 +95,10 @@ extension UIColor {
     static let huntPink = UIColor(
         
         red: 255/255,
-        green: 209/255,
-        blue: 209/255,
+        green: 148/255,
+        blue: 148/255,
         alpha: 1
+
 
     )
     
@@ -119,9 +120,14 @@ extension UIColor {
     
     static let huntPinkRed = UIColor(
         
+//        red: 255/255,
+//        green: 148/255,
+//        blue: 148/255,
+//        alpha: 1
+        
         red: 255/255,
-        green: 148/255,
-        blue: 148/255,
+        green: 209/255,
+        blue: 209/255,
         alpha: 1
     )
     

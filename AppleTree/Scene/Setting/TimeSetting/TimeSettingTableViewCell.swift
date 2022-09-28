@@ -19,7 +19,7 @@ class TimeSettingTableViewCell: BaseTableViewCell {
     let explainLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 22)
+        label.font = FontChoice().Font24
         label.textAlignment = .center
         return label
     }()
