@@ -4,6 +4,10 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string></string>
+		<string>SimKyungha.otf</string>
+		<string>강원교육모두 Bold.otf</string>
+		<string>LeeSeoyun.otf</string>
 		<string>UhBee BEOJJI.ttf</string>
 		<string>UhBee BEOJJI Bold.ttf</string>
 	</array>

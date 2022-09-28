@@ -23,7 +23,7 @@ class ResetPopupView: BaseView {
         label.textColor = .white
         label.numberOfLines = 0
         label.text = "내일 지구가 멸망할지라도 나는 오늘 한 그루의 사과나무를 심겠다.\n-바뤼흐 스피노자-"
-        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 28)
+        label.font = FontChoice().Font24
         return label
     }()
     
@@ -41,7 +41,7 @@ class ResetPopupView: BaseView {
     let countTimeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 36)
+        label.font = FontChoice().Font36
         label.textAlignment = .center
         return label
     }()

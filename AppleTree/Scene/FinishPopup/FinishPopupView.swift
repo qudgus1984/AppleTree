@@ -36,7 +36,7 @@ class FinishPopupView: BaseView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .white
-        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 16)
+        label.font = FontChoice().Font16
         label.textAlignment = .center
         label.text =
 """

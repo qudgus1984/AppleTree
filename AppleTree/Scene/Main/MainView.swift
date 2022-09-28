@@ -24,7 +24,9 @@ class MainView: BaseView {
         label.textColor = .white
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 24)
+        label.font = FontChoice().Font24
+//        UIFont(name: "UhBee BEOJJI Bold", size: 24)
+//        label.font = UIFont(name: "GangwonEduAll-OTFBold", size: 24)
         return label
     }()
     
@@ -41,7 +43,7 @@ class MainView: BaseView {
     let countTimeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 44)
+        label.font = FontChoice().Font44
         label.textAlignment = .center
         return label
     }()
@@ -49,7 +51,7 @@ class MainView: BaseView {
     let stopCountLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 16)
+        label.font = FontChoice().Font16
         label.textAlignment = .center
         return label
     }()
@@ -90,7 +92,7 @@ class MainView: BaseView {
     let totalCoinLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: "UhBee BEOJJI Bold", size: 12)
+        label.font = FontChoice().Font12
         label.textColor = .white
         label.textAlignment = .center
         label.text = "8888"

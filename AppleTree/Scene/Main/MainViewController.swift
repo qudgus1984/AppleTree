@@ -46,9 +46,24 @@ class MainViewController: BaseViewController {
             themaTasks = repository.fetchThemaTable()
         }
     }
+    
+    var fontTasks: Results<FontTable>! {
+        didSet {
+            fontTasks = repository.fetchFontTable()
+        }
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for family in UIFont.familyNames {
+          print(family)
+
+          for sub in UIFont.fontNames(forFamilyName: family) {
+            print("====> \(sub)")
+          }
+        }
+        
         UserDefaults.standard.set(UIScreen.main.brightness, forKey: "bright")
         coinTasks = repository.fetchCoinTable()
         if coinTasks.isEmpty {
@@ -56,11 +71,20 @@ class MainViewController: BaseViewController {
         }
         themaTasks = repository.fetchThemaTable()
         if themaTasks.isEmpty {
-            repository.firstStart(item: ThemaTable(ThemaName: "SeSACThema", Purchase: true))
-            repository.firstStart(item: ThemaTable(ThemaName: "CottonCandyThema", Purchase: false))
-            repository.firstStart(item: ThemaTable(ThemaName: "PeachThema", Purchase: false))
-            repository.firstStart(item: ThemaTable(ThemaName: "NightSkyThema", Purchase: false))
-            repository.firstStart(item: ThemaTable(ThemaName: "BeachThema", Purchase: false))
+            repository.firstStartThema(item: ThemaTable(ThemaName: "SeSACThema", Purchase: true))
+            repository.firstStartThema(item: ThemaTable(ThemaName: "CottonCandyThema", Purchase: false))
+            repository.firstStartThema(item: ThemaTable(ThemaName: "PeachThema", Purchase: false))
+            repository.firstStartThema(item: ThemaTable(ThemaName: "NightSkyThema", Purchase: false))
+            repository.firstStartThema(item: ThemaTable(ThemaName: "BeachThema", Purchase: false))
+        }
+        fontTasks = repository.fetchFontTable()
+
+        if fontTasks.isEmpty {
+            repository.firstStartFont(item: FontTable(FontName: "UhBeeFont", Purchase: true))
+            repository.firstStartFont(item: FontTable(FontName: "GangwonFont", Purchase: false))
+            repository.firstStartFont(item: FontTable(FontName: "LeeSeoyunFont", Purchase: false))
+            repository.firstStartFont(item: FontTable(FontName: "SimKyunghaFont", Purchase: false))
+
         }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 

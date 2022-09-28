@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		2F1414A228E3DBCB00CF8EC4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2F1414A128E3DBCB00CF8EC4 /* Realm */; };
 		2F1414A428E3DBCB00CF8EC4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2F1414A328E3DBCB00CF8EC4 /* RealmSwift */; };
+		2F1414AA28E45DC200CF8EC4 /* 강원교육모두 Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F1414A828E45DC200CF8EC4 /* 강원교육모두 Bold.otf */; };
+		2F1414AD28E460A100CF8EC4 /* LeeSeoyun.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F1414AC28E460A100CF8EC4 /* LeeSeoyun.otf */; };
+		2F1414B028E460AF00CF8EC4 /* SimKyungha.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F1414AF28E460AF00CF8EC4 /* SimKyungha.otf */; };
+		2F1414B328E4639400CF8EC4 /* FontSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1414B228E4639400CF8EC4 /* FontSettingView.swift */; };
+		2F1414B528E463E100CF8EC4 /* FontSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1414B428E463E100CF8EC4 /* FontSettingTableViewCell.swift */; };
+		2F1414B728E4641100CF8EC4 /* FontSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1414B628E4641100CF8EC4 /* FontSettingViewController.swift */; };
+		2F1414B928E464AB00CF8EC4 /* FontTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1414B828E464AB00CF8EC4 /* FontTable.swift */; };
 		2F2AFAB728E16FAC00856314 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AFAB628E16FAC00856314 /* ChartView.swift */; };
 		2F2AFABB28E16FEC00856314 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AFABA28E16FEC00856314 /* ChartViewController.swift */; };
 		2F2AFABE28E17AEB00856314 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 2F2AFABD28E17AEB00856314 /* Charts */; };
@@ -60,6 +67,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F1414A828E45DC200CF8EC4 /* 강원교육모두 Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "강원교육모두 Bold.otf"; sourceTree = "<group>"; };
+		2F1414AC28E460A100CF8EC4 /* LeeSeoyun.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeeSeoyun.otf; sourceTree = "<group>"; };
+		2F1414AF28E460AF00CF8EC4 /* SimKyungha.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimKyungha.otf; sourceTree = "<group>"; };
+		2F1414B228E4639400CF8EC4 /* FontSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSettingView.swift; sourceTree = "<group>"; };
+		2F1414B428E463E100CF8EC4 /* FontSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSettingTableViewCell.swift; sourceTree = "<group>"; };
+		2F1414B628E4641100CF8EC4 /* FontSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSettingViewController.swift; sourceTree = "<group>"; };
+		2F1414B828E464AB00CF8EC4 /* FontTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTable.swift; sourceTree = "<group>"; };
 		2F2AFAB628E16FAC00856314 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		2F2AFABA28E16FEC00856314 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		2F2AFABF28E195FB00856314 /* StatusLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusLogic.swift; sourceTree = "<group>"; };
@@ -125,6 +139,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F1414A528E45D5F00CF8EC4 /* UhBeeFont */ = {
+			isa = PBXGroup;
+			children = (
+				2FBE24C828CEDB9300BAA0F1 /* UhBee BEOJJI.ttf */,
+				2FBE24C728CEDB8F00BAA0F1 /* UhBee BEOJJI Bold.ttf */,
+			);
+			path = UhBeeFont;
+			sourceTree = "<group>";
+		};
+		2F1414A628E45D6C00CF8EC4 /* GangwonFont */ = {
+			isa = PBXGroup;
+			children = (
+				2F1414A828E45DC200CF8EC4 /* 강원교육모두 Bold.otf */,
+			);
+			path = GangwonFont;
+			sourceTree = "<group>";
+		};
+		2F1414AB28E4606A00CF8EC4 /* SeoyunFont */ = {
+			isa = PBXGroup;
+			children = (
+				2F1414AC28E460A100CF8EC4 /* LeeSeoyun.otf */,
+			);
+			path = SeoyunFont;
+			sourceTree = "<group>";
+		};
+		2F1414AE28E460A800CF8EC4 /* KunghaFont */ = {
+			isa = PBXGroup;
+			children = (
+				2F1414AF28E460AF00CF8EC4 /* SimKyungha.otf */,
+			);
+			path = KunghaFont;
+			sourceTree = "<group>";
+		};
+		2F1414B128E4637B00CF8EC4 /* FontSetting */ = {
+			isa = PBXGroup;
+			children = (
+				2F1414B228E4639400CF8EC4 /* FontSettingView.swift */,
+				2F1414B428E463E100CF8EC4 /* FontSettingTableViewCell.swift */,
+				2F1414B628E4641100CF8EC4 /* FontSettingViewController.swift */,
+			);
+			path = FontSetting;
+			sourceTree = "<group>";
+		};
 		2F2AFAB528E16F8C00856314 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +323,7 @@
 				2FBAE20128D0609F007F834F /* ATRepository.swift */,
 				2FBAE1FF28D05952007F834F /* UserTable.swift */,
 				2F44A1A428E030640020880E /* ThemaTable.swift */,
+				2F1414B828E464AB00CF8EC4 /* FontTable.swift */,
 				2F44A1A628E0306C0020880E /* CoinTable.swift */,
 				2F2AFABF28E195FB00856314 /* StatusLogic.swift */,
 			);
@@ -275,8 +333,10 @@
 		2FBE24C628CEDB8900BAA0F1 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				2FBE24C728CEDB8F00BAA0F1 /* UhBee BEOJJI Bold.ttf */,
-				2FBE24C828CEDB9300BAA0F1 /* UhBee BEOJJI.ttf */,
+				2F1414AE28E460A800CF8EC4 /* KunghaFont */,
+				2F1414AB28E4606A00CF8EC4 /* SeoyunFont */,
+				2F1414A628E45D6C00CF8EC4 /* GangwonFont */,
+				2F1414A528E45D5F00CF8EC4 /* UhBeeFont */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -284,6 +344,7 @@
 		2FBE24CF28CF21DB00BAA0F1 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				2F1414B128E4637B00CF8EC4 /* FontSetting */,
 				2F2AFAB528E16F8C00856314 /* Chart */,
 				2F9C4EE928D839580004317F /* ThemaSetting */,
 				2F2C540A28D342D000D647AE /* TimeSetting */,
@@ -386,10 +447,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F1414B028E460AF00CF8EC4 /* SimKyungha.otf in Resources */,
 				2FBE24CA28CEDBB300BAA0F1 /* UhBee BEOJJI Bold.ttf in Resources */,
 				2FBE24C928CEDBAF00BAA0F1 /* UhBee BEOJJI.ttf in Resources */,
+				2F1414AA28E45DC200CF8EC4 /* 강원교육모두 Bold.otf in Resources */,
 				2F7EE94D28BCEA6B000F1F41 /* LaunchScreen.storyboard in Resources */,
 				2F7EE94A28BCEA6B000F1F41 /* Assets.xcassets in Resources */,
+				2F1414AD28E460A100CF8EC4 /* LeeSeoyun.otf in Resources */,
 				2F7EE94828BCEA69000F1F41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +471,7 @@
 				2F9C4EED28D839860004317F /* ThemaSettingTableViewCell.swift in Sources */,
 				2FAA583E28CC53A50067BFE8 /* BaseTableViewCell.swift in Sources */,
 				2F2AFABB28E16FEC00856314 /* ChartViewController.swift in Sources */,
+				2F1414B528E463E100CF8EC4 /* FontSettingTableViewCell.swift in Sources */,
 				2F44A1A928E0378E0020880E /* UIFont + Extension.swift in Sources */,
 				2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */,
 				2F2C540528D33D8C00D647AE /* SettingView.swift in Sources */,
@@ -418,6 +483,7 @@
 				2F44A1AB28E038E20020880E /* Font enum + func.swift in Sources */,
 				2FBAE20228D0609F007F834F /* ATRepository.swift in Sources */,
 				2FBE24DC28CF37EE00BAA0F1 /* CalendarView.swift in Sources */,
+				2F1414B728E4641100CF8EC4 /* FontSettingViewController.swift in Sources */,
 				2F7EE94528BCEA69000F1F41 /* ViewController.swift in Sources */,
 				2F9C4EF128D83E270004317F /* Thema enum + func.swift in Sources */,
 				2FBE24D528CF248700BAA0F1 /* FinishPopupViewController.swift in Sources */,
@@ -425,6 +491,8 @@
 				2FCB706428CA4223002AF578 /* ReusableProtocol.swift in Sources */,
 				2FAA583A28CC52690067BFE8 /* BaseView.swift in Sources */,
 				2F9C4EEF28D8399E0004317F /* ThemaSettingViewController.swift in Sources */,
+				2F1414B328E4639400CF8EC4 /* FontSettingView.swift in Sources */,
+				2F1414B928E464AB00CF8EC4 /* FontTable.swift in Sources */,
 				2F2AFAB728E16FAC00856314 /* ChartView.swift in Sources */,
 				2F7EE94128BCEA69000F1F41 /* AppDelegate.swift in Sources */,
 				2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */,

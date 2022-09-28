@@ -54,9 +54,9 @@ class CalendarViewController: BaseViewController {
             mainview.calendarView.calendarWeekdayView.weekdayLabels[i].text = weekDictionary[i]
         }
         
-        self.mainview.calendarView.appearance.weekdayFont = UIFont(name: "UhBee BEOJJI Bold", size: 14)
+        self.mainview.calendarView.appearance.weekdayFont = FontChoice().Font16
         self.mainview.calendarView.appearance.weekdayTextColor = themaChoice().mainColor.withAlphaComponent(0.9)
-        self.mainview.calendarView.appearance.headerTitleFont = UIFont(name: "UhBee BEOJJI Bold", size: 24)
+        self.mainview.calendarView.appearance.headerTitleFont = FontChoice().Font24
         self.mainview.calendarView.appearance.headerTitleColor = themaChoice().mainColor.withAlphaComponent(0.9)
         self.mainview.calendarView.appearance.headerTitleAlignment = .center
     }

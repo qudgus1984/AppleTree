@@ -23,11 +23,25 @@ class ATRepository: ATRepositoryType {
         return localRealm.objects(ThemaTable.self)
     }
     
+    func fetchFontTable() -> Results<FontTable> {
+        return localRealm.objects(FontTable.self)
+    }
+    
     func fetchCoinTable() -> Results<CoinTable> {
         return localRealm.objects(CoinTable.self)
     }
     
-    func firstStart(item: ThemaTable) {
+    func firstStartThema(item: ThemaTable) {
+        do {
+            try localRealm.write {
+                localRealm.add(item)
+            }
+        } catch {
+            print()
+        }
+    }
+    
+    func firstStartFont(item: FontTable) {
         do {
             try localRealm.write {
                 localRealm.add(item)
@@ -185,6 +199,16 @@ class ATRepository: ATRepositoryType {
         }
     }
     
+    func FontBuy(item: FontTable, Fontlist: List<Bool>) {
+        do {
+            try localRealm.write {
+                item.setValue(Fontlist, forKey: "Thema")
+            }
+        } catch {
+            print()
+        }
+    }
+    
     func addCoin(item: CoinTable) {
         do {
             try localRealm.write {
@@ -196,6 +220,16 @@ class ATRepository: ATRepositoryType {
     }
     
     func changeThemaBool(item: ThemaTable, ThemaNum: Int) {
+        do {
+            try localRealm.write {
+                item.Purchase = true
+            }
+        } catch {
+            print()
+        }
+    }
+    
+    func changeTFontBool(item: FontTable, fontNum: Int) {
         do {
             try localRealm.write {
                 item.Purchase = true
