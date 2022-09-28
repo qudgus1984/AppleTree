@@ -95,6 +95,8 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CalendarTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
         cell.selectionStyle = .none
+        
+        
 
         
         
@@ -116,7 +118,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.explainLabel.text = "어제는 성장하지 않으셨군요!!"
                 
             case 2:
-                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(0)개 입니다."
+                cell.explainLabel.text = "이번 달에는 \(repository.monthCount(date: Date()))번 성공하셨어요 👍🏻"
             default:
                 print()
             }
@@ -143,7 +145,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
                     
                 }
             case 2:
-                cell.explainLabel.text = "지금까지 성장시킨 사과나무는 총 \(0)개 입니다."
+                cell.explainLabel.text = "이번 달에는 \(repository.monthCount(date: Date()))번 성공하셨어요 👍🏻"
             default:
                 print()
             }

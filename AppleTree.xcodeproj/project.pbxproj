@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1414A228E3DBCB00CF8EC4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2F1414A128E3DBCB00CF8EC4 /* Realm */; };
+		2F1414A428E3DBCB00CF8EC4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2F1414A328E3DBCB00CF8EC4 /* RealmSwift */; };
 		2F2AFAB728E16FAC00856314 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AFAB628E16FAC00856314 /* ChartView.swift */; };
 		2F2AFABB28E16FEC00856314 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AFABA28E16FEC00856314 /* ChartViewController.swift */; };
 		2F2AFABE28E17AEB00856314 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 2F2AFABD28E17AEB00856314 /* Charts */; };
@@ -42,8 +44,6 @@
 		2FAA584728CC54E00067BFE8 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA584628CC54E00067BFE8 /* UIColor + Extension.swift */; };
 		2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA584828CC59BD0067BFE8 /* MainViewController.swift */; };
 		2FB41FF828CF8D7C00B8E245 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB41FF728CF8D7C00B8E245 /* FSCalendar */; };
-		2FBAE1FB28D0564B007F834F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2FBAE1FA28D0564B007F834F /* Realm */; };
-		2FBAE1FD28D0564B007F834F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FBAE1FC28D0564B007F834F /* RealmSwift */; };
 		2FBAE20028D05952007F834F /* UserTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAE1FF28D05952007F834F /* UserTable.swift */; };
 		2FBAE20228D0609F007F834F /* ATRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAE20128D0609F007F834F /* ATRepository.swift */; };
 		2FBE24C928CEDBAF00BAA0F1 /* UhBee BEOJJI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FBE24C828CEDB9300BAA0F1 /* UhBee BEOJJI.ttf */; };
@@ -113,12 +113,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FBAE1FD28D0564B007F834F /* RealmSwift in Frameworks */,
+				2F1414A428E3DBCB00CF8EC4 /* RealmSwift in Frameworks */,
 				2F2AFABE28E17AEB00856314 /* Charts in Frameworks */,
-				2FBAE1FB28D0564B007F834F /* Realm in Frameworks */,
 				2FAA584528CC54630067BFE8 /* SnapKit in Frameworks */,
 				2FD5515028D71DFB00D1ED25 /* Toast in Frameworks */,
 				2FB41FF828CF8D7C00B8E245 /* FSCalendar in Frameworks */,
+				2F1414A228E3DBCB00CF8EC4 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,10 +332,10 @@
 			packageProductDependencies = (
 				2FAA584428CC54630067BFE8 /* SnapKit */,
 				2FB41FF728CF8D7C00B8E245 /* FSCalendar */,
-				2FBAE1FA28D0564B007F834F /* Realm */,
-				2FBAE1FC28D0564B007F834F /* RealmSwift */,
 				2FD5514F28D71DFB00D1ED25 /* Toast */,
 				2F2AFABD28E17AEB00856314 /* Charts */,
+				2F1414A128E3DBCB00CF8EC4 /* Realm */,
+				2F1414A328E3DBCB00CF8EC4 /* RealmSwift */,
 			);
 			productName = AppleTree;
 			productReference = 2F7EE93D28BCEA69000F1F41 /* AppleTree.app */;
@@ -368,9 +368,9 @@
 			packageReferences = (
 				2FAA584328CC54630067BFE8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2FB41FF628CF8D7C00B8E245 /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				2FBAE1F928D0564B007F834F /* XCRemoteSwiftPackageReference "realm-swift" */,
 				2FD5514E28D71DFB00D1ED25 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				2F2AFABC28E17AEB00856314 /* XCRemoteSwiftPackageReference "Charts" */,
+				2F1414A028E3DBCB00CF8EC4 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 2F7EE93E28BCEA69000F1F41 /* Products */;
 			projectDirPath = "";
@@ -667,6 +667,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2F1414A028E3DBCB00CF8EC4 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.30.0;
+			};
+		};
 		2F2AFABC28E17AEB00856314 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
@@ -691,14 +699,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		2FBAE1F928D0564B007F834F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
 		2FD5514E28D71DFB00D1ED25 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -710,6 +710,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F1414A128E3DBCB00CF8EC4 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1414A028E3DBCB00CF8EC4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		2F1414A328E3DBCB00CF8EC4 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1414A028E3DBCB00CF8EC4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		2F2AFABD28E17AEB00856314 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F2AFABC28E17AEB00856314 /* XCRemoteSwiftPackageReference "Charts" */;
@@ -724,16 +734,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FB41FF628CF8D7C00B8E245 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
-		};
-		2FBAE1FA28D0564B007F834F /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2FBAE1F928D0564B007F834F /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		2FBAE1FC28D0564B007F834F /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2FBAE1F928D0564B007F834F /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
 		};
 		2FD5514F28D71DFB00D1ED25 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -22,6 +22,12 @@ class ChartView: BaseView {
         return view
     }()
     
+    var containChartView: UIView = {
+        let view = UIView()
+        view.backgroundColor = themaChoice().mainColor
+        return view
+    }()
+    
     var segmentedControl: UISegmentedControl = {
         let items = ["일", "주", "월"]
         let segmentedControl = UISegmentedControl(items: items)
@@ -40,7 +46,7 @@ class ChartView: BaseView {
 
     
     override func configure() {
-        [bgView, segmentedControl, sucessfulLabel, barChartView].forEach {
+        [bgView, segmentedControl, sucessfulLabel, containChartView, barChartView].forEach {
         self.addSubview($0)
         }
     }
@@ -66,11 +72,15 @@ class ChartView: BaseView {
             make.height.equalTo(80)
         }
         
-        barChartView.snp.makeConstraints { make in
+        containChartView.snp.makeConstraints { make in
             make.top.equalTo(segmentedControl.snp.bottom).offset(40)
-            make.leading.equalTo(safeAreaLayoutGuide).offset(40)
-            make.trailing.equalTo(safeAreaLayoutGuide).offset(-40)
-            make.bottom.equalTo(sucessfulLabel.snp.top).offset(-40)
+            make.leading.equalTo(safeAreaLayoutGuide).offset(28)
+            make.trailing.equalTo(safeAreaLayoutGuide).offset(-28)
+            make.bottom.equalTo(sucessfulLabel.snp.top).offset(-28)
+        }
+        
+        barChartView.snp.makeConstraints { make in
+            make.edges.equalTo(containChartView).inset(4)
         }
     }
 }

@@ -78,7 +78,7 @@ class ATRepository: ATRepositoryType {
             }
             return successTotalTime / 60
         }
-
+        
     }
     
     func monthTotalTimeFilter(date: Date) -> Int {
@@ -87,12 +87,12 @@ class ATRepository: ATRepositoryType {
         calendar.locale = Locale(identifier: "ko")
         
         let components = calendar.dateComponents([.year, .month], from: setDate)
-
+        
         //day를 기입하지 않아서 현재 달의 첫번쨰 날짜가 나오게 된다
         let startOfMonth = calendar.date(from: components)!
-
+        
         let nextMonth = calendar.date(byAdding: .month, value: +1, to: startOfMonth)
-
+        
         
         let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", startOfMonth, nextMonth)
         print("asdasdasda",item)
@@ -106,6 +106,25 @@ class ATRepository: ATRepositoryType {
             }
             return successTotalTime / 60
         }
+    }
+    
+    func monthCount(date: Date) -> Int {
+        
+        let setDate = date
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: "ko")
+        
+        let components = calendar.dateComponents([.year, .month], from: setDate)
+        
+        //day를 기입하지 않아서 현재 달의 첫번쨰 날짜가 나오게 된다
+        let startOfMonth = calendar.date(from: components)!
+        
+        let nextMonth = calendar.date(byAdding: .month, value: +1, to: startOfMonth)
+        
+        
+        let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", startOfMonth, nextMonth)
+        let successMonth = item.filter("Success == true")
+        return successMonth.count
     }
     
     func yesterdayFilter() -> Results<UserTable> {

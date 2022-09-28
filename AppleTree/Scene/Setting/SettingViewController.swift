@@ -42,7 +42,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     
@@ -60,8 +60,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             cell.explainLabel.text = "집중 시간 통계"
         case 3:
             cell.explainLabel.text = "테마 설정"
-        case 4:
-            cell.explainLabel.text = "백업 및 복구"
+//        case 4:
+//            cell.explainLabel.text = "백업 및 복구"
+
+
         default:
             print("error발생")
             
@@ -87,8 +89,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 3:
             let vc = ThemaSettingViewController()
             transition(vc, transitionStyle: .push)
-        case 4:
-            self.mainview.makeToast("업데이트 예정입니다.")
+//        case 4:
+//            self.mainview.makeToast("업데이트 예정입니다.")
         default:
             print("error발생")
             
