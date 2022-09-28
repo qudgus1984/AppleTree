@@ -127,6 +127,15 @@ class ATRepository: ATRepositoryType {
         return successMonth.count
     }
     
+    func successfulRate() -> Int {
+        let totalCount = localRealm.objects(UserTable.self).count
+        let successCount = localRealm.objects(UserTable.self).filter("Success == true").count
+        print("@@@@@@@@@",totalCount, successCount)
+        let successRate:Double = (Double(successCount) / Double(totalCount)) * 100
+        print(successRate)
+        return Int(successRate)
+    }
+    
     func yesterdayFilter() -> Results<UserTable> {
         let calender = Calendar.current
         let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", calender.startOfDay(for: Date() - 86400), calender.startOfDay(for: Date()))

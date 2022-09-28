@@ -51,6 +51,8 @@ class FinishPopupViewController: BaseViewController {
         self.repository.updateState(item: repository.todayFilter().last!, Sucess: true)
         self.repository.addCoin(item: CoinTable(GetCoin: coinCalculator(), SpendCoin: 0, Status: 101))
         UserDefaults.standard.set(3, forKey: "stop")
+        userTasks = repository.fetchUser()
+        CalendarView().calendarView.reloadData()
         dismiss(animated: true)
     }
     

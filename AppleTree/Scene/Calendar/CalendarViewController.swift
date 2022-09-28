@@ -21,6 +21,7 @@ class CalendarViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         userTasks = repository.fetchUser()
+        mainview.tableView.reloadData()
         
     }
     
@@ -104,7 +105,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         if repository.yesterdayFilter().isEmpty {
             
             let hour = repository.dayTotalTimeFilter(date: Date()) / 60
-            let minutes = repository.dayTotalTimeFilter(date: Date())
+            let minutes = repository.dayTotalTimeFilter(date: Date()) % 60
             
             switch indexPath.row {
             case 0:
@@ -126,7 +127,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             
             let hour = repository.dayTotalTimeFilter(date: Date()) / 60
-            let minutes = repository.dayTotalTimeFilter(date: Date())
+            let minutes = repository.dayTotalTimeFilter(date: Date()) % 60
             
             let removeNum = repository.dayTotalTimeFilter(date: Date()) - repository.dayTotalTimeFilter(date: Date() - 86400)
             let removehour = removeNum / 60

@@ -14,7 +14,7 @@ class ChartViewController: BaseViewController {
     
     var months: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     var unitsSold: [Double]!
-    var days: [String] = ["6~8", "8~10", "10~12", "12~2", "2~4", "4~6", "6~8", "8~10", "10~12", "0~2", "2~4", "4~6"]
+    var days: [String] = ["6시", "8시", "10시", "12시", "2시", "4시", "6시", "8시", "10시", "12시", "2시", "4시"]
     var weeks: [String] = ["6일 전", "5일 전", "4일 전", "3일 전", "이틀 전", "어제", "오늘"]
     
     var repository = ATRepository()
@@ -54,6 +54,8 @@ class ChartViewController: BaseViewController {
                 
                 self.mainview.barChartView.clipsToBounds = true
                 self.mainview.barChartView.layer.cornerRadius = 10
+                let successfulRate = self.repository.successfulRate()
+                self.mainview.sucessfulLabel.text = "집중 성공률 : \(successfulRate)%"
                 
             }
         }
