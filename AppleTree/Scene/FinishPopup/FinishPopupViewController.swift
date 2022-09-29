@@ -56,22 +56,6 @@ class FinishPopupViewController: BaseViewController {
         dismiss(animated: true)
     }
     
-//    func ChangedImage(time: Int) -> UIImage? {
-//
-//        
-//        switch time {
-//        case 0...1200:
-//            return UIImage(named: "seeds")
-//        case 1201...2400:
-//            return UIImage(named: "sprout")
-//        case 2401...4801:
-//            return UIImage(named: "apple")
-//        case 4801...:
-//            return UIImage(named: "apple-tree")
-//        default:
-//            return nil
-//        }
-//    }
     
     func coinCalculator() -> Int {
         switch UserDefaults.standard.integer(forKey: "engagedTime") {
