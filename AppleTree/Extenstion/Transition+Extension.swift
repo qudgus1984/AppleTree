@@ -15,6 +15,7 @@ extension UIViewController {
         case presentNavigation //네비게이션 임베드 Present
         case presentFullNavigation //네비게이션 풀스크린
         case push
+        case rootViewControllerChange
     }
     
 
@@ -33,6 +34,22 @@ extension UIViewController {
             let navi = UINavigationController(rootViewController: viewController)
             navi.modalPresentationStyle = .fullScreen
             self.present(navi, animated: true)
+        case .rootViewControllerChange:
+            changeRootVC()
         }
     }
+    
+    func changeRootVC() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        
+        
+        let vc = MainViewController()
+        let navi = UINavigationController(rootViewController: vc)
+        sceneDelegate?.window?.rootViewController = navi
+        sceneDelegate?.window?.makeKeyAndVisible()
+
+    }
+    
+
 }

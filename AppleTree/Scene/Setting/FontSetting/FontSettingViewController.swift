@@ -126,8 +126,8 @@ extension FontSettingViewController: UITableViewDelegate, UITableViewDataSource 
             } else {
                 UserDefaults.standard.set(0, forKey: "font")
                 
-                let mainViewController = MainViewController()
-                transition(mainViewController, transitionStyle: .presentFullNavigation)
+                changeRootVC()
+
             }
         case 1:
             if UserDefaults.standard.bool(forKey: "going") {
@@ -146,8 +146,8 @@ extension FontSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 } else {
                     UserDefaults.standard.set(1, forKey: "font")
 
-                    let mainViewController = MainViewController()
-                    transition(mainViewController, transitionStyle: .presentFullNavigation)
+                    changeRootVC()
+
                 }
             }
         case 2:
@@ -166,8 +166,8 @@ extension FontSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 } else {
                     UserDefaults.standard.set(2, forKey: "font")
 
-                    let mainViewController = MainViewController()
-                    transition(mainViewController, transitionStyle: .presentFullNavigation)
+                    changeRootVC()
+
                 }
             }
         case 3:
@@ -185,8 +185,8 @@ extension FontSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 } else {
                     UserDefaults.standard.set(3, forKey: "font")
 
-                    let mainViewController = MainViewController()
-                    transition(mainViewController, transitionStyle: .presentFullNavigation)
+                    changeRootVC()
+
                 }
             }
 

@@ -80,7 +80,7 @@ class ChartViewController: BaseViewController {
 
         // 선택된 배경색을 변경하는 겁니다.
         mainview.segmentedControl.selectedSegmentTintColor = themaChoice().lightColor
-
+        
         // 전체 배경색을 바꾸는 겁니다.
         mainview.segmentedControl.backgroundColor = themaChoice().calendarChoiceColor
 
@@ -116,6 +116,7 @@ class ChartViewController: BaseViewController {
         mainview.barChartView.noDataText = "이 달의 데이터가 없어요 ㅠㅠ"
         mainview.barChartView.noDataFont = FontChoice().Font24
         mainview.barChartView.noDataTextColor = themaChoice().mainColor
+        mainview.barChartView.tintColor = .white
         
         
         
@@ -142,7 +143,8 @@ class ChartViewController: BaseViewController {
         mainview.barChartView.noDataText = "이 달의 데이터가 없어요 ㅠㅠ"
         mainview.barChartView.noDataFont = FontChoice().Font24
         mainview.barChartView.noDataTextColor = themaChoice().mainColor
-        
+        mainview.barChartView.tintColor = .white
+
         setBarChartDays(dataPoints: days, values: unitsSold)
         mainview.barChartView.xAxis.drawAxisLineEnabled = true
         mainview.barChartView.xAxis.drawGridLinesEnabled = false
@@ -160,7 +162,8 @@ class ChartViewController: BaseViewController {
         mainview.barChartView.noDataText = "이 달의 데이터가 없어요 ㅠㅠ"
         mainview.barChartView.noDataFont = FontChoice().Font24
         mainview.barChartView.noDataTextColor = themaChoice().mainColor
-        
+        mainview.barChartView.tintColor = .white
+
         setBarChartWeeks(dataPoints: weeks, values: unitsSold)
     }
     // control를 했을 때 해당 index를 출력해줍니다.
@@ -186,11 +189,17 @@ class ChartViewController: BaseViewController {
             dataEntries.append(dataEntry)
         }
         
+        
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "일별 공부 시작시간(count)")
-
+        
 
         // 차트 컬러
         chartDataSet.colors = [themaChoice().progressColor]
+        chartDataSet.valueTextColor = .white
+        chartDataSet.highlightColor = .white
+        chartDataSet.valueFont = FontChoice().Font16
+        chartDataSet.barBorderColor = NSUIColor.systemGray
+        
         // 데이터 삽입
         let chartData = BarChartData(dataSet: chartDataSet)
         mainview.barChartView.data = chartData
@@ -201,6 +210,13 @@ class ChartViewController: BaseViewController {
         mainview.barChartView.doubleTapToZoomEnabled = false
         // X축 레이블 갯수 최대로 설정 (이 코드 안쓸 시 Jan Mar May 이런식으로 띄엄띄엄 조금만 나옴)
         mainview.barChartView.xAxis.setLabelCount(dataPoints.count, force: false)
+        
+        // 차트 text 색상 변경
+        mainview.barChartView.xAxis.labelTextColor = .white
+        mainview.barChartView.xAxis.axisLineColor = .white
+        mainview.barChartView.leftAxis.axisLineColor = .white
+        mainview.barChartView.leftAxis.labelTextColor = .white
+        
         // 오른쪽 레이블 제거
         mainview.barChartView.rightAxis.enabled = false
         //옵션 애니메이션
@@ -232,6 +248,12 @@ class ChartViewController: BaseViewController {
 
         // 차트 컬러
         chartDataSet.colors = [themaChoice().progressColor]
+        chartDataSet.valueTextColor = .white
+        chartDataSet.highlightColor = .white
+        chartDataSet.valueFont = FontChoice().Font16
+
+
+
         // 데이터 삽입
         let chartData = BarChartData(dataSet: chartDataSet)
         mainview.barChartView.data = chartData
@@ -242,6 +264,13 @@ class ChartViewController: BaseViewController {
         mainview.barChartView.doubleTapToZoomEnabled = false
         // X축 레이블 갯수 최대로 설정 (이 코드 안쓸 시 Jan Mar May 이런식으로 띄엄띄엄 조금만 나옴)
         mainview.barChartView.xAxis.setLabelCount(dataPoints.count, force: false)
+        
+        // 차트 text 색상 변경
+        mainview.barChartView.xAxis.labelTextColor = .white
+        mainview.barChartView.xAxis.axisLineColor = .white
+        mainview.barChartView.leftAxis.axisLineColor = .white
+        mainview.barChartView.leftAxis.labelTextColor = .white
+        
         // 오른쪽 레이블 제거
         mainview.barChartView.rightAxis.enabled = false
         //옵션 애니메이션
@@ -268,19 +297,25 @@ class ChartViewController: BaseViewController {
         }
 
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "월별 집중 시간(minute)")
-
         // 차트 컬러
         chartDataSet.colors = [themaChoice().progressColor]
+        chartDataSet.highlightColor = .white
+        chartDataSet.valueTextColor = .white
+        chartDataSet.valueFont = FontChoice().Font16
+        
         // 데이터 삽입
         let chartData = BarChartData(dataSet: chartDataSet)
         mainview.barChartView.data = chartData
-        
         // 선택 안되게
         chartDataSet.highlightEnabled = false
         // 줌 안되게
         mainview.barChartView.doubleTapToZoomEnabled = false
         // X축 레이블 갯수 최대로 설정 (이 코드 안쓸 시 Jan Mar May 이런식으로 띄엄띄엄 조금만 나옴)
         mainview.barChartView.xAxis.setLabelCount(dataPoints.count, force: false)
+        mainview.barChartView.xAxis.labelTextColor = .white
+        mainview.barChartView.xAxis.axisLineColor = .white
+        mainview.barChartView.leftAxis.axisLineColor = .white
+        mainview.barChartView.leftAxis.labelTextColor = .white
         // 오른쪽 레이블 제거
         mainview.barChartView.rightAxis.enabled = false
         //옵션 애니메이션

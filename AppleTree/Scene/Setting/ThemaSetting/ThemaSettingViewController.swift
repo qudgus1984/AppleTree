@@ -126,8 +126,8 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             } else {
                 UserDefaults.standard.set(0, forKey: "thema")
 
-                let mainViewController = MainViewController()
-                transition(mainViewController, transitionStyle: .presentFullNavigation)
+                changeRootVC()
+
             }
         case 1:
             if UserDefaults.standard.bool(forKey: "going") {
@@ -143,9 +143,8 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                     }
                 } else {
                     UserDefaults.standard.set(1, forKey: "thema")
+                    changeRootVC()
 
-                    let mainViewController = MainViewController()
-                    transition(mainViewController, transitionStyle: .presentFullNavigation)
                 }
             }
         case 2:
@@ -163,8 +162,8 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 } else {
                     UserDefaults.standard.set(2, forKey: "thema")
 
-                    let mainViewController = MainViewController()
-                    transition(mainViewController, transitionStyle: .presentFullNavigation)
+                    changeRootVC()
+
                 }
             }
         case 3:
@@ -182,8 +181,8 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 } else {
                     UserDefaults.standard.set(3, forKey: "thema")
 
-                    let mainViewController = MainViewController()
-                    transition(mainViewController, transitionStyle: .presentFullNavigation)
+                    changeRootVC()
+
                 }
             }
         case 4:
@@ -201,8 +200,8 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
                 } else {
                     UserDefaults.standard.set(4, forKey: "thema")
 
-                    let mainViewController = MainViewController()
-                    transition(mainViewController, transitionStyle: .presentFullNavigation)
+                    changeRootVC()
+
                 }
             }
 
@@ -230,8 +229,8 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             self.repository.addCoin(item: CoinTable(GetCoin: 0, SpendCoin: -2000, Status: 400 + ThemaNum))
             UserDefaults.standard.set(ThemaNum, forKey: "thema")
 
-            let mainViewController = MainViewController()
-            transition(mainViewController, transitionStyle: .presentFullNavigation)
+            changeRootVC()
+
             
 
             
