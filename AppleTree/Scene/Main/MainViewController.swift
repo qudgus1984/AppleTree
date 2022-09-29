@@ -25,7 +25,7 @@ class MainViewController: BaseViewController {
     
     var bulbBool = true
     
-
+    
     
     // 값 전달을 위한 fetch
     var userTasks: Results<UserTable>! {
@@ -52,16 +52,16 @@ class MainViewController: BaseViewController {
             fontTasks = repository.fetchFontTable()
         }
     }
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         for family in UIFont.familyNames {
-          print(family)
-
-          for sub in UIFont.fontNames(forFamilyName: family) {
-            print("====> \(sub)")
-          }
+            print(family)
+            
+            for sub in UIFont.fontNames(forFamilyName: family) {
+                print("====> \(sub)")
+            }
         }
         
         UserDefaults.standard.set(UIScreen.main.brightness, forKey: "bright")
@@ -78,25 +78,25 @@ class MainViewController: BaseViewController {
             repository.firstStartThema(item: ThemaTable(ThemaName: "BeachThema", Purchase: false))
         }
         fontTasks = repository.fetchFontTable()
-
+        
         if fontTasks.isEmpty {
             repository.firstStartFont(item: FontTable(FontName: "UhBeeFont", Purchase: true))
             repository.firstStartFont(item: FontTable(FontName: "GangwonFont", Purchase: false))
             repository.firstStartFont(item: FontTable(FontName: "LeeSeoyunFont", Purchase: false))
             repository.firstStartFont(item: FontTable(FontName: "SimKyunghaFont", Purchase: false))
-
+            
         }
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-
+        
         //화면 꺼지지 않게 하는 코드
         UIApplication.shared.isIdleTimerDisabled = true
         todayRealmNotSet()
         userTasks = repository.fetchUser()
         startButtonClicked()
-//        mainview.iconImageView.image = UIImage(named: "seeds")
+        //        mainview.iconImageView.image = UIImage(named: "seeds")
     }
     override func viewDidAppear(_ animated: Bool) {
-
+        
     }
     
     //값 전달을 위한 fetch
@@ -112,11 +112,11 @@ class MainViewController: BaseViewController {
             self.mainview.buttonIncludeView.layer.cornerRadius = 12
             
         }
-
+        
         userTasks = repository.fetchUser()
         if repository.todayFilter().isEmpty {
             mainview.famousSayingLabel.text = "오늘 0분 동안 집중했습니다."
-
+            
         } else {
             var totalStudyTime = 0
             if repository.todayTotalStudyTime().isEmpty {
@@ -128,14 +128,14 @@ class MainViewController: BaseViewController {
                 
                 let hour = totalStudyTime / 3600
                 let minutes = totalStudyTime % 3600 / 60
-                                                                                            
+                
                 if hour == 0 {
                     mainview.famousSayingLabel.text = "오늘 \(minutes)분 동안 집중했습니다."
                 } else {
                     mainview.famousSayingLabel.text = "오늘 \(hour)시간 \(minutes)분 동안 집중했습니다."
                 }
             }
-                
+            
         }
         
         
@@ -154,18 +154,18 @@ class MainViewController: BaseViewController {
         let seconds = self.mainview.settingCount % 60
         self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
         self.mainview.stopCountLabel.text = "멈출 수 있는 기회는 \(UserDefaults.standard.integer(forKey: "stop"))번!"
-
+        
         
         //MARK: Nav 색상 변경
         let appearence = UINavigationBarAppearance()
         appearence.backgroundColor = themaChoice().mainColor
         appearence.shadowColor = .clear
-
+        
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
-//        navigationController?.navigationBar.tintColor = .white
+        //        navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.tintColor = themaChoice().mainColor
-
+        
         let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
         navigationItem.backBarButtonItem = backBarButtonItem
         
@@ -194,7 +194,7 @@ class MainViewController: BaseViewController {
     }
     
     @objc func bulbButtonClicked() {
-
+        
         switch bulbBool {
         case true:
             UIScreen.main.brightness = 0.0
@@ -209,7 +209,7 @@ class MainViewController: BaseViewController {
         mainview.startButton.addTarget(self, action: #selector(startButtonClickedCountDown), for: .touchUpInside)
         
     }
-
+    
     
     
     @objc func startButtonClickedCountDown() {
@@ -218,18 +218,18 @@ class MainViewController: BaseViewController {
             firstStartButtonClicked.toggle()
             self.repository.addItem(item: UserTable(SettingTime: self.mainview.settingCount))
         }
-
+        
         if startButtonBool == true {
             UserDefaults.standard.set(true, forKey: "going")
             startButtonBool.toggle()
             self.mainview.startButton.setTitle("중지", for: .normal)
-            timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { (t) in
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
                 self.mainview.settingCount -= 1
                 let minutes = self.mainview.settingCount / 60
                 let seconds = self.mainview.settingCount % 60
-
+                
                 if self.mainview.settingCount > 0 {
-
+                    
                     self.mainview.countTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
                     self.mainview.countTimeLabel.text = "\(minutes):\(seconds)"
                     self.progress = Float(self.mainview.settingCount) / Float(UserDefaults.standard.integer(forKey: "engagedTime"))
@@ -252,7 +252,7 @@ class MainViewController: BaseViewController {
         } else {
             if UserDefaults.standard.integer(forKey: "stop") != 0 {
                 print("🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏",self.progress)
-
+                
                 UserDefaults.standard.set(false, forKey: "going")
                 startButtonBool.toggle()
                 self.mainview.startButton.setTitle("시작", for: .normal)
@@ -263,7 +263,7 @@ class MainViewController: BaseViewController {
                 timer?.invalidate()
                 timer = nil
             } else {
-                self.mainview.makeToast("멈출 수 있는 기회를 다써버려찌 머얌 :)")
+                self.mainview.makeToast("멈출 수 있는 기회를 다 써버렸어요 😣")
             }
             
         }
@@ -278,18 +278,14 @@ class MainViewController: BaseViewController {
     
     func updateImage() {
         var totalStudyTime = 0
-        if repository.todayFilter().isEmpty {
-            ChangedImage(time: 0)
+        
+        if repository.todayTotalStudyTime().isEmpty {
+            mainview.iconImageView.image = ChangedImage(time: 0)
+            
         } else {
             
-            if repository.todayTotalStudyTime().isEmpty {
-                ChangedImage(time: 0)
-
-            } else {
-                
-                for i in 0...repository.todayTotalStudyTime().count - 1 {
-                    totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
-                }
+            for i in 0...repository.todayTotalStudyTime().count - 1 {
+                totalStudyTime += repository.todayTotalStudyTime()[i].SettingTime
             }
             mainview.iconImageView.image =  ChangedImage(time: totalStudyTime)
         }
@@ -299,10 +295,12 @@ class MainViewController: BaseViewController {
         
         
         switch time {
-        case 0...7199:
+        case 0:
             return UIImage(named: "seeds")
-        case 7200...14399:
+        case 1...7199:
             return UIImage(named: "sprout")
+        case 7200...14399:
+            return UIImage(named: "blossom")
         case 14400...21599:
             return UIImage(named: "apple")
         case 21600...:
@@ -321,10 +319,10 @@ class MainViewController: BaseViewController {
         }
     }
     
-
+    
     
     // 총 코인을 일치시켜주는 함수
-
+    
 }
 
 extension MainViewController: settingTimeDelegate {

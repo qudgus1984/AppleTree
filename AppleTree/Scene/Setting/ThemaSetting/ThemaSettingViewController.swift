@@ -53,6 +53,32 @@ class ThemaSettingViewController: BaseViewController {
         navigationItem.scrollEdgeAppearance = appearence
     }
 
+    func themaBuyAlert(ThemaNum: Int, message: String) {
+        let alert = UIAlertController(title: "테마를 구입하시겠습니까?", message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.cancel)
+        
+        let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){ [self](_) in
+            
+            //테마 구입 했을 때 추가
+            self.themaTasks = self.repository.fetchThemaTable()
+            
+            // 테마 구입 시 true로 변경
+            self.repository.changeThemaBool(item: themaTasks[ThemaNum], ThemaNum: ThemaNum)
+            
+            // 테마 구입 시 true 변경 값 및 코인 개수 - 2000 업데이트
+            self.repository.addCoin(item: CoinTable(GetCoin: 0, SpendCoin: -2000, Status: 400 + ThemaNum))
+            UserDefaults.standard.set(ThemaNum, forKey: "thema")
+
+            changeRootVC()
+        }
+        alert.addAction(okAction)
+
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+
+    }
 
 }
 
@@ -211,35 +237,4 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
         }
     }
 
-    
-    func themaBuyAlert(ThemaNum: Int, message: String) {
-        let alert = UIAlertController(title: "테마를 구입하시겠습니까?", message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.cancel)
-        
-        let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){ [self](_) in
-            
-            //테마 구입 했을 때 추가
-            self.themaTasks = self.repository.fetchThemaTable()
-            
-            // 테마 구입 시 true로 변경
-            self.repository.changeThemaBool(item: themaTasks[ThemaNum], ThemaNum: ThemaNum)
-            
-            // 테마 구입 시 true 변경 값 및 코인 개수 - 2000 업데이트
-            self.repository.addCoin(item: CoinTable(GetCoin: 0, SpendCoin: -2000, Status: 400 + ThemaNum))
-            UserDefaults.standard.set(ThemaNum, forKey: "thema")
-
-            changeRootVC()
-
-            
-
-            
-        }
-        alert.addAction(okAction)
-
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true)
-
-    }
 }

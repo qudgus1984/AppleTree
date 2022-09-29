@@ -108,7 +108,6 @@ class ChartViewController: BaseViewController {
         let NovMonth = DateComponents(year: 2022, month: 11, day: 01)
         let DecMonth = DateComponents(year: 2022, month: 12, day: 01)
 
-//        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         unitsSold = [Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: JanMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: FebMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: MarMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: AprMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: MayMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: JunMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: JulMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: AugMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: SepMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: OctMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: NovMonth))), Double(repository.monthTotalTimeFilter(date: componentChangedDate(Date: DecMonth)))]
         
 
@@ -132,7 +131,7 @@ class ChartViewController: BaseViewController {
     
     func chartsAppearDays() {
         let calender = Calendar.current
-//        days = ["6~8", "8~10", "10~12", "12~14", "14~16", "16~18", "18~20", "20~22", "22~24", "24~2", "2~4", "4~6"]
+
         unitsSold = [Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*3).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*4).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*5).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*6).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*7).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*8).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*9).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*10).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*11).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*1).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*2).count)]
         
         mainview.barChartView.xAxis.labelRotationAngle = -15
@@ -287,6 +286,7 @@ class ChartViewController: BaseViewController {
         let rightAxis = mainview.barChartView.rightAxis
         rightAxis.enabled = false
     }
+    
     
     func setBarChartMonths(dataPoints: [String], values: [Double]) {
         // 데이터 생성

@@ -140,7 +140,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
                 if removeNum < 0 {
                     cell.explainLabel.text = "어제보다 \(-removehour)시간 \(-removeminutes)분 덜 했어요 😭"
                 } else if removeNum > 0 {
-                    cell.explainLabel.text = "어제보다 \(removehour)시간 \(removeminutes)분 더 나아갔어요! >_<"
+                    cell.explainLabel.text = "어제보다 \(removehour)시간 \(removeminutes)분 더 나아갔어요!"
                 } else {
                     cell.explainLabel.text = "한결같은 당신의 꾸준함을 응원합니다 :D"
                     
@@ -221,14 +221,17 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
     func dateChangedIcon(time: Int) -> UIImage? {
         let seedsImg = resizeImage(image: UIImage(named: "seeds")!, width: 20, height: 20)
         let sproutImg = resizeImage(image: UIImage(named: "sprout")!, width: 20, height: 20)
+        let branchImg = resizeImage(image: UIImage(named: "blossom")!, width: 20, height: 20)
         let appleImg = resizeImage(image: UIImage(named: "apple")!, width: 20, height: 20)
         let appleTreeImg = resizeImage(image: UIImage(named: "apple-tree")!, width: 20, height: 20)
         
         switch time {
-        case 0...7199:
+        case 0:
             return seedsImg
-        case 7200...14399:
+        case 1...7199:
             return sproutImg
+        case 7200...14399:
+            return branchImg
         case 14400...21599:
             return appleImg
         case 21600...:
@@ -236,6 +239,8 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         default:
             return nil
         }
+        
+        
     }
     
 }

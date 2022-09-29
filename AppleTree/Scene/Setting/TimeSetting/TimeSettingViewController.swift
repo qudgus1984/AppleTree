@@ -70,13 +70,13 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
         case 1:
             cell.explainLabel.text = "짧고 굵게!! 30분 + 3코인"
         case 2:
-            cell.explainLabel.text = "데일리한 1시간! + 8코인"
+            cell.explainLabel.text = "데일리한 1시간! + 10코인"
         case 3:
-            cell.explainLabel.text = "집중 하기 좋은 2시간! + 20코인"
+            cell.explainLabel.text = "집중 하기 좋은 2시간! + 30코인"
         case 4:
-            cell.explainLabel.text = "4시간...도전해볼까요?! + 50코인"
+            cell.explainLabel.text = "4시간...도전해볼까요?! + 80코인"
         case 5:
-            cell.explainLabel.text = "8시간!! 켠김에 왕까지?! + 120코인"
+            cell.explainLabel.text = "8시간!! 켠김에 왕까지?! + 200코인"
         default:
             print("error발생")
             
@@ -97,11 +97,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 self.mainview.makeToast("타이머가 가는 동안은 시간을 재설정 할 수 없어요!")
             } else {
                 UserDefaults.standard.set(15*60, forKey: "engagedTime")
-                print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-//                let mainViewController = MainViewController()
-//
-//                transition(mainViewController, transitionStyle: .presentFullNavigation)
                 changeRootVC()
                 
             }
@@ -112,8 +108,6 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 UserDefaults.standard.set(30*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-//                let mainViewController = MainViewController()
-//                transition(mainViewController, transitionStyle: .presentFullNavigation)
                 changeRootVC()
 
             }
@@ -125,8 +119,6 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 UserDefaults.standard.set(60*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-//                let mainViewController = MainViewController()
-//                transition(mainViewController, transitionStyle: .presentFullNavigation)
                 changeRootVC()
 
             }
@@ -138,9 +130,6 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 UserDefaults.standard.set(120*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-
-//                let mainViewController = MainViewController()
-//                transition(mainViewController, transitionStyle: .presentFullNavigation)
                 changeRootVC()
 
             }
@@ -151,9 +140,6 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 UserDefaults.standard.set(240*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-
-//                let mainViewController = MainViewController()
-//                transition(mainViewController, transitionStyle: .presentFullNavigation)
                 changeRootVC()
 
             }
@@ -164,8 +150,6 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 UserDefaults.standard.set(480*60, forKey: "engagedTime")
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
-//                let mainViewController = MainViewController()
-//                transition(mainViewController, transitionStyle: .presentFullNavigation)
                 changeRootVC()
 
             }

@@ -18,10 +18,6 @@ class BaseViewController: UIViewController {
         setConstants()
     }
     
-    deinit {
-        print("deinit: \(self.restorationIdentifier)")
-    }
-    
     
     func configure() {}
     

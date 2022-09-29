@@ -28,6 +28,8 @@ class ResetPopupViewController: BaseViewController {
     }
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         todayRealmNotSet()
@@ -46,6 +48,9 @@ class ResetPopupViewController: BaseViewController {
             self.mainview.iconImageView.clipsToBounds = true
             self.mainview.iconImageView.layer.cornerRadius = self.mainview.iconImageView.frame.width / 2
             
+            self.mainview.buttonInsetView.clipsToBounds = true
+            self.mainview.buttonInsetView.layer.cornerRadius = 10
+            
         }
     }
     
@@ -61,8 +66,12 @@ class ResetPopupViewController: BaseViewController {
         //MARK: Nav 색상 변경
         let appearence = UINavigationBarAppearance()
         appearence.backgroundColor = .systemGray
+        appearence.shadowColor = .clear
+
+        
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
+
         
     }
     

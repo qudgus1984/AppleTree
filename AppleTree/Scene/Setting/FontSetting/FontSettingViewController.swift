@@ -53,6 +53,34 @@ class FontSettingViewController: BaseViewController {
         navigationItem.scrollEdgeAppearance = appearence
     }
 
+    func fontBuyAlert(fontNum: Int, message: String) {
+        let alert = UIAlertController(title: "테마를 구입하시겠습니까?", message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.cancel)
+        
+        let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){ [self](_) in
+            
+            //테마 구입 했을 때 추가
+            self.fontTasks = self.repository.fetchFontTable()
+            
+            // 테마 구입 시 true로 변경
+            self.repository.changeTFontBool(item: fontTasks[fontNum], fontNum: fontNum)
+            
+            // 테마 구입 시 true 변경 값 및 코인 개수 - 2000 업데이트
+            self.repository.addCoin(item: CoinTable(GetCoin: 0, SpendCoin: -300, Status: 500 + fontNum))
+            UserDefaults.standard.set(fontNum, forKey: "font")
+
+            let mainViewController = MainViewController()
+            transition(mainViewController, transitionStyle: .presentFullNavigation)
+            
+        }
+        alert.addAction(okAction)
+
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+
+    }
 
 }
 
@@ -71,10 +99,10 @@ extension FontSettingViewController: UITableViewDelegate, UITableViewDataSource 
         fontTasks = repository.fetchFontTable()
         switch indexPath.row {
         case 0:
-            cell.explainLabel.text = "UhBee 폰트 🌱"
+            cell.explainLabel.text = "UhBee 폰트 🦋"
         case 1:
             cell.explainLabel.font = UIFont(name: "GangwonEduAll-OTFBold", size: 24)
-            cell.explainLabel.text = "Gangwon 폰트 💜"
+            cell.explainLabel.text = "Gangwon 폰트 🗺"
             
 
             
@@ -86,7 +114,7 @@ extension FontSettingViewController: UITableViewDelegate, UITableViewDataSource 
 
         case 2:
             cell.explainLabel.font = UIFont(name: "LeeSeoyun", size: 24)
-            cell.explainLabel.text = "LeeSeoyun 폰트 🍑"
+            cell.explainLabel.text = "LeeSeoyun 폰트 ✨"
 
             if fontTasks[indexPath.row].Purchase == false {
                 cell.containView.backgroundColor = .systemGray
@@ -98,7 +126,7 @@ extension FontSettingViewController: UITableViewDelegate, UITableViewDataSource 
 
         case 3:
             cell.explainLabel.font = UIFont(name: "SimKyungha", size: 24)
-            cell.explainLabel.text = "Simkyungha 폰트 🌌"
+            cell.explainLabel.text = "Simkyungha 폰트 🌃"
 
             if fontTasks[indexPath.row].Purchase == false {
                 cell.containView.backgroundColor = .systemGray
@@ -194,37 +222,5 @@ extension FontSettingViewController: UITableViewDelegate, UITableViewDataSource 
         default:
             print("error발생")
         }
-    }
-
-    
-    func fontBuyAlert(fontNum: Int, message: String) {
-        let alert = UIAlertController(title: "테마를 구입하시겠습니까?", message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.cancel)
-        
-        let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){ [self](_) in
-            
-            //테마 구입 했을 때 추가
-            self.fontTasks = self.repository.fetchFontTable()
-            
-            // 테마 구입 시 true로 변경
-            self.repository.changeTFontBool(item: fontTasks[fontNum], fontNum: fontNum)
-            
-            // 테마 구입 시 true 변경 값 및 코인 개수 - 2000 업데이트
-            self.repository.addCoin(item: CoinTable(GetCoin: 0, SpendCoin: -300, Status: 500 + fontNum))
-            UserDefaults.standard.set(fontNum, forKey: "font")
-
-            let mainViewController = MainViewController()
-            transition(mainViewController, transitionStyle: .presentFullNavigation)
-            
-
-            
-        }
-        alert.addAction(okAction)
-
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true)
-
     }
 }

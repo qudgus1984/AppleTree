@@ -46,6 +46,12 @@ class ResetPopupView: BaseView {
         return label
     }()
     
+    let buttonInsetView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray3
+        return view
+    }()
+    
     
     let startButton: UIButton = {
         let button = UIButton()
@@ -54,10 +60,12 @@ class ResetPopupView: BaseView {
         return button
     }()
     
+    
+    
 
 
     override func configure() {
-        [bgView, famousSayingLabel, iconImageView, countTimeLabel, startButton].forEach {
+        [bgView, famousSayingLabel, iconImageView, countTimeLabel, buttonInsetView, startButton].forEach {
             self.addSubview($0)
         }
     }
@@ -90,11 +98,15 @@ class ResetPopupView: BaseView {
             make.height.equalToSuperview().multipliedBy(0.15)
         }
         
-        startButton.snp.makeConstraints { make in
+        buttonInsetView.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
             make.top.equalTo(countTimeLabel.snp.bottom).offset(28)
             make.width.equalToSuperview().multipliedBy(0.2)
             make.height.equalToSuperview().multipliedBy(0.05)
+        }
+        
+        startButton.snp.makeConstraints { make in
+            make.edges.equalTo(buttonInsetView).inset(4)
         }
 
     }

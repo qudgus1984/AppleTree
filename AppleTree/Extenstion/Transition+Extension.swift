@@ -45,6 +45,7 @@ extension UIViewController {
         
         
         let vc = MainViewController()
+        UIView.transition(with: (sceneDelegate?.window)!, duration: 0.6, options: [.transitionCrossDissolve], animations: nil, completion: nil)
         let navi = UINavigationController(rootViewController: vc)
         sceneDelegate?.window?.rootViewController = navi
         sceneDelegate?.window?.makeKeyAndVisible()
