@@ -16,7 +16,6 @@ class ChartViewController: BaseViewController {
     var unitsSold: [Double]!
     var days: [String] = ["6시", "8시", "10시", "12시", "2시", "4시", "6시", "8시", "10시", "12시", "2시", "4시"]
     var weeks: [String] = ["6일 전", "5일 전", "4일 전", "3일 전", "이틀 전", "어제", "오늘"]
-    
     var repository = ATRepository()
     
     var userTasks: Results<UserTable>! {
@@ -132,7 +131,7 @@ class ChartViewController: BaseViewController {
     func chartsAppearDays() {
         let calender = Calendar.current
 
-        unitsSold = [Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*3).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*4).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*5).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*6).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*7).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*8).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*9).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*10).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*11).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*1).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*2).count)]
+        unitsSold = [Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*3).count * 100), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*4 * 100).count), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*5).count * 100), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*6).count * 100), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*7).count * 100), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*8).count * 100), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*9).count * 100), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*10).count * 100), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*11).count * 100), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())).count * 100), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*1).count * 100), Double(repository.twoHourTimeFilter(date: calender.startOfDay(for: Date())+7200*2).count * 100)]
         
         mainview.barChartView.xAxis.labelRotationAngle = -15
         mainview.barChartView.leftAxis.setLabelCount(6, force: true)
@@ -189,7 +188,7 @@ class ChartViewController: BaseViewController {
         }
         
         
-        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "일별 공부 시작시간(count)")
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "일별 공부 시작시간(count * 100)")
         
 
         // 차트 컬러
