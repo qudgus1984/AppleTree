@@ -182,7 +182,12 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
                 case 0:
                     return String("\(totalStudyTime%3600 / 60)분")
                 default:
-                    return String("\(totalStudyTime/3600):\(totalStudyTime%3600 / 60)")
+                    if totalStudyTime%3600 / 60 == 0 {
+                        return String("\(totalStudyTime/3600)시간")
+                    } else {
+                        return String("\(totalStudyTime/3600):\(totalStudyTime%3600 / 60)")
+                    }
+
                 }
             }
         }
