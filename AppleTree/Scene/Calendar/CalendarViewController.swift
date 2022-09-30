@@ -172,7 +172,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
             return nil
         } else {
             if repository.dayTotalStudyTime(date: date).isEmpty {
-                return nil
+                return "0분"
             } else {
                 var totalStudyTime = 0
                 for i in 0...repository.dayTotalStudyTime(date: date).count - 1 {
@@ -206,7 +206,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
         } else {
             var totalStudyTime = 0
             if repository.dayTotalStudyTime(date: date).isEmpty {
-                return nil
+                return resizeImage(image: UIImage(named: "seeds")!, width: 20, height: 20)
             } else {
                 for i in 0...repository.dayTotalStudyTime(date: date).count - 1 {
                     totalStudyTime += repository.dayTotalStudyTime(date: date)[i].SettingTime

@@ -202,6 +202,16 @@ extension UIColor {
         alpha: 1
 
     )
+    
+    static let dieBackgroundColor = UIColor(
+    
+        red: 114/255,
+        green: 177/255,
+        blue: 201/255,
+        alpha: 1
+        
+    )
+    
 
     
 }

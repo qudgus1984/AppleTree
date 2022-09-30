@@ -30,11 +30,11 @@ class ResetPopupView: BaseView {
     let iconImageView: UIImageView = {
         let view = UIImageView()
         DispatchQueue.main.async {
-            view.layer.cornerRadius = view.frame.size.width / 2
+//            view.layer.cornerRadius = view.frame.size.width / 2
         }
         view.contentMode = .scaleAspectFit
         view.image = UIImage(named: "appletreeDie")
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray
         return view
     }()
     
