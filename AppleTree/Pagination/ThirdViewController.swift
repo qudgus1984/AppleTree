@@ -30,7 +30,7 @@ class ThirdViewController: UIViewController {
         super.viewDidLoad()
      
         finishButtonClicked()
-        mainview.explainLabel.text = "보유한 코인으로 테마나 폰트를 구입할 수 있어요!"
+        mainview.explainLabel.text = "보유한 코인으로 테마나 폰트를 구입할 수 있어요!\n(출석 시 + 10코인)"
         mainview.imageView.image = UIImage(named: "dollar")
     }
     func finishButtonClicked() {

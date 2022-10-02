@@ -62,12 +62,12 @@ class PaginationFinalView: BaseView {
             make.top.equalTo(safeAreaLayoutGuide).offset(-20)
             make.leading.equalTo(safeAreaLayoutGuide).offset(20)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-20)
-            make.height.equalTo(bgView.snp.height).multipliedBy(0.4)
+            make.height.equalTo(bgView.snp.height).multipliedBy(0.35)
         }
         
         imageView.snp.makeConstraints { make in
             make.centerX.equalTo(bgView)
-            make.top.equalTo(explainLabel.snp.bottom).offset(4)
+            make.top.equalTo(explainLabel.snp.bottom)
             make.width.equalToSuperview().multipliedBy(0.65)
             make.height.equalTo(imageView.snp.width)
         }

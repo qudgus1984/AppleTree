@@ -75,7 +75,7 @@ class GetCodeInputViewController: BaseViewController {
 
         } else if mainview.codeInputTextField.text == "minju" {
             if UserDefaults.standard.string(forKey: "minju") == "minju" {
-                self.mainview.makeToast("이미 사용하신 코드입니다.")
+                self.mainview.makeToast("민주야 사랑해♥️")
             } else {
                 repository.addCoin(item: CoinTable(GetCoin: 10000, SpendCoin: 0, Status: 1002))
                 UserDefaults.standard.set("minju", forKey: "minju")
