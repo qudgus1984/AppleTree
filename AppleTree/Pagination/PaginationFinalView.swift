@@ -73,7 +73,7 @@ class PaginationFinalView: BaseView {
         }
         
         finishButton.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(20)
+            make.top.equalTo(imageView.snp.bottom).offset(60)
             make.height.equalTo(60)
             make.leading.equalTo(safeAreaLayoutGuide).offset(60)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-60)
