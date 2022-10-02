@@ -10,8 +10,6 @@ import SnapKit
 
 class GetCodeInputView: BaseView {
     
-    var settingCount = UserDefaults.standard.integer(forKey: "engagedTime")
-
     let bgView: UIView = {
         let view = UIView()
         view.backgroundColor = themaChoice().lightColor

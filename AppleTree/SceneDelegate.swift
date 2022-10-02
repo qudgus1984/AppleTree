@@ -14,33 +14,68 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
+        if UserDefaults.standard.bool(forKey: "firstStart") == true {
+            if UserDefaults.standard.integer(forKey: "engagedTime") == 0 {
+                UserDefaults.standard.set(0, forKey: "thema")
+                guard let scene = (scene as? UIWindowScene) else { return }
+                window = UIWindow(windowScene: scene)
+                let rootViewController = TimeSettingViewController()
+                let navigationController = UINavigationController(rootViewController: rootViewController)
+                window?.rootViewController = navigationController
+                window?.makeKeyAndVisible()
+            } else {
+                guard let scene = (scene as? UIWindowScene) else { return }
+                window = UIWindow(windowScene: scene)
+                let rootViewController = MainViewController()
+                let navigationController = UINavigationController(rootViewController: rootViewController)
+                UserDefaults.standard.set(false, forKey: "going")
+                window?.rootViewController = navigationController
+                window?.makeKeyAndVisible()
+            }
+            
+            if UserDefaults.standard.integer(forKey: "stop") == 0 {
+                UserDefaults.standard.set(3, forKey: "stop")
+            }
 
-        
-        if UserDefaults.standard.integer(forKey: "engagedTime") == 0 {
+                window?.makeKeyAndVisible()
+                
+        } else {
             UserDefaults.standard.set(0, forKey: "thema")
             guard let scene = (scene as? UIWindowScene) else { return }
             window = UIWindow(windowScene: scene)
-            let rootViewController = TimeSettingViewController()
+            let rootViewController = PageNationViewController()
             let navigationController = UINavigationController(rootViewController: rootViewController)
-            window?.rootViewController = navigationController
-            window?.makeKeyAndVisible()
-        } else {
-            guard let scene = (scene as? UIWindowScene) else { return }
-            window = UIWindow(windowScene: scene)
-            let rootViewController = MainViewController()
-            let navigationController = UINavigationController(rootViewController: rootViewController)
-            UserDefaults.standard.set(false, forKey: "going")
             window?.rootViewController = navigationController
             window?.makeKeyAndVisible()
         }
-        
-        if UserDefaults.standard.integer(forKey: "stop") == 0 {
-            UserDefaults.standard.set(3, forKey: "stop")
         }
 
-            window?.makeKeyAndVisible()
-            
-        }
+        
+//        if UserDefaults.standard.integer(forKey: "engagedTime") == 0 {
+//            UserDefaults.standard.set(0, forKey: "thema")
+//            guard let scene = (scene as? UIWindowScene) else { return }
+//            window = UIWindow(windowScene: scene)
+//            let rootViewController = TimeSettingViewController()
+//            let navigationController = UINavigationController(rootViewController: rootViewController)
+//            window?.rootViewController = navigationController
+//            window?.makeKeyAndVisible()
+//        } else {
+//            guard let scene = (scene as? UIWindowScene) else { return }
+//            window = UIWindow(windowScene: scene)
+//            let rootViewController = MainViewController()
+//            let navigationController = UINavigationController(rootViewController: rootViewController)
+//            UserDefaults.standard.set(false, forKey: "going")
+//            window?.rootViewController = navigationController
+//            window?.makeKeyAndVisible()
+//        }
+//
+//        if UserDefaults.standard.integer(forKey: "stop") == 0 {
+//            UserDefaults.standard.set(3, forKey: "stop")
+//        }
+//
+//            window?.makeKeyAndVisible()
+//
+//        }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

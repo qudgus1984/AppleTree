@@ -52,5 +52,18 @@ extension UIViewController {
 
     }
     
+    func changeTimeSettingRootVC() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        
+        
+        let vc = TimeSettingViewController()
+        UIView.transition(with: (sceneDelegate?.window)!, duration: 0.6, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+        let navi = UINavigationController(rootViewController: vc)
+        sceneDelegate?.window?.rootViewController = navi
+        sceneDelegate?.window?.makeKeyAndVisible()
+
+    }
+    
 
 }

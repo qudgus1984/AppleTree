@@ -50,13 +50,14 @@
 		2FAA584528CC54630067BFE8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAA584428CC54630067BFE8 /* SnapKit */; };
 		2FAA584728CC54E00067BFE8 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA584628CC54E00067BFE8 /* UIColor + Extension.swift */; };
 		2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA584828CC59BD0067BFE8 /* MainViewController.swift */; };
-		2FB08A0228E95F3D004B1B04 /* PagiNationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A0128E95F3D004B1B04 /* PagiNationViewController.swift */; };
+		2FB08A0228E95F3D004B1B04 /* PageNationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A0128E95F3D004B1B04 /* PageNationViewController.swift */; };
 		2FB08A0428E95FB0004B1B04 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A0328E95FB0004B1B04 /* FirstViewController.swift */; };
 		2FB08A0628E95FC6004B1B04 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A0528E95FC6004B1B04 /* SecondViewController.swift */; };
 		2FB08A0828E95FD2004B1B04 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A0728E95FD2004B1B04 /* ThirdViewController.swift */; };
-		2FB08A0C28E96123004B1B04 /* WalkThrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FB08A0B28E96123004B1B04 /* WalkThrough.storyboard */; };
 		2FB08A0F28E96EA2004B1B04 /* GetCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A0E28E96EA2004B1B04 /* GetCodeInputView.swift */; };
 		2FB08A1128E96EAF004B1B04 /* GetCodeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A1028E96EAF004B1B04 /* GetCodeInputViewController.swift */; };
+		2FB08A1328E98184004B1B04 /* PaginationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A1228E98184004B1B04 /* PaginationView.swift */; };
+		2FB08A1528E9855A004B1B04 /* PaginationFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A1428E9855A004B1B04 /* PaginationFinalView.swift */; };
 		2FB41FF828CF8D7C00B8E245 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB41FF728CF8D7C00B8E245 /* FSCalendar */; };
 		2FBAE20028D05952007F834F /* UserTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAE1FF28D05952007F834F /* UserTable.swift */; };
 		2FBAE20228D0609F007F834F /* ATRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAE20128D0609F007F834F /* ATRepository.swift */; };
@@ -115,13 +116,14 @@
 		2FAA584128CC53F30067BFE8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2FAA584628CC54E00067BFE8 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		2FAA584828CC59BD0067BFE8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		2FB08A0128E95F3D004B1B04 /* PagiNationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagiNationViewController.swift; sourceTree = "<group>"; };
+		2FB08A0128E95F3D004B1B04 /* PageNationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNationViewController.swift; sourceTree = "<group>"; };
 		2FB08A0328E95FB0004B1B04 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		2FB08A0528E95FC6004B1B04 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		2FB08A0728E95FD2004B1B04 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		2FB08A0B28E96123004B1B04 /* WalkThrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalkThrough.storyboard; sourceTree = "<group>"; };
 		2FB08A0E28E96EA2004B1B04 /* GetCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCodeInputView.swift; sourceTree = "<group>"; };
 		2FB08A1028E96EAF004B1B04 /* GetCodeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCodeInputViewController.swift; sourceTree = "<group>"; };
+		2FB08A1228E98184004B1B04 /* PaginationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationView.swift; sourceTree = "<group>"; };
+		2FB08A1428E9855A004B1B04 /* PaginationFinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationFinalView.swift; sourceTree = "<group>"; };
 		2FBAE1FF28D05952007F834F /* UserTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTable.swift; sourceTree = "<group>"; };
 		2FBAE20128D0609F007F834F /* ATRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATRepository.swift; sourceTree = "<group>"; };
 		2FBE24C728CEDB8F00BAA0F1 /* UhBee BEOJJI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UhBee BEOJJI Bold.ttf"; sourceTree = "<group>"; };
@@ -336,11 +338,12 @@
 		2FB08A0028E95C8C004B1B04 /* Pagination */ = {
 			isa = PBXGroup;
 			children = (
-				2FB08A0128E95F3D004B1B04 /* PagiNationViewController.swift */,
+				2FB08A0128E95F3D004B1B04 /* PageNationViewController.swift */,
 				2FB08A0528E95FC6004B1B04 /* SecondViewController.swift */,
 				2FB08A0328E95FB0004B1B04 /* FirstViewController.swift */,
 				2FB08A0728E95FD2004B1B04 /* ThirdViewController.swift */,
-				2FB08A0B28E96123004B1B04 /* WalkThrough.storyboard */,
+				2FB08A1228E98184004B1B04 /* PaginationView.swift */,
+				2FB08A1428E9855A004B1B04 /* PaginationFinalView.swift */,
 			);
 			path = Pagination;
 			sourceTree = "<group>";
@@ -492,7 +495,6 @@
 				2F7EE94A28BCEA6B000F1F41 /* Assets.xcassets in Resources */,
 				2F1414AD28E460A100CF8EC4 /* LeeSeoyun.otf in Resources */,
 				2F7EE94828BCEA69000F1F41 /* Main.storyboard in Resources */,
-				2FB08A0C28E96123004B1B04 /* WalkThrough.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,10 +519,12 @@
 				2F2C540528D33D8C00D647AE /* SettingView.swift in Sources */,
 				2FAA584228CC53F30067BFE8 /* MainView.swift in Sources */,
 				2FE4233128CA32C700BA7484 /* Transition+Extension.swift in Sources */,
+				2FB08A1528E9855A004B1B04 /* PaginationFinalView.swift in Sources */,
 				2FBE24D328CF241700BAA0F1 /* FinishPopupView.swift in Sources */,
 				2F2AFAC028E195FB00856314 /* StatusLogic.swift in Sources */,
 				2F2C540C28D342F000D647AE /* TimeSettingView.swift in Sources */,
 				2F44A1AB28E038E20020880E /* Font enum + func.swift in Sources */,
+				2FB08A1328E98184004B1B04 /* PaginationView.swift in Sources */,
 				2FBAE20228D0609F007F834F /* ATRepository.swift in Sources */,
 				2FBE24DC28CF37EE00BAA0F1 /* CalendarView.swift in Sources */,
 				2F1414B728E4641100CF8EC4 /* FontSettingViewController.swift in Sources */,
@@ -536,7 +540,7 @@
 				2F1414B928E464AB00CF8EC4 /* FontTable.swift in Sources */,
 				2F2AFAB728E16FAC00856314 /* ChartView.swift in Sources */,
 				2F7EE94128BCEA69000F1F41 /* AppDelegate.swift in Sources */,
-				2FB08A0228E95F3D004B1B04 /* PagiNationViewController.swift in Sources */,
+				2FB08A0228E95F3D004B1B04 /* PageNationViewController.swift in Sources */,
 				2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */,
 				2F7EE94328BCEA69000F1F41 /* SceneDelegate.swift in Sources */,
 				2FBE24E028CF41A200BAA0F1 /* CalendarTableViewCell.swift in Sources */,
