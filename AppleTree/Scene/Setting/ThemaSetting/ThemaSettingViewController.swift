@@ -66,8 +66,8 @@ class ThemaSettingViewController: BaseViewController {
             // 테마 구입 시 true로 변경
             self.repository.changeThemaBool(item: themaTasks[ThemaNum], ThemaNum: ThemaNum)
             
-            // 테마 구입 시 true 변경 값 및 코인 개수 - 2000 업데이트
-            self.repository.addCoin(item: CoinTable(GetCoin: 0, SpendCoin: -2000, Status: 400 + ThemaNum))
+            // 테마 구입 시 true 변경 값 및 코인 개수 - 1000 업데이트
+            self.repository.addCoin(item: CoinTable(GetCoin: 0, SpendCoin: -1000, Status: 400 + ThemaNum))
             UserDefaults.standard.set(ThemaNum, forKey: "thema")
 
             changeRootVC()
@@ -161,11 +161,11 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             } else {
                 //만약 테마를 구입 안했다면
                 if themaTasks[indexPath.row].Purchase == false {
-                    //만약 코인이 2000개 이하라면
-                    if repository.totalCoin(item: coinTasks) < 2000 {
-                        self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
+                    //만약 코인이 1000개 이하라면
+                    if repository.totalCoin(item: coinTasks) < 1000 {
+                        self.mainview.makeToast("이 테마를 구입하기 위해서는 1000코인이 필요해요!")
                     } else {
-                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
+                        themaBuyAlert(ThemaNum: indexPath.row, message: "1000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(1, forKey: "thema")
@@ -179,11 +179,11 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             } else {
                 //만약 테마를 구입 안했다면
                 if themaTasks[indexPath.row].Purchase == false {
-                    //만약 코인이 2000개 이하라면
-                    if repository.totalCoin(item: coinTasks) < 2000 {
-                        self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
+                    //만약 코인이 1000개 이하라면
+                    if repository.totalCoin(item: coinTasks) < 1000 {
+                        self.mainview.makeToast("이 테마를 구입하기 위해서는 1000코인이 필요해요!")
                     } else {
-                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
+                        themaBuyAlert(ThemaNum: indexPath.row, message: "1000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(2, forKey: "thema")
@@ -198,11 +198,11 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             } else {
                 //만약 테마를 구입 안했다면
                 if themaTasks[indexPath.row].Purchase == false {
-                    //만약 코인이 2000개 이하라면
-                    if repository.totalCoin(item: coinTasks) < 2000 {
-                        self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
+                    //만약 코인이 1000개 이하라면
+                    if repository.totalCoin(item: coinTasks) < 1000 {
+                        self.mainview.makeToast("이 테마를 구입하기 위해서는 1000코인이 필요해요!")
                     } else {
-                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
+                        themaBuyAlert(ThemaNum: indexPath.row, message: "1000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(3, forKey: "thema")
@@ -217,11 +217,11 @@ extension ThemaSettingViewController: UITableViewDelegate, UITableViewDataSource
             } else {
                 //만약 테마를 구입 안했다면
                 if themaTasks[indexPath.row].Purchase == false {
-                    //만약 코인이 2000개 이하라면
-                    if repository.totalCoin(item: coinTasks) < 2000 {
-                        self.mainview.makeToast("이 테마를 구입하기 위해서는 2000코인이 필요해요!")
+                    //만약 코인이 1000개 이하라면
+                    if repository.totalCoin(item: coinTasks) < 1000 {
+                        self.mainview.makeToast("이 테마를 구입하기 위해서는 1000코인이 필요해요!")
                     } else {
-                        themaBuyAlert(ThemaNum: indexPath.row, message: "2000코인으로 구매할까요?💸")
+                        themaBuyAlert(ThemaNum: indexPath.row, message: "1000코인으로 구매할까요?💸")
                     }
                 } else {
                     UserDefaults.standard.set(4, forKey: "thema")

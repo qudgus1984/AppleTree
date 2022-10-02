@@ -42,7 +42,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
+        
     }
     
     
@@ -61,6 +62,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             cell.explainLabel.text = "테마 구매 / 설정"
         case 3:
             cell.explainLabel.text = "폰트 구매 / 설정"
+        case 4:
+            cell.explainLabel.text = "쿠폰 코드 입력"
 
 
         default:
@@ -88,6 +91,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             transition(vc, transitionStyle: .push)
         case 3:
             let vc = FontSettingViewController()
+            transition(vc, transitionStyle: .push)
+        case 4:
+            let vc = GetCodeInputViewController()
             transition(vc, transitionStyle: .push)
         default:
             print("error발생")

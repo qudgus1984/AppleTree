@@ -50,6 +50,13 @@
 		2FAA584528CC54630067BFE8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAA584428CC54630067BFE8 /* SnapKit */; };
 		2FAA584728CC54E00067BFE8 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA584628CC54E00067BFE8 /* UIColor + Extension.swift */; };
 		2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA584828CC59BD0067BFE8 /* MainViewController.swift */; };
+		2FB08A0228E95F3D004B1B04 /* PagiNationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A0128E95F3D004B1B04 /* PagiNationViewController.swift */; };
+		2FB08A0428E95FB0004B1B04 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A0328E95FB0004B1B04 /* FirstViewController.swift */; };
+		2FB08A0628E95FC6004B1B04 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A0528E95FC6004B1B04 /* SecondViewController.swift */; };
+		2FB08A0828E95FD2004B1B04 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A0728E95FD2004B1B04 /* ThirdViewController.swift */; };
+		2FB08A0C28E96123004B1B04 /* WalkThrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FB08A0B28E96123004B1B04 /* WalkThrough.storyboard */; };
+		2FB08A0F28E96EA2004B1B04 /* GetCodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A0E28E96EA2004B1B04 /* GetCodeInputView.swift */; };
+		2FB08A1128E96EAF004B1B04 /* GetCodeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB08A1028E96EAF004B1B04 /* GetCodeInputViewController.swift */; };
 		2FB41FF828CF8D7C00B8E245 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB41FF728CF8D7C00B8E245 /* FSCalendar */; };
 		2FBAE20028D05952007F834F /* UserTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAE1FF28D05952007F834F /* UserTable.swift */; };
 		2FBAE20228D0609F007F834F /* ATRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBAE20128D0609F007F834F /* ATRepository.swift */; };
@@ -108,6 +115,13 @@
 		2FAA584128CC53F30067BFE8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2FAA584628CC54E00067BFE8 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		2FAA584828CC59BD0067BFE8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2FB08A0128E95F3D004B1B04 /* PagiNationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagiNationViewController.swift; sourceTree = "<group>"; };
+		2FB08A0328E95FB0004B1B04 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		2FB08A0528E95FC6004B1B04 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		2FB08A0728E95FD2004B1B04 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		2FB08A0B28E96123004B1B04 /* WalkThrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalkThrough.storyboard; sourceTree = "<group>"; };
+		2FB08A0E28E96EA2004B1B04 /* GetCodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCodeInputView.swift; sourceTree = "<group>"; };
+		2FB08A1028E96EAF004B1B04 /* GetCodeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCodeInputViewController.swift; sourceTree = "<group>"; };
 		2FBAE1FF28D05952007F834F /* UserTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTable.swift; sourceTree = "<group>"; };
 		2FBAE20128D0609F007F834F /* ATRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATRepository.swift; sourceTree = "<group>"; };
 		2FBE24C728CEDB8F00BAA0F1 /* UhBee BEOJJI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UhBee BEOJJI Bold.ttf"; sourceTree = "<group>"; };
@@ -220,6 +234,7 @@
 		2F7EE93F28BCEA69000F1F41 /* AppleTree */ = {
 			isa = PBXGroup;
 			children = (
+				2FB08A0028E95C8C004B1B04 /* Pagination */,
 				2F9F6C2828D19D8D0005986C /* DataSetting */,
 				2FBAE1FE28D0578A007F834F /* DataBase */,
 				2FBE24C628CEDB8900BAA0F1 /* Font */,
@@ -298,6 +313,7 @@
 		2FAA583F28CC53D30067BFE8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				2FB08A0D28E96E82004B1B04 /* CodeInput */,
 				2F8BAA3C28D7001B00851124 /* ResetPopup */,
 				2FBE24D128CF23BF00BAA0F1 /* FinishPopup */,
 				2FBE24D028CF21E600BAA0F1 /* Calendar */,
@@ -315,6 +331,27 @@
 				2FBE24CD28CF004A00BAA0F1 /* CircularProgress.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		2FB08A0028E95C8C004B1B04 /* Pagination */ = {
+			isa = PBXGroup;
+			children = (
+				2FB08A0128E95F3D004B1B04 /* PagiNationViewController.swift */,
+				2FB08A0528E95FC6004B1B04 /* SecondViewController.swift */,
+				2FB08A0328E95FB0004B1B04 /* FirstViewController.swift */,
+				2FB08A0728E95FD2004B1B04 /* ThirdViewController.swift */,
+				2FB08A0B28E96123004B1B04 /* WalkThrough.storyboard */,
+			);
+			path = Pagination;
+			sourceTree = "<group>";
+		};
+		2FB08A0D28E96E82004B1B04 /* CodeInput */ = {
+			isa = PBXGroup;
+			children = (
+				2FB08A0E28E96EA2004B1B04 /* GetCodeInputView.swift */,
+				2FB08A1028E96EAF004B1B04 /* GetCodeInputViewController.swift */,
+			);
+			path = CodeInput;
 			sourceTree = "<group>";
 		};
 		2FBAE1FE28D0578A007F834F /* DataBase */ = {
@@ -455,6 +492,7 @@
 				2F7EE94A28BCEA6B000F1F41 /* Assets.xcassets in Resources */,
 				2F1414AD28E460A100CF8EC4 /* LeeSeoyun.otf in Resources */,
 				2F7EE94828BCEA69000F1F41 /* Main.storyboard in Resources */,
+				2FB08A0C28E96123004B1B04 /* WalkThrough.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB08A0428E95FB0004B1B04 /* FirstViewController.swift in Sources */,
 				2F44A1A528E030640020880E /* ThemaTable.swift in Sources */,
 				2F2C540728D33DA300D647AE /* SettingTableViewCell.swift in Sources */,
 				2FBE24DE28CF37FA00BAA0F1 /* CalendarViewController.swift in Sources */,
@@ -474,6 +513,7 @@
 				2F1414B528E463E100CF8EC4 /* FontSettingTableViewCell.swift in Sources */,
 				2F44A1A928E0378E0020880E /* UIFont + Extension.swift in Sources */,
 				2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */,
+				2FB08A0628E95FC6004B1B04 /* SecondViewController.swift in Sources */,
 				2F2C540528D33D8C00D647AE /* SettingView.swift in Sources */,
 				2FAA584228CC53F30067BFE8 /* MainView.swift in Sources */,
 				2FE4233128CA32C700BA7484 /* Transition+Extension.swift in Sources */,
@@ -490,17 +530,21 @@
 				2F44A1A728E0306C0020880E /* CoinTable.swift in Sources */,
 				2FCB706428CA4223002AF578 /* ReusableProtocol.swift in Sources */,
 				2FAA583A28CC52690067BFE8 /* BaseView.swift in Sources */,
+				2FB08A1128E96EAF004B1B04 /* GetCodeInputViewController.swift in Sources */,
 				2F9C4EEF28D8399E0004317F /* ThemaSettingViewController.swift in Sources */,
 				2F1414B328E4639400CF8EC4 /* FontSettingView.swift in Sources */,
 				2F1414B928E464AB00CF8EC4 /* FontTable.swift in Sources */,
 				2F2AFAB728E16FAC00856314 /* ChartView.swift in Sources */,
 				2F7EE94128BCEA69000F1F41 /* AppDelegate.swift in Sources */,
+				2FB08A0228E95F3D004B1B04 /* PagiNationViewController.swift in Sources */,
 				2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */,
 				2F7EE94328BCEA69000F1F41 /* SceneDelegate.swift in Sources */,
 				2FBE24E028CF41A200BAA0F1 /* CalendarTableViewCell.swift in Sources */,
+				2FB08A0F28E96EA2004B1B04 /* GetCodeInputView.swift in Sources */,
 				2F2C540928D33DBF00D647AE /* SettingViewController.swift in Sources */,
 				2F9C4EEB28D8396D0004317F /* ThemaSettingView.swift in Sources */,
 				2FAA584728CC54E00067BFE8 /* UIColor + Extension.swift in Sources */,
+				2FB08A0828E95FD2004B1B04 /* ThirdViewController.swift in Sources */,
 				2FBE24CE28CF004A00BAA0F1 /* CircularProgress.swift in Sources */,
 				2F2C540E28D3430100D647AE /* TimeSettingViewController.swift in Sources */,
 				2F8BAA4028D7006300851124 /* ResetPopupViewController.swift in Sources */,
