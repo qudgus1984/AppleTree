@@ -92,5 +92,7 @@ class GetCodeInputViewController: BaseViewController {
         } else {
             self.mainview.makeToast("등록되지 않은 코드입니다.")
         }
+        self.view.endEditing(true)
+
     }
 }
