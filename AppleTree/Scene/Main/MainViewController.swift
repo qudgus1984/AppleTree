@@ -18,6 +18,8 @@ class MainViewController: BaseViewController {
     var timer: Timer?
     var progress: Float = 0.0
     
+    var hiddenCount = 0
+    
     let mainview = MainView()
     let repository = ATRepository()
     
@@ -195,14 +197,22 @@ class MainViewController: BaseViewController {
     
     @objc func bulbButtonClicked() {
         
-        switch bulbBool {
-        case true:
-            UIScreen.main.brightness = 0.0
-            bulbBool.toggle()
-        case false:
-            UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "bright"))
-            bulbBool.toggle()
+        hiddenCount += 1
+        if hiddenCount == 11 {
+            let vc = GetCodeInputViewController()
+            transition(vc, transitionStyle: .push)
+        } else {
+            switch bulbBool {
+            case true:
+                UIScreen.main.brightness = 0.0
+                bulbBool.toggle()
+            case false:
+                UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "bright"))
+                bulbBool.toggle()
+            }
         }
+        
+
     }
     
     func startButtonClicked() {
