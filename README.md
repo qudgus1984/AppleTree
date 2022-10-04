@@ -1458,13 +1458,13 @@ cell.explainLabel.text = "이번 달에는 \(repository.monthCount(date: Date())
 
 #### UI 업데이트 -> Icon Set 설정
 
-![appletreeIconGray.001](README.assets/1024.png)
 
 앱 아이콘을 직접 만들어주었다. keynote를 사용해서 직접 만들어 보았는데, 내가 생각한 느낌은 직접 그린 일러스트같은 느낌을 원했지만, 나의 디자인 실력과 손가락으로는 불가능하다는 것을 깨닫고 귀엽게 만들어보았다.  
 
+![1024](https://user-images.githubusercontent.com/81552265/193756756-aa7b1432-9c15-4f2b-930d-69899fed0f50.png)
 
 
-![appletreeIconGray.001](README.assets/appletreeIconGray.001-4863634.png)
+![appletreeIconGray 001-4863634](https://user-images.githubusercontent.com/81552265/193756794-29ea8fbf-47ec-4be2-873a-a4f720bd56ac.png)
 
 
 
@@ -1529,7 +1529,7 @@ rootVC를 변경해주고, present로 화면전환하는 부분에 changeRootVC(
 
 #### Reject 사유
 
-![스크린샷 2022-09-30 오전 11.10.11](README.assets/스크린샷 2022-09-30 오전 11.10.11.png)
+<img width="250" alt="스크린샷 2022-09-30 오전 11 10 11" src="https://user-images.githubusercontent.com/81552265/193756927-2a0420d8-43ff-4bdf-b6c0-1a3bbbf907b7.png">
 
 리젝의 사유로는 코인 시스템에 대한 질문이었는데, 이 앱에서 코인이 어떻게 벌리고, 어떻게 사용되는지 리뷰어에게 설명해달라는 답변을 받았다. 기능적 오류는 아니였고 다행히 설명만 다시금 해주면 되는 부분이었다.
 
@@ -1541,15 +1541,11 @@ rootVC를 변경해주고, present로 화면전환하는 부분에 changeRootVC(
 
 
 
-![IMG_0006](README.assets/IMG_0006.PNG)
-
-![IMG_0017](README.assets/IMG_0017.png)
+![IMG_0006](https://user-images.githubusercontent.com/81552265/193756973-678c2fdc-d4af-495e-a084-2813a7e4aa3a.PNG)
 
 
 
-![제목_없는_아트워크](README.assets/제목_없는_아트워크.png)
-
-
+![IMG_0017](https://user-images.githubusercontent.com/81552265/193756981-d90fd930-7a72-43b2-be9f-a210848b3a5f.png)
 
 
 
@@ -1728,11 +1724,13 @@ extension PageNationViewController: UIPageViewControllerDataSource, UIPageViewCo
 
 ####  추천 코드 기능 제외 업데이트 제출
 
-![스크린샷 2022-10-03 오후 11.32.51](README.assets/스크린샷 2022-10-03 오후 11.32.51.png)
+<img width="250" alt="스크린샷 2022-10-03 오후 11 32 51" src="https://user-images.githubusercontent.com/81552265/193757075-cf95ed45-8e88-42f4-aec8-2a5131534aa6.png">
+
 
 Reject을 받고 스크린샷도 찍어 보내줬다... 애플...
 
-![스크린샷 2022-10-03 오후 11.33.08](README.assets/스크린샷 2022-10-03 오후 11.33.08.png)
+<img width="250" alt="스크린샷 2022-10-03 오후 11 33 08" src="https://user-images.githubusercontent.com/81552265/193757086-8bbdc1fb-7b33-416a-8253-9912df4e20d1.png">
+
 
 위 화면을 스크린샷을 첨부하여 보내줌...
 
