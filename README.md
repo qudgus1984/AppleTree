@@ -26,6 +26,19 @@ Apple Tree는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰
 | 22.09.20(화) | 화면전환시 나타나는 오류 해결 및 기획 수정 / Realm 설계      | 처음 구조를 잘 설계하는 것이 얼마나 중요한지를 느낌          |
 | 22.09.21(수) | Coin System 설계 및 로직 구현                                | 총 Coin을 유지시키는 부분에서 error 발생                     |
 | 22.09.22(목) | Coin으로 Thema 구입할 수 있도록 설계 및 로직 구현            | Realm 구조에 대해 다시금 생각해보고 재설계 해야할듯..        |
+| 22.09.23(금) | 중간발표                                                     | Feedback 적용해보자...                                       |
+| 22.09.24(토) | Realm 구조 재설계 - Coin Realm                               | Coin / thema / User table 분리                               |
+| 22.09.25(일) | Font 기능 추가 - Font 기능 구조화                            | Font도 thema처럼 테이블 분리!                                |
+| 22.09.26(월) | 차트 구성 및 데이터 뿌려주기                                 | 차트가 원하는대로 커스텀이 어려움                            |
+| 22.09.27(화) | 아카이빙 공부 및 testFlight 초대 / Calendar label 수정       | 다른 사람들의 앱도 구경하는 경험                             |
+| 22.09.28(수) | UI 업데이트 -> Icon Set 설정                                 | 앱 느낌과 비슷한 icon 만들기 - 디자이너의 중요성...          |
+| 22.09.29(목) | 화면 쌓임 Error / 첫 심사 제출                               | Reject... Coin에 대한 명시가 필요함...                       |
+| 22.09.30(금) | 통계 UI 깨짐 오류 해결 / App 이름 변경                       | grow time -> 직관적으로 이 앱이 무엇인지 알 수 있었음!       |
+| 22.10.01(토) | UI 최종 수정 및 앱 출시                                      | 드디어 출시!!! grow time!!                                   |
+| 22.10.02(일) | pagination / 추천 코드 입력 창 업데이트                      | Reject... 추천 코드는 리젝사유...                            |
+| 22.10.03(월) | 추천코드 기능 제외 재업데이트 및 버그 수정                   | 업데이트 1시간만에 바로!!                                    |
+| 22.10.04(화) |                                                              |                                                              |
+|              |                                                              |                                                              |
 
 
 
@@ -1331,4 +1344,403 @@ class AppleTree: Object {
 이제는 못보는 Simulator...
 
 그래도 통계를 들어가기 전 문제를 발견하고, 또 DB에 대해 깊게 공부할 수 있어서 많은 성장을 한 경험이라고 생각한다.
+
+|              |                                            |                                   |
+| ------------ | ------------------------------------------ | --------------------------------- |
+|              |                                            |                                   |
+|              |                                            |                                   |
+|              |                                            |                                   |
+|              |                                            |                                   |
+|              |                                            |                                   |
+|              |                                            |                                   |
+|              |                                            |                                   |
+| 22.10.01(토) | UI 최종 수정 및 앱 출시                    | 드디어 출시!!! grow time!!        |
+| 22.10.02(일) | pagination / 추천 코드 입력 창 업데이트    | Reject... 추천 코드는 리젝사유... |
+| 22.10.03(월) | 추천코드 기능 제외 재업데이트 및 버그 수정 | 업데이트 1시간만에 바로!!         |
+
+### 22.09.23(금)
+
+- 중간 발표
+
+
+
+#### 중간 발표 후기
+
+지금 만들어진 상태는 전부 수정해서 다시 재구현해야하는 상태이지만, (coin 및 thema 관련해서 새로운 테이블을 파는 구조로 재설계해야함.) 우선 중간발표는 지금 코인이 업데이트되고, 지정 시간을 완료할 때마다 잘 적용되어지는 상태이다. ![스크린샷 2022-10-04 오후 1.58.38](README.assets/스크린샷 2022-10-04 오후 1.58.38.png)
+
+이렇게 핵심 기능들을 정리해서 시연영상으로 보여주었고, 다른 사람들의 앱을 구경할 수 있고, 많이 자극받은 시간이었던 것 같다.
+
+### 22.09.24(토)
+
+- Realm 구조 재설계
+
+#### Realm 구조 재설계
+
+Realm의 구조를 한번 바꾸면 지옥이 펼쳐진다는 것을 느낀 하루였다... 기존에 사용되었던 Realm 관련 메서드부터 적용시킨 부분들을 전부 수정해주는 작업이 필요했고, 처음 Realm을 바꾼 후 오류는 87개였다... 까마득했지만 하나하나씩 처리해나가다보니 문제없이 잘 돌아갔다.
+
+특히 이번 램설계를 하면서 추후에 업데이트 할 부분까지 고려하여 미리 만들어두는것이 중요하다고 느꼈고, 어떤 테이블을 분리해야하고, 어떻게 연결하는지에 대해 심도깊은 고민을 한 부분이라 학습적 측면에서도 많은 도움이 된 것 같다.
+
+
+
+### 22.09.25(일)
+
+- Font 변경 기능 추가
+
+#### Font 변경 기능 추가
+
+중간 발표 feedback때 폰트에 대한 피드백도 왔었다. 이때 코인으로 테마만 살 수 있게 만들었다보니, font도 구매할 수 있게 만들면 좋겠다 라는 생각을 했고, 램을 재설계를 해봤을 때 폰트 테이블도 함께 추가하자 라고 판단을 내렸다. 이에 Realm 테이블에 Font 테이블도 추가해주었고, Font 설정 UI 및 300코인으로 살 수 있게 변경해주었다.
+
+
+
+### 22.09.26(월)
+
+- Charts 라이브러리 사용하여 chart 구현
+
+- chart UI 구성 및 데이터 뿌려주기 완료
+
+  #### Charts 라이브러리 사용하여 chart 구현 및 데이터 뿌려주기 완료
+
+![Simulator Screen Shot - iPhone 13 Pro Max - 2022-10-01 at 03.53.22](README.assets/Simulator Screen Shot - iPhone 13 Pro Max - 2022-10-01 at 03.53.22.png)
+
+위를 구현하면서 느낀 건, chart 라이브러리는 커스텀이 너무 어렵다는 것을 느꼈다. 추후에 라이브러리를 제거하고 원하는 형식으로 custom 할 수 있도록 만들어보고 싶은 부분이다. 그래도 원하는 형태로 데이터도 뿌려주었고, 잘 데이터도 들어가는 것을 확인해 볼 수 있었다.
+
+
+
+#### 22.09.27(화)
+
+- 아카이빙 및 testFlight 초대 
+
+- Calendar label 수정
+
+  #### 아카이빙 및 testFlight 초대 
+
+처음으로 testFlight를 사용해서 지인과 같은 SeSAC 팀원분들에게 테스트로 사용할 수 있도록 배포했다. 다른 팀원분들의 피드백도 조금 더 직관적으로 받을 수 있게 되었고, 오류 부분도 확인할 수 있었다. (여기서 화면 쌓임 문제가 발생하고 있었다는 것도 알게 되었음.)
+
+테스트 플라이트를 사용해서 함께 문제점이나 개선점을 보는 부분이 얼마나 중요한 지 느낀 경험이었다.
+
+
+
+#### Calendar label 수정
+
+Calendar에 explain Label에서 매일 6시간 이상 공부를 했던 날들에 대한 filter을 거는 것이 어렵다고 생각했고, 새로 어떤 부분을 보여주는 것이 좋을까 구상하다 하루에 집중 성공을 몇 번 했는지 보여주는 것이 좋을 것이라고 생각했다. 
+
+~~~swift
+func monthCount(date: Date) -> Int {
+        
+        let setDate = date
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: "ko")
+        
+        let components = calendar.dateComponents([.year, .month], from: setDate)
+        
+        //day를 기입하지 않아서 현재 달의 첫번쨰 날짜가 나오게 된다
+        let startOfMonth = calendar.date(from: components)!
+        
+        let nextMonth = calendar.date(byAdding: .month, value: +1, to: startOfMonth)
+        
+        
+        let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", startOfMonth, nextMonth)
+        let successMonth = item.filter("Success == true")
+        return successMonth.count
+    }
+
+cell.explainLabel.text = "이번 달에는 \(repository.monthCount(date: Date()))번 성공하셨어요 👍🏻"
+
+~~~
+
+
+
+이렇게 달에 몇번 성공했는지 보여주면 좋을 것이라고 생각했고, 달에 성공 횟수를 출력하도록 만들었다.
+
+### 22.09.28(수)
+
+- UI 업데이트 -> Icon Set 설정
+
+#### UI 업데이트 -> Icon Set 설정
+
+![appletreeIconGray.001](README.assets/1024.png)
+
+앱 아이콘을 직접 만들어주었다. keynote를 사용해서 직접 만들어 보았는데, 내가 생각한 느낌은 직접 그린 일러스트같은 느낌을 원했지만, 나의 디자인 실력과 손가락으로는 불가능하다는 것을 깨닫고 귀엽게 만들어보았다.  
+
+
+
+![appletreeIconGray.001](README.assets/appletreeIconGray.001-4863634.png)
+
+
+
+이를 이용하여 제한 시간을 완료하지 못하고 background 상태로 갔을 때 식물이 시드는 이미지를 위로 사용하려고 아이콘을 이용해서 적용시켜주었다.
+
+디자이너의 중요성을 느낀 하루였다. 정말 스스로 디자인을 고민하고 만든다는 것도 쉽지 않다는 것을 절실히 느꼈다.
+
+### 22.09.29(목)
+
+- 화면 쌓임 문제 해결
+- 앱 첫 출시 (리jack...)
+
+#### 화면 쌓임 문제 해결
+
+지금까지 presentFullNavigation 방식으로 처리하면 화면이 안쌓이는 줄로만 알고 있었는데, 사실 쌓이고 있다는 것을 피드백에서 듣고 알게되었다. 찾아보니 화면 쌓임 문제를 해결하기 위해선 rootViewController 을 변경해주는 방식으로 해결해야 한다는 것을 알게 되었다.
+
+~~~swift
+// rootVC 변경 코드
+    func changeRootVC() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        
+        
+        let vc = MainViewController()
+        UIView.transition(with: (sceneDelegate?.window)!, duration: 0.6, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+        let navi = UINavigationController(rootViewController: vc)
+        sceneDelegate?.window?.rootViewController = navi
+        sceneDelegate?.window?.makeKeyAndVisible()
+
+    }
+~~~
+
+rootVC를 변경해주고, present로 화면전환하는 부분에 changeRootVC() 를 심어주어서 화면 전환 부분을 해결했다. 애니매이션이 없으니 너무 급격하게 변환되는 것 같아 애니메이션 처리까지 해주었다.
+
+
+
+#### 대망의 앱 첫 출시
+
+우선 목요일날 출시 권장일이었기에, 지금까지 완료된 것을 바탕으로 앱을 출시했다. 개인정보 처리방침에 대한 것도 처음 작성해보는 것이였기에 출시 버튼을 누르는데까지만 하더라도 약 3시간 정도가 소요되었다.
+
+
+
+-> Reject 당함.. ㅋㅋ...
+
+
+
+### 22.09.30(금)
+
+- 통계 UI 깨짐 수정
+- 기획 재설계 및 앱 이름 변경
+- Reject 사유
+
+#### 통계 UI 깨짐 수정
+
+통계부분이 Double형태로만 출력되다보니 기종에 따라 숫자가 깨지는 것을 알게 되었다. 앱도 리젝된 김에 신경쓰였던 오류들을 수정하고, 앱 이름도 다시 변경하고 주말동안 추가할 부분들을 수정해서 다시 제출하자라고 마음먹었고, 수정해주었다.
+
+####  기획 재설계 및 앱 이름 변경
+
+사과나무라는 앱이름은 무언가 이 앱에 대한 정체성을 알려주기 애매하다는 생각이 들었다. 타 앱들을 보면 앱 이름만 보더라도 어떠한 앱인지 직관적으로 생각이 드는데, 사과나무라는 이름은 집중 타이머 앱과는 연관성이 떨어진다고 생각하였고, 그로우 타임이라는 이름으로 변경하였다.
+
+
+
+#### Reject 사유
+
+![스크린샷 2022-09-30 오전 11.10.11](README.assets/스크린샷 2022-09-30 오전 11.10.11.png)
+
+리젝의 사유로는 코인 시스템에 대한 질문이었는데, 이 앱에서 코인이 어떻게 벌리고, 어떻게 사용되는지 리뷰어에게 설명해달라는 답변을 받았다. 기능적 오류는 아니였고 다행히 설명만 다시금 해주면 되는 부분이었다.
+
+
+
+### 22.10.01(토)
+
+- UI 최종 수정 및 앱 재출시
+
+
+
+![IMG_0006](README.assets/IMG_0006.PNG)
+
+![IMG_0017](README.assets/IMG_0017.png)
+
+
+
+![제목_없는_아트워크](README.assets/제목_없는_아트워크.png)
+
+
+
+
+
+디자이너의 힘을 빌려 앱과 어울리는 이미지를 구상하고 나무가 자라나는 형태로 이미지 에셋을 설정해주었다. 디자이너의 힘을 느낄 수 있었고, 내가 원하는 느낌의 앱을 구성할 수 있게 되었다.
+
+이를 토대로 새로 앱을 구성하였고, 이제 대망의 앱 재출시를 하였다.
+
+
+
+### 22.10.02(일)
+
+- 앱 출시🥹
+
+- pagination 기능 구현
+- 추천 코드 입력 구성 - reject
+
+#### 앱 출시🥹
+
+대망의 앱 출시가 되었다...! 일요일 아침에 눈을 뜨니 바로 앱이 출시가 되어있는 것을 볼 수 있었다. 드디어 나의 앱이 올라간다고 생각하니 신기하고, 들뜬 하루였지 않나 생각한다.
+
+오히려 앱이 올라가니 더욱 기능을 추가하고 싶어졌고, 바로 개발을 시작했다.
+
+
+
+#### pagination 기능 구현
+
+지인 피드백 중, 이 앱을 사용할 때 어떻게 사용하는지 알려주지 않고 처음부터 시간설정 화면부터 실행되는 것은 어색하다라는 피드백을 받았고, pagination을 구현해보자 생각하였다. 이전에 배웠던 것이지만, 다시 pagination을 구현하는 것은 생각보다 헷갈렸지만, 열심히 구글링을 한 덕에 구현을 완료했다.
+
+
+
+~~~swift
+class PageNationViewController: UIPageViewController {
+    
+    lazy var navigationView: UIView = {
+        let view = UIView()
+        view.backgroundColor = themaChoice().mainColor
+        return view
+    }()
+
+    //뷰컨트롤러 배열
+
+    lazy var vc1: UIViewController = {
+        let vc = FirstViewController()
+        vc.view.backgroundColor = .red
+
+        return vc
+    }()
+
+    lazy var vc2: UIViewController = {
+        let vc = SecondViewController()
+        vc.view.backgroundColor = .green
+
+        return vc
+    }()
+
+    lazy var vc3: UIViewController = {
+        let vc = ThirdViewController()
+        vc.view.backgroundColor = .blue
+
+        return vc
+    }()
+    
+    lazy var dataViewControllers: [UIViewController] = {
+        return [vc1, vc2, vc3]
+    }()
+    
+    lazy var pageViewController: UIPageViewController = {
+        let vc = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+
+        return vc
+    }()
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // viewDidLoad()에서 호출
+        if let firstVC = dataViewControllers.first {
+            pageViewController.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+        }
+        
+        configure()
+        setupDelegate()
+        
+
+    }
+    
+    private func configure() {
+        view.addSubview(navigationView)
+        addChild(pageViewController)
+        view.addSubview(pageViewController.view)
+
+        navigationView.snp.makeConstraints { make in
+            make.width.top.equalToSuperview()
+            make.height.equalTo(72)
+        }
+
+        pageViewController.view.snp.makeConstraints { make in
+            make.top.equalTo(navigationView.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+        pageViewController.didMove(toParent: self)
+
+        func setupDelegate() {
+            pageViewController.dataSource = self
+            pageViewController.delegate = self
+        }
+    }
+    
+    private func setupDelegate() {
+        pageViewController.dataSource = self
+        pageViewController.delegate = self
+    }
+
+}
+
+extension PageNationViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = dataViewControllers.firstIndex(of: viewController) else { return nil }
+        let previousIndex = index - 1
+        if previousIndex < 0 {
+            return nil
+        }
+        return dataViewControllers[previousIndex]
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = dataViewControllers.firstIndex(of: viewController) else { return nil }
+        let nextIndex = index + 1
+        if nextIndex == dataViewControllers.count {
+            return nil
+        }
+        return dataViewControllers[nextIndex]
+    }
+}
+~~~
+
+
+
+#### 추천 코드 입력 구성 - reject
+
+이 앱을 사용하는 지인들에게 코인을 지급하고 싶어 추천 코드 입력 창을 만들었다. 특정 키워드를 입력하면 코인을 제공하도록 구성하였다.
+
+
+
+~~~swift
+    @objc func finishButtonClickedCountDown() {
+        
+        coinTasks = repository.fetchCoinTable()
+        
+        if mainview.codeInputTextField.text == "SeSAC" {
+            if UserDefaults.standard.string(forKey: "SeSAC") == "SeSAC" {
+                self.mainview.makeToast("이미 사용하신 코드입니다.")
+            } else {
+                repository.addCoin(item: CoinTable(GetCoin: 3000, SpendCoin: 0, Status: 1000))
+                UserDefaults.standard.set("SeSAC", forKey: "SeSAC")
+                self.mainview.makeToast("SeSAC 화이팅🌱")
+            }
+        } else if mainview.codeInputTextField.text == "growtime" {
+            if UserDefaults.standard.string(forKey: "growtime") == "growtime" {
+                self.mainview.makeToast("이미 사용하신 코드입니다.")
+            }
+        }
+~~~
+
+
+
+-> 리젝사유... 멘토님께 물어보니 추천 코드는 무조건 리젝이라고 알려주셨다...
+
+
+
+### 22.10.03(월)
+
+- 추천 코드 기능 제외 업데이트 제출
+
+####  추천 코드 기능 제외 업데이트 제출
+
+![스크린샷 2022-10-03 오후 11.32.51](README.assets/스크린샷 2022-10-03 오후 11.32.51.png)
+
+Reject을 받고 스크린샷도 찍어 보내줬다... 애플...
+
+![스크린샷 2022-10-03 오후 11.33.08](README.assets/스크린샷 2022-10-03 오후 11.33.08.png)
+
+위 화면을 스크린샷을 첨부하여 보내줌...
+
+추천 코드 기능을 제외하고 다시 심사를 넣었더니, 한시간도 안걸려 바로 업데이트가 되었다. 내 쿠폰 코드창.. 잘가...
+
+그래도 이렇게 리젝이 되면서 점차 다양한 정보들을 얻게 되었다고 생각되어 경험적 측면에서 좋은 경험이지 않았나 생각한다.
+
+
+
+
 
