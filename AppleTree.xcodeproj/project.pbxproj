@@ -69,6 +69,9 @@
 		2FBE24DC28CF37EE00BAA0F1 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE24DB28CF37EE00BAA0F1 /* CalendarView.swift */; };
 		2FBE24DE28CF37FA00BAA0F1 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE24DD28CF37FA00BAA0F1 /* CalendarViewController.swift */; };
 		2FBE24E028CF41A200BAA0F1 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE24DF28CF41A200BAA0F1 /* CalendarTableViewCell.swift */; };
+		2FC6146228ED51FC0027E090 /* TimeLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC6146128ED51FC0027E090 /* TimeLineView.swift */; };
+		2FC6146428ED52090027E090 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC6146328ED52090027E090 /* TimeLineViewController.swift */; };
+		2FC6146628ED52ED0027E090 /* TimeLineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC6146528ED52ED0027E090 /* TimeLineTableViewCell.swift */; };
 		2FCB706428CA4223002AF578 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB706328CA4223002AF578 /* ReusableProtocol.swift */; };
 		2FD5515028D71DFB00D1ED25 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD5514F28D71DFB00D1ED25 /* Toast */; };
 		2FE4233128CA32C700BA7484 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE4233028CA32C700BA7484 /* Transition+Extension.swift */; };
@@ -134,6 +137,9 @@
 		2FBE24DB28CF37EE00BAA0F1 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		2FBE24DD28CF37FA00BAA0F1 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		2FBE24DF28CF41A200BAA0F1 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		2FC6146128ED51FC0027E090 /* TimeLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineView.swift; sourceTree = "<group>"; };
+		2FC6146328ED52090027E090 /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
+		2FC6146528ED52ED0027E090 /* TimeLineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineTableViewCell.swift; sourceTree = "<group>"; };
 		2FCB706328CA4223002AF578 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
 		2FE4233028CA32C700BA7484 /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +242,7 @@
 		2F7EE93F28BCEA69000F1F41 /* AppleTree */ = {
 			isa = PBXGroup;
 			children = (
+				2FC6146028ED51DF0027E090 /* TimeLine */,
 				2FB08A0028E95C8C004B1B04 /* Pagination */,
 				2F9F6C2828D19D8D0005986C /* DataSetting */,
 				2FBAE1FE28D0578A007F834F /* DataBase */,
@@ -414,6 +421,16 @@
 			path = FinishPopup;
 			sourceTree = "<group>";
 		};
+		2FC6146028ED51DF0027E090 /* TimeLine */ = {
+			isa = PBXGroup;
+			children = (
+				2FC6146128ED51FC0027E090 /* TimeLineView.swift */,
+				2FC6146328ED52090027E090 /* TimeLineViewController.swift */,
+				2FC6146528ED52ED0027E090 /* TimeLineTableViewCell.swift */,
+			);
+			path = TimeLine;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -512,6 +529,7 @@
 				2F9C4EED28D839860004317F /* ThemaSettingTableViewCell.swift in Sources */,
 				2FAA583E28CC53A50067BFE8 /* BaseTableViewCell.swift in Sources */,
 				2F2AFABB28E16FEC00856314 /* ChartViewController.swift in Sources */,
+				2FC6146228ED51FC0027E090 /* TimeLineView.swift in Sources */,
 				2F1414B528E463E100CF8EC4 /* FontSettingTableViewCell.swift in Sources */,
 				2F44A1A928E0378E0020880E /* UIFont + Extension.swift in Sources */,
 				2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */,
@@ -522,7 +540,9 @@
 				2FB08A1528E9855A004B1B04 /* PaginationFinalView.swift in Sources */,
 				2FBE24D328CF241700BAA0F1 /* FinishPopupView.swift in Sources */,
 				2F2AFAC028E195FB00856314 /* StatusLogic.swift in Sources */,
+				2FC6146428ED52090027E090 /* TimeLineViewController.swift in Sources */,
 				2F2C540C28D342F000D647AE /* TimeSettingView.swift in Sources */,
+				2FC6146628ED52ED0027E090 /* TimeLineTableViewCell.swift in Sources */,
 				2F44A1AB28E038E20020880E /* Font enum + func.swift in Sources */,
 				2FB08A1328E98184004B1B04 /* PaginationView.swift in Sources */,
 				2FBAE20228D0609F007F834F /* ATRepository.swift in Sources */,

@@ -179,9 +179,13 @@ class MainViewController: BaseViewController {
         let settingButton = UIBarButtonItem(image: UIImage(systemName: "lightbulb"), style: .plain, target: self, action: #selector(bulbButtonClicked))
         settingButton.tintColor = .white
         let bulbButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(settingButtonClicked))
+        
+        let timeLineButton = UIBarButtonItem(image: UIImage(systemName: "clock.fill"), style: .plain, target: self, action: #selector(timeLineButtonClicked))
+
         bulbButton.tintColor = .white
+        timeLineButton.tintColor = .white
         navigationItem.leftBarButtonItems = [calenderButton]
-        navigationItem.rightBarButtonItems = [bulbButton, settingButton]
+        navigationItem.rightBarButtonItems = [bulbButton, settingButton, timeLineButton]
     }
     
     @objc func calenderButtonClicked() {
@@ -213,6 +217,11 @@ class MainViewController: BaseViewController {
         }
         
 
+    }
+    
+    @objc func timeLineButtonClicked() {
+        let vc = TimeLineViewController()
+        transition(vc, transitionStyle: .push)
     }
     
     func startButtonClicked() {
