@@ -12,6 +12,8 @@ class TimeLineViewController: BaseViewController {
 
     let mainview = TimeLineView()
     let repository = ATRepository()
+    let dateFormatDay = DateFormatter()
+
     var userTasks: Results<UserTable>! {
         didSet {
             userTasks = repository.fetchUser()
@@ -57,8 +59,8 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        userTasks = repository.fetchUser()
-        return userTasks.count
+        coinTasks = repository.fetchCoinTable()
+        return coinTasks.count
     }
     
     
@@ -66,12 +68,30 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TimeLineTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
         cell.selectionStyle = .none
+        cell.explainLabel.text = selectDay(day: coinTasks[indexPath.row].now)
+        if coinTasks[indexPath.row].GetCoin > 0 {
+            cell.containExplainLabel.text = "\(coinTasks[indexPath.row].GetCoin)의 코인을 얻었습니다."
+        } else {
+            cell.containExplainLabel.text = "\(coinTasks[indexPath.row].SpendCoin)의 코인을 사용하였습니다."
 
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         400
     }
+    
+
+    func formatDate() {
+        
+        dateFormatDay.dateFormat = "yy-MM-dd hh:mm"
+    }
+    
+    func selectDay(day: Date) -> String {
+        formatDate()
+        return dateFormatDay.string(from: day)
+    }
+
     
 }
