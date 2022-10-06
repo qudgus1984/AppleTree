@@ -26,6 +26,7 @@ class TimeLineViewController: BaseViewController {
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +36,7 @@ class TimeLineViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         userTasks = repository.fetchUser()
+        coinTasks = repository.fetchCoinTable()
         
     }
     
@@ -73,14 +75,12 @@ extension TimeLineViewController: UITableViewDelegate, UITableViewDataSource {
         cell.explainLabel.text = selectDay(day: coinTasks[coinTasks.count - indexPath.row - 1].now)
         cell.statusExplainLabel.text = statusLogicFunc(status: coinTasks[coinTasks.count - indexPath.row - 1].Status)
         if coinTasks[coinTasks.count - indexPath.row - 1].GetCoin > 0 {
-            cell.containExplainLabel.text = "\(coinTasks[coinTasks.count - indexPath.row - 1].GetCoin)의 코인을 얻었습니다."
+            cell.containExplainLabel.text = "\(coinTasks[coinTasks.count - indexPath.row - 1].GetCoin) 코인을 얻었습니다."
 
         } else {
-            cell.containExplainLabel.text = "\(coinTasks[coinTasks.count - indexPath.row - 1].SpendCoin)의 코인을 사용하였습니다."
-
+            cell.containExplainLabel.text = "\(coinTasks[coinTasks.count - indexPath.row - 1].SpendCoin) 코인을 사용하였습니다."
         }
-        let selectDay = repository.dayTotalTimeFilter(date: coinTasks[coinTasks.count - indexPath.row - 1].now)
-        cell.iconImageView.image = ChangedImage(time: selectDay)
+        cell.iconImageView.image = ChangedImage(time: repository.dayTotalTimeLineFilter(date: coinTasks[coinTasks.count - indexPath.row - 1].now))
         return cell
     }
     

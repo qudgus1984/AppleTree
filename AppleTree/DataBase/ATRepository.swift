@@ -95,6 +95,22 @@ class ATRepository: ATRepositoryType {
         
     }
     
+    func dayTotalTimeLineFilter(date: Date) -> Int {
+        let calender = Calendar.current
+        let item = localRealm.objects(UserTable.self).filter("StartTime >= %@ and StartTime < %@ ", calender.startOfDay(for: date), calender.startOfDay(for: date+86400))
+        let successToday = item.filter("Success == true")
+        var successTotalTime = 0
+        if successToday.isEmpty {
+            return 0
+        } else {
+            for i in 0...successToday.count-1 {
+                successTotalTime += successToday[i].SettingTime
+            }
+            return successTotalTime
+        }
+        
+    }
+    
     func monthTotalTimeFilter(date: Date) -> Int {
         let setDate = date
         var calendar = Calendar(identifier: .gregorian)

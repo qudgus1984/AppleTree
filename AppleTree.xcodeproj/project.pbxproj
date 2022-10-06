@@ -246,7 +246,6 @@
 				2FB08A0028E95C8C004B1B04 /* Pagination */,
 				2F9F6C2828D19D8D0005986C /* DataSetting */,
 				2FBAE1FE28D0578A007F834F /* DataBase */,
-				2FBE24C628CEDB8900BAA0F1 /* Font */,
 				2FAA583F28CC53D30067BFE8 /* Scene */,
 				2FAA583828CC52560067BFE8 /* Base */,
 				2FAA583728CC51FD0067BFE8 /* Utility */,
@@ -267,6 +266,7 @@
 			children = (
 				2F8BAA3D28D7003A00851124 /* ResetPopupView.swift */,
 				2F8BAA3F28D7006300851124 /* ResetPopupViewController.swift */,
+				2FBE24C628CEDB8900BAA0F1 /* Font */,
 			);
 			path = ResetPopup;
 			sourceTree = "<group>";
