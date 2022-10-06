@@ -6,7 +6,8 @@ Grow Time는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰�
 
 ## 실행 화면
 
-![Simulator Screen Recording - iPhone 13 Pro - 2022-09-17 at 14 09 26](https://user-images.githubusercontent.com/81552265/190841509-61d19ef8-84c7-4290-b830-661db1b7384f.gif)
+![Simulator Screen Recording - iPhone 14 Pro Max - 2022-10-06 at 14 59 54](https://user-images.githubusercontent.com/81552265/194302790-7dce79c1-fea1-4117-a4d0-faaeb043315b.gif)
+
 
 
 ## 개발 정리 표
@@ -1771,7 +1772,11 @@ Reject을 받고 스크린샷도 찍어 보내줬다... 애플...
 
 
 
-이미지
+
+
+https://user-images.githubusercontent.com/81552265/194302594-56bbca18-296e-4716-ac7d-8b6967a23f4e.mp4
+
+
 
 
 
