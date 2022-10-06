@@ -242,7 +242,7 @@ class MainViewController: BaseViewController {
             UserDefaults.standard.set(true, forKey: "going")
             startButtonBool.toggle()
             self.mainview.startButton.setTitle("중지", for: .normal)
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { (t) in
                 self.mainview.settingCount -= 1
                 let minutes = self.mainview.settingCount / 60
                 let seconds = self.mainview.settingCount % 60

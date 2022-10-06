@@ -41,7 +41,15 @@ class TimeLineTableViewCell: BaseTableViewCell {
     let containExplainLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = FontChoice().Font24
+        label.font = FontChoice().Font16
+        label.text = "containExplainLabel"
+        return label
+    }()
+    
+    let statusExplainLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = FontChoice().Font16
         label.text = "containExplainLabel"
         return label
     }()
@@ -55,7 +63,7 @@ class TimeLineTableViewCell: BaseTableViewCell {
     }
     
     override func configure() {
-        [explainLabel, containView, iconImageView, containExplainLabel].forEach {
+        [explainLabel, containView, iconImageView, containExplainLabel, statusExplainLabel].forEach {
             contentView.addSubview($0)
         }
     }
@@ -85,6 +93,13 @@ class TimeLineTableViewCell: BaseTableViewCell {
         containExplainLabel.snp.makeConstraints { make in
             make.top.equalTo(iconImageView.snp.bottom).offset(8)
             make.bottom.equalTo(containView.snp.bottom).offset(-8)
+            make.trailing.equalTo(containView.snp.trailing).offset(-8)
+            make.leading.equalTo(containView.snp.leading).offset(8)
+        }
+        
+        statusExplainLabel.snp.makeConstraints { make in
+            make.top.equalTo(containView.snp.top).offset(8)
+            make.height.equalTo(30)
             make.trailing.equalTo(containView.snp.trailing).offset(-8)
             make.leading.equalTo(containView.snp.leading).offset(8)
         }
