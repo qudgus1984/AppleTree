@@ -36,6 +36,9 @@
 		2F7EE94828BCEA69000F1F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94628BCEA69000F1F41 /* Main.storyboard */; };
 		2F7EE94A28BCEA6B000F1F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94928BCEA6B000F1F41 /* Assets.xcassets */; };
 		2F7EE94D28BCEA6B000F1F41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7EE94B28BCEA6B000F1F41 /* LaunchScreen.storyboard */; };
+		2F8B837928F0015B0054CB57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B837828F0015B0054CB57 /* GoogleService-Info.plist */; };
+		2F8B837C28F001BF0054CB57 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 2F8B837B28F001BF0054CB57 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		2F8B837E28F001BF0054CB57 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2F8B837D28F001BF0054CB57 /* FirebaseCrashlytics */; };
 		2F8BAA3E28D7003A00851124 /* ResetPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BAA3D28D7003A00851124 /* ResetPopupView.swift */; };
 		2F8BAA4028D7006300851124 /* ResetPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BAA3F28D7006300851124 /* ResetPopupViewController.swift */; };
 		2F9C4EEB28D8396D0004317F /* ThemaSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C4EEA28D8396D0004317F /* ThemaSettingView.swift */; };
@@ -106,6 +109,7 @@
 		2F7EE94928BCEA6B000F1F41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F7EE94C28BCEA6B000F1F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F7EE94E28BCEA6B000F1F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F8B837828F0015B0054CB57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F8BAA3D28D7003A00851124 /* ResetPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPopupView.swift; sourceTree = "<group>"; };
 		2F8BAA3F28D7006300851124 /* ResetPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPopupViewController.swift; sourceTree = "<group>"; };
 		2F9C4EEA28D8396D0004317F /* ThemaSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemaSettingView.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				2F2AFABE28E17AEB00856314 /* Charts in Frameworks */,
 				2FAA584528CC54630067BFE8 /* SnapKit in Frameworks */,
 				2FD5515028D71DFB00D1ED25 /* Toast in Frameworks */,
+				2F8B837C28F001BF0054CB57 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				2F8B837E28F001BF0054CB57 /* FirebaseCrashlytics in Frameworks */,
 				2FB41FF828CF8D7C00B8E245 /* FSCalendar in Frameworks */,
 				2F1414A228E3DBCB00CF8EC4 /* Realm in Frameworks */,
 			);
@@ -256,6 +262,7 @@
 				2F7EE94628BCEA69000F1F41 /* Main.storyboard */,
 				2F7EE94928BCEA6B000F1F41 /* Assets.xcassets */,
 				2F7EE94B28BCEA6B000F1F41 /* LaunchScreen.storyboard */,
+				2F8B837828F0015B0054CB57 /* GoogleService-Info.plist */,
 				2F7EE94E28BCEA6B000F1F41 /* Info.plist */,
 			);
 			path = AppleTree;
@@ -454,6 +461,8 @@
 				2F2AFABD28E17AEB00856314 /* Charts */,
 				2F1414A128E3DBCB00CF8EC4 /* Realm */,
 				2F1414A328E3DBCB00CF8EC4 /* RealmSwift */,
+				2F8B837B28F001BF0054CB57 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				2F8B837D28F001BF0054CB57 /* FirebaseCrashlytics */,
 			);
 			productName = AppleTree;
 			productReference = 2F7EE93D28BCEA69000F1F41 /* AppleTree.app */;
@@ -489,6 +498,7 @@
 				2FD5514E28D71DFB00D1ED25 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				2F2AFABC28E17AEB00856314 /* XCRemoteSwiftPackageReference "Charts" */,
 				2F1414A028E3DBCB00CF8EC4 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				2F8B837A28F001BF0054CB57 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 2F7EE93E28BCEA69000F1F41 /* Products */;
 			projectDirPath = "";
@@ -505,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F1414B028E460AF00CF8EC4 /* SimKyungha.otf in Resources */,
+				2F8B837928F0015B0054CB57 /* GoogleService-Info.plist in Resources */,
 				2FBE24CA28CEDBB300BAA0F1 /* UhBee BEOJJI Bold.ttf in Resources */,
 				2FBE24C928CEDBAF00BAA0F1 /* UhBee BEOJJI.ttf in Resources */,
 				2F1414AA28E45DC200CF8EC4 /* 강원교육모두 Bold.otf in Resources */,
@@ -823,6 +834,14 @@
 				version = 4.1.0;
 			};
 		};
+		2F8B837A28F001BF0054CB57 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		2FAA584328CC54630067BFE8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -864,6 +883,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2F2AFABC28E17AEB00856314 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
+		};
+		2F8B837B28F001BF0054CB57 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F8B837A28F001BF0054CB57 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		2F8B837D28F001BF0054CB57 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F8B837A28F001BF0054CB57 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 		2FAA584428CC54630067BFE8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
