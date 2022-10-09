@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SettingViewController: BaseViewController {
+final class SettingViewController: BaseViewController {
 
-    let mainview = SettingView()
+    private let mainview = SettingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class FontSettingViewController: BaseViewController {
+final class FontSettingViewController: BaseViewController {
 
     let mainview = FontSettingView()
     let repository = ATRepository()

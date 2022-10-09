@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class FinishPopupViewController: BaseViewController {
+final class FinishPopupViewController: BaseViewController {
     
     let repository = ATRepository()
     let mainview = FinishPopupView()

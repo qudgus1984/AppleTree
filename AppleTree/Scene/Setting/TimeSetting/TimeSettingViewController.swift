@@ -12,9 +12,9 @@ protocol settingTimeDelegate {
     func sendSettingTime(_ time: Int)
 }
 
-class TimeSettingViewController: BaseViewController {
+final class TimeSettingViewController: BaseViewController {
 
-    let mainview = TimeSettingView()
+    private let mainview = TimeSettingView()
     
     var delegate: settingTimeDelegate?
     

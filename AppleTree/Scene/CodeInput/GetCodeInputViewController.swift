@@ -9,9 +9,9 @@ import UIKit
 import RealmSwift
 import Toast
 
-class GetCodeInputViewController: BaseViewController {
+final class GetCodeInputViewController: BaseViewController {
  
-    let mainview = GetCodeInputView()
+    private let mainview = GetCodeInputView()
     let repository = ATRepository()
     
     var coinTasks: Results<CoinTable>! {

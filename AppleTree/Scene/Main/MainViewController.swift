@@ -9,23 +9,23 @@ import UIKit
 import RealmSwift
 import Toast
 
-class MainViewController: BaseViewController {
+final class MainViewController: BaseViewController {
     
     
-    var getSettingTime: [Int] = []
+    private var getSettingTime: [Int] = []
     
-    var startButtonBool: Bool = true
-    var timer: Timer?
-    var progress: Float = 0.0
+    private var startButtonBool: Bool = true
+    internal var timer: Timer?
+    internal var progress: Float = 0.0
     
-    var hiddenCount = 0
+    private var hiddenCount = 0
     
     let mainview = MainView()
     let repository = ATRepository()
     
-    var firstStartButtonClicked = true
+    private var firstStartButtonClicked = true
     
-    var bulbBool = true
+    private var bulbBool = true
     
     
     

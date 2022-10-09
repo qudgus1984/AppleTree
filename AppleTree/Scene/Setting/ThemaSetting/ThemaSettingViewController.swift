@@ -8,10 +8,10 @@
 import UIKit
 import RealmSwift
 
-class ThemaSettingViewController: BaseViewController {
+final class ThemaSettingViewController: BaseViewController {
 
-    let mainview = ThemaSettingView()
-    let repository = ATRepository()
+    private let mainview = ThemaSettingView()
+    private let repository = ATRepository()
     var userTasks: Results<UserTable>! {
         didSet {
             userTasks = repository.fetchUser()

@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class ResetPopupViewController: BaseViewController {
+final class ResetPopupViewController: BaseViewController {
     
     
     var getSettingTime: [Int] = []

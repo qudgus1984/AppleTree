@@ -10,7 +10,7 @@ import SnapKit
 import FSCalendar
 import RealmSwift
 
-class CalendarViewController: BaseViewController {
+final class CalendarViewController: BaseViewController {
     
     var userTasks: Results<UserTable>! {
         didSet {
