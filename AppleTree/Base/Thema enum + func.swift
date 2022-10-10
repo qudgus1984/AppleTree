@@ -27,7 +27,6 @@ enum Thema {
         case .BeachThema:
             return .huntBeach
         }
-        
     }
     
     var lightColor: UIColor {

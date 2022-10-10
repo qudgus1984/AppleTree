@@ -42,6 +42,7 @@
 		2F8B838128F1C7390054CB57 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8B838028F1C7390054CB57 /* Observable.swift */; };
 		2F8BAA3E28D7003A00851124 /* ResetPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BAA3D28D7003A00851124 /* ResetPopupView.swift */; };
 		2F8BAA4028D7006300851124 /* ResetPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BAA3F28D7006300851124 /* ResetPopupViewController.swift */; };
+		2F98190728F4019900A43C30 /* GetCodeInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98190628F4019900A43C30 /* GetCodeInputViewModel.swift */; };
 		2F9C4EEB28D8396D0004317F /* ThemaSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C4EEA28D8396D0004317F /* ThemaSettingView.swift */; };
 		2F9C4EED28D839860004317F /* ThemaSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C4EEC28D839860004317F /* ThemaSettingTableViewCell.swift */; };
 		2F9C4EEF28D8399E0004317F /* ThemaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C4EEE28D8399E0004317F /* ThemaSettingViewController.swift */; };
@@ -114,6 +115,7 @@
 		2F8B838028F1C7390054CB57 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		2F8BAA3D28D7003A00851124 /* ResetPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPopupView.swift; sourceTree = "<group>"; };
 		2F8BAA3F28D7006300851124 /* ResetPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPopupViewController.swift; sourceTree = "<group>"; };
+		2F98190628F4019900A43C30 /* GetCodeInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCodeInputViewModel.swift; sourceTree = "<group>"; };
 		2F9C4EEA28D8396D0004317F /* ThemaSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemaSettingView.swift; sourceTree = "<group>"; };
 		2F9C4EEC28D839860004317F /* ThemaSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemaSettingTableViewCell.swift; sourceTree = "<group>"; };
 		2F9C4EEE28D8399E0004317F /* ThemaSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemaSettingViewController.swift; sourceTree = "<group>"; };
@@ -250,7 +252,7 @@
 		2F7EE93F28BCEA69000F1F41 /* AppleTree */ = {
 			isa = PBXGroup;
 			children = (
-				2F8B837F28F1C7220054CB57 /* New Group */,
+				2F98190528F3FFBF00A43C30 /* MVVM */,
 				2FC6146028ED51DF0027E090 /* TimeLine */,
 				2FB08A0028E95C8C004B1B04 /* Pagination */,
 				2F9F6C2828D19D8D0005986C /* DataSetting */,
@@ -271,13 +273,6 @@
 			path = AppleTree;
 			sourceTree = "<group>";
 		};
-		2F8B837F28F1C7220054CB57 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		2F8BAA3C28D7001B00851124 /* ResetPopup */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +281,15 @@
 				2FBE24C628CEDB8900BAA0F1 /* Font */,
 			);
 			path = ResetPopup;
+			sourceTree = "<group>";
+		};
+		2F98190528F3FFBF00A43C30 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B838028F1C7390054CB57 /* Observable.swift */,
+				2F98190628F4019900A43C30 /* GetCodeInputViewModel.swift */,
+			);
+			path = MVVM;
 			sourceTree = "<group>";
 		};
 		2F9C4EE928D839580004317F /* ThemaSetting */ = {
@@ -302,7 +306,6 @@
 			isa = PBXGroup;
 			children = (
 				2F9F6C2928D19DBD0005986C /* DateFormatterHelper.swift */,
-				2F8B838028F1C7390054CB57 /* Observable.swift */,
 			);
 			path = DataSetting;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */,
 				2F7EE94328BCEA69000F1F41 /* SceneDelegate.swift in Sources */,
 				2FBE24E028CF41A200BAA0F1 /* CalendarTableViewCell.swift in Sources */,
+				2F98190728F4019900A43C30 /* GetCodeInputViewModel.swift in Sources */,
 				2FB08A0F28E96EA2004B1B04 /* GetCodeInputView.swift in Sources */,
 				2F2C540928D33DBF00D647AE /* SettingViewController.swift in Sources */,
 				2F9C4EEB28D8396D0004317F /* ThemaSettingView.swift in Sources */,

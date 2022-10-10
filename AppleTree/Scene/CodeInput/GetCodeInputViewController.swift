@@ -10,7 +10,7 @@ import RealmSwift
 import Toast
 
 final class GetCodeInputViewController: BaseViewController {
- 
+    
     private let mainview = GetCodeInputView()
     let repository = ATRepository()
     
@@ -20,11 +20,19 @@ final class GetCodeInputViewController: BaseViewController {
         }
     }
     
+    var viewModel = GetCodeInputViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         finishButtonClicked()
-
+        changeTextField()
+        
+        viewModel.isValid.bind { bool in
+            self.mainview.finishButton.backgroundColor = bool ? themaChoice().mainColor : .systemGray
+        }
+        
     }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -50,7 +58,14 @@ final class GetCodeInputViewController: BaseViewController {
         
     }
     
+    func changeTextField() {
+        mainview.codeInputTextField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
+    }
     
+    @objc func textChanged() {
+        viewModel.couponCode.value = mainview.codeInputTextField.text ?? nil
+        viewModel.checkValidation()
+    }
     
     @objc func finishButtonClickedCountDown() {
         
