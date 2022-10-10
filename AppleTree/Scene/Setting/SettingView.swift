@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SettingView: BaseView {
+final class SettingView: BaseView {
     
     lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TimeSettingTableViewCell: BaseTableViewCell {
+final class TimeSettingTableViewCell: BaseTableViewCell {
     let containView: UIView = {
         let view = UIView()
         view.backgroundColor = themaChoice().mainColor

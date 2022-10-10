@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FinishPopupView: BaseView {
+final class FinishPopupView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

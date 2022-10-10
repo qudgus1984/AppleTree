@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TimeSettingView: BaseView {
+final class TimeSettingView: BaseView {
     
     lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)

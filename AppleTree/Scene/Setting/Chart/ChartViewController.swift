@@ -9,16 +9,16 @@ import UIKit
 import Charts
 import RealmSwift
 
-class ChartViewController: BaseViewController {
+final class ChartViewController: BaseViewController {
     let mainview = ChartView()
     
-    var months: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    private var months: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     var unitsSold: [Double]!
-    var days: [String] = ["6시", "8시", "10시", "12시", "2시", "4시", "6시", "8시", "10시", "12시", "2시", "4시"]
-    var weeks: [String] = ["6일 전", "5일 전", "4일 전", "3일 전", "이틀 전", "어제", "오늘"]
+    private var days: [String] = ["6시", "8시", "10시", "12시", "2시", "4시", "6시", "8시", "10시", "12시", "2시", "4시"]
+    private var weeks: [String] = ["6일 전", "5일 전", "4일 전", "3일 전", "이틀 전", "어제", "오늘"]
     var repository = ATRepository()
     
-    var userTasks: Results<UserTable>! {
+    private var userTasks: Results<UserTable>! {
         didSet {
             userTasks = repository.fetchUser()
         }

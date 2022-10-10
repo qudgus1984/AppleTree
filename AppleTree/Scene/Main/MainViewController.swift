@@ -20,8 +20,8 @@ final class MainViewController: BaseViewController {
     
     private var hiddenCount = 0
     
-    let mainview = MainView()
-    let repository = ATRepository()
+    private let mainview = MainView()
+    private let repository = ATRepository()
     
     private var firstStartButtonClicked = true
     
@@ -30,26 +30,26 @@ final class MainViewController: BaseViewController {
     
     
     // 값 전달을 위한 fetch
-    var userTasks: Results<UserTable>! {
+    private var userTasks: Results<UserTable>! {
         didSet {
             userTasks = repository.fetchUser()
             updateImage()
         }
     }
     
-    var coinTasks: Results<CoinTable>! {
+    private var coinTasks: Results<CoinTable>! {
         didSet {
             coinTasks = repository.fetchCoinTable()
         }
     }
     
-    var themaTasks: Results<ThemaTable>! {
+    private var themaTasks: Results<ThemaTable>! {
         didSet {
             themaTasks = repository.fetchThemaTable()
         }
     }
     
-    var fontTasks: Results<FontTable>! {
+    private var fontTasks: Results<FontTable>! {
         didSet {
             fontTasks = repository.fetchFontTable()
         }

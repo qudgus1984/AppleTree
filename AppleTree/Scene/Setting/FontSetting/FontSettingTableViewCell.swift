@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FontSettingTableViewCell: BaseTableViewCell {
+final class FontSettingTableViewCell: BaseTableViewCell {
     let containView: UIView = {
         let view = UIView()
         view.backgroundColor = themaChoice().mainColor

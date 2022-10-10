@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class GetCodeInputView: BaseView {
+final class GetCodeInputView: BaseView {
     
     let bgView: UIView = {
         let view = UIView()

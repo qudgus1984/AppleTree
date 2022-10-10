@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ResetPopupView: BaseView {
+final class ResetPopupView: BaseView {
     
     var settingCount = UserDefaults.standard.integer(forKey: "engagedTime")
 

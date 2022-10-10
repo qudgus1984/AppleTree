@@ -16,10 +16,10 @@ final class TimeSettingViewController: BaseViewController {
 
     private let mainview = TimeSettingView()
     
-    var delegate: settingTimeDelegate?
+    private var delegate: settingTimeDelegate?
     
-    let repository = ATRepository()
-    var userTasks: Results<UserTable>! {
+    private let repository = ATRepository()
+    private var userTasks: Results<UserTable>! {
         didSet {
             userTasks = repository.fetchUser()
         }

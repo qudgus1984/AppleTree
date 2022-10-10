@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PageNationViewController: UIPageViewController {
+final class PageNationViewController: UIPageViewController {
     
     lazy var navigationView: UIView = {
         let view = UIView()

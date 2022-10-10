@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CalendarTableViewCell: BaseTableViewCell {
+final class CalendarTableViewCell: BaseTableViewCell {
     
     let containView: UIView = {
         let view = UIView()

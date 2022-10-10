@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ThemaSettingTableViewCell: BaseTableViewCell {
+final class ThemaSettingTableViewCell: BaseTableViewCell {
     let containView: UIView = {
         let view = UIView()
         view.backgroundColor = themaChoice().mainColor

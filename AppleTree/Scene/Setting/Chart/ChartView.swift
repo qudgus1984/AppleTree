@@ -8,7 +8,7 @@
 import UIKit
 import Charts
 
-class ChartView: BaseView {
+final class ChartView: BaseView {
     
     let bgView: UIView = {
         let view = UIView()

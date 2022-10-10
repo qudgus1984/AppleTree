@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DateFormatterHelper {
+final class DateFormatterHelper {
     
     private init() {}
     

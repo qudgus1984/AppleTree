@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FontSettingView: BaseView {
+final class FontSettingView: BaseView {
     
     lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class PaginationView: BaseView {
+final class PaginationView: BaseView {
     
 
     let bgView: UIView = {

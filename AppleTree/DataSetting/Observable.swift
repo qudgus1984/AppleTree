@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Observable<T> { // 양방향 바인딩
+final class Observable<T> { // 양방향 바인딩
     
     private var listener: ((T) -> Void)?
     
