@@ -63,28 +63,8 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TimeSettingTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
         cell.selectionStyle = .none
-        
-        switch indexPath.row {
-        case 0:
-            cell.explainLabel.text = TimeSettingEnum.zero.rawValue
-        case 1:
-            cell.explainLabel.text = TimeSettingEnum.first.rawValue
-            
-        case 2:
-            cell.explainLabel.text = TimeSettingEnum.second.rawValue
-            
-        case 3:
-            cell.explainLabel.text = TimeSettingEnum.third.rawValue
-            
-        case 4:
-            cell.explainLabel.text = TimeSettingEnum.four.rawValue
-        case 5:
-            cell.explainLabel.text = TimeSettingEnum.five.rawValue
-            
-        default:
-            print("error발생")
-            
-        }
+        cell.explainLabel.text = TimeSettingEnum.allCases[indexPath.row].rawValue
+
         
         return cell
     }

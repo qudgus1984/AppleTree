@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TimeSettingEnum: String {
+enum TimeSettingEnum: String, CaseIterable {
     case zero = "이정도는 가뿐해! 15분! + 1코인"
     case first = "짧고 굵게!! 30분 + 3코인"
     case second = "데일리한 1시간! + 10코인"

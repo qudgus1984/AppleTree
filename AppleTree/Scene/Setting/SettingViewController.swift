@@ -52,21 +52,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = themaChoice().lightColor
         cell.selectionStyle = .none
         cell.explainLabel.text = SettingEnum.allCases[indexPath.row].rawValue
-//        switch indexPath.row {
-//
-//        case 0:
-//            cell.explainLabel.text = SettingEnum.zero.rawValue
-//        case 1:
-//            cell.explainLabel.text = SettingEnum.first.rawValue
-//        case 2:
-//            cell.explainLabel.text = SettingEnum.second.rawValue
-//        case 3:
-//            cell.explainLabel.text = SettingEnum.third.rawValue
-//
-//        default:
-//            print("error발생")
-//
-//        }
 
         return cell
     }
