@@ -43,6 +43,9 @@
 		2F8BAA3E28D7003A00851124 /* ResetPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BAA3D28D7003A00851124 /* ResetPopupView.swift */; };
 		2F8BAA4028D7006300851124 /* ResetPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8BAA3F28D7006300851124 /* ResetPopupViewController.swift */; };
 		2F98190728F4019900A43C30 /* GetCodeInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98190628F4019900A43C30 /* GetCodeInputViewModel.swift */; };
+		2F98190928F4135300A43C30 /* CouponCode + enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98190828F4135300A43C30 /* CouponCode + enum.swift */; };
+		2F98190B28F414F100A43C30 /* SettingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98190A28F414F100A43C30 /* SettingEnum.swift */; };
+		2F98190D28F4174800A43C30 /* TimeSettingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98190C28F4174800A43C30 /* TimeSettingEnum.swift */; };
 		2F9C4EEB28D8396D0004317F /* ThemaSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C4EEA28D8396D0004317F /* ThemaSettingView.swift */; };
 		2F9C4EED28D839860004317F /* ThemaSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C4EEC28D839860004317F /* ThemaSettingTableViewCell.swift */; };
 		2F9C4EEF28D8399E0004317F /* ThemaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C4EEE28D8399E0004317F /* ThemaSettingViewController.swift */; };
@@ -116,6 +119,9 @@
 		2F8BAA3D28D7003A00851124 /* ResetPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPopupView.swift; sourceTree = "<group>"; };
 		2F8BAA3F28D7006300851124 /* ResetPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPopupViewController.swift; sourceTree = "<group>"; };
 		2F98190628F4019900A43C30 /* GetCodeInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCodeInputViewModel.swift; sourceTree = "<group>"; };
+		2F98190828F4135300A43C30 /* CouponCode + enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CouponCode + enum.swift"; sourceTree = "<group>"; };
+		2F98190A28F414F100A43C30 /* SettingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingEnum.swift; sourceTree = "<group>"; };
+		2F98190C28F4174800A43C30 /* TimeSettingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingEnum.swift; sourceTree = "<group>"; };
 		2F9C4EEA28D8396D0004317F /* ThemaSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemaSettingView.swift; sourceTree = "<group>"; };
 		2F9C4EEC28D839860004317F /* ThemaSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemaSettingTableViewCell.swift; sourceTree = "<group>"; };
 		2F9C4EEE28D8399E0004317F /* ThemaSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemaSettingViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +235,7 @@
 				2F2C540F28D3431100D647AE /* TimeSettingTableViewCell.swift */,
 				2F2C540B28D342F000D647AE /* TimeSettingView.swift */,
 				2F2C540D28D3430100D647AE /* TimeSettingViewController.swift */,
+				2F98190C28F4174800A43C30 /* TimeSettingEnum.swift */,
 			);
 			path = TimeSetting;
 			sourceTree = "<group>";
@@ -381,6 +388,7 @@
 			children = (
 				2FB08A0E28E96EA2004B1B04 /* GetCodeInputView.swift */,
 				2FB08A1028E96EAF004B1B04 /* GetCodeInputViewController.swift */,
+				2F98190828F4135300A43C30 /* CouponCode + enum.swift */,
 			);
 			path = CodeInput;
 			sourceTree = "<group>";
@@ -419,6 +427,7 @@
 				2F2C540628D33DA300D647AE /* SettingTableViewCell.swift */,
 				2F2C540428D33D8C00D647AE /* SettingView.swift */,
 				2F2C540828D33DBF00D647AE /* SettingViewController.swift */,
+				2F98190A28F414F100A43C30 /* SettingEnum.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -555,6 +564,7 @@
 				2FAA583E28CC53A50067BFE8 /* BaseTableViewCell.swift in Sources */,
 				2F2AFABB28E16FEC00856314 /* ChartViewController.swift in Sources */,
 				2FC6146228ED51FC0027E090 /* TimeLineView.swift in Sources */,
+				2F98190928F4135300A43C30 /* CouponCode + enum.swift in Sources */,
 				2F1414B528E463E100CF8EC4 /* FontSettingTableViewCell.swift in Sources */,
 				2F44A1A928E0378E0020880E /* UIFont + Extension.swift in Sources */,
 				2FAA584928CC59BD0067BFE8 /* MainViewController.swift in Sources */,
@@ -579,6 +589,7 @@
 				2F44A1A728E0306C0020880E /* CoinTable.swift in Sources */,
 				2FCB706428CA4223002AF578 /* ReusableProtocol.swift in Sources */,
 				2FAA583A28CC52690067BFE8 /* BaseView.swift in Sources */,
+				2F98190B28F414F100A43C30 /* SettingEnum.swift in Sources */,
 				2FB08A1128E96EAF004B1B04 /* GetCodeInputViewController.swift in Sources */,
 				2F9C4EEF28D8399E0004317F /* ThemaSettingViewController.swift in Sources */,
 				2F1414B328E4639400CF8EC4 /* FontSettingView.swift in Sources */,
@@ -588,6 +599,7 @@
 				2F7EE94128BCEA69000F1F41 /* AppDelegate.swift in Sources */,
 				2FB08A0228E95F3D004B1B04 /* PageNationViewController.swift in Sources */,
 				2FAA583C28CC52780067BFE8 /* BaseViewController.swift in Sources */,
+				2F98190D28F4174800A43C30 /* TimeSettingEnum.swift in Sources */,
 				2F7EE94328BCEA69000F1F41 /* SceneDelegate.swift in Sources */,
 				2FBE24E028CF41A200BAA0F1 /* CalendarTableViewCell.swift in Sources */,
 				2F98190728F4019900A43C30 /* GetCodeInputViewModel.swift in Sources */,

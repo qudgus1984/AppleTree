@@ -13,7 +13,7 @@ protocol settingTimeDelegate {
 }
 
 final class TimeSettingViewController: BaseViewController {
-
+    
     private let mainview = TimeSettingView()
     
     private var delegate: settingTimeDelegate?
@@ -27,7 +27,7 @@ final class TimeSettingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         mainview.tableView.dataSource = self
         mainview.tableView.delegate = self
     }
@@ -43,12 +43,12 @@ final class TimeSettingViewController: BaseViewController {
         let appearence = UINavigationBarAppearance()
         appearence.backgroundColor = themaChoice().lightColor
         appearence.shadowColor = .clear
-
+        
         navigationItem.standardAppearance = appearence
         navigationItem.scrollEdgeAppearance = appearence
     }
-
-
+    
+    
 }
 
 extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -63,25 +63,29 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? TimeSettingTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
         cell.selectionStyle = .none
-
+        
         switch indexPath.row {
         case 0:
-            cell.explainLabel.text = "이정도는 가뿐해! 15분! + 1코인"
+            cell.explainLabel.text = TimeSettingEnum.zero.rawValue
         case 1:
-            cell.explainLabel.text = "짧고 굵게!! 30분 + 3코인"
+            cell.explainLabel.text = TimeSettingEnum.first.rawValue
+            
         case 2:
-            cell.explainLabel.text = "데일리한 1시간! + 10코인"
+            cell.explainLabel.text = TimeSettingEnum.second.rawValue
+            
         case 3:
-            cell.explainLabel.text = "집중 하기 좋은 2시간! + 30코인"
+            cell.explainLabel.text = TimeSettingEnum.third.rawValue
+            
         case 4:
-            cell.explainLabel.text = "4시간...도전해볼까요?! + 80코인"
+            cell.explainLabel.text = TimeSettingEnum.four.rawValue
         case 5:
-            cell.explainLabel.text = "8시간!! 켠김에 왕까지?! + 200코인"
+            cell.explainLabel.text = TimeSettingEnum.five.rawValue
+            
         default:
             print("error발생")
             
         }
-
+        
         return cell
     }
     
@@ -109,9 +113,9 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 changeRootVC()
-
+                
             }
-
+            
         case 2:
             if UserDefaults.standard.bool(forKey: "going") {
                 self.mainview.makeToast("타이머가 가는 동안은 시간을 재설정 할 수 없어요!")
@@ -120,9 +124,9 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 changeRootVC()
-
+                
             }
-
+            
         case 3:
             if UserDefaults.standard.bool(forKey: "going") {
                 self.mainview.makeToast("타이머가 가는 동안은 시간을 재설정 할 수 없어요!")
@@ -131,7 +135,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 changeRootVC()
-
+                
             }
         case 4:
             if UserDefaults.standard.bool(forKey: "going") {
@@ -141,7 +145,7 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 changeRootVC()
-
+                
             }
         case 5:
             if UserDefaults.standard.bool(forKey: "going") {
@@ -151,11 +155,11 @@ extension TimeSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 print(UserDefaults.standard.integer(forKey: "engagedTime"))
                 delegate?.sendSettingTime(UserDefaults.standard.integer(forKey: "engagedTime"))
                 changeRootVC()
-
+                
             }
         default:
             print("error발생")
         }
     }
-
+    
 }

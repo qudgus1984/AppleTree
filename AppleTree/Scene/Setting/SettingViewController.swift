@@ -42,7 +42,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return SettingEnum.allCases.count
         
     }
     
@@ -51,22 +51,22 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SettingTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = themaChoice().lightColor
         cell.selectionStyle = .none
-        
-        switch indexPath.row {
-
-        case 0:
-            cell.explainLabel.text = "집중 시간 설정"
-        case 1:
-            cell.explainLabel.text = "집중 시간 통계"
-        case 2:
-            cell.explainLabel.text = "테마 구매 / 설정"
-        case 3:
-            cell.explainLabel.text = "폰트 구매 / 설정"
-
-        default:
-            print("error발생")
-            
-        }
+        cell.explainLabel.text = SettingEnum.allCases[indexPath.row].rawValue
+//        switch indexPath.row {
+//
+//        case 0:
+//            cell.explainLabel.text = SettingEnum.zero.rawValue
+//        case 1:
+//            cell.explainLabel.text = SettingEnum.first.rawValue
+//        case 2:
+//            cell.explainLabel.text = SettingEnum.second.rawValue
+//        case 3:
+//            cell.explainLabel.text = SettingEnum.third.rawValue
+//
+//        default:
+//            print("error발생")
+//
+//        }
 
         return cell
     }
