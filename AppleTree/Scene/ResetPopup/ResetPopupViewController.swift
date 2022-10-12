@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import FirebaseAnalytics
 
 final class ResetPopupViewController: BaseViewController {
     
@@ -52,6 +53,10 @@ final class ResetPopupViewController: BaseViewController {
             self.mainview.buttonInsetView.layer.cornerRadius = 10
             
         }
+        
+        Analytics.logEvent("fail", parameters: [
+            "name": "실패",
+        ])
     }
     
     

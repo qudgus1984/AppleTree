@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import FirebaseAnalytics
 
 final class FinishPopupViewController: BaseViewController {
     
@@ -38,6 +39,10 @@ final class FinishPopupViewController: BaseViewController {
         super.viewWillAppear(animated)
         userTasks = repository.fetchUser()
         coinTasks = repository.fetchCoinTable()
+        
+        Analytics.logEvent("success", parameters: [
+            "name": "성공",
+        ])
     }
     
     //MARK: 확인 버튼 클릭 시

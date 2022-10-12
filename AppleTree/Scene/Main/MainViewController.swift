@@ -59,13 +59,13 @@ final class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for family in UIFont.familyNames {
-            print(family)
-            
-            for sub in UIFont.fontNames(forFamilyName: family) {
-                print("====> \(sub)")
-            }
-        }
+        
+        Analytics.setDefaultEventParameters([
+            "level_name": "Caverns01",
+            "level_difficulty": 4
+        ])
+        
+        
         
         UserDefaults.standard.set(UIScreen.main.brightness, forKey: "bright")
         coinTasks = repository.fetchCoinTable()
@@ -182,7 +182,7 @@ final class MainViewController: BaseViewController {
         let bulbButton = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(settingButtonClicked))
         
         let timeLineButton = UIBarButtonItem(image: UIImage(systemName: "clock.fill"), style: .plain, target: self, action: #selector(timeLineButtonClicked))
-
+        
         bulbButton.tintColor = .white
         timeLineButton.tintColor = .white
         navigationItem.leftBarButtonItems = [calenderButton]
@@ -217,7 +217,7 @@ final class MainViewController: BaseViewController {
             }
         }
         
-
+        
     }
     
     @objc func timeLineButtonClicked() {
