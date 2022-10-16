@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GetCodeInputViewModel {
+final class GetCodeInputViewModel {
     
     var couponCode: Observable<String?> = Observable("")
     var isValid: Observable<Bool> = Observable(false)
