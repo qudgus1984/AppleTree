@@ -87,15 +87,6 @@ final class GetCodeInputViewController: BaseViewController {
                 UserDefaults.standard.set("growtime", forKey: "growtime")
                 self.mainview.makeToast("1000코인이 지급되었습니다.")
             }
-
-        } else if mainview.codeInputTextField.text == "minju" {
-            if UserDefaults.standard.string(forKey: "minju") == "minju" {
-                self.mainview.makeToast("민주야 사랑해♥️")
-            } else {
-                repository.addCoin(item: CoinTable(GetCoin: 10000, SpendCoin: 0, Status: 1002))
-                UserDefaults.standard.set("minju", forKey: "minju")
-                self.mainview.makeToast("민주야 사랑해♥️")
-            }
         } else if mainview.codeInputTextField.text == "concrete" {
             if UserDefaults.standard.string(forKey: "concrete") == "concrete" {
                 self.mainview.makeToast("이미 사용하신 코드입니다.")
@@ -108,6 +99,5 @@ final class GetCodeInputViewController: BaseViewController {
             self.mainview.makeToast("등록되지 않은 코드입니다.")
         }
         self.view.endEditing(true)
-
     }
 }

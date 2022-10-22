@@ -196,7 +196,7 @@ final class MainViewController: BaseViewController {
     }
     
     @objc func settingButtonClicked() {
-        let vc = SettingViewController()
+        let vc = LCSettingViewController()
         transition(vc, transitionStyle: .push)
     }
     

@@ -11,5 +11,4 @@ enum couponCodeEnum: Int {
     case SeSAC
     case concrete
     case growtime
-    case minju
 }

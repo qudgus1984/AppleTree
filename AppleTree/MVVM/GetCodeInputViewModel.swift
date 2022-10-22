@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class GetCodeInputViewModel {
+struct GetCodeInputViewModel {
     
     var couponCode: Observable<String?> = Observable("")
     var isValid: Observable<Bool> = Observable(false)
@@ -20,12 +20,8 @@ final class GetCodeInputViewModel {
             return isValid.value = true
         case "growtime":
             return isValid.value = true
-        case "minju":
-            return isValid.value = true
         default:
             return isValid.value = false
         }
     }
-    
-    
 }
