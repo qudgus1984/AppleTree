@@ -11,15 +11,9 @@ import UIKit
 
 final class LCSettingViewController: BaseViewController {
     
-    @frozen enum LCSettingEnum: String, CaseIterable, Hashable {
-        case zero = "집중 시간 설정"
-        case first = "집중 시간 통계"
-        case second = "테마 구매 / 설정"
-        case third = "폰트 구매 / 설정"
-    }
     
-
-
+    var list: [String] = ["집중 시간 설정", "집중 시간 통계", "테마 구매 / 설정", "폰트 구매 / 설정"]
+    
     
     private let mainview = LCSettingView()
     
@@ -37,6 +31,7 @@ final class LCSettingViewController: BaseViewController {
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         mainview.colletcionView.collectionViewLayout = layout
         
+
 
     }
     
@@ -60,25 +55,28 @@ final class LCSettingViewController: BaseViewController {
 extension LCSettingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, LCSettingEnum>!
+        var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, String>!
         
         cellRegistration = UICollectionView.CellRegistration { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.valueCell()
             
-            content.text = itemIdentifier.rawValue
+            content.text = itemIdentifier
             
             content.prefersSideBySideTextAndSecondaryText = false
             content.textToSecondaryTextVerticalPadding = 20
             cell.contentConfiguration = content
         }
         
+        let item = list[indexPath.item]
+        let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         
-
         return cell
+
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return LCSettingEnum.allCases.count
+        return list.count
     }
 }
 
