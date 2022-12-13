@@ -37,5 +37,4 @@ class UserTable: Object {
         self.SettingTime = SettingTime
         
     }
-
 }

@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class FontTable: Object {
-    @Persisted var FontName: String // 테마 관리
+    @Persisted var FontName: String // 폰트 관리
     @Persisted var Purchase: Bool
     @Persisted(primaryKey: true) var objectId: ObjectId
 

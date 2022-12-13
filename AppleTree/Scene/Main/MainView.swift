@@ -65,10 +65,8 @@ class MainView: BaseView {
     }()
     
     // circle Progress Bar 도전!
-    
     let circularProgressBar: CircularProgress = {
 
-        
         let circularProgressBar = CircularProgress(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width * 0.65, height: UIScreen.main.bounds.width * 0.65))
         
         circularProgressBar.progressColor = themaChoice().progressColor

@@ -173,12 +173,7 @@ class ATRepository: ATRepositoryType {
     }
     
     func totalCoin(item: Results<CoinTable>) -> Int {
-        var total: Int = 0
-        for i in 0...item.count - 1 {
-            total += item[i].GetCoin
-            total += item[i].SpendCoin
-        }
-        return total
+        return item.map { $0.GetCoin + $0.SpendCoin }.reduce(0, +)
     }
     
     func todayTotalStudyTime() -> Results<UserTable> {

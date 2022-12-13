@@ -138,10 +138,7 @@ final class MainViewController: BaseViewController {
                     mainview.famousSayingLabel.text = "오늘 \(hour)시간 \(minutes)분 동안 집중했습니다."
                 }
             }
-            
         }
-        
-        
         mainview.totalCoinLabel.text = "\(repository.totalCoin(item: coinTasks))"
     }
     
