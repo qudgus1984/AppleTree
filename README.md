@@ -8,7 +8,49 @@ Grow Time는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰�
 
 ![Simulator Screen Recording - iPhone 14 Pro Max - 2022-10-06 at 14 59 54](https://user-images.githubusercontent.com/81552265/194302790-7dce79c1-fea1-4117-a4d0-faaeb043315b.gif)
 
+## 개발 기간
 
+---
+
+22.09.12 ~ 22.10.06
+
+---
+
+기술 스택
+
+- **Realm** : **Repository Pattern**를 활용해 DB를 구조화하여 유지보수를 쉽게 할 수 있도록 하였습니다.
+- **Charts** : **Realm**에 저장한 데이터를 **filter** 기능을 통해 day / Week / Month으로 나누어 보여주었습니다.
+- **타이머** : CircleProgressBar를 **UIBezierPath**를 사용하여 구성하였습니다. 또한 **앱 생명주기**에 따른 timer의 분기처리를 하였습니다.
+- **Coin System** : **Migration** 및 **데이터 베이스 정규화를 도입**하여 독립적으로 Coin Table을 관리하고 있습니다.
+- **FirebaseMessage**를 사용하여, Remote Notification의 기능을 통해 유저들에게 Notification을 보냈습니다.
+- **FirebaseAnalytics**를 도입하여, 사용자들이 앱을 어떻게 이용하는 지 분석하고, 이를 통해 Timeline 기능을 업데이트 하였습니다.
+- **FirebaseCrashlytics**를 통해 앱의 예외처리에 대한 오류를 발견하고, 수정하였습니다.
+- **Enum** 및 **switch** 문을 활용하여 테마 및 폰트를 한 곳에서 관리하도록 구성하였습니다.
+- **MVVM 구조로** Coupon로직을 구현하였습니다.
+
+
+
+트러블 슈팅
+
+**데이터 의존성 문제 해결**
+
+이전 데이터를 받아와 새로운 데이터를 생성하는 **data dependency** 문제가 발생하였습니다. 이를 **Migration** 및 **데이터 베이스 정규화**를 도입하여 문제를 해결하였습니다.
+
+**메모리 릭 해결**
+
+presentFullNavigation 방식으로 처리하던 화면에서 deinit이 되지 않고 메모리가 쌓이는 문제를 발견하였습니다. 이를 RootViewController을 변경 및 **transition**을 사용해 애니메이션 효과를 주어 UX 측면을 고려하였습니다.
+
+**FirebaseCrashlytics 활용**
+
+FirebaseCrashlytics를 통해 앱의 예외처리에 대한 오류를 발견하고, 수정하였습니다.
+
+**타이머 적용**
+
+타이머를 앱에서 활용하여 **앱의 생명주기에 따른 분기**처리를 하였습니다.
+
+**테마 적용**
+
+테마를 통일되게 적용시키기 위해 **Colorhunt**를 이용 및 **enum**으로 분리하였습니다.
 
 ## 개발 정리 표
 
