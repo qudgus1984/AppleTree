@@ -8,49 +8,52 @@ Grow Time는 스마트폰 중독을 방지하기 위한 앱입니다. 핸드폰�
 
 ![Simulator Screen Recording - iPhone 14 Pro Max - 2022-10-06 at 14 59 54](https://user-images.githubusercontent.com/81552265/194302790-7dce79c1-fea1-4117-a4d0-faaeb043315b.gif)
 
-## 개발 기간
+### 개발 기간
 
 ---
 
-22.09.12 ~ 22.10.06
+#### 22.09.12 ~ 22.10.06
 
 ---
 
-기술 스택
+### 기술 스택
 
 - **Realm** : **Repository Pattern**를 활용해 DB를 구조화하여 유지보수를 쉽게 할 수 있도록 하였습니다.
 - **Charts** : **Realm**에 저장한 데이터를 **filter** 기능을 통해 day / Week / Month으로 나누어 보여주었습니다.
 - **타이머** : CircleProgressBar를 **UIBezierPath**를 사용하여 구성하였습니다. 또한 **앱 생명주기**에 따른 timer의 분기처리를 하였습니다.
 - **Coin System** : **Migration** 및 **데이터 베이스 정규화를 도입**하여 독립적으로 Coin Table을 관리하고 있습니다.
-- **FirebaseMessage**를 사용하여, Remote Notification의 기능을 통해 유저들에게 Notification을 보냈습니다.
-- **FirebaseAnalytics**를 도입하여, 사용자들이 앱을 어떻게 이용하는 지 분석하고, 이를 통해 Timeline 기능을 업데이트 하였습니다.
-- **FirebaseCrashlytics**를 통해 앱의 예외처리에 대한 오류를 발견하고, 수정하였습니다.
 - **Enum** 및 **switch** 문을 활용하여 테마 및 폰트를 한 곳에서 관리하도록 구성하였습니다.
 - **MVVM 구조로** Coupon로직을 구현하였습니다.
 
-
-
-트러블 슈팅
+### Troubleshooting
 
 **데이터 의존성 문제 해결**
 
-이전 데이터를 받아와 새로운 데이터를 생성하는 **data dependency** 문제가 발생하였습니다. 이를 **Migration** 및 **데이터 베이스 정규화**를 도입하여 문제를 해결하였습니다.
+- 이전 데이터를 받아와 새로운 데이터를 생성하는 **data dependency** 문제가 발생하였습니다. 이를 **Migration** 및 **데이터 베이스 정규화**를 도입하여 문제를 해결하였습니다.
 
 **메모리 릭 해결**
 
-presentFullNavigation 방식으로 처리하던 화면에서 deinit이 되지 않고 메모리가 쌓이는 문제를 발견하였습니다. 이를 RootViewController을 변경 및 **transition**을 사용해 애니메이션 효과를 주어 UX 측면을 고려하였습니다.
+- presentFullNavigation 방식으로 처리하던 화면에서 deinit이 되지 않고 메모리가 쌓이는 문제를 발견하였습니다. 이를 RootViewController을 변경 및 **transition**을 사용해 애니메이션 효과를 주어 UX 측면을 고려하였습니다.
 
 **FirebaseCrashlytics 활용**
 
-FirebaseCrashlytics를 통해 앱의 예외처리에 대한 오류를 발견하고, 수정하였습니다.
+- FirebaseCrashlytics를 통해 앱의 예외처리에 대한 오류를 발견하고, 수정하였습니다.
 
 **타이머 적용**
 
-타이머를 앱에서 활용하여 **앱의 생명주기에 따른 분기**처리를 하였습니다.
+- 타이머를 앱에서 활용하여 **앱의 생명주기에 따른 분기**처리를 하였습니다.
 
 **테마 적용**
 
-테마를 통일되게 적용시키기 위해 **Colorhunt**를 이용 및 **enum**으로 분리하였습니다.
+- 테마를 통일되게 적용시키기 위해 **Colorhunt**를 이용 및 **enum**으로 분리하였습니다.
+
+### 회고
+
+- **MVC** 의 단점을 극복하고자 **MVVM**으로 **Refactoring**을 진행하고 있으며, 이후 프로젝트부터 MVVM을 메인 아키텍쳐로서 사용하였습니다.
+- **데이터 양방향 통신** 및 **일관된 코드**, **깔끔한 코드 구성** 및 **가독성**에 대한 필요성을 느꼈습니다. 이를 위해 **Rx**를 도입해보자 생각하였고, 다음 프로젝트에 적용하였습니다.
+- **File Convention**에 대해 생각해보고, 협업의 관점에서도 어떠한 **Convention**으로 가져갈 지 생각해보게 되었습니다. 이에 따라 이후 프로젝트부터 Source / Resource 로 구분하고, Network / Scene / Common으로 분리하여 적용하였습니다.
+- 어떠한 기준으로 **Commit**을 하는 것이 좋은지에 대해 고민하였습니다. 이를 통해 다음 프로젝트에는 기능 추가 / 업데이트 / 리펙토링 으로 구분하고, **Commit Convention**으로 작성하였습니다.
+- 3번의 reject 경험을 통하여 Apple 정책에 대한 이해를 하였습니다. 이를 통해 앱을 개발할 때의 고려사항들에 미리 점검을 해보고, 구상한 아이디어가 Reject 사유에 해당하는 지도 고려할 것입니다.
 
 ## 개발 정리 표
 
@@ -94,8 +97,6 @@ FirebaseCrashlytics를 통해 앱의 예외처리에 대한 오류를 발견하�
 - 팝업화면을 구성하고, 지정된 시간이 다 지나면, 팝업 화면이 새로 뜨도록 설정
 - Font를 적용
 - 네비바 calendar 버튼을 클릭 시 나타나는 화면에 calendar가 뜨도록 구성(FSCalendar 사용)
-
-
 
 #### - 첫 화면의 UI 구성 및 시간이 줄어들 때 CircularProgress Bar 게이지가 함께 증가하도록 구현
 
