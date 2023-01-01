@@ -59,15 +59,13 @@ final class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserDefaults.standard.set(UIScreen.main.brightness, forKey: "bright")
         
         Analytics.setDefaultEventParameters([
             "level_name": "Caverns01",
             "level_difficulty": 4
         ])
-        
-        
-        
-        
+
         coinTasks = repository.fetchCoinTable()
         
         if coinTasks.isEmpty {
