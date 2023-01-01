@@ -67,8 +67,9 @@ final class MainViewController: BaseViewController {
         
         
         
-        UserDefaults.standard.set(UIScreen.main.brightness, forKey: "bright")
+        
         coinTasks = repository.fetchCoinTable()
+        
         if coinTasks.isEmpty {
             repository.addCoin(item: CoinTable(GetCoin: 10, SpendCoin: 0, Status: 100))
         }

@@ -57,6 +57,10 @@ final class PageNationViewController: UIPageViewController {
             pageViewController.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
         
+        
+        UserDefaults.standard.set(UIScreen.main.brightness, forKey: "bright")
+        print(UIScreen.main.brightness)
+        
         configure()
         setupDelegate()
         
